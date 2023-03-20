@@ -1,0 +1,44 @@
+syntax = "proto3";
+
+package topo;
+option go_package = "github.com/p3rdy/bgpemu/proto/topo";
+
+import "proto/knetopo.proto";
+
+
+// Topology message defines what nodes and links will be created
+// inside the mesh.
+message Topology {
+    string name = 1;  // Name of the topology - will be linked to the cluster name
+    repeated Node nodes = 2;  // List of nodes in the topology
+    repeated knetopo.Link links = 3;  // connections between Nodes.
+    map<string,InternalInterface>  export_ints = 4;    //List of interface to be exported out of a topo, optional.
+  }
+  enum Type{
+    UNKNOWN = 0;
+    HOST = 1;
+    BGPNODE = 2;
+    SUBTOPO = 3;
+}
+
+message Node {
+    string name = 1;
+    Type type = 2;
+    optional string path =3;    //Path of subtopo's definition file.
+    map<string,string> ip_addr = 4;
+    map<uint32, knetopo.Service> services = 6;  // Map of services to enable on the node.
+    Config config = 7;
+}
+message Config{
+  repeated knetopo.Task tasks = 1;   
+  map<string, string> extra_images = 2;  //Other containers running on node
+  repeated string share_volumes= 3;
+  map<string,knetopo.PublicVolumes> container_volumes = 4;
+  string config_path = 6;
+  string config_file = 7;
+}
+//If this is a subtopo, interface message define how internal interfaces be exported.
+message InternalInterface {
+    string node = 1;
+    string node_int = 2;
+}  
