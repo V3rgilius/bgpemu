@@ -5,7 +5,6 @@ option go_package = "github.com/p3rdy/bgpemu/proto/topo";
 
 import "proto/knetopo.proto";
 
-
 // Topology message defines what nodes and links will be created
 // inside the mesh.
 message Topology {

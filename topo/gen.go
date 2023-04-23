@@ -3,6 +3,7 @@ package topo
 import (
 	"fmt"
 	"os"
+	"strconv"
 	"strings"
 
 	ktpb "github.com/openconfig/kne/proto/topo"
@@ -86,15 +87,15 @@ func genTopo(ast *astopo.Topology) (*tpb.Topology, error) {
 		//Allocate IP to eth interfaces
 		switch netSize0 >= netSize1 {
 		case true:
-			ipCnt[link.ANode] += 4
 			tempAInt, tempZInt := getAllocatedIP(nodeMap[link.ANode].Net, ipCnt[link.ANode])
 			ethIPs[link.ANode][ethCnt0] = tempAInt
 			ethIPs[link.ZNode][ethCnt1] = tempZInt
+			ipCnt[link.ANode] += 4
 		case false:
-			ipCnt[link.ZNode] += 4
 			tempAInt, tempZInt := getAllocatedIP(nodeMap[link.ZNode].Net, ipCnt[link.ZNode])
 			ethIPs[link.ANode][ethCnt0] = tempAInt
 			ethIPs[link.ZNode][ethCnt1] = tempZInt
+			ipCnt[link.ZNode] += 4
 
 		}
 		topo.Links = append(topo.Links, tempLink)
@@ -131,9 +132,18 @@ func genTopo(ast *astopo.Topology) (*tpb.Topology, error) {
 }
 
 func getSubnetSize(subnet string) int32 {
-	return 0
+	strArr := strings.Split(subnet, "/")
+	size, _ := strconv.Atoi(strArr[1])
+	return int32(size)
 }
 
 func getAllocatedIP(subnet string, ipcnt int32) (string, string) {
-	return "", ""
+	strArr := strings.Split(subnet, "/")
+	ips := strings.Split(strArr[0], ".")
+	ip3, _ := strconv.Atoi(ips[3])
+	ips[3] = strconv.Itoa(ip3 + int(ipcnt) + 1)
+	ipA := strings.Join(ips, ".")
+	ips[3] = strconv.Itoa(ip3 + int(ipcnt) + 2)
+	ipB := strings.Join(ips, ".")
+	return ipA, ipB
 }

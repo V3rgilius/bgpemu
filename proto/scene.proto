@@ -1,0 +1,29 @@
+syntax = "proto3";
+
+package scene;
+option go_package = "github.com/p3rdy/bgpemu/proto/scene";
+import "proto/gobgp/attribute.proto";
+import "proto/gobgp/gobgp.proto";
+import "google/protobuf/any.proto";
+
+message Scene{
+    repeated Behavior behaviors = 1;
+}
+
+message Behavior{
+    optional string name = 1;
+    string device_name = 2;
+    bool isAsync = 3;
+    repeated Step steps;
+}
+
+message Step{
+    Type type = 1;
+    string name = 2;
+    google.protobuf.Any = 3;
+    enum Type{
+        CMDS = 1;
+        WAIT = 2;
+        FT = 3;
+    }
+}

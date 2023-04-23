@@ -1,15 +1,24 @@
 package routes
 
-import "github.com/spf13/cobra"
+import (
+	"fmt"
+
+	"github.com/p3rdy/bgpemu/helper"
+	"github.com/p3rdy/bgpemu/lab"
+	"github.com/spf13/cobra"
+	// log "github.com/sirupsen/logrus"
+)
 
 func New() *cobra.Command {
 	deployCmd := &cobra.Command{
 		Use:   "deploy",
-		Short: "Create Topology on cluster",
+		Short: "Deploy bgp route info to routers on cluster",
+		RunE:  deployFn,
 	}
 	generateCmd := &cobra.Command{
 		Use:   "generate",
-		Short: "Generate topology from AS data",
+		Short: "Generate route info from AS data",
+		RunE:  generateFn,
 	}
 	routesCmd := &cobra.Command{
 		Use:   "topo",
@@ -18,4 +27,31 @@ func New() *cobra.Command {
 	routesCmd.AddCommand(deployCmd)
 	routesCmd.AddCommand(generateCmd)
 	return routesCmd
+}
+
+func deployFn(cmd *cobra.Command, args []string) error {
+	bp, err := helper.FileRelative(args[0])
+	if err != nil {
+		return err
+	}
+	rdpb, err := lab.LoadRoutes(bp)
+
+	if err != nil {
+		return fmt.Errorf("%s: %w", cmd.Use, err)
+	}
+
+	// 加载路由
+	// 创建Manager
+	// Deploy
+
+	// topopb, err := topo.LoadToKneTopo(args[0])
+
+	// tm, err := knetopo.New(topopb, knetopo.WithKubecfg(helper.DefaultKubeCfg()), knetopo.WithBasePath(bp))
+	// if err != nil {
+	// 	return fmt.Errorf("%s: %w", cmd.Use, err)
+	// }
+	// return tm.Create(cmd.Context(), 0)
+}
+func generateFn(cmd *cobra.Command, args []string) error {
+	return nil
 }
