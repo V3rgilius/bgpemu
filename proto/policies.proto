@@ -1,19 +1,19 @@
 syntax = "proto3";
 
 package policies;
-option go_package = "github.com/p3rdy/bgpemu/proto/policies";
-import "proto/gobgp/attribute.proto";
+option go_package = "proto/policies";
 import "proto/gobgp/gobgp.proto";
 
 
+message PolicyDeployments{
+    string topoName = 1;
+    repeated PolicyDeployment policy_deployments= 2;
+}
 message PolicyDeployment{
-    PolicyGroup import_policies = 1;  
-    PolicyGroup export_policies = 2;
-    repeated apipb.DefinedSet defined_sets = 3;
+    string router_name = 1;
+    repeated apipb.DefinedSet defined_sets = 2;
+    repeated apipb.Policy policies = 3;
+    repeated apipb.PolicyAssignment assignments = 4;
+    repeated apipb.PeerGroup peer_groups = 5;
 }
-message PolicyGroup{
-    string router_name =1;
-    string name = 1;
-    repeated apipb.Policy policies = 4;
-    apipb.RouteAction default_action = 5;
-}
+

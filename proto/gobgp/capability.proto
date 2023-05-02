@@ -24,7 +24,7 @@ syntax = "proto3";
 package apipb;
 option go_package = "github.com/p3rdy/bgpemu/proto/gobgp;apipb";
 
-import "gobgp.proto";
+import "proto/gobgp/gobgp.proto";
 
 message MultiProtocolCapability {
     apipb.Family family = 1;

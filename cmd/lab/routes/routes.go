@@ -34,7 +34,7 @@ func deployFn(cmd *cobra.Command, args []string) error {
 	if err != nil {
 		return err
 	}
-	rdpb, err := lab.LoadRoutes(bp)
+	_, err = lab.LoadRoutes(bp)
 
 	if err != nil {
 		return fmt.Errorf("%s: %w", cmd.Use, err)
@@ -51,6 +51,7 @@ func deployFn(cmd *cobra.Command, args []string) error {
 	// 	return fmt.Errorf("%s: %w", cmd.Use, err)
 	// }
 	// return tm.Create(cmd.Context(), 0)
+	return nil
 }
 func generateFn(cmd *cobra.Command, args []string) error {
 	return nil

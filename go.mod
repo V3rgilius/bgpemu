@@ -7,9 +7,9 @@ require (
 	github.com/sirupsen/logrus v1.9.0
 	github.com/spf13/cobra v1.6.1
 	google.golang.org/grpc v1.51.0
-	sigs.k8s.io/yaml v1.3.0
-	k8s.io/client-go v0.25.0
 	google.golang.org/protobuf v1.28.1
+	k8s.io/client-go v0.25.0
+	sigs.k8s.io/yaml v1.3.0
 )
 
 require (
@@ -88,7 +88,7 @@ require (
 	gopkg.in/yaml.v3 v3.0.1 // indirect
 	k8s.io/api v0.25.0 // indirect
 	k8s.io/apiextensions-apiserver v0.25.0 // indirect
-	k8s.io/apimachinery v0.25.0 // indirect
+	k8s.io/apimachinery v0.25.0
 	k8s.io/component-base v0.25.0 // indirect
 	k8s.io/klog/v2 v2.80.1 // indirect
 	k8s.io/kube-openapi v0.0.0-20221207184640-f3cff1453715 // indirect
