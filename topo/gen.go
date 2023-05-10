@@ -8,7 +8,7 @@ import (
 
 	ktpb "github.com/openconfig/kne/proto/topo"
 	astopo "github.com/p3rdy/bgpemu/proto/astopo"
-	tpb "github.com/p3rdy/bgpemu/proto/topo"
+	tpb "github.com/p3rdy/bgpemu/proto/bgptopo"
 	"google.golang.org/protobuf/encoding/protojson"
 	"google.golang.org/protobuf/encoding/prototext"
 	"sigs.k8s.io/yaml"

@@ -7,6 +7,7 @@ import (
 	"os"
 
 	knecmd "github.com/openconfig/kne/cmd"
+	"github.com/p3rdy/bgpemu/cmd/data"
 	"github.com/p3rdy/bgpemu/cmd/lab"
 	"github.com/p3rdy/bgpemu/cmd/topo"
 	"github.com/spf13/cobra"
@@ -28,5 +29,6 @@ func Execute() {
 func init() {
 	rootCmd.AddCommand(topo.New())
 	rootCmd.AddCommand(lab.New())
+	rootCmd.AddCommand(data.New())
 	rootCmd.AddCommand(knecmd.RootCmd)
 }

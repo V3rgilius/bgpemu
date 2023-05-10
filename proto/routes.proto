@@ -3,6 +3,8 @@ syntax = "proto3";
 package routes;
 option go_package = "proto/routes";
 import "proto/gobgp/gobgp.proto";
+import "proto/gobgp/attribute.proto";
+import "google/protobuf/timestamp.proto";
 
 message RouteDeployment{
     string topo_name=1;
@@ -11,5 +13,30 @@ message RouteDeployment{
 message Route{
     string name =1;
     optional string mrt_path =2;
-    repeated apipb.Path paths=3;
+    repeated BgpPath paths = 3;
+}
+
+message BgpPath{
+    apipb.IPAddressPrefix nlri = 1;
+    repeated PathAttrs pattrs = 2;
+    google.protobuf.Timestamp age = 3;
+    bool best = 4;
+    bool is_withdraw = 5;
+    apipb.Validation validation = 7;
+    bool no_implicit_withdraw = 8;
+    apipb.Family family = 9;
+    uint32 source_asn = 10;
+    string source_id = 11;
+    bool filtered = 12;
+    bool stale = 13;
+    bool is_from_external = 14;
+    string neighbor_ip = 15;
+    bytes uuid = 16; // only paths installed by AddPath API have this
+    bool is_nexthop_invalid = 17;
+    uint32 identifier = 18;
+    uint32 local_identifier = 19;
+}
+
+message PathAttrs{
+    string attr_name = 1;
 }

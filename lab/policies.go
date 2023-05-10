@@ -1,12 +1,12 @@
 package lab
 
 import (
+	"context"
 	"fmt"
 	"os"
 	"strings"
 
 	api "github.com/p3rdy/bgpemu/proto/gobgp"
-	apipb "github.com/p3rdy/bgpemu/proto/gobgp"
 	popb "github.com/p3rdy/bgpemu/proto/policies"
 	"google.golang.org/grpc"
 	"google.golang.org/grpc/credentials/insecure"
@@ -46,12 +46,12 @@ func (m *Manager) DeployPolicies(pds *popb.PolicyDeployments) error {
 	for _, pd := range pds.PolicyDeployments {
 		pods = append(pods, pd.RouterName)
 	}
-	err := m.GetGrpcServers(pods, pds.TopoName)
+	err := m.GetGrpcServers(pods)
 	if err != nil {
 		return err
 	}
 	for _, pd := range pds.PolicyDeployments {
-		err := deployPolicy(pd)
+		err := deployPolicy(pd, m.GetGServers()[pd.RouterName])
 		if err != nil {
 			return err
 		}
@@ -59,8 +59,8 @@ func (m *Manager) DeployPolicies(pds *popb.PolicyDeployments) error {
 	return nil
 }
 
-func deployPolicy(p *popb.PolicyDeployment) error {
-	conn, err := grpc.Dial("localhost:50051", grpc.WithTransportCredentials(insecure.NewCredentials()))
+func deployPolicy(p *popb.PolicyDeployment, g string) error {
+	conn, err := grpc.Dial(g, grpc.WithTransportCredentials(insecure.NewCredentials()))
 	if err != nil {
 		return err
 	}
@@ -83,15 +83,40 @@ func deployPolicy(p *popb.PolicyDeployment) error {
 	return nil
 }
 
-func setPolicies(client apipb.GobgpApiClient, p *popb.PolicyDeployment) error {
-
+func setPolicies(client api.GobgpApiClient, p *popb.PolicyDeployment) error {
+	req := &api.SetPoliciesRequest{
+		DefinedSets: p.DefinedSets,
+		Policies:    p.Policies,
+	}
+	_, err := client.SetPolicies(context.Background(), req)
+	if err != nil {
+		return err
+	}
 	return nil
 }
 
-func addPolicyAssignment(client apipb.GobgpApiClient, pa []*apipb.PolicyAssignment) error {
+func addPolicyAssignment(client api.GobgpApiClient, pas []*api.PolicyAssignment) error {
+	for _, pa := range pas {
+		req := &api.AddPolicyAssignmentRequest{
+			Assignment: pa,
+		}
+		_, err := client.AddPolicyAssignment(context.Background(), req)
+		if err != nil {
+			return err
+		}
+	}
 	return nil
 }
 
-func addPeerGroup(client apipb.GobgpApiClient, pg []*apipb.PeerGroup) error {
+func addPeerGroup(client api.GobgpApiClient, pgs []*api.PeerGroup) error {
+	for _, pg := range pgs {
+		req := &api.AddPeerGroupRequest{
+			PeerGroup: pg,
+		}
+		_, err := client.AddPeerGroup(context.Background(), req)
+		if err != nil {
+			return err
+		}
+	}
 	return nil
 }

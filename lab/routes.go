@@ -12,6 +12,8 @@ import (
 	rtpb "github.com/p3rdy/bgpemu/proto/routes"
 	"google.golang.org/grpc"
 	"google.golang.org/protobuf/encoding/prototext"
+	"google.golang.org/protobuf/proto"
+	"google.golang.org/protobuf/types/known/anypb"
 	"sigs.k8s.io/yaml"
 )
 
@@ -47,12 +49,12 @@ func (m *Manager) DeployRoutes(rd *rtpb.RouteDeployment) error {
 	for _, r := range rd.Routes {
 		pods = append(pods, r.Name)
 	}
-	err := m.GetGrpcServers(pods, rd.TopoName)
+	err := m.GetGrpcServers(pods)
 	if err != nil {
 		return err
 	}
 	for _, r := range rd.Routes {
-		err := deployRoute(r)
+		err := deployRoute(r, m.GetGServers()[r.Name])
 		if err != nil {
 			return err
 		}
@@ -60,8 +62,8 @@ func (m *Manager) DeployRoutes(rd *rtpb.RouteDeployment) error {
 	return nil
 }
 
-func deployRoute(r *rtpb.Route) error {
-	conn, err := grpc.Dial("localhost:50051", grpc.WithTransportCredentials(insecure.NewCredentials()))
+func deployRoute(r *rtpb.Route, g string) error {
+	conn, err := grpc.Dial(g, grpc.WithTransportCredentials(insecure.NewCredentials()))
 	if err != nil {
 		return err
 	}
@@ -78,10 +80,36 @@ func deployRoute(r *rtpb.Route) error {
 	// print the response from the gobgp daemon
 	return nil
 }
-func addPath(client api.GobgpApiClient, path *api.Path) error {
+func addPath(client api.GobgpApiClient, path *rtpb.BgpPath) error {
 	// send the new route to the gobgp daemon
+	nlriAny := &anypb.Any{}
+	err := anypb.MarshalFrom(nlriAny, path.Nlri, proto.MarshalOptions{})
+	if err != nil {
+		return err
+	}
+	nextHop := &anypb.Any{}
+	err = anypb.MarshalFrom(nextHop, &api.NextHopAttribute{
+		NextHop: "0.0.0.0",
+	}, proto.MarshalOptions{})
+	if err != nil {
+		return err
+	}
+	origin := &anypb.Any{}
+	err = anypb.MarshalFrom(origin, &api.OriginAttribute{
+		Origin: 0,
+	}, proto.MarshalOptions{})
+	if err != nil {
+		return err
+	}
 	req := &api.AddPathRequest{
-		Path: path,
+		Path: &api.Path{
+			Nlri: nlriAny,
+			Family: &api.Family{
+				Afi:  api.Family_AFI_IP,
+				Safi: api.Family_SAFI_UNICAST,
+			},
+			Pattrs: []*anypb.Any{nextHop, origin},
+		},
 	}
 	resp, err := client.AddPath(context.Background(), req)
 	if err != nil {

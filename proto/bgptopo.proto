@@ -1,7 +1,7 @@
 syntax = "proto3";
 
-package topo;
-option go_package = "github.com/p3rdy/bgpemu/proto/topo";
+package bgptopo;
+option go_package = "proto/bgptopo";
 
 import "proto/knetopo.proto";
 

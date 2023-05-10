@@ -1,0 +1,214 @@
+inits:
+- device_name: r1
+  name: StartRouter1Bgp
+  steps:
+  - name: start
+    sbs:
+      global:
+        asn: 1
+        router_id: 83.145.40.0
+  - aps:
+      peer:
+        conf:
+          neighbor_address: 54.117.94.9
+          peer_asn: 2
+    name: addpeer
+- device_name: r2
+  name: StartRouter2Bgp
+  steps:
+  - name: start
+    sbs:
+      global:
+        asn: 2
+        router_id: 54.117.94.0
+  - aps:
+      peer:
+        conf:
+          neighbor_address: 54.117.94.2
+          peer_asn: 8
+    name: addpeer
+  - aps:
+      peer:
+        conf:
+          neighbor_address: 54.117.94.6
+          peer_asn: 6
+    name: addpeer
+  - aps:
+      peer:
+        conf:
+          neighbor_address: 54.117.94.10
+          peer_asn: 1
+    name: addpeer
+  - aps:
+      peer:
+        conf:
+          neighbor_address: 54.117.94.14
+          peer_asn: 5
+    name: addpeer
+- device_name: r3
+  name: StartRouter3Bgp
+  steps:
+  - name: start
+    sbs:
+      global:
+        asn: 3
+        router_id: 180.62.137.0
+  - aps:
+      peer:
+        conf:
+          neighbor_address: 96.51.126.13
+          peer_asn: 8
+    name: addpeer
+- device_name: r4
+  name: StartRouter4Bgp
+  steps:
+  - name: start
+    sbs:
+      global:
+        asn: 4
+        router_id: 68.219.15.0
+  - aps:
+      peer:
+        conf:
+          neighbor_address: 96.51.126.1
+          peer_asn: 8
+    name: addpeer
+- device_name: r5
+  name: StartRouter5Bgp
+  steps:
+  - name: start
+    sbs:
+      global:
+        asn: 5
+        router_id: 130.188.210.0
+  - aps:
+      peer:
+        conf:
+          neighbor_address: 96.51.126.5
+          peer_asn: 8
+    name: addpeer
+  - aps:
+      peer:
+        conf:
+          neighbor_address: 54.117.94.13
+          peer_asn: 2
+    name: addpeer
+  - aps:
+      peer:
+        conf:
+          neighbor_address: 130.188.210.2
+          peer_asn: 9
+    name: addpeer
+- device_name: r6
+  name: StartRouter6Bgp
+  steps:
+  - name: start
+    sbs:
+      global:
+        asn: 6
+        router_id: 67.226.164.0
+  - aps:
+      peer:
+        conf:
+          neighbor_address: 54.117.94.5
+          peer_asn: 2
+    name: addpeer
+  - aps:
+      peer:
+        conf:
+          neighbor_address: 67.226.164.2
+          peer_asn: 9
+    name: addpeer
+  - aps:
+      peer:
+        conf:
+          neighbor_address: 67.226.164.6
+          peer_asn: 10
+    name: addpeer
+- device_name: r7
+  name: StartRouter7Bgp
+  steps:
+  - name: start
+    sbs:
+      global:
+        asn: 7
+        router_id: 169.109.196.0
+  - aps:
+      peer:
+        conf:
+          neighbor_address: 96.51.126.9
+          peer_asn: 8
+    name: addpeer
+- device_name: r8
+  name: StartRouter8Bgp
+  steps:
+  - name: start
+    sbs:
+      global:
+        asn: 8
+        router_id: 96.51.126.0
+  - aps:
+      peer:
+        conf:
+          neighbor_address: 54.117.94.1
+          peer_asn: 2
+    name: addpeer
+  - aps:
+      peer:
+        conf:
+          neighbor_address: 96.51.126.2
+          peer_asn: 4
+    name: addpeer
+  - aps:
+      peer:
+        conf:
+          neighbor_address: 96.51.126.6
+          peer_asn: 5
+    name: addpeer
+  - aps:
+      peer:
+        conf:
+          neighbor_address: 96.51.126.10
+          peer_asn: 7
+    name: addpeer
+  - aps:
+      peer:
+        conf:
+          neighbor_address: 96.51.126.14
+          peer_asn: 3
+    name: addpeer
+- device_name: r9
+  name: StartRouter9Bgp
+  steps:
+  - name: start
+    sbs:
+      global:
+        asn: 9
+        router_id: 12.88.4.0
+  - aps:
+      peer:
+        conf:
+          neighbor_address: 67.226.164.1
+          peer_asn: 6
+    name: addpeer
+  - aps:
+      peer:
+        conf:
+          neighbor_address: 130.188.210.1
+          peer_asn: 5
+    name: addpeer
+- device_name: r10
+  name: StartRouter10Bgp
+  steps:
+  - name: start
+    sbs:
+      global:
+        asn: 10
+        router_id: 171.241.57.0
+  - aps:
+      peer:
+        conf:
+          neighbor_address: 67.226.164.5
+          peer_asn: 6
+    name: addpeer
+topo_name: bgp

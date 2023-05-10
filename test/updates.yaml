@@ -1,0 +1,852 @@
+- !!python/object/apply:collections.OrderedDict
+  - - - timestamp
+      - 1683388326: '2023-05-06 23:52:06'
+    - - type
+      - 16: BGP4MP
+    - - subtype
+      - 4: BGP4MP_MESSAGE_AS4
+    - - length
+      - 99
+    - - peer_as
+      - '8'
+    - - local_as
+      - '2'
+    - - ifindex
+      - 0
+    - - afi
+      - 1: IPv4
+    - - peer_ip
+      - 54.117.94.2
+    - - local_ip
+      - 54.117.94.1
+    - - bgp_message
+      - !!python/object/apply:collections.OrderedDict
+        - - - marker
+            - ff ff ff ff ff ff ff ff ff ff ff ff ff ff ff ff
+          - - length
+            - 79
+          - - type
+            - 2: UPDATE
+          - - withdrawn_routes_length
+            - 0
+          - - withdrawn_routes
+            - []
+          - - path_attributes_length
+            - 27
+          - - path_attributes
+            - - !!python/object/apply:collections.OrderedDict
+                - - - flag
+                    - 64
+                  - - type
+                    - 1: ORIGIN
+                  - - length
+                    - 1
+                  - - value
+                    - 0: IGP
+              - !!python/object/apply:collections.OrderedDict
+                - - - flag
+                    - 64
+                  - - type
+                    - 2: AS_PATH
+                  - - length
+                    - 6
+                  - - value
+                    - - !!python/object/apply:collections.OrderedDict
+                        - - - type
+                            - 2: AS_SEQUENCE
+                          - - length
+                            - 1
+                          - - value
+                            - - '8'
+              - !!python/object/apply:collections.OrderedDict
+                - - - flag
+                    - 64
+                  - - type
+                    - 3: NEXT_HOP
+                  - - length
+                    - 4
+                  - - value
+                    - 54.117.94.2
+              - !!python/object/apply:collections.OrderedDict
+                - - - flag
+                    - 128
+                  - - type
+                    - 4: MULTI_EXIT_DISC
+                  - - length
+                    - 4
+                  - - value
+                    - 0
+          - - nlri
+            - - !!python/object/apply:collections.OrderedDict
+                - - - length
+                    - 30
+                  - - prefix
+                    - 54.117.94.0
+              - !!python/object/apply:collections.OrderedDict
+                - - - length
+                    - 30
+                  - - prefix
+                    - 96.51.126.0
+              - !!python/object/apply:collections.OrderedDict
+                - - - length
+                    - 30
+                  - - prefix
+                    - 96.51.126.4
+              - !!python/object/apply:collections.OrderedDict
+                - - - length
+                    - 30
+                  - - prefix
+                    - 96.51.126.8
+              - !!python/object/apply:collections.OrderedDict
+                - - - length
+                    - 30
+                  - - prefix
+                    - 96.51.126.12
+              - !!python/object/apply:collections.OrderedDict
+                - - - length
+                    - 24
+                  - - prefix
+                    - 10.244.0.0
+- !!python/object/apply:collections.OrderedDict
+  - - - timestamp
+      - 1683388326: '2023-05-06 23:52:06'
+    - - type
+      - 16: BGP4MP
+    - - subtype
+      - 4: BGP4MP_MESSAGE_AS4
+    - - length
+      - 79
+    - - peer_as
+      - '1'
+    - - local_as
+      - '2'
+    - - ifindex
+      - 0
+    - - afi
+      - 1: IPv4
+    - - peer_ip
+      - 54.117.94.10
+    - - local_ip
+      - 54.117.94.9
+    - - bgp_message
+      - !!python/object/apply:collections.OrderedDict
+        - - - marker
+            - ff ff ff ff ff ff ff ff ff ff ff ff ff ff ff ff
+          - - length
+            - 59
+          - - type
+            - 2: UPDATE
+          - - withdrawn_routes_length
+            - 0
+          - - withdrawn_routes
+            - []
+          - - path_attributes_length
+            - 27
+          - - path_attributes
+            - - !!python/object/apply:collections.OrderedDict
+                - - - flag
+                    - 64
+                  - - type
+                    - 1: ORIGIN
+                  - - length
+                    - 1
+                  - - value
+                    - 0: IGP
+              - !!python/object/apply:collections.OrderedDict
+                - - - flag
+                    - 64
+                  - - type
+                    - 2: AS_PATH
+                  - - length
+                    - 6
+                  - - value
+                    - - !!python/object/apply:collections.OrderedDict
+                        - - - type
+                            - 2: AS_SEQUENCE
+                          - - length
+                            - 1
+                          - - value
+                            - - '1'
+              - !!python/object/apply:collections.OrderedDict
+                - - - flag
+                    - 64
+                  - - type
+                    - 3: NEXT_HOP
+                  - - length
+                    - 4
+                  - - value
+                    - 54.117.94.10
+              - !!python/object/apply:collections.OrderedDict
+                - - - flag
+                    - 128
+                  - - type
+                    - 4: MULTI_EXIT_DISC
+                  - - length
+                    - 4
+                  - - value
+                    - 0
+          - - nlri
+            - - !!python/object/apply:collections.OrderedDict
+                - - - length
+                    - 30
+                  - - prefix
+                    - 54.117.94.8
+              - !!python/object/apply:collections.OrderedDict
+                - - - length
+                    - 24
+                  - - prefix
+                    - 10.244.0.0
+- !!python/object/apply:collections.OrderedDict
+  - - - timestamp
+      - 1683388327: '2023-05-06 23:52:07'
+    - - type
+      - 16: BGP4MP
+    - - subtype
+      - 4: BGP4MP_MESSAGE_AS4
+    - - length
+      - 89
+    - - peer_as
+      - '6'
+    - - local_as
+      - '2'
+    - - ifindex
+      - 0
+    - - afi
+      - 1: IPv4
+    - - peer_ip
+      - 54.117.94.6
+    - - local_ip
+      - 54.117.94.5
+    - - bgp_message
+      - !!python/object/apply:collections.OrderedDict
+        - - - marker
+            - ff ff ff ff ff ff ff ff ff ff ff ff ff ff ff ff
+          - - length
+            - 69
+          - - type
+            - 2: UPDATE
+          - - withdrawn_routes_length
+            - 0
+          - - withdrawn_routes
+            - []
+          - - path_attributes_length
+            - 27
+          - - path_attributes
+            - - !!python/object/apply:collections.OrderedDict
+                - - - flag
+                    - 64
+                  - - type
+                    - 1: ORIGIN
+                  - - length
+                    - 1
+                  - - value
+                    - 0: IGP
+              - !!python/object/apply:collections.OrderedDict
+                - - - flag
+                    - 64
+                  - - type
+                    - 2: AS_PATH
+                  - - length
+                    - 6
+                  - - value
+                    - - !!python/object/apply:collections.OrderedDict
+                        - - - type
+                            - 2: AS_SEQUENCE
+                          - - length
+                            - 1
+                          - - value
+                            - - '6'
+              - !!python/object/apply:collections.OrderedDict
+                - - - flag
+                    - 64
+                  - - type
+                    - 3: NEXT_HOP
+                  - - length
+                    - 4
+                  - - value
+                    - 54.117.94.6
+              - !!python/object/apply:collections.OrderedDict
+                - - - flag
+                    - 128
+                  - - type
+                    - 4: MULTI_EXIT_DISC
+                  - - length
+                    - 4
+                  - - value
+                    - 0
+          - - nlri
+            - - !!python/object/apply:collections.OrderedDict
+                - - - length
+                    - 24
+                  - - prefix
+                    - 10.244.0.0
+              - !!python/object/apply:collections.OrderedDict
+                - - - length
+                    - 30
+                  - - prefix
+                    - 54.117.94.4
+              - !!python/object/apply:collections.OrderedDict
+                - - - length
+                    - 30
+                  - - prefix
+                    - 67.226.164.0
+              - !!python/object/apply:collections.OrderedDict
+                - - - length
+                    - 30
+                  - - prefix
+                    - 67.226.164.4
+- !!python/object/apply:collections.OrderedDict
+  - - - timestamp
+      - 1683388327: '2023-05-06 23:52:07'
+    - - type
+      - 16: BGP4MP
+    - - subtype
+      - 4: BGP4MP_MESSAGE_AS4
+    - - length
+      - 72
+    - - peer_as
+      - '6'
+    - - local_as
+      - '2'
+    - - ifindex
+      - 0
+    - - afi
+      - 1: IPv4
+    - - peer_ip
+      - 54.117.94.6
+    - - local_ip
+      - 54.117.94.5
+    - - bgp_message
+      - !!python/object/apply:collections.OrderedDict
+        - - - marker
+            - ff ff ff ff ff ff ff ff ff ff ff ff ff ff ff ff
+          - - length
+            - 52
+          - - type
+            - 2: UPDATE
+          - - withdrawn_routes_length
+            - 0
+          - - withdrawn_routes
+            - []
+          - - path_attributes_length
+            - 24
+          - - path_attributes
+            - - !!python/object/apply:collections.OrderedDict
+                - - - flag
+                    - 64
+                  - - type
+                    - 1: ORIGIN
+                  - - length
+                    - 1
+                  - - value
+                    - 0: IGP
+              - !!python/object/apply:collections.OrderedDict
+                - - - flag
+                    - 64
+                  - - type
+                    - 2: AS_PATH
+                  - - length
+                    - 10
+                  - - value
+                    - - !!python/object/apply:collections.OrderedDict
+                        - - - type
+                            - 2: AS_SEQUENCE
+                          - - length
+                            - 2
+                          - - value
+                            - - '6'
+                              - '9'
+              - !!python/object/apply:collections.OrderedDict
+                - - - flag
+                    - 64
+                  - - type
+                    - 3: NEXT_HOP
+                  - - length
+                    - 4
+                  - - value
+                    - 54.117.94.6
+          - - nlri
+            - - !!python/object/apply:collections.OrderedDict
+                - - - length
+                    - 30
+                  - - prefix
+                    - 130.188.210.0
+- !!python/object/apply:collections.OrderedDict
+  - - - timestamp
+      - 1683388329: '2023-05-06 23:52:09'
+    - - type
+      - 16: BGP4MP
+    - - subtype
+      - 4: BGP4MP_MESSAGE_AS4
+    - - length
+      - 89
+    - - peer_as
+      - '5'
+    - - local_as
+      - '2'
+    - - ifindex
+      - 0
+    - - afi
+      - 1: IPv4
+    - - peer_ip
+      - 54.117.94.14
+    - - local_ip
+      - 54.117.94.13
+    - - bgp_message
+      - !!python/object/apply:collections.OrderedDict
+        - - - marker
+            - ff ff ff ff ff ff ff ff ff ff ff ff ff ff ff ff
+          - - length
+            - 69
+          - - type
+            - 2: UPDATE
+          - - withdrawn_routes_length
+            - 0
+          - - withdrawn_routes
+            - []
+          - - path_attributes_length
+            - 27
+          - - path_attributes
+            - - !!python/object/apply:collections.OrderedDict
+                - - - flag
+                    - 64
+                  - - type
+                    - 1: ORIGIN
+                  - - length
+                    - 1
+                  - - value
+                    - 0: IGP
+              - !!python/object/apply:collections.OrderedDict
+                - - - flag
+                    - 64
+                  - - type
+                    - 2: AS_PATH
+                  - - length
+                    - 6
+                  - - value
+                    - - !!python/object/apply:collections.OrderedDict
+                        - - - type
+                            - 2: AS_SEQUENCE
+                          - - length
+                            - 1
+                          - - value
+                            - - '5'
+              - !!python/object/apply:collections.OrderedDict
+                - - - flag
+                    - 64
+                  - - type
+                    - 3: NEXT_HOP
+                  - - length
+                    - 4
+                  - - value
+                    - 54.117.94.14
+              - !!python/object/apply:collections.OrderedDict
+                - - - flag
+                    - 128
+                  - - type
+                    - 4: MULTI_EXIT_DISC
+                  - - length
+                    - 4
+                  - - value
+                    - 0
+          - - nlri
+            - - !!python/object/apply:collections.OrderedDict
+                - - - length
+                    - 24
+                  - - prefix
+                    - 10.244.0.0
+              - !!python/object/apply:collections.OrderedDict
+                - - - length
+                    - 30
+                  - - prefix
+                    - 54.117.94.12
+              - !!python/object/apply:collections.OrderedDict
+                - - - length
+                    - 30
+                  - - prefix
+                    - 96.51.126.4
+              - !!python/object/apply:collections.OrderedDict
+                - - - length
+                    - 30
+                  - - prefix
+                    - 130.188.210.0
+- !!python/object/apply:collections.OrderedDict
+  - - - timestamp
+      - 1683388329: '2023-05-06 23:52:09'
+    - - type
+      - 16: BGP4MP
+    - - subtype
+      - 4: BGP4MP_MESSAGE_AS4
+    - - length
+      - 72
+    - - peer_as
+      - '5'
+    - - local_as
+      - '2'
+    - - ifindex
+      - 0
+    - - afi
+      - 1: IPv4
+    - - peer_ip
+      - 54.117.94.14
+    - - local_ip
+      - 54.117.94.13
+    - - bgp_message
+      - !!python/object/apply:collections.OrderedDict
+        - - - marker
+            - ff ff ff ff ff ff ff ff ff ff ff ff ff ff ff ff
+          - - length
+            - 52
+          - - type
+            - 2: UPDATE
+          - - withdrawn_routes_length
+            - 0
+          - - withdrawn_routes
+            - []
+          - - path_attributes_length
+            - 24
+          - - path_attributes
+            - - !!python/object/apply:collections.OrderedDict
+                - - - flag
+                    - 64
+                  - - type
+                    - 1: ORIGIN
+                  - - length
+                    - 1
+                  - - value
+                    - 0: IGP
+              - !!python/object/apply:collections.OrderedDict
+                - - - flag
+                    - 64
+                  - - type
+                    - 2: AS_PATH
+                  - - length
+                    - 10
+                  - - value
+                    - - !!python/object/apply:collections.OrderedDict
+                        - - - type
+                            - 2: AS_SEQUENCE
+                          - - length
+                            - 2
+                          - - value
+                            - - '5'
+                              - '9'
+              - !!python/object/apply:collections.OrderedDict
+                - - - flag
+                    - 64
+                  - - type
+                    - 3: NEXT_HOP
+                  - - length
+                    - 4
+                  - - value
+                    - 54.117.94.14
+          - - nlri
+            - - !!python/object/apply:collections.OrderedDict
+                - - - length
+                    - 30
+                  - - prefix
+                    - 67.226.164.0
+- !!python/object/apply:collections.OrderedDict
+  - - - timestamp
+      - 1683388330: '2023-05-06 23:52:10'
+    - - type
+      - 16: BGP4MP
+    - - subtype
+      - 4: BGP4MP_MESSAGE_AS4
+    - - length
+      - 72
+    - - peer_as
+      - '5'
+    - - local_as
+      - '2'
+    - - ifindex
+      - 0
+    - - afi
+      - 1: IPv4
+    - - peer_ip
+      - 54.117.94.14
+    - - local_ip
+      - 54.117.94.13
+    - - bgp_message
+      - !!python/object/apply:collections.OrderedDict
+        - - - marker
+            - ff ff ff ff ff ff ff ff ff ff ff ff ff ff ff ff
+          - - length
+            - 52
+          - - type
+            - 2: UPDATE
+          - - withdrawn_routes_length
+            - 0
+          - - withdrawn_routes
+            - []
+          - - path_attributes_length
+            - 24
+          - - path_attributes
+            - - !!python/object/apply:collections.OrderedDict
+                - - - flag
+                    - 64
+                  - - type
+                    - 1: ORIGIN
+                  - - length
+                    - 1
+                  - - value
+                    - 0: IGP
+              - !!python/object/apply:collections.OrderedDict
+                - - - flag
+                    - 64
+                  - - type
+                    - 2: AS_PATH
+                  - - length
+                    - 10
+                  - - value
+                    - - !!python/object/apply:collections.OrderedDict
+                        - - - type
+                            - 2: AS_SEQUENCE
+                          - - length
+                            - 2
+                          - - value
+                            - - '5'
+                              - '8'
+              - !!python/object/apply:collections.OrderedDict
+                - - - flag
+                    - 64
+                  - - type
+                    - 3: NEXT_HOP
+                  - - length
+                    - 4
+                  - - value
+                    - 54.117.94.14
+          - - nlri
+            - - !!python/object/apply:collections.OrderedDict
+                - - - length
+                    - 30
+                  - - prefix
+                    - 96.51.126.8
+- !!python/object/apply:collections.OrderedDict
+  - - - timestamp
+      - 1683388330: '2023-05-06 23:52:10'
+    - - type
+      - 16: BGP4MP
+    - - subtype
+      - 4: BGP4MP_MESSAGE_AS4
+    - - length
+      - 72
+    - - peer_as
+      - '8'
+    - - local_as
+      - '2'
+    - - ifindex
+      - 0
+    - - afi
+      - 1: IPv4
+    - - peer_ip
+      - 54.117.94.2
+    - - local_ip
+      - 54.117.94.1
+    - - bgp_message
+      - !!python/object/apply:collections.OrderedDict
+        - - - marker
+            - ff ff ff ff ff ff ff ff ff ff ff ff ff ff ff ff
+          - - length
+            - 52
+          - - type
+            - 2: UPDATE
+          - - withdrawn_routes_length
+            - 0
+          - - withdrawn_routes
+            - []
+          - - path_attributes_length
+            - 24
+          - - path_attributes
+            - - !!python/object/apply:collections.OrderedDict
+                - - - flag
+                    - 64
+                  - - type
+                    - 1: ORIGIN
+                  - - length
+                    - 1
+                  - - value
+                    - 0: IGP
+              - !!python/object/apply:collections.OrderedDict
+                - - - flag
+                    - 64
+                  - - type
+                    - 2: AS_PATH
+                  - - length
+                    - 10
+                  - - value
+                    - - !!python/object/apply:collections.OrderedDict
+                        - - - type
+                            - 2: AS_SEQUENCE
+                          - - length
+                            - 2
+                          - - value
+                            - - '8'
+                              - '5'
+              - !!python/object/apply:collections.OrderedDict
+                - - - flag
+                    - 64
+                  - - type
+                    - 3: NEXT_HOP
+                  - - length
+                    - 4
+                  - - value
+                    - 54.117.94.2
+          - - nlri
+            - - !!python/object/apply:collections.OrderedDict
+                - - - length
+                    - 30
+                  - - prefix
+                    - 130.188.210.0
+- !!python/object/apply:collections.OrderedDict
+  - - - timestamp
+      - 1683388330: '2023-05-06 23:52:10'
+    - - type
+      - 16: BGP4MP
+    - - subtype
+      - 4: BGP4MP_MESSAGE_AS4
+    - - length
+      - 72
+    - - peer_as
+      - '5'
+    - - local_as
+      - '2'
+    - - ifindex
+      - 0
+    - - afi
+      - 1: IPv4
+    - - peer_ip
+      - 54.117.94.14
+    - - local_ip
+      - 54.117.94.13
+    - - bgp_message
+      - !!python/object/apply:collections.OrderedDict
+        - - - marker
+            - ff ff ff ff ff ff ff ff ff ff ff ff ff ff ff ff
+          - - length
+            - 52
+          - - type
+            - 2: UPDATE
+          - - withdrawn_routes_length
+            - 0
+          - - withdrawn_routes
+            - []
+          - - path_attributes_length
+            - 24
+          - - path_attributes
+            - - !!python/object/apply:collections.OrderedDict
+                - - - flag
+                    - 64
+                  - - type
+                    - 1: ORIGIN
+                  - - length
+                    - 1
+                  - - value
+                    - 0: IGP
+              - !!python/object/apply:collections.OrderedDict
+                - - - flag
+                    - 64
+                  - - type
+                    - 2: AS_PATH
+                  - - length
+                    - 10
+                  - - value
+                    - - !!python/object/apply:collections.OrderedDict
+                        - - - type
+                            - 2: AS_SEQUENCE
+                          - - length
+                            - 2
+                          - - value
+                            - - '5'
+                              - '8'
+              - !!python/object/apply:collections.OrderedDict
+                - - - flag
+                    - 64
+                  - - type
+                    - 3: NEXT_HOP
+                  - - length
+                    - 4
+                  - - value
+                    - 54.117.94.14
+          - - nlri
+            - - !!python/object/apply:collections.OrderedDict
+                - - - length
+                    - 30
+                  - - prefix
+                    - 96.51.126.12
+- !!python/object/apply:collections.OrderedDict
+  - - - timestamp
+      - 1683388330: '2023-05-06 23:52:10'
+    - - type
+      - 16: BGP4MP
+    - - subtype
+      - 4: BGP4MP_MESSAGE_AS4
+    - - length
+      - 72
+    - - peer_as
+      - '5'
+    - - local_as
+      - '2'
+    - - ifindex
+      - 0
+    - - afi
+      - 1: IPv4
+    - - peer_ip
+      - 54.117.94.14
+    - - local_ip
+      - 54.117.94.13
+    - - bgp_message
+      - !!python/object/apply:collections.OrderedDict
+        - - - marker
+            - ff ff ff ff ff ff ff ff ff ff ff ff ff ff ff ff
+          - - length
+            - 52
+          - - type
+            - 2: UPDATE
+          - - withdrawn_routes_length
+            - 0
+          - - withdrawn_routes
+            - []
+          - - path_attributes_length
+            - 24
+          - - path_attributes
+            - - !!python/object/apply:collections.OrderedDict
+                - - - flag
+                    - 64
+                  - - type
+                    - 1: ORIGIN
+                  - - length
+                    - 1
+                  - - value
+                    - 0: IGP
+              - !!python/object/apply:collections.OrderedDict
+                - - - flag
+                    - 64
+                  - - type
+                    - 2: AS_PATH
+                  - - length
+                    - 10
+                  - - value
+                    - - !!python/object/apply:collections.OrderedDict
+                        - - - type
+                            - 2: AS_SEQUENCE
+                          - - length
+                            - 2
+                          - - value
+                            - - '5'
+                              - '8'
+              - !!python/object/apply:collections.OrderedDict
+                - - - flag
+                    - 64
+                  - - type
+                    - 3: NEXT_HOP
+                  - - length
+                    - 4
+                  - - value
+                    - 54.117.94.14
+          - - nlri
+            - - !!python/object/apply:collections.OrderedDict
+                - - - length
+                    - 30
+                  - - prefix
+                    - 96.51.126.0
