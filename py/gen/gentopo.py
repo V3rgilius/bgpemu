@@ -4,7 +4,7 @@ import matplotlib.pyplot as plt
 import matplotlib.text as plttext
 from matplotlib.backends.backend_svg import FigureCanvasSVG
 
-TOPOPATH="topo/topo100/"
+TOPOPATH="test/topo100/"
 
 import random
 
@@ -73,7 +73,7 @@ def generate_subnet():
         # 随机生成子网掩码长度（24 到 30 位之间）
         subnet_length = 20
         # 计算子网掩码
-        subnet_mask = "255.255.255.0"
+        subnet_mask = "255.255.240.0"
         # 计算网络地址
         network_address = ".".join(str(int(ip.split(".")[i]) & int(subnet_mask.split(".")[i]))
                                    for i in range(4))
@@ -124,15 +124,15 @@ def gen_graph_view(links):
     G.add_edges_from(links)
 
     # 使用 Force-directed Layout 算法布置节点位置
-    pos = nx.spring_layout(G)
+    pos = nx.kamada_kawai_layout(G)
     fig_size = max(6, len(G.nodes) / 5)
     fig = plt.figure(figsize=(fig_size, fig_size))
     # 绘制节点和边
     labels = {node: f"AS{node}" for node in G.nodes}
-    nx.draw_networkx(G,pos, with_labels=True, labels=labels)
-    # nx.draw_networkx_nodes(G, pos, node_color='lightblue', node_size=50)
-    # nx.draw_networkx_edges(G, pos, edge_color='gray', width=0.5)
-    # nx.draw_networkx_labels(G, pos, labels, font_size=10)
+    # nx.draw_networkx(G,pos, with_labels=True, labels=labels)
+    nx.draw_networkx_nodes(G, pos, node_color='lightblue', node_size=50)
+    nx.draw_networkx_edges(G, pos, edge_color='gray', width=0.5,node_size = 1000)
+    nx.draw_networkx_labels(G, pos, labels, font_size=10)
     # 显示图像
     elems = fig.findobj()
     for elem in elems:
@@ -162,3 +162,9 @@ with open(TOPOPATH+"node-list","w") as f:
     f.writelines(nodes_out)
 with open(TOPOPATH+"link-list","w") as f:
     f.writelines(links_out)
+
+# with open(TOPOPATH+"link-list","r") as f:
+#     lines = f.readlines()
+#     links = [line.strip().split("#") for line in lines]
+# graph_links = [(int(link[0]),int(link[1])) for link in links]
+# gen_graph_view(graph_links)

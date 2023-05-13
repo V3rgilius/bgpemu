@@ -6,54 +6,48 @@ inits:
     sbs:
       global:
         asn: 1
-        router_id: 33.226.140.0
+        router_id: 222.63.224.0
+      rpki:
+        address: 10.10.21.110
+        port: 3323
   - aps:
-      peer:
-        conf:
-          neighbor_address: 135.49.76.5
-          peer_asn: 50
-    name: addpeer
-  - aps:
-      peer:
-        conf:
-          neighbor_address: 27.182.194.17
-          peer_asn: 25
-    name: addpeer
-  - aps:
-      peer:
-        conf:
-          neighbor_address: 197.238.96.1
+      peers:
+      - conf:
+          neighbor_address: 55.191.128.9
+          peer_asn: 59
+      - conf:
+          neighbor_address: 222.63.224.2
           peer_asn: 22
-    name: addpeer
-  - aps:
-      peer:
-        conf:
-          neighbor_address: 33.226.140.2
-          peer_asn: 31
-    name: addpeer
-  - aps:
-      peer:
-        conf:
-          neighbor_address: 33.226.140.6
+      - conf:
+          neighbor_address: 222.63.224.6
+          peer_asn: 27
+      - conf:
+          neighbor_address: 222.63.224.10
+          peer_asn: 28
+      - conf:
+          neighbor_address: 222.63.224.14
+          peer_asn: 47
+      - conf:
+          neighbor_address: 222.63.224.18
           peer_asn: 49
-    name: addpeer
-  - aps:
-      peer:
-        conf:
-          neighbor_address: 33.226.140.10
-          peer_asn: 37
-    name: addpeer
-  - aps:
-      peer:
-        conf:
-          neighbor_address: 33.226.140.14
-          peer_asn: 7
-    name: addpeer
-  - aps:
-      peer:
-        conf:
-          neighbor_address: 33.226.140.18
+      - conf:
+          neighbor_address: 222.63.224.22
+          peer_asn: 52
+      - conf:
+          neighbor_address: 222.63.224.26
           peer_asn: 73
+      - conf:
+          neighbor_address: 222.63.224.30
+          peer_asn: 75
+      - conf:
+          neighbor_address: 235.182.32.17
+          peer_asn: 97
+      - conf:
+          neighbor_address: 222.63.224.34
+          peer_asn: 51
+      - conf:
+          neighbor_address: 216.189.80.13
+          peer_asn: 77
     name: addpeer
 - device_name: r2
   name: StartRouter2Bgp
@@ -62,84 +56,48 @@ inits:
     sbs:
       global:
         asn: 2
-        router_id: 146.123.40.0
+        router_id: 212.33.160.0
+      rpki:
+        address: 10.10.21.110
+        port: 3323
   - aps:
-      peer:
-        conf:
-          neighbor_address: 181.252.97.17
-          peer_asn: 32
-    name: addpeer
-  - aps:
-      peer:
-        conf:
-          neighbor_address: 146.123.40.2
-          peer_asn: 89
-    name: addpeer
-  - aps:
-      peer:
-        conf:
-          neighbor_address: 146.123.40.6
-          peer_asn: 11
-    name: addpeer
-  - aps:
-      peer:
-        conf:
-          neighbor_address: 146.123.40.10
-          peer_asn: 81
-    name: addpeer
-  - aps:
-      peer:
-        conf:
-          neighbor_address: 146.123.40.14
-          peer_asn: 54
-    name: addpeer
-  - aps:
-      peer:
-        conf:
-          neighbor_address: 146.123.40.18
-          peer_asn: 86
-    name: addpeer
-  - aps:
-      peer:
-        conf:
-          neighbor_address: 146.123.40.22
-          peer_asn: 68
-    name: addpeer
-  - aps:
-      peer:
-        conf:
-          neighbor_address: 146.123.40.26
-          peer_asn: 38
-    name: addpeer
-  - aps:
-      peer:
-        conf:
-          neighbor_address: 146.123.40.30
-          peer_asn: 97
-    name: addpeer
-  - aps:
-      peer:
-        conf:
-          neighbor_address: 146.123.40.34
-          peer_asn: 83
-    name: addpeer
-  - aps:
-      peer:
-        conf:
-          neighbor_address: 146.123.40.38
-          peer_asn: 39
-    name: addpeer
-  - aps:
-      peer:
-        conf:
-          neighbor_address: 46.72.63.1
-          peer_asn: 43
-    name: addpeer
-  - aps:
-      peer:
-        conf:
-          neighbor_address: 64.62.125.17
+      peers:
+      - conf:
+          neighbor_address: 55.191.128.1
+          peer_asn: 59
+      - conf:
+          neighbor_address: 212.33.160.2
+          peer_asn: 65
+      - conf:
+          neighbor_address: 212.33.160.6
           peer_asn: 98
+      - conf:
+          neighbor_address: 212.33.160.10
+          peer_asn: 20
+      - conf:
+          neighbor_address: 212.33.160.14
+          peer_asn: 44
+      - conf:
+          neighbor_address: 212.33.160.18
+          peer_asn: 8
+      - conf:
+          neighbor_address: 175.125.176.1
+          peer_asn: 9
+      - conf:
+          neighbor_address: 212.33.160.22
+          peer_asn: 37
+      - conf:
+          neighbor_address: 212.33.160.26
+          peer_asn: 91
+      - conf:
+          neighbor_address: 212.33.160.30
+          peer_asn: 39
+      - conf:
+          neighbor_address: 212.33.160.34
+          peer_asn: 49
+      - conf:
+          neighbor_address: 212.33.160.38
+          peer_asn: 43
     name: addpeer
 - device_name: r3
   name: StartRouter3Bgp
@@ -148,30 +106,18 @@ inits:
     sbs:
       global:
         asn: 3
-        router_id: 67.221.189.0
+        router_id: 155.93.48.0
+      rpki:
+        address: 10.10.21.110
+        port: 3323
   - aps:
-      peer:
-        conf:
-          neighbor_address: 57.179.95.29
-          peer_asn: 76
-    name: addpeer
-  - aps:
-      peer:
-        conf:
-          neighbor_address: 57.42.77.5
-          peer_asn: 70
-    name: addpeer
-  - aps:
-      peer:
-        conf:
-          neighbor_address: 2.34.156.1
-          peer_asn: 17
-    name: addpeer
-  - aps:
-      peer:
-        conf:
-          neighbor_address: 125.179.133.1
-          peer_asn: 65
+      peers:
+      - conf:
+          neighbor_address: 185.159.16.21
+          peer_asn: 90
+      - conf:
+          neighbor_address: 247.187.160.9
+          peer_asn: 36
     name: addpeer
 - device_name: r4
   name: StartRouter4Bgp
@@ -180,18 +126,24 @@ inits:
     sbs:
       global:
         asn: 4
-        router_id: 170.88.196.0
+        router_id: 155.123.32.0
+      rpki:
+        address: 10.10.21.110
+        port: 3323
   - aps:
-      peer:
-        conf:
-          neighbor_address: 221.137.18.21
-          peer_asn: 94
-    name: addpeer
-  - aps:
-      peer:
-        conf:
-          neighbor_address: 160.141.135.5
-          peer_asn: 93
+      peers:
+      - conf:
+          neighbor_address: 113.240.240.1
+          peer_asn: 23
+      - conf:
+          neighbor_address: 155.123.32.2
+          peer_asn: 68
+      - conf:
+          neighbor_address: 155.123.32.6
+          peer_asn: 60
+      - conf:
+          neighbor_address: 155.123.32.10
+          peer_asn: 25
     name: addpeer
 - device_name: r5
   name: StartRouter5Bgp
@@ -200,18 +152,15 @@ inits:
     sbs:
       global:
         asn: 5
-        router_id: 194.155.248.0
+        router_id: 223.58.208.0
+      rpki:
+        address: 10.10.21.110
+        port: 3323
   - aps:
-      peer:
-        conf:
-          neighbor_address: 165.178.86.17
-          peer_asn: 13
-    name: addpeer
-  - aps:
-      peer:
-        conf:
-          neighbor_address: 167.21.79.13
-          peer_asn: 73
+      peers:
+      - conf:
+          neighbor_address: 140.15.96.1
+          peer_asn: 96
     name: addpeer
 - device_name: r6
   name: StartRouter6Bgp
@@ -220,54 +169,15 @@ inits:
     sbs:
       global:
         asn: 6
-        router_id: 53.135.57.0
+        router_id: 26.122.176.0
+      rpki:
+        address: 10.10.21.110
+        port: 3323
   - aps:
-      peer:
-        conf:
-          neighbor_address: 221.137.18.5
-          peer_asn: 94
-    name: addpeer
-  - aps:
-      peer:
-        conf:
-          neighbor_address: 179.193.39.5
-          peer_asn: 99
-    name: addpeer
-  - aps:
-      peer:
-        conf:
-          neighbor_address: 53.135.57.2
-          peer_asn: 33
-    name: addpeer
-  - aps:
-      peer:
-        conf:
-          neighbor_address: 53.135.57.6
-          peer_asn: 28
-    name: addpeer
-  - aps:
-      peer:
-        conf:
-          neighbor_address: 53.135.57.10
-          peer_asn: 88
-    name: addpeer
-  - aps:
-      peer:
-        conf:
-          neighbor_address: 53.135.57.14
-          peer_asn: 44
-    name: addpeer
-  - aps:
-      peer:
-        conf:
-          neighbor_address: 53.135.57.18
-          peer_asn: 93
-    name: addpeer
-  - aps:
-      peer:
-        conf:
-          neighbor_address: 192.224.123.5
-          peer_asn: 10
+      peers:
+      - conf:
+          neighbor_address: 220.65.32.21
+          peer_asn: 12
     name: addpeer
 - device_name: r7
   name: StartRouter7Bgp
@@ -276,36 +186,30 @@ inits:
     sbs:
       global:
         asn: 7
-        router_id: 159.136.167.0
+        router_id: 248.230.64.0
+      rpki:
+        address: 10.10.21.110
+        port: 3323
   - aps:
-      peer:
-        conf:
-          neighbor_address: 57.179.95.9
-          peer_asn: 76
-    name: addpeer
-  - aps:
-      peer:
-        conf:
-          neighbor_address: 159.136.167.2
-          peer_asn: 53
-    name: addpeer
-  - aps:
-      peer:
-        conf:
-          neighbor_address: 159.136.167.6
-          peer_asn: 42
-    name: addpeer
-  - aps:
-      peer:
-        conf:
-          neighbor_address: 159.136.167.10
-          peer_asn: 95
-    name: addpeer
-  - aps:
-      peer:
-        conf:
-          neighbor_address: 33.226.140.13
-          peer_asn: 1
+      peers:
+      - conf:
+          neighbor_address: 220.65.32.1
+          peer_asn: 12
+      - conf:
+          neighbor_address: 235.214.160.9
+          peer_asn: 72
+      - conf:
+          neighbor_address: 118.164.80.9
+          peer_asn: 38
+      - conf:
+          neighbor_address: 117.242.16.9
+          peer_asn: 58
+      - conf:
+          neighbor_address: 247.187.160.1
+          peer_asn: 36
+      - conf:
+          neighbor_address: 34.201.224.9
+          peer_asn: 39
     name: addpeer
 - device_name: r8
   name: StartRouter8Bgp
@@ -314,24 +218,18 @@ inits:
     sbs:
       global:
         asn: 8
-        router_id: 59.147.166.0
+        router_id: 11.99.240.0
+      rpki:
+        address: 10.10.21.110
+        port: 3323
   - aps:
-      peer:
-        conf:
-          neighbor_address: 158.70.182.9
-          peer_asn: 44
-    name: addpeer
-  - aps:
-      peer:
-        conf:
-          neighbor_address: 59.147.166.2
-          peer_asn: 77
-    name: addpeer
-  - aps:
-      peer:
-        conf:
-          neighbor_address: 59.147.166.6
-          peer_asn: 14
+      peers:
+      - conf:
+          neighbor_address: 212.33.160.17
+          peer_asn: 2
+      - conf:
+          neighbor_address: 236.199.112.13
+          peer_asn: 62
     name: addpeer
 - device_name: r9
   name: StartRouter9Bgp
@@ -340,24 +238,21 @@ inits:
     sbs:
       global:
         asn: 9
-        router_id: 151.89.74.0
+        router_id: 175.125.176.0
+      rpki:
+        address: 10.10.21.110
+        port: 3323
   - aps:
-      peer:
-        conf:
-          neighbor_address: 57.179.95.13
-          peer_asn: 76
-    name: addpeer
-  - aps:
-      peer:
-        conf:
-          neighbor_address: 2.34.156.5
-          peer_asn: 17
-    name: addpeer
-  - aps:
-      peer:
-        conf:
-          neighbor_address: 189.176.132.1
-          peer_asn: 82
+      peers:
+      - conf:
+          neighbor_address: 5.23.192.33
+          peer_asn: 78
+      - conf:
+          neighbor_address: 175.125.176.2
+          peer_asn: 2
+      - conf:
+          neighbor_address: 176.3.192.17
+          peer_asn: 16
     name: addpeer
 - device_name: r10
   name: StartRouter10Bgp
@@ -366,42 +261,36 @@ inits:
     sbs:
       global:
         asn: 10
-        router_id: 192.224.123.0
+        router_id: 66.191.176.0
+      rpki:
+        address: 10.10.21.110
+        port: 3323
   - aps:
-      peer:
-        conf:
-          neighbor_address: 2.167.1.17
-          peer_asn: 19
-    name: addpeer
-  - aps:
-      peer:
-        conf:
-          neighbor_address: 192.224.123.2
-          peer_asn: 67
-    name: addpeer
-  - aps:
-      peer:
-        conf:
-          neighbor_address: 192.224.123.6
-          peer_asn: 6
-    name: addpeer
-  - aps:
-      peer:
-        conf:
-          neighbor_address: 192.224.123.10
-          peer_asn: 49
-    name: addpeer
-  - aps:
-      peer:
-        conf:
-          neighbor_address: 192.224.123.14
-          peer_asn: 42
-    name: addpeer
-  - aps:
-      peer:
-        conf:
-          neighbor_address: 192.224.123.18
-          peer_asn: 93
+      peers:
+      - conf:
+          neighbor_address: 89.170.224.33
+          peer_asn: 81
+      - conf:
+          neighbor_address: 236.98.160.41
+          peer_asn: 40
+      - conf:
+          neighbor_address: 118.164.80.1
+          peer_asn: 38
+      - conf:
+          neighbor_address: 255.74.208.1
+          peer_asn: 52
+      - conf:
+          neighbor_address: 66.191.176.2
+          peer_asn: 43
+      - conf:
+          neighbor_address: 66.191.176.6
+          peer_asn: 32
+      - conf:
+          neighbor_address: 66.191.176.10
+          peer_asn: 60
+      - conf:
+          neighbor_address: 66.191.176.14
+          peer_asn: 47
     name: addpeer
 - device_name: r11
   name: StartRouter11Bgp
@@ -410,18 +299,24 @@ inits:
     sbs:
       global:
         asn: 11
-        router_id: 34.163.131.0
+        router_id: 188.13.224.0
+      rpki:
+        address: 10.10.21.110
+        port: 3323
   - aps:
-      peer:
-        conf:
-          neighbor_address: 146.123.40.5
-          peer_asn: 2
-    name: addpeer
-  - aps:
-      peer:
-        conf:
-          neighbor_address: 34.163.131.2
-          peer_asn: 26
+      peers:
+      - conf:
+          neighbor_address: 140.15.96.17
+          peer_asn: 96
+      - conf:
+          neighbor_address: 235.214.160.5
+          peer_asn: 72
+      - conf:
+          neighbor_address: 72.56.0.9
+          peer_asn: 79
+      - conf:
+          neighbor_address: 220.32.80.1
+          peer_asn: 21
     name: addpeer
 - device_name: r12
   name: StartRouter12Bgp
@@ -430,18 +325,36 @@ inits:
     sbs:
       global:
         asn: 12
-        router_id: 44.37.8.0
+        router_id: 220.65.32.0
+      rpki:
+        address: 10.10.21.110
+        port: 3323
   - aps:
-      peer:
-        conf:
-          neighbor_address: 210.190.46.5
+      peers:
+      - conf:
+          neighbor_address: 236.98.160.21
           peer_asn: 40
-    name: addpeer
-  - aps:
-      peer:
-        conf:
-          neighbor_address: 44.37.8.2
-          peer_asn: 67
+      - conf:
+          neighbor_address: 220.65.32.2
+          peer_asn: 7
+      - conf:
+          neighbor_address: 220.65.32.6
+          peer_asn: 56
+      - conf:
+          neighbor_address: 220.65.32.10
+          peer_asn: 62
+      - conf:
+          neighbor_address: 220.65.32.14
+          peer_asn: 45
+      - conf:
+          neighbor_address: 220.65.32.18
+          peer_asn: 17
+      - conf:
+          neighbor_address: 220.65.32.22
+          peer_asn: 6
+      - conf:
+          neighbor_address: 220.65.32.26
+          peer_asn: 19
     name: addpeer
 - device_name: r13
   name: StartRouter13Bgp
@@ -450,84 +363,21 @@ inits:
     sbs:
       global:
         asn: 13
-        router_id: 165.178.86.0
+        router_id: 241.88.176.0
+      rpki:
+        address: 10.10.21.110
+        port: 3323
   - aps:
-      peer:
-        conf:
-          neighbor_address: 59.110.210.1
-          peer_asn: 61
-    name: addpeer
-  - aps:
-      peer:
-        conf:
-          neighbor_address: 165.178.86.2
-          peer_asn: 43
-    name: addpeer
-  - aps:
-      peer:
-        conf:
-          neighbor_address: 165.178.86.6
-          peer_asn: 92
-    name: addpeer
-  - aps:
-      peer:
-        conf:
-          neighbor_address: 165.178.86.10
-          peer_asn: 64
-    name: addpeer
-  - aps:
-      peer:
-        conf:
-          neighbor_address: 165.178.86.14
-          peer_asn: 45
-    name: addpeer
-  - aps:
-      peer:
-        conf:
-          neighbor_address: 165.178.86.18
-          peer_asn: 5
-    name: addpeer
-  - aps:
-      peer:
-        conf:
-          neighbor_address: 165.178.86.22
-          peer_asn: 16
-    name: addpeer
-  - aps:
-      peer:
-        conf:
-          neighbor_address: 165.178.86.26
-          peer_asn: 31
-    name: addpeer
-  - aps:
-      peer:
-        conf:
-          neighbor_address: 165.178.86.30
-          peer_asn: 76
-    name: addpeer
-  - aps:
-      peer:
-        conf:
-          neighbor_address: 165.178.86.34
-          peer_asn: 17
-    name: addpeer
-  - aps:
-      peer:
-        conf:
-          neighbor_address: 165.178.86.38
-          peer_asn: 46
-    name: addpeer
-  - aps:
-      peer:
-        conf:
-          neighbor_address: 165.178.86.42
-          peer_asn: 83
-    name: addpeer
-  - aps:
-      peer:
-        conf:
-          neighbor_address: 221.137.18.29
-          peer_asn: 94
+      peers:
+      - conf:
+          neighbor_address: 5.23.192.9
+          peer_asn: 78
+      - conf:
+          neighbor_address: 236.199.112.9
+          peer_asn: 62
+      - conf:
+          neighbor_address: 56.86.16.5
+          peer_asn: 33
     name: addpeer
 - device_name: r14
   name: StartRouter14Bgp
@@ -536,42 +386,24 @@ inits:
     sbs:
       global:
         asn: 14
-        router_id: 90.196.248.0
+        router_id: 249.152.48.0
+      rpki:
+        address: 10.10.21.110
+        port: 3323
   - aps:
-      peer:
-        conf:
-          neighbor_address: 210.190.46.13
-          peer_asn: 40
-    name: addpeer
-  - aps:
-      peer:
-        conf:
-          neighbor_address: 90.196.248.2
-          peer_asn: 84
-    name: addpeer
-  - aps:
-      peer:
-        conf:
-          neighbor_address: 90.196.248.6
-          peer_asn: 87
-    name: addpeer
-  - aps:
-      peer:
-        conf:
-          neighbor_address: 90.196.248.10
-          peer_asn: 78
-    name: addpeer
-  - aps:
-      peer:
-        conf:
-          neighbor_address: 150.193.65.1
-          peer_asn: 42
-    name: addpeer
-  - aps:
-      peer:
-        conf:
-          neighbor_address: 59.147.166.5
-          peer_asn: 8
+      peers:
+      - conf:
+          neighbor_address: 203.131.80.13
+          peer_asn: 88
+      - conf:
+          neighbor_address: 6.119.32.13
+          peer_asn: 95
+      - conf:
+          neighbor_address: 249.152.48.2
+          peer_asn: 49
+      - conf:
+          neighbor_address: 249.152.48.6
+          peer_asn: 80
     name: addpeer
 - device_name: r15
   name: StartRouter15Bgp
@@ -580,18 +412,33 @@ inits:
     sbs:
       global:
         asn: 15
-        router_id: 111.62.78.0
+        router_id: 5.95.32.0
+      rpki:
+        address: 10.10.21.110
+        port: 3323
   - aps:
-      peer:
-        conf:
-          neighbor_address: 2.209.95.1
-          peer_asn: 41
-    name: addpeer
-  - aps:
-      peer:
-        conf:
-          neighbor_address: 169.86.137.1
-          peer_asn: 26
+      peers:
+      - conf:
+          neighbor_address: 185.159.16.33
+          peer_asn: 90
+      - conf:
+          neighbor_address: 234.243.16.1
+          peer_asn: 50
+      - conf:
+          neighbor_address: 5.95.32.2
+          peer_asn: 75
+      - conf:
+          neighbor_address: 5.95.32.6
+          peer_asn: 27
+      - conf:
+          neighbor_address: 5.95.32.10
+          peer_asn: 29
+      - conf:
+          neighbor_address: 5.95.32.14
+          peer_asn: 97
+      - conf:
+          neighbor_address: 61.215.80.5
+          peer_asn: 87
     name: addpeer
 - device_name: r16
   name: StartRouter16Bgp
@@ -600,36 +447,36 @@ inits:
     sbs:
       global:
         asn: 16
-        router_id: 244.172.51.0
+        router_id: 176.3.192.0
+      rpki:
+        address: 10.10.21.110
+        port: 3323
   - aps:
-      peer:
-        conf:
-          neighbor_address: 165.178.86.21
-          peer_asn: 13
-    name: addpeer
-  - aps:
-      peer:
-        conf:
-          neighbor_address: 27.182.194.5
-          peer_asn: 25
-    name: addpeer
-  - aps:
-      peer:
-        conf:
-          neighbor_address: 244.172.51.2
-          peer_asn: 19
-    name: addpeer
-  - aps:
-      peer:
-        conf:
-          neighbor_address: 244.172.51.6
-          peer_asn: 50
-    name: addpeer
-  - aps:
-      peer:
-        conf:
-          neighbor_address: 244.172.51.10
-          peer_asn: 31
+      peers:
+      - conf:
+          neighbor_address: 89.170.224.21
+          peer_asn: 81
+      - conf:
+          neighbor_address: 97.7.160.13
+          peer_asn: 26
+      - conf:
+          neighbor_address: 176.3.192.2
+          peer_asn: 79
+      - conf:
+          neighbor_address: 176.3.192.6
+          peer_asn: 55
+      - conf:
+          neighbor_address: 176.3.192.10
+          peer_asn: 76
+      - conf:
+          neighbor_address: 176.3.192.14
+          peer_asn: 66
+      - conf:
+          neighbor_address: 176.3.192.18
+          peer_asn: 9
+      - conf:
+          neighbor_address: 185.159.16.49
+          peer_asn: 90
     name: addpeer
 - device_name: r17
   name: StartRouter17Bgp
@@ -638,30 +485,21 @@ inits:
     sbs:
       global:
         asn: 17
-        router_id: 2.34.156.0
+        router_id: 16.72.0.0
+      rpki:
+        address: 10.10.21.110
+        port: 3323
   - aps:
-      peer:
-        conf:
-          neighbor_address: 57.179.95.17
-          peer_asn: 76
-    name: addpeer
-  - aps:
-      peer:
-        conf:
-          neighbor_address: 2.34.156.2
-          peer_asn: 3
-    name: addpeer
-  - aps:
-      peer:
-        conf:
-          neighbor_address: 2.34.156.6
-          peer_asn: 9
-    name: addpeer
-  - aps:
-      peer:
-        conf:
-          neighbor_address: 165.178.86.33
-          peer_asn: 13
+      peers:
+      - conf:
+          neighbor_address: 220.65.32.17
+          peer_asn: 12
+      - conf:
+          neighbor_address: 16.72.0.2
+          peer_asn: 80
+      - conf:
+          neighbor_address: 185.159.16.45
+          peer_asn: 90
     name: addpeer
 - device_name: r18
   name: StartRouter18Bgp
@@ -670,48 +508,18 @@ inits:
     sbs:
       global:
         asn: 18
-        router_id: 200.114.209.0
+        router_id: 191.174.96.0
+      rpki:
+        address: 10.10.21.110
+        port: 3323
   - aps:
-      peer:
-        conf:
-          neighbor_address: 156.6.3.21
-          peer_asn: 74
-    name: addpeer
-  - aps:
-      peer:
-        conf:
-          neighbor_address: 160.141.135.9
-          peer_asn: 93
-    name: addpeer
-  - aps:
-      peer:
-        conf:
-          neighbor_address: 205.225.235.1
-          peer_asn: 37
-    name: addpeer
-  - aps:
-      peer:
-        conf:
-          neighbor_address: 200.114.209.2
-          peer_asn: 58
-    name: addpeer
-  - aps:
-      peer:
-        conf:
-          neighbor_address: 200.114.209.6
-          peer_asn: 53
-    name: addpeer
-  - aps:
-      peer:
-        conf:
-          neighbor_address: 200.114.209.10
-          peer_asn: 81
-    name: addpeer
-  - aps:
-      peer:
-        conf:
-          neighbor_address: 200.114.209.14
-          peer_asn: 94
+      peers:
+      - conf:
+          neighbor_address: 55.191.128.29
+          peer_asn: 59
+      - conf:
+          neighbor_address: 216.189.80.9
+          peer_asn: 77
     name: addpeer
 - device_name: r19
   name: StartRouter19Bgp
@@ -720,84 +528,15 @@ inits:
     sbs:
       global:
         asn: 19
-        router_id: 2.167.1.0
+        router_id: 233.171.64.0
+      rpki:
+        address: 10.10.21.110
+        port: 3323
   - aps:
-      peer:
-        conf:
-          neighbor_address: 59.110.210.25
-          peer_asn: 61
-    name: addpeer
-  - aps:
-      peer:
-        conf:
-          neighbor_address: 2.167.1.2
-          peer_asn: 53
-    name: addpeer
-  - aps:
-      peer:
-        conf:
-          neighbor_address: 2.167.1.6
-          peer_asn: 58
-    name: addpeer
-  - aps:
-      peer:
-        conf:
-          neighbor_address: 2.167.1.10
-          peer_asn: 91
-    name: addpeer
-  - aps:
-      peer:
-        conf:
-          neighbor_address: 2.167.1.14
-          peer_asn: 56
-    name: addpeer
-  - aps:
-      peer:
-        conf:
-          neighbor_address: 2.167.1.18
-          peer_asn: 10
-    name: addpeer
-  - aps:
-      peer:
-        conf:
-          neighbor_address: 2.167.1.22
-          peer_asn: 88
-    name: addpeer
-  - aps:
-      peer:
-        conf:
-          neighbor_address: 2.167.1.26
-          peer_asn: 26
-    name: addpeer
-  - aps:
-      peer:
-        conf:
-          neighbor_address: 2.167.1.30
-          peer_asn: 25
-    name: addpeer
-  - aps:
-      peer:
-        conf:
-          neighbor_address: 2.167.1.34
-          peer_asn: 36
-    name: addpeer
-  - aps:
-      peer:
-        conf:
-          neighbor_address: 2.167.1.38
-          peer_asn: 52
-    name: addpeer
-  - aps:
-      peer:
-        conf:
-          neighbor_address: 244.172.51.1
-          peer_asn: 16
-    name: addpeer
-  - aps:
-      peer:
-        conf:
-          neighbor_address: 2.209.95.29
-          peer_asn: 41
+      peers:
+      - conf:
+          neighbor_address: 220.65.32.25
+          peer_asn: 12
     name: addpeer
 - device_name: r20
   name: StartRouter20Bgp
@@ -806,36 +545,21 @@ inits:
     sbs:
       global:
         asn: 20
-        router_id: 223.229.144.0
+        router_id: 133.194.144.0
+      rpki:
+        address: 10.10.21.110
+        port: 3323
   - aps:
-      peer:
-        conf:
-          neighbor_address: 125.36.43.17
-          peer_asn: 75
-    name: addpeer
-  - aps:
-      peer:
-        conf:
-          neighbor_address: 173.155.89.1
-          peer_asn: 90
-    name: addpeer
-  - aps:
-      peer:
-        conf:
-          neighbor_address: 181.252.97.21
+      peers:
+      - conf:
+          neighbor_address: 212.33.160.9
+          peer_asn: 2
+      - conf:
+          neighbor_address: 229.12.192.5
           peer_asn: 32
-    name: addpeer
-  - aps:
-      peer:
-        conf:
-          neighbor_address: 6.42.236.1
-          peer_asn: 60
-    name: addpeer
-  - aps:
-      peer:
-        conf:
-          neighbor_address: 64.62.125.9
-          peer_asn: 98
+      - conf:
+          neighbor_address: 251.86.16.5
+          peer_asn: 55
     name: addpeer
 - device_name: r21
   name: StartRouter21Bgp
@@ -844,18 +568,24 @@ inits:
     sbs:
       global:
         asn: 21
-        router_id: 134.91.150.0
+        router_id: 220.32.80.0
+      rpki:
+        address: 10.10.21.110
+        port: 3323
   - aps:
-      peer:
-        conf:
-          neighbor_address: 210.190.46.17
-          peer_asn: 40
-    name: addpeer
-  - aps:
-      peer:
-        conf:
-          neighbor_address: 221.137.18.37
-          peer_asn: 94
+      peers:
+      - conf:
+          neighbor_address: 140.15.96.13
+          peer_asn: 96
+      - conf:
+          neighbor_address: 220.32.80.2
+          peer_asn: 11
+      - conf:
+          neighbor_address: 220.32.80.6
+          peer_asn: 71
+      - conf:
+          neighbor_address: 155.165.48.5
+          peer_asn: 27
     name: addpeer
 - device_name: r22
   name: StartRouter22Bgp
@@ -864,30 +594,18 @@ inits:
     sbs:
       global:
         asn: 22
-        router_id: 197.238.96.0
+        router_id: 124.91.32.0
+      rpki:
+        address: 10.10.21.110
+        port: 3323
   - aps:
-      peer:
-        conf:
-          neighbor_address: 125.36.43.5
-          peer_asn: 75
-    name: addpeer
-  - aps:
-      peer:
-        conf:
-          neighbor_address: 197.238.96.2
+      peers:
+      - conf:
+          neighbor_address: 222.63.224.1
           peer_asn: 1
-    name: addpeer
-  - aps:
-      peer:
-        conf:
-          neighbor_address: 197.238.96.6
-          peer_asn: 85
-    name: addpeer
-  - aps:
-      peer:
-        conf:
-          neighbor_address: 197.238.96.10
-          peer_asn: 55
+      - conf:
+          neighbor_address: 22.135.160.5
+          peer_asn: 83
     name: addpeer
 - device_name: r23
   name: StartRouter23Bgp
@@ -896,12 +614,45 @@ inits:
     sbs:
       global:
         asn: 23
-        router_id: 15.139.6.0
+        router_id: 113.240.240.0
+      rpki:
+        address: 10.10.21.110
+        port: 3323
   - aps:
-      peer:
-        conf:
-          neighbor_address: 156.6.3.29
+      peers:
+      - conf:
+          neighbor_address: 236.98.160.5
+          peer_asn: 40
+      - conf:
+          neighbor_address: 113.240.240.2
+          peer_asn: 4
+      - conf:
+          neighbor_address: 113.240.240.6
+          peer_asn: 69
+      - conf:
+          neighbor_address: 113.240.240.10
+          peer_asn: 94
+      - conf:
+          neighbor_address: 113.240.240.14
+          peer_asn: 97
+      - conf:
+          neighbor_address: 113.240.240.18
+          peer_asn: 39
+      - conf:
+          neighbor_address: 113.240.240.22
+          peer_asn: 51
+      - conf:
+          neighbor_address: 113.240.240.26
+          peer_asn: 100
+      - conf:
+          neighbor_address: 113.240.240.30
           peer_asn: 74
+      - conf:
+          neighbor_address: 113.240.240.34
+          peer_asn: 99
+      - conf:
+          neighbor_address: 113.240.240.38
+          peer_asn: 32
     name: addpeer
 - device_name: r24
   name: StartRouter24Bgp
@@ -910,24 +661,33 @@ inits:
     sbs:
       global:
         asn: 24
-        router_id: 140.172.99.0
+        router_id: 41.85.32.0
+      rpki:
+        address: 10.10.21.110
+        port: 3323
   - aps:
-      peer:
-        conf:
-          neighbor_address: 57.179.95.25
-          peer_asn: 76
-    name: addpeer
-  - aps:
-      peer:
-        conf:
-          neighbor_address: 160.141.135.1
-          peer_asn: 93
-    name: addpeer
-  - aps:
-      peer:
-        conf:
-          neighbor_address: 89.144.110.9
-          peer_asn: 64
+      peers:
+      - conf:
+          neighbor_address: 236.98.160.33
+          peer_asn: 40
+      - conf:
+          neighbor_address: 41.85.32.2
+          peer_asn: 25
+      - conf:
+          neighbor_address: 41.85.32.6
+          peer_asn: 38
+      - conf:
+          neighbor_address: 41.85.32.10
+          peer_asn: 72
+      - conf:
+          neighbor_address: 41.85.32.14
+          peer_asn: 71
+      - conf:
+          neighbor_address: 41.85.32.18
+          peer_asn: 30
+      - conf:
+          neighbor_address: 229.12.192.17
+          peer_asn: 32
     name: addpeer
 - device_name: r25
   name: StartRouter25Bgp
@@ -936,48 +696,27 @@ inits:
     sbs:
       global:
         asn: 25
-        router_id: 27.182.194.0
+        router_id: 71.242.144.0
+      rpki:
+        address: 10.10.21.110
+        port: 3323
   - aps:
-      peer:
-        conf:
-          neighbor_address: 2.167.1.29
-          peer_asn: 19
-    name: addpeer
-  - aps:
-      peer:
-        conf:
-          neighbor_address: 27.182.194.2
-          peer_asn: 39
-    name: addpeer
-  - aps:
-      peer:
-        conf:
-          neighbor_address: 27.182.194.6
-          peer_asn: 16
-    name: addpeer
-  - aps:
-      peer:
-        conf:
-          neighbor_address: 27.182.194.10
+      peers:
+      - conf:
+          neighbor_address: 41.85.32.1
+          peer_asn: 24
+      - conf:
+          neighbor_address: 235.182.32.1
+          peer_asn: 97
+      - conf:
+          neighbor_address: 155.123.32.9
+          peer_asn: 4
+      - conf:
+          neighbor_address: 71.242.144.2
+          peer_asn: 54
+      - conf:
+          neighbor_address: 240.19.192.1
           peer_asn: 85
-    name: addpeer
-  - aps:
-      peer:
-        conf:
-          neighbor_address: 27.182.194.14
-          peer_asn: 81
-    name: addpeer
-  - aps:
-      peer:
-        conf:
-          neighbor_address: 27.182.194.18
-          peer_asn: 1
-    name: addpeer
-  - aps:
-      peer:
-        conf:
-          neighbor_address: 46.72.63.9
-          peer_asn: 43
     name: addpeer
 - device_name: r26
   name: StartRouter26Bgp
@@ -986,42 +725,36 @@ inits:
     sbs:
       global:
         asn: 26
-        router_id: 169.86.137.0
+        router_id: 97.7.160.0
+      rpki:
+        address: 10.10.21.110
+        port: 3323
   - aps:
-      peer:
-        conf:
-          neighbor_address: 2.167.1.25
-          peer_asn: 19
-    name: addpeer
-  - aps:
-      peer:
-        conf:
-          neighbor_address: 169.86.137.2
-          peer_asn: 15
-    name: addpeer
-  - aps:
-      peer:
-        conf:
-          neighbor_address: 169.86.137.6
-          peer_asn: 86
-    name: addpeer
-  - aps:
-      peer:
-        conf:
-          neighbor_address: 169.86.137.10
-          peer_asn: 50
-    name: addpeer
-  - aps:
-      peer:
-        conf:
-          neighbor_address: 100.249.39.1
-          peer_asn: 33
-    name: addpeer
-  - aps:
-      peer:
-        conf:
-          neighbor_address: 34.163.131.1
-          peer_asn: 11
+      peers:
+      - conf:
+          neighbor_address: 5.23.192.29
+          peer_asn: 78
+      - conf:
+          neighbor_address: 143.10.160.5
+          peer_asn: 75
+      - conf:
+          neighbor_address: 6.119.32.9
+          peer_asn: 95
+      - conf:
+          neighbor_address: 97.7.160.2
+          peer_asn: 70
+      - conf:
+          neighbor_address: 97.7.160.6
+          peer_asn: 53
+      - conf:
+          neighbor_address: 97.7.160.10
+          peer_asn: 77
+      - conf:
+          neighbor_address: 97.7.160.14
+          peer_asn: 16
+      - conf:
+          neighbor_address: 84.174.80.9
+          peer_asn: 28
     name: addpeer
 - device_name: r27
   name: StartRouter27Bgp
@@ -1030,18 +763,42 @@ inits:
     sbs:
       global:
         asn: 27
-        router_id: 174.242.196.0
+        router_id: 155.165.48.0
+      rpki:
+        address: 10.10.21.110
+        port: 3323
   - aps:
-      peer:
-        conf:
-          neighbor_address: 157.179.117.1
-          peer_asn: 30
-    name: addpeer
-  - aps:
-      peer:
-        conf:
-          neighbor_address: 64.62.125.5
-          peer_asn: 98
+      peers:
+      - conf:
+          neighbor_address: 222.63.224.5
+          peer_asn: 1
+      - conf:
+          neighbor_address: 236.98.160.49
+          peer_asn: 40
+      - conf:
+          neighbor_address: 118.164.80.5
+          peer_asn: 38
+      - conf:
+          neighbor_address: 35.214.144.17
+          peer_asn: 31
+      - conf:
+          neighbor_address: 5.95.32.5
+          peer_asn: 15
+      - conf:
+          neighbor_address: 155.165.48.2
+          peer_asn: 49
+      - conf:
+          neighbor_address: 155.165.48.6
+          peer_asn: 21
+      - conf:
+          neighbor_address: 155.165.48.10
+          peer_asn: 73
+      - conf:
+          neighbor_address: 155.165.48.14
+          peer_asn: 55
+      - conf:
+          neighbor_address: 155.165.48.18
+          peer_asn: 69
     name: addpeer
 - device_name: r28
   name: StartRouter28Bgp
@@ -1050,30 +807,33 @@ inits:
     sbs:
       global:
         asn: 28
-        router_id: 99.37.16.0
+        router_id: 84.174.80.0
+      rpki:
+        address: 10.10.21.110
+        port: 3323
   - aps:
-      peer:
-        conf:
-          neighbor_address: 158.70.182.5
-          peer_asn: 44
-    name: addpeer
-  - aps:
-      peer:
-        conf:
-          neighbor_address: 205.225.235.5
+      peers:
+      - conf:
+          neighbor_address: 222.63.224.9
+          peer_asn: 1
+      - conf:
+          neighbor_address: 84.174.80.2
+          peer_asn: 83
+      - conf:
+          neighbor_address: 84.174.80.6
           peer_asn: 37
-    name: addpeer
-  - aps:
-      peer:
-        conf:
-          neighbor_address: 53.135.57.5
-          peer_asn: 6
-    name: addpeer
-  - aps:
-      peer:
-        conf:
-          neighbor_address: 221.137.18.33
-          peer_asn: 94
+      - conf:
+          neighbor_address: 84.174.80.10
+          peer_asn: 26
+      - conf:
+          neighbor_address: 84.174.80.14
+          peer_asn: 31
+      - conf:
+          neighbor_address: 84.174.80.18
+          peer_asn: 32
+      - conf:
+          neighbor_address: 72.56.0.1
+          peer_asn: 79
     name: addpeer
 - device_name: r29
   name: StartRouter29Bgp
@@ -1082,12 +842,30 @@ inits:
     sbs:
       global:
         asn: 29
-        router_id: 7.155.243.0
+        router_id: 144.131.96.0
+      rpki:
+        address: 10.10.21.110
+        port: 3323
   - aps:
-      peer:
-        conf:
-          neighbor_address: 221.137.18.1
-          peer_asn: 94
+      peers:
+      - conf:
+          neighbor_address: 89.170.224.17
+          peer_asn: 81
+      - conf:
+          neighbor_address: 144.131.96.2
+          peer_asn: 55
+      - conf:
+          neighbor_address: 5.95.32.9
+          peer_asn: 15
+      - conf:
+          neighbor_address: 61.215.80.1
+          peer_asn: 87
+      - conf:
+          neighbor_address: 101.25.128.1
+          peer_asn: 41
+      - conf:
+          neighbor_address: 166.129.16.5
+          peer_asn: 44
     name: addpeer
 - device_name: r30
   name: StartRouter30Bgp
@@ -1096,54 +874,18 @@ inits:
     sbs:
       global:
         asn: 30
-        router_id: 157.179.117.0
+        router_id: 32.190.16.0
+      rpki:
+        address: 10.10.21.110
+        port: 3323
   - aps:
-      peer:
-        conf:
-          neighbor_address: 181.252.97.9
-          peer_asn: 32
-    name: addpeer
-  - aps:
-      peer:
-        conf:
-          neighbor_address: 157.179.117.2
-          peer_asn: 27
-    name: addpeer
-  - aps:
-      peer:
-        conf:
-          neighbor_address: 157.179.117.6
-          peer_asn: 99
-    name: addpeer
-  - aps:
-      peer:
-        conf:
-          neighbor_address: 157.179.117.10
-          peer_asn: 90
-    name: addpeer
-  - aps:
-      peer:
-        conf:
-          neighbor_address: 157.179.117.14
-          peer_asn: 80
-    name: addpeer
-  - aps:
-      peer:
-        conf:
-          neighbor_address: 157.179.117.18
-          peer_asn: 69
-    name: addpeer
-  - aps:
-      peer:
-        conf:
-          neighbor_address: 157.179.117.22
-          peer_asn: 55
-    name: addpeer
-  - aps:
-      peer:
-        conf:
-          neighbor_address: 157.179.117.26
-          peer_asn: 78
+      peers:
+      - conf:
+          neighbor_address: 41.85.32.17
+          peer_asn: 24
+      - conf:
+          neighbor_address: 236.199.112.1
+          peer_asn: 62
     name: addpeer
 - device_name: r31
   name: StartRouter31Bgp
@@ -1152,30 +894,33 @@ inits:
     sbs:
       global:
         asn: 31
-        router_id: 231.178.251.0
+        router_id: 35.214.144.0
+      rpki:
+        address: 10.10.21.110
+        port: 3323
   - aps:
-      peer:
-        conf:
-          neighbor_address: 165.178.86.25
-          peer_asn: 13
-    name: addpeer
-  - aps:
-      peer:
-        conf:
-          neighbor_address: 181.252.97.25
-          peer_asn: 32
-    name: addpeer
-  - aps:
-      peer:
-        conf:
-          neighbor_address: 244.172.51.9
-          peer_asn: 16
-    name: addpeer
-  - aps:
-      peer:
-        conf:
-          neighbor_address: 33.226.140.1
-          peer_asn: 1
+      peers:
+      - conf:
+          neighbor_address: 89.170.224.1
+          peer_asn: 81
+      - conf:
+          neighbor_address: 35.214.144.2
+          peer_asn: 37
+      - conf:
+          neighbor_address: 35.214.144.6
+          peer_asn: 82
+      - conf:
+          neighbor_address: 35.214.144.10
+          peer_asn: 41
+      - conf:
+          neighbor_address: 35.214.144.14
+          peer_asn: 62
+      - conf:
+          neighbor_address: 35.214.144.18
+          peer_asn: 27
+      - conf:
+          neighbor_address: 84.174.80.13
+          peer_asn: 28
     name: addpeer
 - device_name: r32
   name: StartRouter32Bgp
@@ -1184,66 +929,42 @@ inits:
     sbs:
       global:
         asn: 32
-        router_id: 181.252.97.0
+        router_id: 229.12.192.0
+      rpki:
+        address: 10.10.21.110
+        port: 3323
   - aps:
-      peer:
-        conf:
-          neighbor_address: 181.252.97.2
-          peer_asn: 61
-    name: addpeer
-  - aps:
-      peer:
-        conf:
-          neighbor_address: 181.252.97.6
-          peer_asn: 76
-    name: addpeer
-  - aps:
-      peer:
-        conf:
-          neighbor_address: 181.252.97.10
-          peer_asn: 30
-    name: addpeer
-  - aps:
-      peer:
-        conf:
-          neighbor_address: 181.252.97.14
-          peer_asn: 50
-    name: addpeer
-  - aps:
-      peer:
-        conf:
-          neighbor_address: 181.252.97.18
-          peer_asn: 2
-    name: addpeer
-  - aps:
-      peer:
-        conf:
-          neighbor_address: 181.252.97.22
+      peers:
+      - conf:
+          neighbor_address: 176.126.176.13
+          peer_asn: 70
+      - conf:
+          neighbor_address: 113.240.240.37
+          peer_asn: 23
+      - conf:
+          neighbor_address: 66.191.176.5
+          peer_asn: 10
+      - conf:
+          neighbor_address: 117.242.16.1
+          peer_asn: 58
+      - conf:
+          neighbor_address: 84.174.80.17
+          peer_asn: 28
+      - conf:
+          neighbor_address: 229.12.192.2
+          peer_asn: 46
+      - conf:
+          neighbor_address: 229.12.192.6
           peer_asn: 20
-    name: addpeer
-  - aps:
-      peer:
-        conf:
-          neighbor_address: 181.252.97.26
-          peer_asn: 31
-    name: addpeer
-  - aps:
-      peer:
-        conf:
-          neighbor_address: 181.252.97.30
-          peer_asn: 78
-    name: addpeer
-  - aps:
-      peer:
-        conf:
-          neighbor_address: 181.252.97.34
-          peer_asn: 33
-    name: addpeer
-  - aps:
-      peer:
-        conf:
-          neighbor_address: 181.252.97.38
-          peer_asn: 98
+      - conf:
+          neighbor_address: 229.12.192.10
+          peer_asn: 76
+      - conf:
+          neighbor_address: 229.12.192.14
+          peer_asn: 56
+      - conf:
+          neighbor_address: 229.12.192.18
+          peer_asn: 24
     name: addpeer
 - device_name: r33
   name: StartRouter33Bgp
@@ -1252,42 +973,33 @@ inits:
     sbs:
       global:
         asn: 33
-        router_id: 100.249.39.0
+        router_id: 56.86.16.0
+      rpki:
+        address: 10.10.21.110
+        port: 3323
   - aps:
-      peer:
-        conf:
-          neighbor_address: 156.6.3.5
-          peer_asn: 74
-    name: addpeer
-  - aps:
-      peer:
-        conf:
-          neighbor_address: 100.249.39.2
-          peer_asn: 26
-    name: addpeer
-  - aps:
-      peer:
-        conf:
-          neighbor_address: 100.249.39.6
-          peer_asn: 52
-    name: addpeer
-  - aps:
-      peer:
-        conf:
-          neighbor_address: 100.249.39.10
+      peers:
+      - conf:
+          neighbor_address: 140.15.96.25
+          peer_asn: 96
+      - conf:
+          neighbor_address: 235.182.32.13
+          peer_asn: 97
+      - conf:
+          neighbor_address: 56.86.16.2
           peer_asn: 92
-    name: addpeer
-  - aps:
-      peer:
-        conf:
-          neighbor_address: 181.252.97.33
-          peer_asn: 32
-    name: addpeer
-  - aps:
-      peer:
-        conf:
-          neighbor_address: 53.135.57.1
-          peer_asn: 6
+      - conf:
+          neighbor_address: 56.86.16.6
+          peer_asn: 13
+      - conf:
+          neighbor_address: 56.86.16.10
+          peer_asn: 38
+      - conf:
+          neighbor_address: 56.86.16.14
+          peer_asn: 67
+      - conf:
+          neighbor_address: 56.86.16.18
+          peer_asn: 89
     name: addpeer
 - device_name: r34
   name: StartRouter34Bgp
@@ -1296,18 +1008,18 @@ inits:
     sbs:
       global:
         asn: 34
-        router_id: 68.155.15.0
+        router_id: 12.5.208.0
+      rpki:
+        address: 10.10.21.110
+        port: 3323
   - aps:
-      peer:
-        conf:
-          neighbor_address: 57.179.95.5
-          peer_asn: 76
-    name: addpeer
-  - aps:
-      peer:
-        conf:
-          neighbor_address: 64.32.82.1
-          peer_asn: 96
+      peers:
+      - conf:
+          neighbor_address: 5.23.192.13
+          peer_asn: 78
+      - conf:
+          neighbor_address: 72.56.0.13
+          peer_asn: 79
     name: addpeer
 - device_name: r35
   name: StartRouter35Bgp
@@ -1316,18 +1028,18 @@ inits:
     sbs:
       global:
         asn: 35
-        router_id: 60.116.253.0
+        router_id: 26.9.80.0
+      rpki:
+        address: 10.10.21.110
+        port: 3323
   - aps:
-      peer:
-        conf:
-          neighbor_address: 156.6.3.37
-          peer_asn: 74
-    name: addpeer
-  - aps:
-      peer:
-        conf:
-          neighbor_address: 245.136.34.1
-          peer_asn: 92
+      peers:
+      - conf:
+          neighbor_address: 185.159.16.5
+          peer_asn: 90
+      - conf:
+          neighbor_address: 61.215.80.9
+          peer_asn: 87
     name: addpeer
 - device_name: r36
   name: StartRouter36Bgp
@@ -1336,24 +1048,24 @@ inits:
     sbs:
       global:
         asn: 36
-        router_id: 114.182.172.0
+        router_id: 247.187.160.0
+      rpki:
+        address: 10.10.21.110
+        port: 3323
   - aps:
-      peer:
-        conf:
-          neighbor_address: 2.167.1.33
-          peer_asn: 19
-    name: addpeer
-  - aps:
-      peer:
-        conf:
-          neighbor_address: 167.21.79.9
-          peer_asn: 73
-    name: addpeer
-  - aps:
-      peer:
-        conf:
-          neighbor_address: 221.137.18.25
-          peer_asn: 94
+      peers:
+      - conf:
+          neighbor_address: 185.159.16.29
+          peer_asn: 90
+      - conf:
+          neighbor_address: 247.187.160.2
+          peer_asn: 7
+      - conf:
+          neighbor_address: 247.187.160.6
+          peer_asn: 59
+      - conf:
+          neighbor_address: 247.187.160.10
+          peer_asn: 3
     name: addpeer
 - device_name: r37
   name: StartRouter37Bgp
@@ -1362,48 +1074,27 @@ inits:
     sbs:
       global:
         asn: 37
-        router_id: 205.225.235.0
+        router_id: 197.148.192.0
+      rpki:
+        address: 10.10.21.110
+        port: 3323
   - aps:
-      peer:
-        conf:
-          neighbor_address: 125.36.43.9
-          peer_asn: 75
-    name: addpeer
-  - aps:
-      peer:
-        conf:
-          neighbor_address: 205.225.235.2
-          peer_asn: 18
-    name: addpeer
-  - aps:
-      peer:
-        conf:
-          neighbor_address: 205.225.235.6
-          peer_asn: 28
-    name: addpeer
-  - aps:
-      peer:
-        conf:
-          neighbor_address: 205.225.235.10
-          peer_asn: 95
-    name: addpeer
-  - aps:
-      peer:
-        conf:
-          neighbor_address: 173.155.89.5
+      peers:
+      - conf:
+          neighbor_address: 185.159.16.25
           peer_asn: 90
-    name: addpeer
-  - aps:
-      peer:
-        conf:
-          neighbor_address: 51.182.230.1
-          peer_asn: 89
-    name: addpeer
-  - aps:
-      peer:
-        conf:
-          neighbor_address: 33.226.140.9
-          peer_asn: 1
+      - conf:
+          neighbor_address: 35.214.144.1
+          peer_asn: 31
+      - conf:
+          neighbor_address: 19.100.176.5
+          peer_asn: 46
+      - conf:
+          neighbor_address: 84.174.80.5
+          peer_asn: 28
+      - conf:
+          neighbor_address: 212.33.160.21
+          peer_asn: 2
     name: addpeer
 - device_name: r38
   name: StartRouter38Bgp
@@ -1412,12 +1103,42 @@ inits:
     sbs:
       global:
         asn: 38
-        router_id: 149.238.68.0
+        router_id: 118.164.80.0
+      rpki:
+        address: 10.10.21.110
+        port: 3323
   - aps:
-      peer:
-        conf:
-          neighbor_address: 146.123.40.25
-          peer_asn: 2
+      peers:
+      - conf:
+          neighbor_address: 41.85.32.5
+          peer_asn: 24
+      - conf:
+          neighbor_address: 118.164.80.2
+          peer_asn: 10
+      - conf:
+          neighbor_address: 118.164.80.6
+          peer_asn: 27
+      - conf:
+          neighbor_address: 118.164.80.10
+          peer_asn: 7
+      - conf:
+          neighbor_address: 61.215.80.13
+          peer_asn: 87
+      - conf:
+          neighbor_address: 77.212.80.1
+          peer_asn: 54
+      - conf:
+          neighbor_address: 56.86.16.9
+          peer_asn: 33
+      - conf:
+          neighbor_address: 216.189.80.5
+          peer_asn: 77
+      - conf:
+          neighbor_address: 251.86.16.1
+          peer_asn: 55
+      - conf:
+          neighbor_address: 66.194.144.1
+          peer_asn: 76
     name: addpeer
 - device_name: r39
   name: StartRouter39Bgp
@@ -1426,30 +1147,27 @@ inits:
     sbs:
       global:
         asn: 39
-        router_id: 82.225.101.0
+        router_id: 34.201.224.0
+      rpki:
+        address: 10.10.21.110
+        port: 3323
   - aps:
-      peer:
-        conf:
-          neighbor_address: 146.123.40.37
+      peers:
+      - conf:
+          neighbor_address: 113.240.240.17
+          peer_asn: 23
+      - conf:
+          neighbor_address: 212.33.160.29
           peer_asn: 2
-    name: addpeer
-  - aps:
-      peer:
-        conf:
-          neighbor_address: 27.182.194.1
-          peer_asn: 25
-    name: addpeer
-  - aps:
-      peer:
-        conf:
-          neighbor_address: 82.225.101.2
-          peer_asn: 74
-    name: addpeer
-  - aps:
-      peer:
-        conf:
-          neighbor_address: 82.225.101.6
-          peer_asn: 58
+      - conf:
+          neighbor_address: 34.201.224.2
+          peer_asn: 51
+      - conf:
+          neighbor_address: 34.201.224.6
+          peer_asn: 67
+      - conf:
+          neighbor_address: 34.201.224.10
+          peer_asn: 7
     name: addpeer
 - device_name: r40
   name: StartRouter40Bgp
@@ -1458,72 +1176,51 @@ inits:
     sbs:
       global:
         asn: 40
-        router_id: 210.190.46.0
+        router_id: 236.98.160.0
+      rpki:
+        address: 10.10.21.110
+        port: 3323
   - aps:
-      peer:
-        conf:
-          neighbor_address: 59.110.210.13
-          peer_asn: 61
-    name: addpeer
-  - aps:
-      peer:
-        conf:
-          neighbor_address: 210.190.46.2
-          peer_asn: 42
-    name: addpeer
-  - aps:
-      peer:
-        conf:
-          neighbor_address: 210.190.46.6
+      peers:
+      - conf:
+          neighbor_address: 236.98.160.2
+          peer_asn: 59
+      - conf:
+          neighbor_address: 236.98.160.6
+          peer_asn: 23
+      - conf:
+          neighbor_address: 236.98.160.10
+          peer_asn: 81
+      - conf:
+          neighbor_address: 236.98.160.14
+          peer_asn: 88
+      - conf:
+          neighbor_address: 236.98.160.18
+          peer_asn: 90
+      - conf:
+          neighbor_address: 236.98.160.22
           peer_asn: 12
-    name: addpeer
-  - aps:
-      peer:
-        conf:
-          neighbor_address: 210.190.46.10
-          peer_asn: 60
-    name: addpeer
-  - aps:
-      peer:
-        conf:
-          neighbor_address: 210.190.46.14
-          peer_asn: 14
-    name: addpeer
-  - aps:
-      peer:
-        conf:
-          neighbor_address: 210.190.46.18
-          peer_asn: 21
-    name: addpeer
-  - aps:
-      peer:
-        conf:
-          neighbor_address: 210.190.46.22
-          peer_asn: 48
-    name: addpeer
-  - aps:
-      peer:
-        conf:
-          neighbor_address: 57.179.95.45
+      - conf:
+          neighbor_address: 236.98.160.26
+          peer_asn: 78
+      - conf:
+          neighbor_address: 236.98.160.30
+          peer_asn: 96
+      - conf:
+          neighbor_address: 236.98.160.34
+          peer_asn: 24
+      - conf:
+          neighbor_address: 236.98.160.38
           peer_asn: 76
-    name: addpeer
-  - aps:
-      peer:
-        conf:
-          neighbor_address: 210.190.46.26
-          peer_asn: 57
-    name: addpeer
-  - aps:
-      peer:
-        conf:
-          neighbor_address: 210.190.46.30
-          peer_asn: 45
-    name: addpeer
-  - aps:
-      peer:
-        conf:
-          neighbor_address: 160.47.168.9
-          peer_asn: 46
+      - conf:
+          neighbor_address: 236.98.160.42
+          peer_asn: 10
+      - conf:
+          neighbor_address: 236.98.160.46
+          peer_asn: 48
+      - conf:
+          neighbor_address: 236.98.160.50
+          peer_asn: 27
     name: addpeer
 - device_name: r41
   name: StartRouter41Bgp
@@ -1532,60 +1229,24 @@ inits:
     sbs:
       global:
         asn: 41
-        router_id: 2.209.95.0
+        router_id: 101.25.128.0
+      rpki:
+        address: 10.10.21.110
+        port: 3323
   - aps:
-      peer:
-        conf:
-          neighbor_address: 59.110.210.29
-          peer_asn: 61
-    name: addpeer
-  - aps:
-      peer:
-        conf:
-          neighbor_address: 2.209.95.2
-          peer_asn: 15
-    name: addpeer
-  - aps:
-      peer:
-        conf:
-          neighbor_address: 2.209.95.6
-          peer_asn: 57
-    name: addpeer
-  - aps:
-      peer:
-        conf:
-          neighbor_address: 2.209.95.10
-          peer_asn: 66
-    name: addpeer
-  - aps:
-      peer:
-        conf:
-          neighbor_address: 2.209.95.14
-          peer_asn: 82
-    name: addpeer
-  - aps:
-      peer:
-        conf:
-          neighbor_address: 2.209.95.18
-          peer_asn: 93
-    name: addpeer
-  - aps:
-      peer:
-        conf:
-          neighbor_address: 2.209.95.22
-          peer_asn: 47
-    name: addpeer
-  - aps:
-      peer:
-        conf:
-          neighbor_address: 2.209.95.26
-          peer_asn: 49
-    name: addpeer
-  - aps:
-      peer:
-        conf:
-          neighbor_address: 2.209.95.30
-          peer_asn: 19
+      peers:
+      - conf:
+          neighbor_address: 176.126.176.9
+          peer_asn: 70
+      - conf:
+          neighbor_address: 35.214.144.9
+          peer_asn: 31
+      - conf:
+          neighbor_address: 101.191.128.1
+          peer_asn: 69
+      - conf:
+          neighbor_address: 101.25.128.2
+          peer_asn: 29
     name: addpeer
 - device_name: r42
   name: StartRouter42Bgp
@@ -1594,30 +1255,15 @@ inits:
     sbs:
       global:
         asn: 42
-        router_id: 150.193.65.0
+        router_id: 37.2.64.0
+      rpki:
+        address: 10.10.21.110
+        port: 3323
   - aps:
-      peer:
-        conf:
-          neighbor_address: 210.190.46.1
-          peer_asn: 40
-    name: addpeer
-  - aps:
-      peer:
-        conf:
-          neighbor_address: 150.193.65.2
-          peer_asn: 14
-    name: addpeer
-  - aps:
-      peer:
-        conf:
-          neighbor_address: 159.136.167.5
-          peer_asn: 7
-    name: addpeer
-  - aps:
-      peer:
-        conf:
-          neighbor_address: 192.224.123.13
-          peer_asn: 10
+      peers:
+      - conf:
+          neighbor_address: 203.131.80.5
+          peer_asn: 88
     name: addpeer
 - device_name: r43
   name: StartRouter43Bgp
@@ -1626,30 +1272,21 @@ inits:
     sbs:
       global:
         asn: 43
-        router_id: 46.72.63.0
+        router_id: 158.140.48.0
+      rpki:
+        address: 10.10.21.110
+        port: 3323
   - aps:
-      peer:
-        conf:
-          neighbor_address: 165.178.86.1
-          peer_asn: 13
-    name: addpeer
-  - aps:
-      peer:
-        conf:
-          neighbor_address: 46.72.63.2
+      peers:
+      - conf:
+          neighbor_address: 55.191.128.13
+          peer_asn: 59
+      - conf:
+          neighbor_address: 66.191.176.1
+          peer_asn: 10
+      - conf:
+          neighbor_address: 212.33.160.37
           peer_asn: 2
-    name: addpeer
-  - aps:
-      peer:
-        conf:
-          neighbor_address: 46.72.63.6
-          peer_asn: 96
-    name: addpeer
-  - aps:
-      peer:
-        conf:
-          neighbor_address: 46.72.63.10
-          peer_asn: 25
     name: addpeer
 - device_name: r44
   name: StartRouter44Bgp
@@ -1658,60 +1295,27 @@ inits:
     sbs:
       global:
         asn: 44
-        router_id: 158.70.182.0
+        router_id: 166.129.16.0
+      rpki:
+        address: 10.10.21.110
+        port: 3323
   - aps:
-      peer:
-        conf:
-          neighbor_address: 59.110.210.5
-          peer_asn: 61
-    name: addpeer
-  - aps:
-      peer:
-        conf:
-          neighbor_address: 158.70.182.2
-          peer_asn: 51
-    name: addpeer
-  - aps:
-      peer:
-        conf:
-          neighbor_address: 158.70.182.6
-          peer_asn: 28
-    name: addpeer
-  - aps:
-      peer:
-        conf:
-          neighbor_address: 158.70.182.10
-          peer_asn: 8
-    name: addpeer
-  - aps:
-      peer:
-        conf:
-          neighbor_address: 158.70.182.14
-          peer_asn: 73
-    name: addpeer
-  - aps:
-      peer:
-        conf:
-          neighbor_address: 158.70.182.18
-          peer_asn: 100
-    name: addpeer
-  - aps:
-      peer:
-        conf:
-          neighbor_address: 89.144.110.1
+      peers:
+      - conf:
+          neighbor_address: 212.33.160.13
+          peer_asn: 2
+      - conf:
+          neighbor_address: 166.129.16.2
           peer_asn: 64
-    name: addpeer
-  - aps:
-      peer:
-        conf:
-          neighbor_address: 6.42.236.5
-          peer_asn: 60
-    name: addpeer
-  - aps:
-      peer:
-        conf:
-          neighbor_address: 53.135.57.13
-          peer_asn: 6
+      - conf:
+          neighbor_address: 166.129.16.6
+          peer_asn: 29
+      - conf:
+          neighbor_address: 166.129.16.10
+          peer_asn: 70
+      - conf:
+          neighbor_address: 192.251.64.1
+          peer_asn: 74
     name: addpeer
 - device_name: r45
   name: StartRouter45Bgp
@@ -1720,30 +1324,18 @@ inits:
     sbs:
       global:
         asn: 45
-        router_id: 100.75.133.0
+        router_id: 125.118.64.0
+      rpki:
+        address: 10.10.21.110
+        port: 3323
   - aps:
-      peer:
-        conf:
-          neighbor_address: 165.178.86.13
-          peer_asn: 13
-    name: addpeer
-  - aps:
-      peer:
-        conf:
-          neighbor_address: 57.42.77.17
-          peer_asn: 70
-    name: addpeer
-  - aps:
-      peer:
-        conf:
-          neighbor_address: 210.190.46.29
-          peer_asn: 40
-    name: addpeer
-  - aps:
-      peer:
-        conf:
-          neighbor_address: 173.155.89.9
-          peer_asn: 90
+      peers:
+      - conf:
+          neighbor_address: 220.65.32.13
+          peer_asn: 12
+      - conf:
+          neighbor_address: 6.119.32.5
+          peer_asn: 95
     name: addpeer
 - device_name: r46
   name: StartRouter46Bgp
@@ -1752,54 +1344,27 @@ inits:
     sbs:
       global:
         asn: 46
-        router_id: 160.47.168.0
+        router_id: 19.100.176.0
+      rpki:
+        address: 10.10.21.110
+        port: 3323
   - aps:
-      peer:
-        conf:
-          neighbor_address: 156.6.3.9
-          peer_asn: 74
-    name: addpeer
-  - aps:
-      peer:
-        conf:
-          neighbor_address: 167.21.79.1
-          peer_asn: 73
-    name: addpeer
-  - aps:
-      peer:
-        conf:
-          neighbor_address: 160.47.168.2
-          peer_asn: 98
-    name: addpeer
-  - aps:
-      peer:
-        conf:
-          neighbor_address: 160.47.168.6
-          peer_asn: 70
-    name: addpeer
-  - aps:
-      peer:
-        conf:
-          neighbor_address: 160.47.168.10
-          peer_asn: 40
-    name: addpeer
-  - aps:
-      peer:
-        conf:
-          neighbor_address: 160.47.168.14
-          peer_asn: 69
-    name: addpeer
-  - aps:
-      peer:
-        conf:
-          neighbor_address: 160.47.168.18
-          peer_asn: 89
-    name: addpeer
-  - aps:
-      peer:
-        conf:
-          neighbor_address: 165.178.86.37
-          peer_asn: 13
+      peers:
+      - conf:
+          neighbor_address: 55.191.128.25
+          peer_asn: 59
+      - conf:
+          neighbor_address: 19.100.176.2
+          peer_asn: 64
+      - conf:
+          neighbor_address: 19.100.176.6
+          peer_asn: 37
+      - conf:
+          neighbor_address: 19.100.176.10
+          peer_asn: 66
+      - conf:
+          neighbor_address: 229.12.192.1
+          peer_asn: 32
     name: addpeer
 - device_name: r47
   name: StartRouter47Bgp
@@ -1808,18 +1373,18 @@ inits:
     sbs:
       global:
         asn: 47
-        router_id: 222.245.104.0
+        router_id: 32.202.64.0
+      rpki:
+        address: 10.10.21.110
+        port: 3323
   - aps:
-      peer:
-        conf:
-          neighbor_address: 135.49.76.9
-          peer_asn: 50
-    name: addpeer
-  - aps:
-      peer:
-        conf:
-          neighbor_address: 2.209.95.21
-          peer_asn: 41
+      peers:
+      - conf:
+          neighbor_address: 222.63.224.13
+          peer_asn: 1
+      - conf:
+          neighbor_address: 66.191.176.13
+          peer_asn: 10
     name: addpeer
 - device_name: r48
   name: StartRouter48Bgp
@@ -1828,24 +1393,21 @@ inits:
     sbs:
       global:
         asn: 48
-        router_id: 6.18.106.0
+        router_id: 243.3.160.0
+      rpki:
+        address: 10.10.21.110
+        port: 3323
   - aps:
-      peer:
-        conf:
-          neighbor_address: 210.190.46.21
+      peers:
+      - conf:
+          neighbor_address: 185.159.16.9
+          peer_asn: 90
+      - conf:
+          neighbor_address: 236.98.160.45
           peer_asn: 40
-    name: addpeer
-  - aps:
-      peer:
-        conf:
-          neighbor_address: 57.179.95.37
-          peer_asn: 76
-    name: addpeer
-  - aps:
-      peer:
-        conf:
-          neighbor_address: 156.6.3.41
-          peer_asn: 74
+      - conf:
+          neighbor_address: 243.3.160.2
+          peer_asn: 93
     name: addpeer
 - device_name: r49
   name: StartRouter49Bgp
@@ -1854,36 +1416,24 @@ inits:
     sbs:
       global:
         asn: 49
-        router_id: 253.255.150.0
+        router_id: 207.35.160.0
+      rpki:
+        address: 10.10.21.110
+        port: 3323
   - aps:
-      peer:
-        conf:
-          neighbor_address: 125.36.43.13
-          peer_asn: 75
-    name: addpeer
-  - aps:
-      peer:
-        conf:
-          neighbor_address: 189.176.132.5
-          peer_asn: 82
-    name: addpeer
-  - aps:
-      peer:
-        conf:
-          neighbor_address: 2.209.95.25
-          peer_asn: 41
-    name: addpeer
-  - aps:
-      peer:
-        conf:
-          neighbor_address: 192.224.123.9
-          peer_asn: 10
-    name: addpeer
-  - aps:
-      peer:
-        conf:
-          neighbor_address: 33.226.140.5
+      peers:
+      - conf:
+          neighbor_address: 222.63.224.17
           peer_asn: 1
+      - conf:
+          neighbor_address: 212.33.160.33
+          peer_asn: 2
+      - conf:
+          neighbor_address: 249.152.48.1
+          peer_asn: 14
+      - conf:
+          neighbor_address: 155.165.48.1
+          peer_asn: 27
     name: addpeer
 - device_name: r50
   name: StartRouter50Bgp
@@ -1892,66 +1442,21 @@ inits:
     sbs:
       global:
         asn: 50
-        router_id: 135.49.76.0
+        router_id: 234.243.16.0
+      rpki:
+        address: 10.10.21.110
+        port: 3323
   - aps:
-      peer:
-        conf:
-          neighbor_address: 181.252.97.13
-          peer_asn: 32
-    name: addpeer
-  - aps:
-      peer:
-        conf:
-          neighbor_address: 135.49.76.2
-          peer_asn: 98
-    name: addpeer
-  - aps:
-      peer:
-        conf:
-          neighbor_address: 135.49.76.6
-          peer_asn: 1
-    name: addpeer
-  - aps:
-      peer:
-        conf:
-          neighbor_address: 135.49.76.10
-          peer_asn: 47
-    name: addpeer
-  - aps:
-      peer:
-        conf:
-          neighbor_address: 135.49.76.14
-          peer_asn: 70
-    name: addpeer
-  - aps:
-      peer:
-        conf:
-          neighbor_address: 135.49.76.18
-          peer_asn: 85
-    name: addpeer
-  - aps:
-      peer:
-        conf:
-          neighbor_address: 169.86.137.9
-          peer_asn: 26
-    name: addpeer
-  - aps:
-      peer:
-        conf:
-          neighbor_address: 61.247.128.1
+      peers:
+      - conf:
+          neighbor_address: 203.131.80.9
+          peer_asn: 88
+      - conf:
+          neighbor_address: 234.243.16.2
+          peer_asn: 15
+      - conf:
+          neighbor_address: 82.213.32.13
           peer_asn: 68
-    name: addpeer
-  - aps:
-      peer:
-        conf:
-          neighbor_address: 201.188.182.1
-          peer_asn: 72
-    name: addpeer
-  - aps:
-      peer:
-        conf:
-          neighbor_address: 244.172.51.5
-          peer_asn: 16
     name: addpeer
 - device_name: r51
   name: StartRouter51Bgp
@@ -1960,36 +1465,30 @@ inits:
     sbs:
       global:
         asn: 51
-        router_id: 64.239.104.0
+        router_id: 109.84.128.0
+      rpki:
+        address: 10.10.21.110
+        port: 3323
   - aps:
-      peer:
-        conf:
-          neighbor_address: 158.70.182.1
-          peer_asn: 44
-    name: addpeer
-  - aps:
-      peer:
-        conf:
-          neighbor_address: 64.239.104.2
-          peer_asn: 57
-    name: addpeer
-  - aps:
-      peer:
-        conf:
-          neighbor_address: 64.239.104.6
-          peer_asn: 73
-    name: addpeer
-  - aps:
-      peer:
-        conf:
-          neighbor_address: 64.239.104.10
-          peer_asn: 84
-    name: addpeer
-  - aps:
-      peer:
-        conf:
-          neighbor_address: 6.42.236.9
-          peer_asn: 60
+      peers:
+      - conf:
+          neighbor_address: 113.240.240.21
+          peer_asn: 23
+      - conf:
+          neighbor_address: 109.84.128.2
+          peer_asn: 99
+      - conf:
+          neighbor_address: 109.84.128.6
+          peer_asn: 65
+      - conf:
+          neighbor_address: 222.63.224.33
+          peer_asn: 1
+      - conf:
+          neighbor_address: 22.135.160.9
+          peer_asn: 83
+      - conf:
+          neighbor_address: 34.201.224.1
+          peer_asn: 39
     name: addpeer
 - device_name: r52
   name: StartRouter52Bgp
@@ -1998,30 +1497,27 @@ inits:
     sbs:
       global:
         asn: 52
-        router_id: 107.138.180.0
+        router_id: 255.74.208.0
+      rpki:
+        address: 10.10.21.110
+        port: 3323
   - aps:
-      peer:
-        conf:
-          neighbor_address: 2.167.1.37
-          peer_asn: 19
-    name: addpeer
-  - aps:
-      peer:
-        conf:
-          neighbor_address: 100.249.39.5
-          peer_asn: 33
-    name: addpeer
-  - aps:
-      peer:
-        conf:
-          neighbor_address: 189.176.132.9
-          peer_asn: 82
-    name: addpeer
-  - aps:
-      peer:
-        conf:
-          neighbor_address: 59.110.210.49
-          peer_asn: 61
+      peers:
+      - conf:
+          neighbor_address: 222.63.224.21
+          peer_asn: 1
+      - conf:
+          neighbor_address: 236.199.112.5
+          peer_asn: 62
+      - conf:
+          neighbor_address: 255.74.208.2
+          peer_asn: 10
+      - conf:
+          neighbor_address: 255.74.208.6
+          peer_asn: 53
+      - conf:
+          neighbor_address: 117.242.16.5
+          peer_asn: 58
     name: addpeer
 - device_name: r53
   name: StartRouter53Bgp
@@ -2030,30 +1526,21 @@ inits:
     sbs:
       global:
         asn: 53
-        router_id: 239.158.184.0
+        router_id: 228.161.128.0
+      rpki:
+        address: 10.10.21.110
+        port: 3323
   - aps:
-      peer:
-        conf:
-          neighbor_address: 2.167.1.1
-          peer_asn: 19
-    name: addpeer
-  - aps:
-      peer:
-        conf:
-          neighbor_address: 61.247.128.5
-          peer_asn: 68
-    name: addpeer
-  - aps:
-      peer:
-        conf:
-          neighbor_address: 200.114.209.5
-          peer_asn: 18
-    name: addpeer
-  - aps:
-      peer:
-        conf:
-          neighbor_address: 159.136.167.1
-          peer_asn: 7
+      peers:
+      - conf:
+          neighbor_address: 5.23.192.25
+          peer_asn: 78
+      - conf:
+          neighbor_address: 255.74.208.5
+          peer_asn: 52
+      - conf:
+          neighbor_address: 97.7.160.5
+          peer_asn: 26
     name: addpeer
 - device_name: r54
   name: StartRouter54Bgp
@@ -2062,12 +1549,21 @@ inits:
     sbs:
       global:
         asn: 54
-        router_id: 70.127.1.0
+        router_id: 77.212.80.0
+      rpki:
+        address: 10.10.21.110
+        port: 3323
   - aps:
-      peer:
-        conf:
-          neighbor_address: 146.123.40.13
-          peer_asn: 2
+      peers:
+      - conf:
+          neighbor_address: 5.23.192.17
+          peer_asn: 78
+      - conf:
+          neighbor_address: 77.212.80.2
+          peer_asn: 38
+      - conf:
+          neighbor_address: 71.242.144.1
+          peer_asn: 25
     name: addpeer
 - device_name: r55
   name: StartRouter55Bgp
@@ -2076,18 +1572,30 @@ inits:
     sbs:
       global:
         asn: 55
-        router_id: 64.121.117.0
+        router_id: 251.86.16.0
+      rpki:
+        address: 10.10.21.110
+        port: 3323
   - aps:
-      peer:
-        conf:
-          neighbor_address: 157.179.117.21
-          peer_asn: 30
-    name: addpeer
-  - aps:
-      peer:
-        conf:
-          neighbor_address: 197.238.96.9
-          peer_asn: 22
+      peers:
+      - conf:
+          neighbor_address: 203.131.80.17
+          peer_asn: 88
+      - conf:
+          neighbor_address: 144.131.96.1
+          peer_asn: 29
+      - conf:
+          neighbor_address: 176.3.192.5
+          peer_asn: 16
+      - conf:
+          neighbor_address: 251.86.16.2
+          peer_asn: 38
+      - conf:
+          neighbor_address: 251.86.16.6
+          peer_asn: 20
+      - conf:
+          neighbor_address: 155.165.48.13
+          peer_asn: 27
     name: addpeer
 - device_name: r56
   name: StartRouter56Bgp
@@ -2096,18 +1604,21 @@ inits:
     sbs:
       global:
         asn: 56
-        router_id: 168.11.249.0
+        router_id: 172.49.224.0
+      rpki:
+        address: 10.10.21.110
+        port: 3323
   - aps:
-      peer:
-        conf:
-          neighbor_address: 2.167.1.13
-          peer_asn: 19
-    name: addpeer
-  - aps:
-      peer:
-        conf:
-          neighbor_address: 57.179.95.33
-          peer_asn: 76
+      peers:
+      - conf:
+          neighbor_address: 220.65.32.5
+          peer_asn: 12
+      - conf:
+          neighbor_address: 216.189.80.17
+          peer_asn: 77
+      - conf:
+          neighbor_address: 229.12.192.13
+          peer_asn: 32
     name: addpeer
 - device_name: r57
   name: StartRouter57Bgp
@@ -2116,30 +1627,15 @@ inits:
     sbs:
       global:
         asn: 57
-        router_id: 41.57.140.0
+        router_id: 181.136.224.0
+      rpki:
+        address: 10.10.21.110
+        port: 3323
   - aps:
-      peer:
-        conf:
-          neighbor_address: 2.209.95.5
-          peer_asn: 41
-    name: addpeer
-  - aps:
-      peer:
-        conf:
-          neighbor_address: 210.190.46.25
-          peer_asn: 40
-    name: addpeer
-  - aps:
-      peer:
-        conf:
-          neighbor_address: 64.239.104.1
-          peer_asn: 51
-    name: addpeer
-  - aps:
-      peer:
-        conf:
-          neighbor_address: 57.31.80.5
-          peer_asn: 63
+      peers:
+      - conf:
+          neighbor_address: 89.170.224.25
+          peer_asn: 81
     name: addpeer
 - device_name: r58
   name: StartRouter58Bgp
@@ -2148,48 +1644,24 @@ inits:
     sbs:
       global:
         asn: 58
-        router_id: 22.131.168.0
+        router_id: 117.242.16.0
+      rpki:
+        address: 10.10.21.110
+        port: 3323
   - aps:
-      peer:
-        conf:
-          neighbor_address: 2.167.1.5
-          peer_asn: 19
-    name: addpeer
-  - aps:
-      peer:
-        conf:
-          neighbor_address: 22.131.168.2
-          peer_asn: 66
-    name: addpeer
-  - aps:
-      peer:
-        conf:
-          neighbor_address: 245.136.34.5
-          peer_asn: 92
-    name: addpeer
-  - aps:
-      peer:
-        conf:
-          neighbor_address: 82.225.101.5
-          peer_asn: 39
-    name: addpeer
-  - aps:
-      peer:
-        conf:
-          neighbor_address: 167.21.79.5
-          peer_asn: 73
-    name: addpeer
-  - aps:
-      peer:
-        conf:
-          neighbor_address: 200.114.209.1
-          peer_asn: 18
-    name: addpeer
-  - aps:
-      peer:
-        conf:
-          neighbor_address: 110.28.68.13
-          peer_asn: 97
+      peers:
+      - conf:
+          neighbor_address: 140.15.96.21
+          peer_asn: 96
+      - conf:
+          neighbor_address: 117.242.16.2
+          peer_asn: 32
+      - conf:
+          neighbor_address: 117.242.16.6
+          peer_asn: 52
+      - conf:
+          neighbor_address: 117.242.16.10
+          peer_asn: 7
     name: addpeer
 - device_name: r59
   name: StartRouter59Bgp
@@ -2198,24 +1670,48 @@ inits:
     sbs:
       global:
         asn: 59
-        router_id: 177.103.38.0
+        router_id: 55.191.128.0
+      rpki:
+        address: 10.10.21.110
+        port: 3323
   - aps:
-      peer:
-        conf:
-          neighbor_address: 221.137.18.13
-          peer_asn: 94
-    name: addpeer
-  - aps:
-      peer:
-        conf:
-          neighbor_address: 89.144.110.5
-          peer_asn: 64
-    name: addpeer
-  - aps:
-      peer:
-        conf:
-          neighbor_address: 57.31.80.13
-          peer_asn: 63
+      peers:
+      - conf:
+          neighbor_address: 236.98.160.1
+          peer_asn: 40
+      - conf:
+          neighbor_address: 55.191.128.2
+          peer_asn: 2
+      - conf:
+          neighbor_address: 55.191.128.6
+          peer_asn: 70
+      - conf:
+          neighbor_address: 55.191.128.10
+          peer_asn: 1
+      - conf:
+          neighbor_address: 55.191.128.14
+          peer_asn: 43
+      - conf:
+          neighbor_address: 55.191.128.18
+          peer_asn: 77
+      - conf:
+          neighbor_address: 55.191.128.22
+          peer_asn: 87
+      - conf:
+          neighbor_address: 55.191.128.26
+          peer_asn: 46
+      - conf:
+          neighbor_address: 55.191.128.30
+          peer_asn: 18
+      - conf:
+          neighbor_address: 143.10.160.1
+          peer_asn: 75
+      - conf:
+          neighbor_address: 55.191.128.34
+          peer_asn: 99
+      - conf:
+          neighbor_address: 247.187.160.5
+          peer_asn: 36
     name: addpeer
 - device_name: r60
   name: StartRouter60Bgp
@@ -2224,36 +1720,21 @@ inits:
     sbs:
       global:
         asn: 60
-        router_id: 6.42.236.0
+        router_id: 30.66.16.0
+      rpki:
+        address: 10.10.21.110
+        port: 3323
   - aps:
-      peer:
-        conf:
-          neighbor_address: 210.190.46.9
-          peer_asn: 40
-    name: addpeer
-  - aps:
-      peer:
-        conf:
-          neighbor_address: 6.42.236.2
-          peer_asn: 20
-    name: addpeer
-  - aps:
-      peer:
-        conf:
-          neighbor_address: 6.42.236.6
-          peer_asn: 44
-    name: addpeer
-  - aps:
-      peer:
-        conf:
-          neighbor_address: 6.42.236.10
-          peer_asn: 51
-    name: addpeer
-  - aps:
-      peer:
-        conf:
-          neighbor_address: 6.42.236.14
-          peer_asn: 96
+      peers:
+      - conf:
+          neighbor_address: 176.126.176.1
+          peer_asn: 70
+      - conf:
+          neighbor_address: 155.123.32.5
+          peer_asn: 4
+      - conf:
+          neighbor_address: 66.191.176.9
+          peer_asn: 10
     name: addpeer
 - device_name: r61
   name: StartRouter61Bgp
@@ -2262,90 +1743,18 @@ inits:
     sbs:
       global:
         asn: 61
-        router_id: 59.110.210.0
+        router_id: 63.253.32.0
+      rpki:
+        address: 10.10.21.110
+        port: 3323
   - aps:
-      peer:
-        conf:
-          neighbor_address: 181.252.97.1
-          peer_asn: 32
-    name: addpeer
-  - aps:
-      peer:
-        conf:
-          neighbor_address: 59.110.210.2
-          peer_asn: 13
-    name: addpeer
-  - aps:
-      peer:
-        conf:
-          neighbor_address: 59.110.210.6
-          peer_asn: 44
-    name: addpeer
-  - aps:
-      peer:
-        conf:
-          neighbor_address: 59.110.210.10
-          peer_asn: 74
-    name: addpeer
-  - aps:
-      peer:
-        conf:
-          neighbor_address: 59.110.210.14
-          peer_asn: 40
-    name: addpeer
-  - aps:
-      peer:
-        conf:
-          neighbor_address: 59.110.210.18
-          peer_asn: 75
-    name: addpeer
-  - aps:
-      peer:
-        conf:
-          neighbor_address: 59.110.210.22
-          peer_asn: 94
-    name: addpeer
-  - aps:
-      peer:
-        conf:
-          neighbor_address: 59.110.210.26
-          peer_asn: 19
-    name: addpeer
-  - aps:
-      peer:
-        conf:
-          neighbor_address: 59.110.210.30
-          peer_asn: 41
-    name: addpeer
-  - aps:
-      peer:
-        conf:
-          neighbor_address: 59.110.210.34
-          peer_asn: 71
-    name: addpeer
-  - aps:
-      peer:
-        conf:
-          neighbor_address: 59.110.210.38
-          peer_asn: 100
-    name: addpeer
-  - aps:
-      peer:
-        conf:
-          neighbor_address: 59.110.210.42
-          peer_asn: 80
-    name: addpeer
-  - aps:
-      peer:
-        conf:
-          neighbor_address: 59.110.210.46
-          peer_asn: 72
-    name: addpeer
-  - aps:
-      peer:
-        conf:
-          neighbor_address: 59.110.210.50
-          peer_asn: 52
+      peers:
+      - conf:
+          neighbor_address: 89.170.224.29
+          peer_asn: 81
+      - conf:
+          neighbor_address: 185.159.16.53
+          peer_asn: 90
     name: addpeer
 - device_name: r62
   name: StartRouter62Bgp
@@ -2354,12 +1763,33 @@ inits:
     sbs:
       global:
         asn: 62
-        router_id: 187.22.182.0
+        router_id: 236.199.112.0
+      rpki:
+        address: 10.10.21.110
+        port: 3323
   - aps:
-      peer:
-        conf:
-          neighbor_address: 125.36.43.21
-          peer_asn: 75
+      peers:
+      - conf:
+          neighbor_address: 220.65.32.9
+          peer_asn: 12
+      - conf:
+          neighbor_address: 236.199.112.2
+          peer_asn: 30
+      - conf:
+          neighbor_address: 236.199.112.6
+          peer_asn: 52
+      - conf:
+          neighbor_address: 236.199.112.10
+          peer_asn: 13
+      - conf:
+          neighbor_address: 236.199.112.14
+          peer_asn: 8
+      - conf:
+          neighbor_address: 35.214.144.13
+          peer_asn: 31
+      - conf:
+          neighbor_address: 6.119.32.1
+          peer_asn: 95
     name: addpeer
 - device_name: r63
   name: StartRouter63Bgp
@@ -2368,36 +1798,18 @@ inits:
     sbs:
       global:
         asn: 63
-        router_id: 57.31.80.0
+        router_id: 141.114.0.0
+      rpki:
+        address: 10.10.21.110
+        port: 3323
   - aps:
-      peer:
-        conf:
-          neighbor_address: 156.6.3.17
-          peer_asn: 74
-    name: addpeer
-  - aps:
-      peer:
-        conf:
-          neighbor_address: 57.31.80.2
-          peer_asn: 75
-    name: addpeer
-  - aps:
-      peer:
-        conf:
-          neighbor_address: 57.31.80.6
-          peer_asn: 57
-    name: addpeer
-  - aps:
-      peer:
-        conf:
-          neighbor_address: 57.31.80.10
-          peer_asn: 81
-    name: addpeer
-  - aps:
-      peer:
-        conf:
-          neighbor_address: 57.31.80.14
-          peer_asn: 59
+      peers:
+      - conf:
+          neighbor_address: 5.23.192.21
+          peer_asn: 78
+      - conf:
+          neighbor_address: 82.213.32.9
+          peer_asn: 68
     name: addpeer
 - device_name: r64
   name: StartRouter64Bgp
@@ -2406,30 +1818,24 @@ inits:
     sbs:
       global:
         asn: 64
-        router_id: 89.144.110.0
+        router_id: 89.234.224.0
+      rpki:
+        address: 10.10.21.110
+        port: 3323
   - aps:
-      peer:
-        conf:
-          neighbor_address: 165.178.86.9
-          peer_asn: 13
-    name: addpeer
-  - aps:
-      peer:
-        conf:
-          neighbor_address: 89.144.110.2
+      peers:
+      - conf:
+          neighbor_address: 185.159.16.17
+          peer_asn: 90
+      - conf:
+          neighbor_address: 19.100.176.1
+          peer_asn: 46
+      - conf:
+          neighbor_address: 166.129.16.1
           peer_asn: 44
-    name: addpeer
-  - aps:
-      peer:
-        conf:
-          neighbor_address: 89.144.110.6
-          peer_asn: 59
-    name: addpeer
-  - aps:
-      peer:
-        conf:
-          neighbor_address: 89.144.110.10
-          peer_asn: 24
+      - conf:
+          neighbor_address: 72.56.0.5
+          peer_asn: 79
     name: addpeer
 - device_name: r65
   name: StartRouter65Bgp
@@ -2438,18 +1844,21 @@ inits:
     sbs:
       global:
         asn: 65
-        router_id: 125.179.133.0
+        router_id: 203.198.48.0
+      rpki:
+        address: 10.10.21.110
+        port: 3323
   - aps:
-      peer:
-        conf:
-          neighbor_address: 125.36.43.1
-          peer_asn: 75
-    name: addpeer
-  - aps:
-      peer:
-        conf:
-          neighbor_address: 125.179.133.2
-          peer_asn: 3
+      peers:
+      - conf:
+          neighbor_address: 212.33.160.1
+          peer_asn: 2
+      - conf:
+          neighbor_address: 235.214.160.1
+          peer_asn: 72
+      - conf:
+          neighbor_address: 109.84.128.5
+          peer_asn: 51
     name: addpeer
 - device_name: r66
   name: StartRouter66Bgp
@@ -2458,18 +1867,21 @@ inits:
     sbs:
       global:
         asn: 66
-        router_id: 180.191.139.0
+        router_id: 233.50.32.0
+      rpki:
+        address: 10.10.21.110
+        port: 3323
   - aps:
-      peer:
-        conf:
-          neighbor_address: 2.209.95.9
-          peer_asn: 41
-    name: addpeer
-  - aps:
-      peer:
-        conf:
-          neighbor_address: 22.131.168.1
-          peer_asn: 58
+      peers:
+      - conf:
+          neighbor_address: 89.170.224.9
+          peer_asn: 81
+      - conf:
+          neighbor_address: 19.100.176.9
+          peer_asn: 46
+      - conf:
+          neighbor_address: 176.3.192.13
+          peer_asn: 16
     name: addpeer
 - device_name: r67
   name: StartRouter67Bgp
@@ -2478,30 +1890,21 @@ inits:
     sbs:
       global:
         asn: 67
-        router_id: 87.70.200.0
+        router_id: 159.101.80.0
+      rpki:
+        address: 10.10.21.110
+        port: 3323
   - aps:
-      peer:
-        conf:
-          neighbor_address: 156.6.3.25
-          peer_asn: 74
-    name: addpeer
-  - aps:
-      peer:
-        conf:
-          neighbor_address: 44.37.8.1
-          peer_asn: 12
-    name: addpeer
-  - aps:
-      peer:
-        conf:
-          neighbor_address: 64.62.125.1
-          peer_asn: 98
-    name: addpeer
-  - aps:
-      peer:
-        conf:
-          neighbor_address: 192.224.123.1
-          peer_asn: 10
+      peers:
+      - conf:
+          neighbor_address: 203.131.80.1
+          peer_asn: 88
+      - conf:
+          neighbor_address: 56.86.16.13
+          peer_asn: 33
+      - conf:
+          neighbor_address: 34.201.224.5
+          peer_asn: 39
     name: addpeer
 - device_name: r68
   name: StartRouter68Bgp
@@ -2510,24 +1913,30 @@ inits:
     sbs:
       global:
         asn: 68
-        router_id: 61.247.128.0
+        router_id: 82.213.32.0
+      rpki:
+        address: 10.10.21.110
+        port: 3323
   - aps:
-      peer:
-        conf:
-          neighbor_address: 146.123.40.21
-          peer_asn: 2
-    name: addpeer
-  - aps:
-      peer:
-        conf:
-          neighbor_address: 61.247.128.2
+      peers:
+      - conf:
+          neighbor_address: 185.159.16.37
+          peer_asn: 90
+      - conf:
+          neighbor_address: 155.123.32.1
+          peer_asn: 4
+      - conf:
+          neighbor_address: 82.213.32.2
+          peer_asn: 87
+      - conf:
+          neighbor_address: 82.213.32.6
+          peer_asn: 85
+      - conf:
+          neighbor_address: 82.213.32.10
+          peer_asn: 63
+      - conf:
+          neighbor_address: 82.213.32.14
           peer_asn: 50
-    name: addpeer
-  - aps:
-      peer:
-        conf:
-          neighbor_address: 61.247.128.6
-          peer_asn: 53
     name: addpeer
 - device_name: r69
   name: StartRouter69Bgp
@@ -2536,18 +1945,24 @@ inits:
     sbs:
       global:
         asn: 69
-        router_id: 64.116.114.0
+        router_id: 101.191.128.0
+      rpki:
+        address: 10.10.21.110
+        port: 3323
   - aps:
-      peer:
-        conf:
-          neighbor_address: 157.179.117.17
-          peer_asn: 30
-    name: addpeer
-  - aps:
-      peer:
-        conf:
-          neighbor_address: 160.47.168.13
-          peer_asn: 46
+      peers:
+      - conf:
+          neighbor_address: 113.240.240.5
+          peer_asn: 23
+      - conf:
+          neighbor_address: 101.191.128.2
+          peer_asn: 41
+      - conf:
+          neighbor_address: 101.191.128.6
+          peer_asn: 88
+      - conf:
+          neighbor_address: 155.165.48.17
+          peer_asn: 27
     name: addpeer
 - device_name: r70
   name: StartRouter70Bgp
@@ -2556,48 +1971,39 @@ inits:
     sbs:
       global:
         asn: 70
-        router_id: 57.42.77.0
+        router_id: 176.126.176.0
+      rpki:
+        address: 10.10.21.110
+        port: 3323
   - aps:
-      peer:
-        conf:
-          neighbor_address: 135.49.76.13
-          peer_asn: 50
-    name: addpeer
-  - aps:
-      peer:
-        conf:
-          neighbor_address: 57.42.77.2
-          peer_asn: 94
-    name: addpeer
-  - aps:
-      peer:
-        conf:
-          neighbor_address: 57.42.77.6
-          peer_asn: 3
-    name: addpeer
-  - aps:
-      peer:
-        conf:
-          neighbor_address: 57.42.77.10
+      peers:
+      - conf:
+          neighbor_address: 55.191.128.5
+          peer_asn: 59
+      - conf:
+          neighbor_address: 176.126.176.2
+          peer_asn: 60
+      - conf:
+          neighbor_address: 176.126.176.6
+          peer_asn: 91
+      - conf:
+          neighbor_address: 176.126.176.10
+          peer_asn: 41
+      - conf:
+          neighbor_address: 176.126.176.14
+          peer_asn: 32
+      - conf:
+          neighbor_address: 176.126.176.18
+          peer_asn: 83
+      - conf:
+          neighbor_address: 176.126.176.22
           peer_asn: 89
-    name: addpeer
-  - aps:
-      peer:
-        conf:
-          neighbor_address: 57.42.77.14
-          peer_asn: 92
-    name: addpeer
-  - aps:
-      peer:
-        conf:
-          neighbor_address: 57.42.77.18
-          peer_asn: 45
-    name: addpeer
-  - aps:
-      peer:
-        conf:
-          neighbor_address: 160.47.168.5
-          peer_asn: 46
+      - conf:
+          neighbor_address: 97.7.160.1
+          peer_asn: 26
+      - conf:
+          neighbor_address: 166.129.16.9
+          peer_asn: 44
     name: addpeer
 - device_name: r71
   name: StartRouter71Bgp
@@ -2606,18 +2012,21 @@ inits:
     sbs:
       global:
         asn: 71
-        router_id: 205.131.11.0
+        router_id: 160.206.128.0
+      rpki:
+        address: 10.10.21.110
+        port: 3323
   - aps:
-      peer:
-        conf:
-          neighbor_address: 59.110.210.33
-          peer_asn: 61
-    name: addpeer
-  - aps:
-      peer:
-        conf:
-          neighbor_address: 179.193.39.9
-          peer_asn: 99
+      peers:
+      - conf:
+          neighbor_address: 41.85.32.13
+          peer_asn: 24
+      - conf:
+          neighbor_address: 235.182.32.5
+          peer_asn: 97
+      - conf:
+          neighbor_address: 220.32.80.5
+          peer_asn: 21
     name: addpeer
 - device_name: r72
   name: StartRouter72Bgp
@@ -2626,24 +2035,24 @@ inits:
     sbs:
       global:
         asn: 72
-        router_id: 201.188.182.0
+        router_id: 235.214.160.0
+      rpki:
+        address: 10.10.21.110
+        port: 3323
   - aps:
-      peer:
-        conf:
-          neighbor_address: 221.137.18.9
-          peer_asn: 94
-    name: addpeer
-  - aps:
-      peer:
-        conf:
-          neighbor_address: 201.188.182.2
-          peer_asn: 50
-    name: addpeer
-  - aps:
-      peer:
-        conf:
-          neighbor_address: 59.110.210.45
-          peer_asn: 61
+      peers:
+      - conf:
+          neighbor_address: 41.85.32.9
+          peer_asn: 24
+      - conf:
+          neighbor_address: 235.214.160.2
+          peer_asn: 65
+      - conf:
+          neighbor_address: 235.214.160.6
+          peer_asn: 11
+      - conf:
+          neighbor_address: 235.214.160.10
+          peer_asn: 7
     name: addpeer
 - device_name: r73
   name: StartRouter73Bgp
@@ -2652,54 +2061,18 @@ inits:
     sbs:
       global:
         asn: 73
-        router_id: 167.21.79.0
+        router_id: 48.206.128.0
+      rpki:
+        address: 10.10.21.110
+        port: 3323
   - aps:
-      peer:
-        conf:
-          neighbor_address: 158.70.182.13
-          peer_asn: 44
-    name: addpeer
-  - aps:
-      peer:
-        conf:
-          neighbor_address: 64.239.104.5
-          peer_asn: 51
-    name: addpeer
-  - aps:
-      peer:
-        conf:
-          neighbor_address: 167.21.79.2
-          peer_asn: 46
-    name: addpeer
-  - aps:
-      peer:
-        conf:
-          neighbor_address: 167.21.79.6
-          peer_asn: 58
-    name: addpeer
-  - aps:
-      peer:
-        conf:
-          neighbor_address: 167.21.79.10
-          peer_asn: 36
-    name: addpeer
-  - aps:
-      peer:
-        conf:
-          neighbor_address: 167.21.79.14
-          peer_asn: 5
-    name: addpeer
-  - aps:
-      peer:
-        conf:
-          neighbor_address: 110.28.68.5
-          peer_asn: 97
-    name: addpeer
-  - aps:
-      peer:
-        conf:
-          neighbor_address: 33.226.140.17
+      peers:
+      - conf:
+          neighbor_address: 222.63.224.25
           peer_asn: 1
+      - conf:
+          neighbor_address: 155.165.48.9
+          peer_asn: 27
     name: addpeer
 - device_name: r74
   name: StartRouter74Bgp
@@ -2708,84 +2081,21 @@ inits:
     sbs:
       global:
         asn: 74
-        router_id: 156.6.3.0
+        router_id: 192.251.64.0
+      rpki:
+        address: 10.10.21.110
+        port: 3323
   - aps:
-      peer:
-        conf:
-          neighbor_address: 59.110.210.9
-          peer_asn: 61
-    name: addpeer
-  - aps:
-      peer:
-        conf:
-          neighbor_address: 156.6.3.2
-          peer_asn: 96
-    name: addpeer
-  - aps:
-      peer:
-        conf:
-          neighbor_address: 156.6.3.6
-          peer_asn: 33
-    name: addpeer
-  - aps:
-      peer:
-        conf:
-          neighbor_address: 156.6.3.10
-          peer_asn: 46
-    name: addpeer
-  - aps:
-      peer:
-        conf:
-          neighbor_address: 156.6.3.14
-          peer_asn: 84
-    name: addpeer
-  - aps:
-      peer:
-        conf:
-          neighbor_address: 156.6.3.18
-          peer_asn: 63
-    name: addpeer
-  - aps:
-      peer:
-        conf:
-          neighbor_address: 156.6.3.22
-          peer_asn: 18
-    name: addpeer
-  - aps:
-      peer:
-        conf:
-          neighbor_address: 156.6.3.26
-          peer_asn: 67
-    name: addpeer
-  - aps:
-      peer:
-        conf:
-          neighbor_address: 156.6.3.30
+      peers:
+      - conf:
+          neighbor_address: 113.240.240.29
           peer_asn: 23
-    name: addpeer
-  - aps:
-      peer:
-        conf:
-          neighbor_address: 156.6.3.34
-          peer_asn: 95
-    name: addpeer
-  - aps:
-      peer:
-        conf:
-          neighbor_address: 156.6.3.38
-          peer_asn: 35
-    name: addpeer
-  - aps:
-      peer:
-        conf:
-          neighbor_address: 82.225.101.1
-          peer_asn: 39
-    name: addpeer
-  - aps:
-      peer:
-        conf:
-          neighbor_address: 156.6.3.42
-          peer_asn: 48
+      - conf:
+          neighbor_address: 192.251.64.2
+          peer_asn: 44
+      - conf:
+          neighbor_address: 192.251.64.6
+          peer_asn: 81
     name: addpeer
 - device_name: r75
   name: StartRouter75Bgp
@@ -2794,66 +2104,24 @@ inits:
     sbs:
       global:
         asn: 75
-        router_id: 125.36.43.0
+        router_id: 143.10.160.0
+      rpki:
+        address: 10.10.21.110
+        port: 3323
   - aps:
-      peer:
-        conf:
-          neighbor_address: 59.110.210.17
-          peer_asn: 61
-    name: addpeer
-  - aps:
-      peer:
-        conf:
-          neighbor_address: 125.36.43.2
-          peer_asn: 65
-    name: addpeer
-  - aps:
-      peer:
-        conf:
-          neighbor_address: 125.36.43.6
-          peer_asn: 22
-    name: addpeer
-  - aps:
-      peer:
-        conf:
-          neighbor_address: 125.36.43.10
-          peer_asn: 37
-    name: addpeer
-  - aps:
-      peer:
-        conf:
-          neighbor_address: 125.36.43.14
-          peer_asn: 49
-    name: addpeer
-  - aps:
-      peer:
-        conf:
-          neighbor_address: 125.36.43.18
-          peer_asn: 20
-    name: addpeer
-  - aps:
-      peer:
-        conf:
-          neighbor_address: 125.36.43.22
-          peer_asn: 62
-    name: addpeer
-  - aps:
-      peer:
-        conf:
-          neighbor_address: 125.36.43.26
-          peer_asn: 77
-    name: addpeer
-  - aps:
-      peer:
-        conf:
-          neighbor_address: 110.28.68.1
-          peer_asn: 97
-    name: addpeer
-  - aps:
-      peer:
-        conf:
-          neighbor_address: 57.31.80.1
-          peer_asn: 63
+      peers:
+      - conf:
+          neighbor_address: 222.63.224.29
+          peer_asn: 1
+      - conf:
+          neighbor_address: 143.10.160.2
+          peer_asn: 59
+      - conf:
+          neighbor_address: 143.10.160.6
+          peer_asn: 26
+      - conf:
+          neighbor_address: 5.95.32.1
+          peer_asn: 15
     name: addpeer
 - device_name: r76
   name: StartRouter76Bgp
@@ -2862,90 +2130,30 @@ inits:
     sbs:
       global:
         asn: 76
-        router_id: 57.179.95.0
+        router_id: 66.194.144.0
+      rpki:
+        address: 10.10.21.110
+        port: 3323
   - aps:
-      peer:
-        conf:
-          neighbor_address: 181.252.97.5
-          peer_asn: 32
-    name: addpeer
-  - aps:
-      peer:
-        conf:
-          neighbor_address: 57.179.95.2
-          peer_asn: 78
-    name: addpeer
-  - aps:
-      peer:
-        conf:
-          neighbor_address: 57.179.95.6
-          peer_asn: 34
-    name: addpeer
-  - aps:
-      peer:
-        conf:
-          neighbor_address: 57.179.95.10
-          peer_asn: 7
-    name: addpeer
-  - aps:
-      peer:
-        conf:
-          neighbor_address: 57.179.95.14
-          peer_asn: 9
-    name: addpeer
-  - aps:
-      peer:
-        conf:
-          neighbor_address: 57.179.95.18
-          peer_asn: 17
-    name: addpeer
-  - aps:
-      peer:
-        conf:
-          neighbor_address: 57.179.95.22
-          peer_asn: 79
-    name: addpeer
-  - aps:
-      peer:
-        conf:
-          neighbor_address: 57.179.95.26
-          peer_asn: 24
-    name: addpeer
-  - aps:
-      peer:
-        conf:
-          neighbor_address: 57.179.95.30
-          peer_asn: 3
-    name: addpeer
-  - aps:
-      peer:
-        conf:
-          neighbor_address: 57.179.95.34
-          peer_asn: 56
-    name: addpeer
-  - aps:
-      peer:
-        conf:
-          neighbor_address: 57.179.95.38
-          peer_asn: 48
-    name: addpeer
-  - aps:
-      peer:
-        conf:
-          neighbor_address: 57.179.95.42
-          peer_asn: 92
-    name: addpeer
-  - aps:
-      peer:
-        conf:
-          neighbor_address: 57.179.95.46
+      peers:
+      - conf:
+          neighbor_address: 89.170.224.13
+          peer_asn: 81
+      - conf:
+          neighbor_address: 236.98.160.37
           peer_asn: 40
-    name: addpeer
-  - aps:
-      peer:
-        conf:
-          neighbor_address: 165.178.86.29
-          peer_asn: 13
+      - conf:
+          neighbor_address: 176.3.192.9
+          peer_asn: 16
+      - conf:
+          neighbor_address: 229.12.192.9
+          peer_asn: 32
+      - conf:
+          neighbor_address: 66.194.144.2
+          peer_asn: 38
+      - conf:
+          neighbor_address: 66.194.144.6
+          peer_asn: 82
     name: addpeer
 - device_name: r77
   name: StartRouter77Bgp
@@ -2954,24 +2162,33 @@ inits:
     sbs:
       global:
         asn: 77
-        router_id: 224.2.63.0
+        router_id: 216.189.80.0
+      rpki:
+        address: 10.10.21.110
+        port: 3323
   - aps:
-      peer:
-        conf:
-          neighbor_address: 125.36.43.25
-          peer_asn: 75
-    name: addpeer
-  - aps:
-      peer:
-        conf:
-          neighbor_address: 59.147.166.1
-          peer_asn: 8
-    name: addpeer
-  - aps:
-      peer:
-        conf:
-          neighbor_address: 110.28.68.9
-          peer_asn: 97
+      peers:
+      - conf:
+          neighbor_address: 55.191.128.17
+          peer_asn: 59
+      - conf:
+          neighbor_address: 97.7.160.9
+          peer_asn: 26
+      - conf:
+          neighbor_address: 216.189.80.2
+          peer_asn: 86
+      - conf:
+          neighbor_address: 216.189.80.6
+          peer_asn: 38
+      - conf:
+          neighbor_address: 216.189.80.10
+          peer_asn: 18
+      - conf:
+          neighbor_address: 216.189.80.14
+          peer_asn: 1
+      - conf:
+          neighbor_address: 216.189.80.18
+          peer_asn: 56
     name: addpeer
 - device_name: r78
   name: StartRouter78Bgp
@@ -2980,30 +2197,42 @@ inits:
     sbs:
       global:
         asn: 78
-        router_id: 65.45.101.0
+        router_id: 5.23.192.0
+      rpki:
+        address: 10.10.21.110
+        port: 3323
   - aps:
-      peer:
-        conf:
-          neighbor_address: 57.179.95.1
-          peer_asn: 76
-    name: addpeer
-  - aps:
-      peer:
-        conf:
-          neighbor_address: 90.196.248.9
-          peer_asn: 14
-    name: addpeer
-  - aps:
-      peer:
-        conf:
-          neighbor_address: 181.252.97.29
-          peer_asn: 32
-    name: addpeer
-  - aps:
-      peer:
-        conf:
-          neighbor_address: 157.179.117.25
-          peer_asn: 30
+      peers:
+      - conf:
+          neighbor_address: 236.98.160.25
+          peer_asn: 40
+      - conf:
+          neighbor_address: 5.23.192.2
+          peer_asn: 86
+      - conf:
+          neighbor_address: 5.23.192.6
+          peer_asn: 79
+      - conf:
+          neighbor_address: 5.23.192.10
+          peer_asn: 13
+      - conf:
+          neighbor_address: 5.23.192.14
+          peer_asn: 34
+      - conf:
+          neighbor_address: 5.23.192.18
+          peer_asn: 54
+      - conf:
+          neighbor_address: 5.23.192.22
+          peer_asn: 63
+      - conf:
+          neighbor_address: 5.23.192.26
+          peer_asn: 53
+      - conf:
+          neighbor_address: 5.23.192.30
+          peer_asn: 26
+      - conf:
+          neighbor_address: 5.23.192.34
+          peer_asn: 9
     name: addpeer
 - device_name: r79
   name: StartRouter79Bgp
@@ -3012,12 +2241,33 @@ inits:
     sbs:
       global:
         asn: 79
-        router_id: 116.63.70.0
+        router_id: 72.56.0.0
+      rpki:
+        address: 10.10.21.110
+        port: 3323
   - aps:
-      peer:
-        conf:
-          neighbor_address: 57.179.95.21
-          peer_asn: 76
+      peers:
+      - conf:
+          neighbor_address: 5.23.192.5
+          peer_asn: 78
+      - conf:
+          neighbor_address: 176.3.192.1
+          peer_asn: 16
+      - conf:
+          neighbor_address: 240.19.192.5
+          peer_asn: 85
+      - conf:
+          neighbor_address: 72.56.0.2
+          peer_asn: 28
+      - conf:
+          neighbor_address: 72.56.0.6
+          peer_asn: 64
+      - conf:
+          neighbor_address: 72.56.0.10
+          peer_asn: 11
+      - conf:
+          neighbor_address: 72.56.0.14
+          peer_asn: 34
     name: addpeer
 - device_name: r80
   name: StartRouter80Bgp
@@ -3026,18 +2276,27 @@ inits:
     sbs:
       global:
         asn: 80
-        router_id: 149.137.129.0
+        router_id: 5.99.192.0
+      rpki:
+        address: 10.10.21.110
+        port: 3323
   - aps:
-      peer:
-        conf:
-          neighbor_address: 157.179.117.13
-          peer_asn: 30
-    name: addpeer
-  - aps:
-      peer:
-        conf:
-          neighbor_address: 59.110.210.41
-          peer_asn: 61
+      peers:
+      - conf:
+          neighbor_address: 89.170.224.5
+          peer_asn: 81
+      - conf:
+          neighbor_address: 22.135.160.13
+          peer_asn: 83
+      - conf:
+          neighbor_address: 16.72.0.1
+          peer_asn: 17
+      - conf:
+          neighbor_address: 185.159.16.41
+          peer_asn: 90
+      - conf:
+          neighbor_address: 249.152.48.5
+          peer_asn: 14
     name: addpeer
 - device_name: r81
   name: StartRouter81Bgp
@@ -3046,30 +2305,45 @@ inits:
     sbs:
       global:
         asn: 81
-        router_id: 177.67.59.0
+        router_id: 89.170.224.0
+      rpki:
+        address: 10.10.21.110
+        port: 3323
   - aps:
-      peer:
-        conf:
-          neighbor_address: 146.123.40.9
-          peer_asn: 2
-    name: addpeer
-  - aps:
-      peer:
-        conf:
-          neighbor_address: 27.182.194.13
-          peer_asn: 25
-    name: addpeer
-  - aps:
-      peer:
-        conf:
-          neighbor_address: 200.114.209.9
-          peer_asn: 18
-    name: addpeer
-  - aps:
-      peer:
-        conf:
-          neighbor_address: 57.31.80.9
-          peer_asn: 63
+      peers:
+      - conf:
+          neighbor_address: 236.98.160.9
+          peer_asn: 40
+      - conf:
+          neighbor_address: 89.170.224.2
+          peer_asn: 31
+      - conf:
+          neighbor_address: 89.170.224.6
+          peer_asn: 80
+      - conf:
+          neighbor_address: 89.170.224.10
+          peer_asn: 66
+      - conf:
+          neighbor_address: 89.170.224.14
+          peer_asn: 76
+      - conf:
+          neighbor_address: 89.170.224.18
+          peer_asn: 29
+      - conf:
+          neighbor_address: 89.170.224.22
+          peer_asn: 16
+      - conf:
+          neighbor_address: 89.170.224.26
+          peer_asn: 57
+      - conf:
+          neighbor_address: 89.170.224.30
+          peer_asn: 61
+      - conf:
+          neighbor_address: 89.170.224.34
+          peer_asn: 10
+      - conf:
+          neighbor_address: 192.251.64.5
+          peer_asn: 74
     name: addpeer
 - device_name: r82
   name: StartRouter82Bgp
@@ -3078,42 +2352,24 @@ inits:
     sbs:
       global:
         asn: 82
-        router_id: 189.176.132.0
+        router_id: 205.130.96.0
+      rpki:
+        address: 10.10.21.110
+        port: 3323
   - aps:
-      peer:
-        conf:
-          neighbor_address: 2.209.95.13
-          peer_asn: 41
-    name: addpeer
-  - aps:
-      peer:
-        conf:
-          neighbor_address: 189.176.132.2
-          peer_asn: 9
-    name: addpeer
-  - aps:
-      peer:
-        conf:
-          neighbor_address: 189.176.132.6
-          peer_asn: 49
-    name: addpeer
-  - aps:
-      peer:
-        conf:
-          neighbor_address: 189.176.132.10
-          peer_asn: 52
-    name: addpeer
-  - aps:
-      peer:
-        conf:
-          neighbor_address: 189.176.132.14
+      peers:
+      - conf:
+          neighbor_address: 140.15.96.33
           peer_asn: 96
-    name: addpeer
-  - aps:
-      peer:
-        conf:
-          neighbor_address: 179.193.39.1
-          peer_asn: 99
+      - conf:
+          neighbor_address: 35.214.144.5
+          peer_asn: 31
+      - conf:
+          neighbor_address: 240.19.192.9
+          peer_asn: 85
+      - conf:
+          neighbor_address: 66.194.144.5
+          peer_asn: 76
     name: addpeer
 - device_name: r83
   name: StartRouter83Bgp
@@ -3122,18 +2378,30 @@ inits:
     sbs:
       global:
         asn: 83
-        router_id: 168.169.204.0
+        router_id: 22.135.160.0
+      rpki:
+        address: 10.10.21.110
+        port: 3323
   - aps:
-      peer:
-        conf:
-          neighbor_address: 146.123.40.33
-          peer_asn: 2
-    name: addpeer
-  - aps:
-      peer:
-        conf:
-          neighbor_address: 165.178.86.41
-          peer_asn: 13
+      peers:
+      - conf:
+          neighbor_address: 176.126.176.17
+          peer_asn: 70
+      - conf:
+          neighbor_address: 22.135.160.2
+          peer_asn: 98
+      - conf:
+          neighbor_address: 22.135.160.6
+          peer_asn: 22
+      - conf:
+          neighbor_address: 22.135.160.10
+          peer_asn: 51
+      - conf:
+          neighbor_address: 22.135.160.14
+          peer_asn: 80
+      - conf:
+          neighbor_address: 84.174.80.1
+          peer_asn: 28
     name: addpeer
 - device_name: r84
   name: StartRouter84Bgp
@@ -3142,24 +2410,15 @@ inits:
     sbs:
       global:
         asn: 84
-        router_id: 94.203.166.0
+        router_id: 93.170.208.0
+      rpki:
+        address: 10.10.21.110
+        port: 3323
   - aps:
-      peer:
-        conf:
-          neighbor_address: 156.6.3.13
-          peer_asn: 74
-    name: addpeer
-  - aps:
-      peer:
-        conf:
-          neighbor_address: 90.196.248.1
-          peer_asn: 14
-    name: addpeer
-  - aps:
-      peer:
-        conf:
-          neighbor_address: 64.239.104.9
-          peer_asn: 51
+      peers:
+      - conf:
+          neighbor_address: 140.15.96.29
+          peer_asn: 96
     name: addpeer
 - device_name: r85
   name: StartRouter85Bgp
@@ -3168,24 +2427,27 @@ inits:
     sbs:
       global:
         asn: 85
-        router_id: 150.124.15.0
+        router_id: 240.19.192.0
+      rpki:
+        address: 10.10.21.110
+        port: 3323
   - aps:
-      peer:
-        conf:
-          neighbor_address: 135.49.76.17
-          peer_asn: 50
-    name: addpeer
-  - aps:
-      peer:
-        conf:
-          neighbor_address: 27.182.194.9
+      peers:
+      - conf:
+          neighbor_address: 140.15.96.9
+          peer_asn: 96
+      - conf:
+          neighbor_address: 240.19.192.2
           peer_asn: 25
-    name: addpeer
-  - aps:
-      peer:
-        conf:
-          neighbor_address: 197.238.96.5
-          peer_asn: 22
+      - conf:
+          neighbor_address: 240.19.192.6
+          peer_asn: 79
+      - conf:
+          neighbor_address: 240.19.192.10
+          peer_asn: 82
+      - conf:
+          neighbor_address: 82.213.32.5
+          peer_asn: 68
     name: addpeer
 - device_name: r86
   name: StartRouter86Bgp
@@ -3194,18 +2456,18 @@ inits:
     sbs:
       global:
         asn: 86
-        router_id: 227.71.163.0
+        router_id: 213.220.32.0
+      rpki:
+        address: 10.10.21.110
+        port: 3323
   - aps:
-      peer:
-        conf:
-          neighbor_address: 146.123.40.17
-          peer_asn: 2
-    name: addpeer
-  - aps:
-      peer:
-        conf:
-          neighbor_address: 169.86.137.5
-          peer_asn: 26
+      peers:
+      - conf:
+          neighbor_address: 5.23.192.1
+          peer_asn: 78
+      - conf:
+          neighbor_address: 216.189.80.1
+          peer_asn: 77
     name: addpeer
 - device_name: r87
   name: StartRouter87Bgp
@@ -3214,18 +2476,30 @@ inits:
     sbs:
       global:
         asn: 87
-        router_id: 187.113.94.0
+        router_id: 61.215.80.0
+      rpki:
+        address: 10.10.21.110
+        port: 3323
   - aps:
-      peer:
-        conf:
-          neighbor_address: 221.137.18.17
-          peer_asn: 94
-    name: addpeer
-  - aps:
-      peer:
-        conf:
-          neighbor_address: 90.196.248.5
-          peer_asn: 14
+      peers:
+      - conf:
+          neighbor_address: 55.191.128.21
+          peer_asn: 59
+      - conf:
+          neighbor_address: 61.215.80.2
+          peer_asn: 29
+      - conf:
+          neighbor_address: 61.215.80.6
+          peer_asn: 15
+      - conf:
+          neighbor_address: 61.215.80.10
+          peer_asn: 35
+      - conf:
+          neighbor_address: 61.215.80.14
+          peer_asn: 38
+      - conf:
+          neighbor_address: 82.213.32.1
+          peer_asn: 68
     name: addpeer
 - device_name: r88
   name: StartRouter88Bgp
@@ -3234,24 +2508,33 @@ inits:
     sbs:
       global:
         asn: 88
-        router_id: 209.111.97.0
+        router_id: 203.131.80.0
+      rpki:
+        address: 10.10.21.110
+        port: 3323
   - aps:
-      peer:
-        conf:
-          neighbor_address: 2.167.1.21
-          peer_asn: 19
-    name: addpeer
-  - aps:
-      peer:
-        conf:
-          neighbor_address: 53.135.57.9
-          peer_asn: 6
-    name: addpeer
-  - aps:
-      peer:
-        conf:
-          neighbor_address: 64.62.125.13
-          peer_asn: 98
+      peers:
+      - conf:
+          neighbor_address: 236.98.160.13
+          peer_asn: 40
+      - conf:
+          neighbor_address: 203.131.80.2
+          peer_asn: 67
+      - conf:
+          neighbor_address: 203.131.80.6
+          peer_asn: 42
+      - conf:
+          neighbor_address: 203.131.80.10
+          peer_asn: 50
+      - conf:
+          neighbor_address: 203.131.80.14
+          peer_asn: 14
+      - conf:
+          neighbor_address: 203.131.80.18
+          peer_asn: 55
+      - conf:
+          neighbor_address: 101.191.128.5
+          peer_asn: 69
     name: addpeer
 - device_name: r89
   name: StartRouter89Bgp
@@ -3260,36 +2543,18 @@ inits:
     sbs:
       global:
         asn: 89
-        router_id: 51.182.230.0
+        router_id: 195.115.48.0
+      rpki:
+        address: 10.10.21.110
+        port: 3323
   - aps:
-      peer:
-        conf:
-          neighbor_address: 146.123.40.1
-          peer_asn: 2
-    name: addpeer
-  - aps:
-      peer:
-        conf:
-          neighbor_address: 57.42.77.9
+      peers:
+      - conf:
+          neighbor_address: 176.126.176.21
           peer_asn: 70
-    name: addpeer
-  - aps:
-      peer:
-        conf:
-          neighbor_address: 51.182.230.2
-          peer_asn: 37
-    name: addpeer
-  - aps:
-      peer:
-        conf:
-          neighbor_address: 51.182.230.6
-          peer_asn: 99
-    name: addpeer
-  - aps:
-      peer:
-        conf:
-          neighbor_address: 160.47.168.17
-          peer_asn: 46
+      - conf:
+          neighbor_address: 56.86.16.17
+          peer_asn: 33
     name: addpeer
 - device_name: r90
   name: StartRouter90Bgp
@@ -3298,30 +2563,60 @@ inits:
     sbs:
       global:
         asn: 90
-        router_id: 173.155.89.0
+        router_id: 185.159.16.0
+      rpki:
+        address: 10.10.21.110
+        port: 3323
   - aps:
-      peer:
-        conf:
-          neighbor_address: 157.179.117.9
-          peer_asn: 30
-    name: addpeer
-  - aps:
-      peer:
-        conf:
-          neighbor_address: 173.155.89.2
-          peer_asn: 20
-    name: addpeer
-  - aps:
-      peer:
-        conf:
-          neighbor_address: 173.155.89.6
+      peers:
+      - conf:
+          neighbor_address: 236.98.160.17
+          peer_asn: 40
+      - conf:
+          neighbor_address: 185.159.16.2
+          peer_asn: 95
+      - conf:
+          neighbor_address: 185.159.16.6
+          peer_asn: 35
+      - conf:
+          neighbor_address: 185.159.16.10
+          peer_asn: 48
+      - conf:
+          neighbor_address: 185.159.16.14
+          peer_asn: 92
+      - conf:
+          neighbor_address: 185.159.16.18
+          peer_asn: 64
+      - conf:
+          neighbor_address: 185.159.16.22
+          peer_asn: 3
+      - conf:
+          neighbor_address: 185.159.16.26
           peer_asn: 37
-    name: addpeer
-  - aps:
-      peer:
-        conf:
-          neighbor_address: 173.155.89.10
-          peer_asn: 45
+      - conf:
+          neighbor_address: 185.159.16.30
+          peer_asn: 36
+      - conf:
+          neighbor_address: 185.159.16.34
+          peer_asn: 15
+      - conf:
+          neighbor_address: 185.159.16.38
+          peer_asn: 68
+      - conf:
+          neighbor_address: 235.182.32.9
+          peer_asn: 97
+      - conf:
+          neighbor_address: 185.159.16.42
+          peer_asn: 80
+      - conf:
+          neighbor_address: 185.159.16.46
+          peer_asn: 17
+      - conf:
+          neighbor_address: 185.159.16.50
+          peer_asn: 16
+      - conf:
+          neighbor_address: 185.159.16.54
+          peer_asn: 61
     name: addpeer
 - device_name: r91
   name: StartRouter91Bgp
@@ -3330,12 +2625,18 @@ inits:
     sbs:
       global:
         asn: 91
-        router_id: 86.170.3.0
+        router_id: 81.161.224.0
+      rpki:
+        address: 10.10.21.110
+        port: 3323
   - aps:
-      peer:
-        conf:
-          neighbor_address: 2.167.1.9
-          peer_asn: 19
+      peers:
+      - conf:
+          neighbor_address: 176.126.176.5
+          peer_asn: 70
+      - conf:
+          neighbor_address: 212.33.160.25
+          peer_asn: 2
     name: addpeer
 - device_name: r92
   name: StartRouter92Bgp
@@ -3344,42 +2645,18 @@ inits:
     sbs:
       global:
         asn: 92
-        router_id: 245.136.34.0
+        router_id: 199.182.128.0
+      rpki:
+        address: 10.10.21.110
+        port: 3323
   - aps:
-      peer:
-        conf:
-          neighbor_address: 165.178.86.5
-          peer_asn: 13
-    name: addpeer
-  - aps:
-      peer:
-        conf:
-          neighbor_address: 57.42.77.13
-          peer_asn: 70
-    name: addpeer
-  - aps:
-      peer:
-        conf:
-          neighbor_address: 57.179.95.41
-          peer_asn: 76
-    name: addpeer
-  - aps:
-      peer:
-        conf:
-          neighbor_address: 100.249.39.9
+      peers:
+      - conf:
+          neighbor_address: 185.159.16.13
+          peer_asn: 90
+      - conf:
+          neighbor_address: 56.86.16.1
           peer_asn: 33
-    name: addpeer
-  - aps:
-      peer:
-        conf:
-          neighbor_address: 245.136.34.2
-          peer_asn: 35
-    name: addpeer
-  - aps:
-      peer:
-        conf:
-          neighbor_address: 245.136.34.6
-          peer_asn: 58
     name: addpeer
 - device_name: r93
   name: StartRouter93Bgp
@@ -3388,42 +2665,18 @@ inits:
     sbs:
       global:
         asn: 93
-        router_id: 160.141.135.0
+        router_id: 43.238.96.0
+      rpki:
+        address: 10.10.21.110
+        port: 3323
   - aps:
-      peer:
-        conf:
-          neighbor_address: 2.209.95.17
-          peer_asn: 41
-    name: addpeer
-  - aps:
-      peer:
-        conf:
-          neighbor_address: 160.141.135.2
-          peer_asn: 24
-    name: addpeer
-  - aps:
-      peer:
-        conf:
-          neighbor_address: 160.141.135.6
-          peer_asn: 4
-    name: addpeer
-  - aps:
-      peer:
-        conf:
-          neighbor_address: 160.141.135.10
-          peer_asn: 18
-    name: addpeer
-  - aps:
-      peer:
-        conf:
-          neighbor_address: 53.135.57.17
-          peer_asn: 6
-    name: addpeer
-  - aps:
-      peer:
-        conf:
-          neighbor_address: 192.224.123.17
-          peer_asn: 10
+      peers:
+      - conf:
+          neighbor_address: 140.15.96.5
+          peer_asn: 96
+      - conf:
+          neighbor_address: 243.3.160.1
+          peer_asn: 48
     name: addpeer
 - device_name: r94
   name: StartRouter94Bgp
@@ -3432,84 +2685,15 @@ inits:
     sbs:
       global:
         asn: 94
-        router_id: 221.137.18.0
+        router_id: 13.246.192.0
+      rpki:
+        address: 10.10.21.110
+        port: 3323
   - aps:
-      peer:
-        conf:
-          neighbor_address: 59.110.210.21
-          peer_asn: 61
-    name: addpeer
-  - aps:
-      peer:
-        conf:
-          neighbor_address: 221.137.18.2
-          peer_asn: 29
-    name: addpeer
-  - aps:
-      peer:
-        conf:
-          neighbor_address: 221.137.18.6
-          peer_asn: 6
-    name: addpeer
-  - aps:
-      peer:
-        conf:
-          neighbor_address: 221.137.18.10
-          peer_asn: 72
-    name: addpeer
-  - aps:
-      peer:
-        conf:
-          neighbor_address: 221.137.18.14
-          peer_asn: 59
-    name: addpeer
-  - aps:
-      peer:
-        conf:
-          neighbor_address: 221.137.18.18
-          peer_asn: 87
-    name: addpeer
-  - aps:
-      peer:
-        conf:
-          neighbor_address: 221.137.18.22
-          peer_asn: 4
-    name: addpeer
-  - aps:
-      peer:
-        conf:
-          neighbor_address: 57.42.77.1
-          peer_asn: 70
-    name: addpeer
-  - aps:
-      peer:
-        conf:
-          neighbor_address: 200.114.209.13
-          peer_asn: 18
-    name: addpeer
-  - aps:
-      peer:
-        conf:
-          neighbor_address: 221.137.18.26
-          peer_asn: 36
-    name: addpeer
-  - aps:
-      peer:
-        conf:
-          neighbor_address: 221.137.18.30
-          peer_asn: 13
-    name: addpeer
-  - aps:
-      peer:
-        conf:
-          neighbor_address: 221.137.18.34
-          peer_asn: 28
-    name: addpeer
-  - aps:
-      peer:
-        conf:
-          neighbor_address: 221.137.18.38
-          peer_asn: 21
+      peers:
+      - conf:
+          neighbor_address: 113.240.240.9
+          peer_asn: 23
     name: addpeer
 - device_name: r95
   name: StartRouter95Bgp
@@ -3518,24 +2702,27 @@ inits:
     sbs:
       global:
         asn: 95
-        router_id: 129.71.63.0
+        router_id: 6.119.32.0
+      rpki:
+        address: 10.10.21.110
+        port: 3323
   - aps:
-      peer:
-        conf:
-          neighbor_address: 156.6.3.33
-          peer_asn: 74
-    name: addpeer
-  - aps:
-      peer:
-        conf:
-          neighbor_address: 205.225.235.9
-          peer_asn: 37
-    name: addpeer
-  - aps:
-      peer:
-        conf:
-          neighbor_address: 159.136.167.9
-          peer_asn: 7
+      peers:
+      - conf:
+          neighbor_address: 185.159.16.1
+          peer_asn: 90
+      - conf:
+          neighbor_address: 6.119.32.2
+          peer_asn: 62
+      - conf:
+          neighbor_address: 6.119.32.6
+          peer_asn: 45
+      - conf:
+          neighbor_address: 6.119.32.10
+          peer_asn: 26
+      - conf:
+          neighbor_address: 6.119.32.14
+          peer_asn: 14
     name: addpeer
 - device_name: r96
   name: StartRouter96Bgp
@@ -3544,36 +2731,42 @@ inits:
     sbs:
       global:
         asn: 96
-        router_id: 64.32.82.0
+        router_id: 140.15.96.0
+      rpki:
+        address: 10.10.21.110
+        port: 3323
   - aps:
-      peer:
-        conf:
-          neighbor_address: 156.6.3.1
-          peer_asn: 74
-    name: addpeer
-  - aps:
-      peer:
-        conf:
-          neighbor_address: 46.72.63.5
-          peer_asn: 43
-    name: addpeer
-  - aps:
-      peer:
-        conf:
-          neighbor_address: 189.176.132.13
+      peers:
+      - conf:
+          neighbor_address: 236.98.160.29
+          peer_asn: 40
+      - conf:
+          neighbor_address: 140.15.96.2
+          peer_asn: 5
+      - conf:
+          neighbor_address: 140.15.96.6
+          peer_asn: 93
+      - conf:
+          neighbor_address: 140.15.96.10
+          peer_asn: 85
+      - conf:
+          neighbor_address: 140.15.96.14
+          peer_asn: 21
+      - conf:
+          neighbor_address: 140.15.96.18
+          peer_asn: 11
+      - conf:
+          neighbor_address: 140.15.96.22
+          peer_asn: 58
+      - conf:
+          neighbor_address: 140.15.96.26
+          peer_asn: 33
+      - conf:
+          neighbor_address: 140.15.96.30
+          peer_asn: 84
+      - conf:
+          neighbor_address: 140.15.96.34
           peer_asn: 82
-    name: addpeer
-  - aps:
-      peer:
-        conf:
-          neighbor_address: 64.32.82.2
-          peer_asn: 34
-    name: addpeer
-  - aps:
-      peer:
-        conf:
-          neighbor_address: 6.42.236.13
-          peer_asn: 60
     name: addpeer
 - device_name: r97
   name: StartRouter97Bgp
@@ -3582,36 +2775,33 @@ inits:
     sbs:
       global:
         asn: 97
-        router_id: 110.28.68.0
+        router_id: 235.182.32.0
+      rpki:
+        address: 10.10.21.110
+        port: 3323
   - aps:
-      peer:
-        conf:
-          neighbor_address: 146.123.40.29
-          peer_asn: 2
-    name: addpeer
-  - aps:
-      peer:
-        conf:
-          neighbor_address: 110.28.68.2
-          peer_asn: 75
-    name: addpeer
-  - aps:
-      peer:
-        conf:
-          neighbor_address: 110.28.68.6
-          peer_asn: 73
-    name: addpeer
-  - aps:
-      peer:
-        conf:
-          neighbor_address: 110.28.68.10
-          peer_asn: 77
-    name: addpeer
-  - aps:
-      peer:
-        conf:
-          neighbor_address: 110.28.68.14
-          peer_asn: 58
+      peers:
+      - conf:
+          neighbor_address: 113.240.240.13
+          peer_asn: 23
+      - conf:
+          neighbor_address: 235.182.32.2
+          peer_asn: 25
+      - conf:
+          neighbor_address: 235.182.32.6
+          peer_asn: 71
+      - conf:
+          neighbor_address: 235.182.32.10
+          peer_asn: 90
+      - conf:
+          neighbor_address: 235.182.32.14
+          peer_asn: 33
+      - conf:
+          neighbor_address: 235.182.32.18
+          peer_asn: 1
+      - conf:
+          neighbor_address: 5.95.32.13
+          peer_asn: 15
     name: addpeer
 - device_name: r98
   name: StartRouter98Bgp
@@ -3620,54 +2810,18 @@ inits:
     sbs:
       global:
         asn: 98
-        router_id: 64.62.125.0
+        router_id: 28.79.32.0
+      rpki:
+        address: 10.10.21.110
+        port: 3323
   - aps:
-      peer:
-        conf:
-          neighbor_address: 135.49.76.1
-          peer_asn: 50
-    name: addpeer
-  - aps:
-      peer:
-        conf:
-          neighbor_address: 181.252.97.37
-          peer_asn: 32
-    name: addpeer
-  - aps:
-      peer:
-        conf:
-          neighbor_address: 160.47.168.1
-          peer_asn: 46
-    name: addpeer
-  - aps:
-      peer:
-        conf:
-          neighbor_address: 64.62.125.2
-          peer_asn: 67
-    name: addpeer
-  - aps:
-      peer:
-        conf:
-          neighbor_address: 64.62.125.6
-          peer_asn: 27
-    name: addpeer
-  - aps:
-      peer:
-        conf:
-          neighbor_address: 64.62.125.10
-          peer_asn: 20
-    name: addpeer
-  - aps:
-      peer:
-        conf:
-          neighbor_address: 64.62.125.14
-          peer_asn: 88
-    name: addpeer
-  - aps:
-      peer:
-        conf:
-          neighbor_address: 64.62.125.18
+      peers:
+      - conf:
+          neighbor_address: 212.33.160.5
           peer_asn: 2
+      - conf:
+          neighbor_address: 22.135.160.1
+          peer_asn: 83
     name: addpeer
 - device_name: r99
   name: StartRouter99Bgp
@@ -3676,36 +2830,21 @@ inits:
     sbs:
       global:
         asn: 99
-        router_id: 179.193.39.0
+        router_id: 182.247.32.0
+      rpki:
+        address: 10.10.21.110
+        port: 3323
   - aps:
-      peer:
-        conf:
-          neighbor_address: 157.179.117.5
-          peer_asn: 30
-    name: addpeer
-  - aps:
-      peer:
-        conf:
-          neighbor_address: 51.182.230.5
-          peer_asn: 89
-    name: addpeer
-  - aps:
-      peer:
-        conf:
-          neighbor_address: 179.193.39.2
-          peer_asn: 82
-    name: addpeer
-  - aps:
-      peer:
-        conf:
-          neighbor_address: 179.193.39.6
-          peer_asn: 6
-    name: addpeer
-  - aps:
-      peer:
-        conf:
-          neighbor_address: 179.193.39.10
-          peer_asn: 71
+      peers:
+      - conf:
+          neighbor_address: 113.240.240.33
+          peer_asn: 23
+      - conf:
+          neighbor_address: 109.84.128.1
+          peer_asn: 51
+      - conf:
+          neighbor_address: 55.191.128.33
+          peer_asn: 59
     name: addpeer
 - device_name: r100
   name: StartRouter100Bgp
@@ -3714,17 +2853,16 @@ inits:
     sbs:
       global:
         asn: 100
-        router_id: 230.161.151.0
+        router_id: 18.5.176.0
+      rpki:
+        address: 10.10.21.110
+        port: 3323
   - aps:
-      peer:
-        conf:
-          neighbor_address: 158.70.182.17
-          peer_asn: 44
+      peers:
+      - conf:
+          neighbor_address: 113.240.240.25
+          peer_asn: 23
     name: addpeer
-  - aps:
-      peer:
-        conf:
-          neighbor_address: 59.110.210.37
-          peer_asn: 61
-    name: addpeer
+policies_path: topo100/policies.yaml
+routes_path: topo100/routes.yaml
 topo_name: bgp

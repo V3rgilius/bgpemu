@@ -2,9 +2,9 @@ import yaml
 import toml
 
 
-TOPOPATH = "topo/topo10/"
-OUTPATH = "output/"
-TOPONAME = "output10"
+TOPOPATH = "test/topo100/"
+OUTPATH = "test/"
+TOPONAME = "test100"
 
 def load_node():
     lines = []

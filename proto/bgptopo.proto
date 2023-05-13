@@ -13,7 +13,7 @@ message Topology {
     repeated knetopo.Link links = 3;  // connections between Nodes.
     map<string,InternalInterface>  export_ints = 4;    //List of interface to be exported out of a topo, optional.
   }
-  enum Type{
+enum Type{
     UNKNOWN = 0;
     HOST = 1;
     BGPNODE = 2;
@@ -33,8 +33,8 @@ message Config{
   map<string, string> extra_images = 2;  //Other containers running on node
   repeated string share_volumes= 3;
   map<string,knetopo.PublicVolumes> container_volumes = 4;
-  string config_path = 6;
-  string config_file = 7;
+  // string config_path = 6;
+  // string config_file = 7;
 }
 //If this is a subtopo, interface message define how internal interfaces be exported.
 message InternalInterface {

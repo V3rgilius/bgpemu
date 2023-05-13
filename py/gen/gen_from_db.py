@@ -5,13 +5,24 @@ import matplotlib.pyplot as plt
 import matplotlib.text as plttext
 from matplotlib.backends.backend_svg import FigureCanvasSVG
 
+# ```
+# 日期:2021-02-05
+# 事件简述:自治域AS136168对twitter（AS13414）进行劫持
+# 影响前缀:104.244.42.0/24
+# 劫持开始时间:15:51(UTC)
+# 持续时间:超过3小时
+# 大致范围:仅AS132132,AS61292,AS18106,AS23673接收该声明
+# 受害者RPKI情况：未发布ROA
+# https://www.manrs.org/2021/02/did-someone-try-to-hijack-twitter-yes/
+# ```
+
 tier1List=['7018','3320','3257','6830','3356','2914','5511','3491','1239','6453','6762','1299','12956','701','6461']
 searched= set(tier1List)
-myas = ['136168','13414','132132','61292','18106','23673']
-TOPOPATH="topo/sample/"
+myas = ['136168','13414','132132','61292','4844','18106','23673']
+TOPOPATH="test/real"
 
 def db_connect():
-    db = sqlite3.connect('linksdata.db')
+    db = sqlite3.connect('py/gen/linksdata.db')
     return db
 
 def get_providers(n,cursor):
@@ -75,14 +86,14 @@ def rev_gen(srcs,dsts):
     paths = {}
     for src in srcs:
         paths[src] = rev_search(src,dsts)
-        for top in get_top(paths[src],dsts):
-            more = rev_search(top,dsts)
-            cnt = len(more)
-            more =clean(more,dsts)
-            while(len(more)!= cnt):
-                cnt = len(more)
-                more = clean(more,dsts)
-            paths[src].extend(clean(more,dsts))
+        # for top in get_top(paths[src],dsts):
+        #     more = rev_search(top,dsts)
+        #     cnt = len(more)
+        #     more =clean(more,dsts)
+        #     while(len(more)!= cnt):
+        #         cnt = len(more)
+        #         more = clean(more,dsts)
+        #     paths[src].extend(clean(more,dsts))
     return paths
 
 
@@ -95,16 +106,18 @@ def gen_graph_view(str_links):
     G.add_edges_from(links)
 
     # 使用 Force-directed Layout 算法布置节点位置
-    # pos = nx.spring_layout(G)
-    pos = nx.drawing.nx_agraph.graphviz_layout(G,prog="dot")
+    # pos = nx.planar_layout(G)
+    pos = nx.drawing.nx_agraph.pygraphviz_layout(G,prog="dot")
     fig_size = max(6, len(G.nodes) / 5)
     fig = plt.figure(figsize=(fig_size, fig_size))
     # 绘制节点和边
     labels = {node: f"AS{node}" for node in G.nodes}
+    edge_labels = {link: "P" for link in links}
     # nx.draw_networkx(G,pos, with_labels=True, labels=labels)
     nx.draw_networkx_nodes(G, pos, node_color='lightblue', node_size=50)
-    nx.draw_networkx_edges(G, pos, edge_color='gray', width=0.5,node_size=1000)
-    nx.draw_networkx_labels(G, pos, labels, font_size=4)
+    nx.draw_networkx_edges(G, pos, edge_color='gray', width=0.5,node_size=200)
+    nx.draw_networkx_labels(G, pos, labels, font_size=2)
+    # nx.draw_networkx_edge_labels(G,pos,edge_labels,font_size=2,label_pos = 0.3)
     # 显示图像
     elems = fig.findobj()
     for elem in elems:
@@ -113,7 +126,7 @@ def gen_graph_view(str_links):
     plt.axis('off')
     canvas = FigureCanvasSVG(fig)
     # 将图形保存为 SVG 文件
-    canvas.print_svg(f"{TOPOPATH[:-1]}.svg")
+    canvas.print_svg(f"{TOPOPATH}/topo.svg")
     # with open("mygraph.svg", "w") as f:
     #     f.write(svg_output)
     # plt.savefig('my_graph.png')
@@ -149,7 +162,7 @@ def output(paths:'dict[str,tuple[str,str]]'):
     for src in paths:
         tmp=set(paths[src])
         links=links.union(tmp)
-    with open("topo/sample/link-list","w") as f:
+    with open(f"{TOPOPATH}/link-list","w") as f:
         for link in links:
             nodes.add(link[0])
             nodes.add(link[1])
@@ -157,10 +170,10 @@ def output(paths:'dict[str,tuple[str,str]]'):
     sql_1 = "select prefix from origin where ASN=?;"
     db = db_connect()
     cursor = db.cursor()
-    with open("topo/sample/node-list","w") as f:
+    with open(f"{TOPOPATH}/node-list","w") as f:
         for node in nodes:
-            if node in tier1List:
-                print(node)
+            # if node in tier1List:
+            #     print(node)
             cursor.execute(sql_1,(node,))
             try:
                 prefix=cursor.fetchall()[0][0]

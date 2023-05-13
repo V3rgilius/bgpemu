@@ -1,11 +1,14 @@
 # Binaries for programs and plugins
 bgpemu
+go.sum
 *.exe
 *.exe~
 *.dll
 *.so
 *.dylib
-
+*.sql
+*.tar.gz
+*.db
 # Test binary, built with `go test -c`
 *.test
 
@@ -14,3 +17,6 @@ bgpemu
 
 # Dependency directories (remove the comment below to include it)
 # vendor/
+mrts/
+test/
+doc/

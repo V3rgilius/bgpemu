@@ -105,7 +105,7 @@ func execStep(step *spb.Step, dn string, m *Manager) error {
 		}
 	case *spb.Step_Aps:
 		ap := body.Aps
-		err := addPeer(ap.Peer, m.GetGServers()[dn])
+		err := addPeers(ap.Peers, m.GetGServers()[dn])
 		if err != nil {
 			return err
 		}
@@ -137,10 +137,7 @@ func wait(t *spb.Wait) {
 	}
 }
 
-func addPeer(p *api.Peer, g string) error {
-	req := &api.AddPeerRequest{
-		Peer: p,
-	}
+func addPeers(peers []*api.Peer, g string) error {
 
 	conn, err := grpc.Dial(g, grpc.WithTransportCredentials(insecure.NewCredentials()))
 	if err != nil {
@@ -149,10 +146,14 @@ func addPeer(p *api.Peer, g string) error {
 	// create a client instance for the gRPC API
 	client := api.NewGobgpApiClient(conn)
 	defer conn.Close()
-
-	_, err = client.AddPeer(context.Background(), req)
-	if err != nil {
-		return err
+	for _, p := range peers {
+		req := &api.AddPeerRequest{
+			Peer: p,
+		}
+		_, err = client.AddPeer(context.Background(), req)
+		if err != nil {
+			return err
+		}
 	}
 	return nil
 }
@@ -184,7 +185,7 @@ func startBgp(sbs *spb.StartBgpStep, g string) error {
 	}
 
 	if sbs.GetRpki() != nil {
-		_, err = client.EnableRpki(context.Background(), sbs.GetRpki())
+		_, err = client.AddRpki(context.Background(), sbs.GetRpki())
 		if err != nil {
 			return err
 		}

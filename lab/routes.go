@@ -6,6 +6,7 @@ import (
 	"os"
 	"strings"
 
+	log "github.com/sirupsen/logrus"
 	"google.golang.org/grpc/credentials/insecure"
 
 	api "github.com/p3rdy/bgpemu/proto/gobgp"
@@ -77,6 +78,7 @@ func deployRoute(r *rtpb.Route, g string) error {
 			return err
 		}
 	}
+	log.Infof("Path added on: %s", r.GetName())
 	// print the response from the gobgp daemon
 	return nil
 }
@@ -111,11 +113,11 @@ func addPath(client api.GobgpApiClient, path *rtpb.BgpPath) error {
 			Pattrs: []*anypb.Any{nextHop, origin},
 		},
 	}
-	resp, err := client.AddPath(context.Background(), req)
+	_, err = client.AddPath(context.Background(), req)
 	if err != nil {
 		return err
 	}
-	fmt.Printf("AddPath response: %s\n", resp.String())
+	// fmt.Printf("AddPath response: %s\n", resp.String())
 	return nil
 }
 

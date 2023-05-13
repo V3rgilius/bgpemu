@@ -46,10 +46,10 @@ message FileTrans{
 }
 
 message AddPeerStep{
-    apipb.Peer peer =1;
+    repeated apipb.Peer peers =1;
 }
 
 message StartBgpStep{
     apipb.Global global = 1;
-    apipb.EnableRpkiRequest rpki = 2;
+    apipb.AddRpkiRequest rpki =2 ;
 }

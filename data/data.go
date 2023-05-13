@@ -44,21 +44,21 @@ func startMRT(r string, g string) error {
 	req := &api.EnableMrtRequest{
 		Type:             api.EnableMrtRequest_UPDATES,
 		Filename:         "/tmp/log/20060102.1504.updates.dump",
-		RotationInterval: 360,
+		RotationInterval: 240,
 	}
 	_, err = client.EnableMrt(context.Background(), req)
 	if err != nil {
 		return err
 	}
-	req = &api.EnableMrtRequest{
-		Type:             api.EnableMrtRequest_TABLE,
-		Filename:         "/tmp/log/20060102.1504.table.dump",
-		RotationInterval: 60,
-	}
-	_, err = client.EnableMrt(context.Background(), req)
-	if err != nil {
-		return err
-	}
+	// req = &api.EnableMrtRequest{
+	// 	Type:             api.EnableMrtRequest_TABLE,
+	// 	Filename:         "/tmp/log/20060102.1504.table.dump",
+	// 	RotationInterval: 60,
+	// }
+	// _, err = client.EnableMrt(context.Background(), req)
+	// if err != nil {
+	// 	return err
+	// }
 	return nil
 }
 

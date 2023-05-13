@@ -95,15 +95,14 @@ func setPolicies(client api.GobgpApiClient, p *popb.PolicyDeployment) error {
 	return nil
 }
 
-func addPolicyAssignment(client api.GobgpApiClient, pas []*api.PolicyAssignment) error {
-	for _, pa := range pas {
-		req := &api.AddPolicyAssignmentRequest{
-			Assignment: pa,
-		}
-		_, err := client.AddPolicyAssignment(context.Background(), req)
-		if err != nil {
-			return err
-		}
+func addPolicyAssignment(client api.GobgpApiClient, pa *api.PolicyAssignment) error {
+	pa.Name = "global"
+	req := &api.AddPolicyAssignmentRequest{
+		Assignment: pa,
+	}
+	_, err := client.AddPolicyAssignment(context.Background(), req)
+	if err != nil {
+		return err
 	}
 	return nil
 }
