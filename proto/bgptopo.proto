@@ -23,7 +23,7 @@ enum Type{
 message Node {
     string name = 1;
     Type type = 2;
-    optional string path =3;    //Path of subtopo's definition file.
+    string path =3;    //Path of subtopo's definition file.
     map<string,string> ip_addr = 4;
     map<uint32, knetopo.Service> services = 6;  // Map of services to enable on the node.
     Config config = 7;

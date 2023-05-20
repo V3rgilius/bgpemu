@@ -12,8 +12,9 @@ message PolicyDeployments{
 message PolicyDeployment{
     string router_name = 1;
     repeated apipb.DefinedSet defined_sets = 2;
-    repeated apipb.Policy policies = 3;
-    apipb.PolicyAssignment assignments = 4;
-    repeated apipb.PeerGroup peer_groups = 5;
+    repeated apipb.Statement statements = 3;
+    repeated apipb.Policy policies = 4;
+    apipb.PolicyAssignment assignments = 5;
+    repeated apipb.PeerGroup peer_groups = 6;
 }
 

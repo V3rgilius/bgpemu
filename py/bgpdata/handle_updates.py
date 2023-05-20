@@ -34,7 +34,7 @@ def merge_each_router(path):
     for router in files:
         for f in files[router]:
             s = get_stream(f,[
-                ("prefix-any","251.86.16.0/24")
+                # ("prefix-any","104.244.42.0/24")
             ])
             # with open(f"{path}/{router}.txt","w") as f:
             while rec := s.get_next_record():
@@ -42,9 +42,9 @@ def merge_each_router(path):
                     # f.write(f"{rec.time}#{elem.peer_asn}#{router[1:]}#{elem.fields['prefix']}#{elem.fields['as-path']}#{elem.fields['next-hop']}\n")
                     merged_elems.append((rec.time,elem.peer_asn,router[1:],elem.fields['prefix']))
                     # merged_elems.append((rec.time,elem.peer_asn,router[1:],elem.fields['prefix'],elem.fields['as-path'],elem.fields['next-hop']))
-    merged_files = [f"{path}/{router}.txt" for router in files]
+    # merged_files = [f"{path}/{router}.txt" for router in files]
     random.shuffle(merged_elems)
-    return merged_files,sorted(merged_elems,key=cmp_t)
+    return sorted(merged_elems,key=cmp_t)
 
 
 def get_stream(path,filters:list):
@@ -60,20 +60,23 @@ def get_stream(path,filters:list):
     # 遍历BGP消息
     return stream
 
-def get_affected_as(elems,prefixes:'list[str]') -> list:
+def get_affected_as(linksinfo,elems,prefixes:'list[str]') -> list:
     not_affected = set([str(n) for n in range(1,101)])
     affected = set()
     for elem in elems:
         affected.add(str(elem[1]))
+        if len(linksinfo[elem[2]]) == 1:
+            affected.add(str(elem[2]))
     return affected,not_affected.difference(affected)
 
-files, elems = merge_each_router("mrts")
-affected,not_aff = get_affected_as(elems,[
+# elems = merge_each_router("mrts")
+
+# affected,not_aff = get_affected_as(elems,[
     
-])
-print(len(affected))
-with open("mrts/all.txt","w") as f:
-    for elem in elems:
-        f.write(f"{elem[0]}#{elem[1]}#{elem[2]}#{elem[3]}")
-        f.write("\n")
-    f.write("\n".join(not_aff))
+# ])
+# print(len(affected))
+# with open("mrts/all.txt","w") as f:
+#     for elem in elems:
+#         f.write(f"{elem[0]}#{elem[1]}#{elem[2]}#{elem[3]}")
+#         f.write("\n")
+#     f.write("\n".join(not_aff))

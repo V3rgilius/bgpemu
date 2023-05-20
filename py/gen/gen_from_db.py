@@ -116,7 +116,7 @@ def gen_graph_view(str_links):
     # nx.draw_networkx(G,pos, with_labels=True, labels=labels)
     nx.draw_networkx_nodes(G, pos, node_color='lightblue', node_size=50)
     nx.draw_networkx_edges(G, pos, edge_color='gray', width=0.5,node_size=200)
-    nx.draw_networkx_labels(G, pos, labels, font_size=2)
+    nx.draw_networkx_labels(G, pos, labels, font_size=4)
     # nx.draw_networkx_edge_labels(G,pos,edge_labels,font_size=2,label_pos = 0.3)
     # 显示图像
     elems = fig.findobj()
@@ -186,5 +186,13 @@ def output(paths:'dict[str,tuple[str,str]]'):
     db.close()
     gen_graph_view(links)
 
-paths = rev_gen(myas,tier1List)
-output(paths)
+def regen_graph():
+    links = []
+    with open(f"{TOPOPATH}/link-list","r") as f:
+        for line in f.readlines():
+            links.append(line.split("#")[:2])
+    gen_graph_view(links)
+
+# paths = rev_gen(myas,tier1List)
+# output(paths)
+regen_graph()

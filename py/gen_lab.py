@@ -4,9 +4,9 @@ from gen.gen_behaviors import *
 from gen.gen_routes import *
 from gen.gen_policies import *
 
-TOPOPATH="test/topo100"
+TOPOPATH="test/real"
 TOPONAME = "bgp"
-RELPATH="topo100"
+RELPATH="real"
 
 def get_devices_links():
     devices = {}
@@ -15,15 +15,15 @@ def get_devices_links():
         nodes = f.readlines()
         for node in nodes:
             n = node.split("#")
-            devices[n[0]] = n[2]
-    with open(f"{TOPOPATH}/linkinfo","r") as f:
+            devices[n[0]] = n[2].strip()
+    with open(f"{TOPOPATH}/link-info","r") as f:
         nodes = f.readlines()
         for node in nodes:
             n = node.strip().split("#")
             try:
-                links[n[0]].append((n[2],n[1]))
+                links[n[0]].append((n[2],n[1],n[3]))
             except:
-                links[n[0]]=[(n[2],n[1])]
+                links[n[0]]=[(n[2],n[1],n[3])]
     # inits = gen_init(devices,links)
     return devices,links
 
@@ -108,7 +108,7 @@ add_behaviors(reset_scene,gen_beh_reset_all(devices))
 routes = {"topo_name":TOPONAME}
 policies = {"topo_name":TOPONAME}
 add_routes(routes,gen_routes_each_as(devices))
-add_policies(policies,gen_reject_invalid_rpki_policies(devices,[]))
+add_policies(policies,gen_commercial_policies(links))
 scene["routes_path"] = f"{RELPATH}/routes.yaml"
 scene["policies_path"] = f"{RELPATH}/policies.yaml"
 output(scene,f"{TOPOPATH}/scene.yaml")

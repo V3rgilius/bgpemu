@@ -2,9 +2,9 @@ import yaml
 import toml
 
 
-TOPOPATH = "test/topo100/"
+TOPOPATH = "test/real/"
 OUTPATH = "test/"
-TOPONAME = "test100"
+TOPONAME = "real"
 
 def load_node():
     lines = []
@@ -27,13 +27,13 @@ def load_link():
     return links
 
 
-def gen_node(asn, ip, globalip, ethlinks):
+def gen_node(asn, ip, globalip, ethlinks,relations):
     links: dict = ethlinks[asn]
     eths = links.keys()
     shells = [
         f"ip addr add {globalip[f'{asn}:{eth}']}/30 dev {eth}" for eth in eths]
     shells.append("/usr/local/bin/gobgpd > /dev/null 2> /dev/null &")  # -f /config/gobgp.toml
-    shells.append("sleep 0.5")
+    # shells.append("sleep 0.5")
     # shells.append(f"gobgp global rib add -a ipv4 {nodes[asn]} origin igp")
     # frrshells = [ "/usr/lib/frr/frrinit.sh start"]
     frrshells = [ ]
@@ -88,8 +88,8 @@ def gen_node(asn, ip, globalip, ethlinks):
     # with open("output/addip.sh",'a') as f:
     #     f.writelines(shells)
     #     f.write(f"kubectl exec -it r{asn} -n bgp -- gobgp global rib add -a ipv4 {nodes[asn]} origin egp\n")
-    neighbors=[f"{asn}#{links[eth].split(':')[0]}#{globalip[links[eth]]}\n" for eth in eths]
-    with open(f"{OUTPATH}{TOPONAME}-linkinfo","a") as f:
+    neighbors=[f"{asn}#{links[eth].split(':')[0]}#{globalip[links[eth]]}#{relations[asn][links[eth].split(':')[0]]}\n" for eth in eths]
+    with open(f"{OUTPATH}link-info","a") as f:
         f.writelines(neighbors)
     return nodedata
 
@@ -119,12 +119,23 @@ def gen_ip(ipcnt:int,ip:str)->str:
     bs[2]=str(ipcnt//256+int(bs[2]))
     return ".".join(bs)
 
+def get_relation(relations:dict,link):
+    if link[0] not in relations.keys():
+        relations[link[0]]={}
+    if link[1] not in relations.keys():
+        relations[link[1]]={}
+    relations[link[0]][link[1]]=link[2].strip()
+    relations[link[1]][link[0]]=link[2].strip()[::-1]
+
+
+
 def gen_topo(nodes, acts, links):
     eth_cnt = {}
     global_ip = {}
     eth_links = {}
     ipcnt = {}
-    with open(f"{OUTPATH}{TOPONAME}-linkinfo","w") as f:
+    relations = {}
+    with open(f"{OUTPATH}link-info","w") as f:
          pass
     for n in acts:
         eth_links[n] = {}
@@ -152,10 +163,11 @@ def gen_topo(nodes, acts, links):
         eth_links[link[0]][f"eth{ethcnt0}"] = f"{link[1]}:eth{ethcnt1}"
         eth_links[link[1]][f"eth{ethcnt1}"] = f"{link[0]}:eth{ethcnt0}"
         topodata["links"].append(gen_link(link[0], link[1], ethcnt0, ethcnt1))
+        get_relation(relations,link)
 
     for node in acts:
         topodata["nodes"].append(
-            gen_node(node, nodes[node], global_ip, eth_links))
+            gen_node(node, nodes[node], global_ip, eth_links,relations))
         eth_cnt[node] = 0
         # topodata["links"].append(gen_link(link[1], link[0], nodes, eth_cnt))
     with open(f"{OUTPATH}{TOPONAME}.yaml", 'w') as f:

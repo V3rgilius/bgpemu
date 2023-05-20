@@ -67,11 +67,22 @@ func deployPolicy(p *popb.PolicyDeployment, g string) error {
 	// create a client instance for the gRPC API
 	client := api.NewGobgpApiClient(conn)
 	defer conn.Close()
-
-	err = setPolicies(client, p)
+	err = addDefinedSets(client, p.DefinedSets)
 	if err != nil {
 		return err
 	}
+	err = addStatements(client, p.Statements)
+	if err != nil {
+		return err
+	}
+	err = addPolicies(client, p.Policies)
+	if err != nil {
+		return err
+	}
+	// err = setPolicies(client, p)
+	// if err != nil {
+	// 	return err
+	// }
 	err = addPeerGroup(client, p.PeerGroups)
 	if err != nil {
 		return err
@@ -79,6 +90,45 @@ func deployPolicy(p *popb.PolicyDeployment, g string) error {
 	err = addPolicyAssignment(client, p.Assignments)
 	if err != nil {
 		return err
+	}
+	return nil
+}
+
+func addStatements(client api.GobgpApiClient, ss []*api.Statement) error {
+	for _, s := range ss {
+		req := &api.AddStatementRequest{
+			Statement: s,
+		}
+		_, err := client.AddStatement(context.Background(), req)
+		if err != nil {
+			return err
+		}
+	}
+	return nil
+}
+
+func addDefinedSets(client api.GobgpApiClient, dss []*api.DefinedSet) error {
+	for _, ds := range dss {
+		req := &api.AddDefinedSetRequest{
+			DefinedSet: ds,
+		}
+		_, err := client.AddDefinedSet(context.Background(), req)
+		if err != nil {
+			return err
+		}
+	}
+	return nil
+}
+
+func addPolicies(client api.GobgpApiClient, ps []*api.Policy) error {
+	for _, p := range ps {
+		req := &api.AddPolicyRequest{
+			Policy: p,
+		}
+		_, err := client.AddPolicy(context.Background(), req)
+		if err != nil {
+			return err
+		}
 	}
 	return nil
 }

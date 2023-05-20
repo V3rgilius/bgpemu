@@ -121,7 +121,7 @@ func genTopo(ast *astopo.Topology) (*tpb.Topology, error) {
 					fmt.Sprintf("r%d-frr", node.Asn): {Volumes: []string{"zebra"}, Paths: []string{"/var/run/frr"}},
 					fmt.Sprintf("r%d", node.Asn):     {Volumes: []string{"zebra"}, Paths: []string{"/var/run/frr"}},
 				},
-				ConfigFile: fmt.Sprintf("r%d.toml", node.Asn),
+				// ConfigFile: fmt.Sprintf("r%d.toml", node.Asn),
 			},
 		}
 		for eth, ip := range ethIPs[node.Asn] {

@@ -84,15 +84,15 @@ func parseSubTopo(t *tpb.Topology) (*tpb.Topology, error) {
 		fullTopo.Links = append(fullTopo.Links, link)
 	}
 
-	for intName, InternalInterface := range t.ExportInts {
-		if export := subToposExports[InternalInterface.Node]; export != nil { //Internal node is a subtopo node
+	for intName, internalInterface := range t.ExportInts {
+		if export := subToposExports[internalInterface.Node]; export != nil { //Internal node is a subtopo node
 			newInternalInterface := &tpb.InternalInterface{
-				Node:    export[InternalInterface.NodeInt].Node,
-				NodeInt: export[InternalInterface.NodeInt].NodeInt,
+				Node:    export[internalInterface.NodeInt].Node,
+				NodeInt: export[internalInterface.NodeInt].NodeInt,
 			}
 			fullTopo.ExportInts[intName] = newInternalInterface
 		} else {
-			fullTopo.ExportInts[intName] = InternalInterface
+			fullTopo.ExportInts[intName] = internalInterface
 		}
 	}
 	return fullTopo, nil
