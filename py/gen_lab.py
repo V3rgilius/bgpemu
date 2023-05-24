@@ -103,17 +103,17 @@ def add_behaviors(scene: dict,behaviors):
 scene = {"topo_name":TOPONAME}
 reset_scene = {"topo_name":TOPONAME}
 devices,links = get_devices_links()
-add_inits(scene,gen_beh_init(devices,links))
-add_behaviors(reset_scene,gen_beh_reset_all(devices))
-routes = {"topo_name":TOPONAME}
+# add_inits(scene,gen_beh_init(devices,links))
+# add_behaviors(reset_scene,gen_beh_reset_all(devices))
+# routes = {"topo_name":TOPONAME}
 policies = {"topo_name":TOPONAME}
-add_routes(routes,gen_routes_each_as(devices))
+# add_routes(routes,gen_routes_each_as(devices))
 add_policies(policies,gen_commercial_policies(links))
-scene["routes_path"] = f"{RELPATH}/routes.yaml"
-scene["policies_path"] = f"{RELPATH}/policies.yaml"
-output(scene,f"{TOPOPATH}/scene.yaml")
-output(reset_scene,f"{TOPOPATH}/reset_scene.yaml")
-output(routes,f"{TOPOPATH}/routes.yaml")
+# scene["routes_path"] = f"{RELPATH}/routes.yaml"
+# scene["policies_path"] = f"{RELPATH}/policies.yaml"
+# output(scene,f"{TOPOPATH}/scene.yaml")
+# output(reset_scene,f"{TOPOPATH}/reset_scene.yaml")
+# output(routes,f"{TOPOPATH}/routes.yaml")
 output(policies,f"{TOPOPATH}/policies.yaml")
 
 # inits = gen_inits_from()

@@ -81,12 +81,12 @@ type PolicyDeployment struct {
 	sizeCache     protoimpl.SizeCache
 	unknownFields protoimpl.UnknownFields
 
-	RouterName  string                  `protobuf:"bytes,1,opt,name=router_name,json=routerName,proto3" json:"router_name,omitempty"`
-	DefinedSets []*gobgp.DefinedSet     `protobuf:"bytes,2,rep,name=defined_sets,json=definedSets,proto3" json:"defined_sets,omitempty"`
-	Statements  []*gobgp.Statement      `protobuf:"bytes,3,rep,name=statements,proto3" json:"statements,omitempty"`
-	Policies    []*gobgp.Policy         `protobuf:"bytes,4,rep,name=policies,proto3" json:"policies,omitempty"`
-	Assignments *gobgp.PolicyAssignment `protobuf:"bytes,5,opt,name=assignments,proto3" json:"assignments,omitempty"`
-	PeerGroups  []*gobgp.PeerGroup      `protobuf:"bytes,6,rep,name=peer_groups,json=peerGroups,proto3" json:"peer_groups,omitempty"`
+	RouterName  string                    `protobuf:"bytes,1,opt,name=router_name,json=routerName,proto3" json:"router_name,omitempty"`
+	DefinedSets []*gobgp.DefinedSet       `protobuf:"bytes,2,rep,name=defined_sets,json=definedSets,proto3" json:"defined_sets,omitempty"`
+	Statements  []*gobgp.Statement        `protobuf:"bytes,3,rep,name=statements,proto3" json:"statements,omitempty"`
+	Policies    []*gobgp.Policy           `protobuf:"bytes,4,rep,name=policies,proto3" json:"policies,omitempty"`
+	Assignments []*gobgp.PolicyAssignment `protobuf:"bytes,5,rep,name=assignments,proto3" json:"assignments,omitempty"`
+	PeerGroups  []*gobgp.PeerGroup        `protobuf:"bytes,6,rep,name=peer_groups,json=peerGroups,proto3" json:"peer_groups,omitempty"`
 }
 
 func (x *PolicyDeployment) Reset() {
@@ -149,7 +149,7 @@ func (x *PolicyDeployment) GetPolicies() []*gobgp.Policy {
 	return nil
 }
 
-func (x *PolicyDeployment) GetAssignments() *gobgp.PolicyAssignment {
+func (x *PolicyDeployment) GetAssignments() []*gobgp.PolicyAssignment {
 	if x != nil {
 		return x.Assignments
 	}
@@ -191,7 +191,7 @@ var file_proto_policies_proto_rawDesc = []byte{
 	0x18, 0x04, 0x20, 0x03, 0x28, 0x0b, 0x32, 0x0d, 0x2e, 0x61, 0x70, 0x69, 0x70, 0x62, 0x2e, 0x50,
 	0x6f, 0x6c, 0x69, 0x63, 0x79, 0x52, 0x08, 0x70, 0x6f, 0x6c, 0x69, 0x63, 0x69, 0x65, 0x73, 0x12,
 	0x39, 0x0a, 0x0b, 0x61, 0x73, 0x73, 0x69, 0x67, 0x6e, 0x6d, 0x65, 0x6e, 0x74, 0x73, 0x18, 0x05,
-	0x20, 0x01, 0x28, 0x0b, 0x32, 0x17, 0x2e, 0x61, 0x70, 0x69, 0x70, 0x62, 0x2e, 0x50, 0x6f, 0x6c,
+	0x20, 0x03, 0x28, 0x0b, 0x32, 0x17, 0x2e, 0x61, 0x70, 0x69, 0x70, 0x62, 0x2e, 0x50, 0x6f, 0x6c,
 	0x69, 0x63, 0x79, 0x41, 0x73, 0x73, 0x69, 0x67, 0x6e, 0x6d, 0x65, 0x6e, 0x74, 0x52, 0x0b, 0x61,
 	0x73, 0x73, 0x69, 0x67, 0x6e, 0x6d, 0x65, 0x6e, 0x74, 0x73, 0x12, 0x31, 0x0a, 0x0b, 0x70, 0x65,
 	0x65, 0x72, 0x5f, 0x67, 0x72, 0x6f, 0x75, 0x70, 0x73, 0x18, 0x06, 0x20, 0x03, 0x28, 0x0b, 0x32,

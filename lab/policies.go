@@ -3,6 +3,7 @@ package lab
 import (
 	"context"
 	"fmt"
+	log "github.com/sirupsen/logrus"
 	"os"
 	"strings"
 
@@ -27,6 +28,7 @@ func LoadPolicies(path string) (*popb.PolicyDeployments, error) {
 		if err != nil {
 			return nil, fmt.Errorf("could not parse yaml: %v", err)
 		}
+		fmt.Println(string(jsonBytes))
 		if err := protojsonUnmarshaller.Unmarshal(jsonBytes, pds); err != nil {
 			return nil, fmt.Errorf("could not parse json: %v", err)
 		}
@@ -71,14 +73,17 @@ func deployPolicy(p *popb.PolicyDeployment, g string) error {
 	if err != nil {
 		return err
 	}
+	log.Infof("DefinedSets added on: %s", p.RouterName)
 	err = addStatements(client, p.Statements)
 	if err != nil {
 		return err
 	}
+	log.Infof("Statements added on: %s", p.RouterName)
 	err = addPolicies(client, p.Policies)
 	if err != nil {
 		return err
 	}
+	log.Infof("Policies added on: %s", p.RouterName)
 	// err = setPolicies(client, p)
 	// if err != nil {
 	// 	return err
@@ -87,10 +92,11 @@ func deployPolicy(p *popb.PolicyDeployment, g string) error {
 	if err != nil {
 		return err
 	}
-	err = addPolicyAssignment(client, p.Assignments)
+	err = addPolicyAssignments(client, p.Assignments)
 	if err != nil {
 		return err
 	}
+	log.Infof("Assignments added on: %s", p.RouterName)
 	return nil
 }
 
@@ -123,7 +129,8 @@ func addDefinedSets(client api.GobgpApiClient, dss []*api.DefinedSet) error {
 func addPolicies(client api.GobgpApiClient, ps []*api.Policy) error {
 	for _, p := range ps {
 		req := &api.AddPolicyRequest{
-			Policy: p,
+			Policy:                  p,
+			ReferExistingStatements: true,
 		}
 		_, err := client.AddPolicy(context.Background(), req)
 		if err != nil {
@@ -145,14 +152,16 @@ func setPolicies(client api.GobgpApiClient, p *popb.PolicyDeployment) error {
 	return nil
 }
 
-func addPolicyAssignment(client api.GobgpApiClient, pa *api.PolicyAssignment) error {
-	pa.Name = "global"
-	req := &api.AddPolicyAssignmentRequest{
-		Assignment: pa,
-	}
-	_, err := client.AddPolicyAssignment(context.Background(), req)
-	if err != nil {
-		return err
+func addPolicyAssignments(client api.GobgpApiClient, pas []*api.PolicyAssignment) error {
+	for _, pa := range pas {
+		pa.Name = "global"
+		req := &api.AddPolicyAssignmentRequest{
+			Assignment: pa,
+		}
+		_, err := client.AddPolicyAssignment(context.Background(), req)
+		if err != nil {
+			return err
+		}
 	}
 	return nil
 }

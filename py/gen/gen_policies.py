@@ -41,40 +41,44 @@ def gen_commercial_policies(linksinfo: dict) -> dict:
         cstms = []
         for peer in linksinfo[device]:
             if (peer[2] == "C2P"):
-                prvds.append(peer[1])
+                prvds.append(peer[0]+"/30")
             elif peer[2] == "P2P":
-                peers.append(peer[1])
+                peers.append(peer[0]+"/30")
             else:
-                cstms.append(peer[1])
-        policies.append({
-            "router_name": f"r{device}",
-            "defined_sets": [{
+                cstms.append(peer[0]+"/30")
+        def_sets = [{
                 "defined_type": "COMMUNITY",
                 "name": "peer-prov",
                 "list": ["65000:10", "65100:20"]
-            },
-                {
-                "defined_type": "NEIGHBOR",
-                "name": "providers-set",
-                "list": prvds
-            },
-                {
-                "defined_type": "NEIGHBOR",
-                "name": "peers-set",
-                "list": peers
-            },
-                {
-                "defined_type": "NEIGHBOR",
-                "name": "customers-set",
-                "list": cstms
-            },
-            ],
+            }]
+        def_sets.append({
+            "defined_type": "NEIGHBOR",
+            "name": "providers-set",
+            "list": prvds
+        })
+        def_sets.append({
+            "defined_type": "NEIGHBOR",
+            "name": "peers-set",
+            "list": peers
+        })
+        def_sets.append({
+            "defined_type": "NEIGHBOR",
+            "name": "customers-set",
+            "list": cstms
+        })
+        policies.append({
+            "router_name": f"r{device}",
+            "defined_sets": def_sets,
             "statements": [{
                 "name": "noexport",
                 "conditions": {
                     "community_set": {
                         "type": "ANY",
                         "name": "peer-prov"
+                    },
+                    "neighbor_set": {
+                        "type": "INVERT",
+                        "name": "customers-set"
                     }
                 },
                 "actions": {

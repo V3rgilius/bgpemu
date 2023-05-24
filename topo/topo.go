@@ -142,6 +142,7 @@ func LoadToKneTopo(path string) (*ktpb.Topology, error) {
 		if node.GetServices() != nil {
 			kneNode.Services = node.GetServices()
 		}
+		kneNode.Config = kneConfig
 		nodes = append(nodes, kneNode)
 	}
 	kt.Nodes = nodes

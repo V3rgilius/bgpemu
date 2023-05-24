@@ -140,7 +140,7 @@ for link in links:
     nodes.add(link[0])
     nodes.add(link[1])
 affected,paths = get_affected(nodes,links,rpkis,attacked,attacker)
-plot = show.show_links_raw(list(nodes),links,affected)
+plot = show.show_affected_nodes(list(nodes),links,affected)
 save(plot,'network.html')
 
 

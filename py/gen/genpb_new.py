@@ -1,3 +1,5 @@
+from collections import deque
+import random
 import yaml
 import toml
 
@@ -5,6 +7,8 @@ import toml
 TOPOPATH = "test/real/"
 OUTPATH = "test/"
 TOPONAME = "real"
+K8SNODES = 3
+
 
 def load_node():
     lines = []
@@ -25,6 +29,42 @@ def load_link():
         lines = f.readlines()
     links = [line.split("#") for line in lines]
     return links
+
+
+def gen_my_node(asn, ip, globalip, ethlinks,relations):
+    links: dict = ethlinks[asn]
+    eths = links.keys()
+    ips ={}
+    for eth in eths:
+        ips[eth] = f"{globalip[f'{asn}:{eth}']}/30"
+    shells = ["/usr/local/bin/gobgpd > /dev/null 2> /dev/null &"]
+    frrshells = [ ]
+    nodedata = {"name": f"r{asn}",
+                "type": "BGPNODE",
+                "ip_addr":ips,
+                "config": {
+                        "tasks": [{"container": f"r{asn}-frr", "cmds": frrshells},{"container": f"r{asn}", "cmds": shells}],
+                        "extra_images": {
+                            f"r{asn}-frr": "frrouting/frr:v8.1.0",
+                        },
+                        "share_volumes": [
+                            "zebra"
+                        ],
+                        "container_volumes":{
+                            f"r{asn}-frr":{"volumes":["zebra"],"paths":["/var/run/frr"]},
+                            f"r{asn}":{"volumes":["zebra"],"paths":["/var/run/frr"]}
+                        }
+                },
+                "services":
+                    {50051: {
+                        "name": "gobgp",
+                        "inside": 50051
+                    }}
+                }
+    neighbors=[f"{asn}#{links[eth].split(':')[0]}#{globalip[links[eth]]}#{relations[asn][links[eth].split(':')[0]]}\n" for eth in eths]
+    with open(f"{OUTPATH}link-info","a") as f:
+        f.writelines(neighbors)
+    return nodedata
 
 
 def gen_node(asn, ip, globalip, ethlinks,relations):
@@ -54,6 +94,7 @@ def gen_node(asn, ip, globalip, ethlinks,relations):
                             f"r{asn}-frr":{"volumes":["zebra"],"paths":["/var/run/frr"]},
                             f"r{asn}":{"volumes":["zebra"],"paths":["/var/run/frr"]}
                         }
+                        # "affinity": affinities[asn]
                 },
                 # "interfaces":{}
                 "services":
@@ -127,6 +168,56 @@ def get_relation(relations:dict,link):
     relations[link[0]][link[1]]=link[2].strip()
     relations[link[1]][link[0]]=link[2].strip()[::-1]
 
+def get_neighbors(links):
+    neighbors = {}
+    for link in links:
+        try:
+            neighbors[link[0]].append(link[1])
+        except:
+            neighbors[link[0]]=[link[1]]
+        try:
+            neighbors[link[1]].append(link[0])
+        except:
+            neighbors[link[1]]=[link[0]]
+    return neighbors
+
+def get_affinities(nodes,links):
+    nodes_set = set(nodes)
+    neighbors = get_neighbors(links)
+    k8s_num = [len(nodes)//K8SNODES for i in range(K8SNODES)]
+    k8s_num[-1]+= len(nodes)%K8SNODES
+    init_k8s_num = k8s_num[:]
+    tags = {}
+    flag =True
+    while flag:
+        idx = k8s_num.index(max(k8s_num))
+        cnt = 0
+        node_list = [random.choice(list(nodes_set))]
+        tag = str(random.randint(1,10000))
+        while node_list!= []:
+            node = node_list.pop(0)
+            tags[node] = {"t":tag}
+            nodes_set.remove(node)
+            cnt+=1
+            for neighbor in neighbors[node]:
+                if neighbor not in node_list and neighbor in nodes_set:
+                    node_list.append(neighbor)
+            if(cnt >= k8s_num[idx]):
+                node_list = []
+        k8s_num[idx] -= cnt
+        cnt = 0
+        for i in range(K8SNODES):
+            if(init_k8s_num[i] == k8s_num[i]):
+                flag = True
+                break
+            else:
+                flag = False
+    for node in list(nodes_set):
+        for n in neighbors[node]:
+            if n in tags.keys():
+                tags[node] = tags[n]
+                break
+    return tags
 
 
 def gen_topo(nodes, acts, links):
@@ -135,6 +226,7 @@ def gen_topo(nodes, acts, links):
     eth_links = {}
     ipcnt = {}
     relations = {}
+    affinities = get_affinities(acts,links)
     with open(f"{OUTPATH}link-info","w") as f:
          pass
     for n in acts:
@@ -167,7 +259,7 @@ def gen_topo(nodes, acts, links):
 
     for node in acts:
         topodata["nodes"].append(
-            gen_node(node, nodes[node], global_ip, eth_links,relations))
+            gen_my_node(node, nodes[node], global_ip, eth_links,relations))
         eth_cnt[node] = 0
         # topodata["links"].append(gen_link(link[1], link[0], nodes, eth_cnt))
     with open(f"{OUTPATH}{TOPONAME}.yaml", 'w') as f:
@@ -183,3 +275,7 @@ if __name__ == "__main__":
     z_nodes = [link[1] for link in links]
     act_nodes = set(a_nodes).union(set(z_nodes))
     gen_topo(nodes, act_nodes, links)
+    # affinities = get_affinities(nodes,links)
+    # with open("testdata","w") as f:
+    #     for a in affinities:
+    #         f.write(str(affinities[a])+"\n")

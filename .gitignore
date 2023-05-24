@@ -1,6 +1,7 @@
 # Binaries for programs and plugins
 __pycache__
 bgpemu
+bgpemu.back
 go.sum
 *.exe
 *.exe~

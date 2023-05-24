@@ -29,7 +29,7 @@ func LoadScene(path string) (*spb.Scene, error) {
 		if err != nil {
 			return nil, fmt.Errorf("could not parse yaml: %v", err)
 		}
-		fmt.Println(string(jsonBytes))
+		// fmt.Println(string(jsonBytes))
 		if err := protojsonUnmarshaller.Unmarshal(jsonBytes, pds); err != nil {
 			return nil, fmt.Errorf("could not parse json: %v", err)
 		}

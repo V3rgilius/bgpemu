@@ -14,7 +14,7 @@ message PolicyDeployment{
     repeated apipb.DefinedSet defined_sets = 2;
     repeated apipb.Statement statements = 3;
     repeated apipb.Policy policies = 4;
-    apipb.PolicyAssignment assignments = 5;
+    repeated apipb.PolicyAssignment assignments = 5;
     repeated apipb.PeerGroup peer_groups = 6;
 }
 
