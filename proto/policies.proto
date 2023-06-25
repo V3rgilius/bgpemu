@@ -1,0 +1,20 @@
+syntax = "proto3";
+
+package policies;
+option go_package = "proto/policies";
+import "proto/gobgp/gobgp.proto";
+
+
+message PolicyDeployments{
+    string topo_name = 1;
+    repeated PolicyDeployment policy_deployments= 2;
+}
+message PolicyDeployment{
+    string router_name = 1;
+    repeated apipb.DefinedSet defined_sets = 2;
+    repeated apipb.Statement statements = 3;
+    repeated apipb.Policy policies = 4;
+    repeated apipb.PolicyAssignment assignments = 5;
+    repeated apipb.PeerGroup peer_groups = 6;
+}
+

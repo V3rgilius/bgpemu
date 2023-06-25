@@ -1,0 +1,55 @@
+syntax = "proto3";
+
+package scene;
+option go_package = "proto/scene";
+import "proto/gobgp/gobgp.proto";
+
+message Scene{
+    string topo_name = 1;
+    repeated Behavior inits = 2;
+    string routes_path = 3;
+    string policies_path = 4;
+    repeated Behavior behaviors = 5;
+}
+
+message Behavior{
+    string name = 1;
+    string device_name = 2;
+    bool is_async = 3;
+    repeated Step steps = 4;
+}
+
+message Step{
+    string name = 1;
+    oneof body {
+        Commands cmds = 2;
+        Wait wait = 3;
+        FileTrans file = 4;
+        StartBgpStep sbs = 5;
+        AddPeerStep aps = 6;
+    }
+}
+
+message Commands{
+    string container =1 ;
+    repeated string cmds = 2;
+}
+
+message Wait{
+    uint32 time = 1;
+    uint64 timestamp = 2;
+}
+
+message FileTrans{
+    string src = 1;
+    string des = 2;
+}
+
+message AddPeerStep{
+    repeated apipb.Peer peers =1;
+}
+
+message StartBgpStep{
+    apipb.Global global = 1;
+    apipb.AddRpkiRequest rpki =2 ;
+}

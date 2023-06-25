@@ -1,0 +1,31 @@
+syntax = "proto3";
+
+package routes;
+option go_package = "proto/routes";
+import "proto/gobgp/gobgp.proto";
+import "proto/gobgp/attribute.proto";
+import "google/protobuf/timestamp.proto";
+
+message RouteDeployment{
+    string topo_name=1;
+    repeated Route routes=2;
+}
+message Route{
+    string name =1;
+    optional string mrt_path =2;
+    repeated BgpPath paths = 3;
+}
+
+enum OriginType{
+
+}
+message BgpPath{
+    apipb.IPAddressPrefix nlri = 1;
+    OriginType origin = 2;
+    repeated apipb.AsSegment aspath = 3;
+    string next_hop = 4;
+    uint32 local_pref =5;
+    uint32 med = 6;
+    repeated uint32 communities = 7;
+    
+}

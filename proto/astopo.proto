@@ -1,0 +1,20 @@
+syntax = "proto3";
+
+package astopo;
+option go_package = "github.com/p3rdy/bgpemu/proto/astopo";
+
+message Topology {
+    string name = 1;  
+    repeated ASNode nodes = 2;  
+    repeated ASLink links = 3;  
+}
+
+message ASNode {
+    int32 asn = 1;
+    string net = 2;
+}
+
+message ASLink{
+    int32 a_node = 1;
+    int32 z_node = 2;
+}
