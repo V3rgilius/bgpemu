@@ -7,7 +7,7 @@
 package routes
 
 import (
-	gobgp "github.com/p3rdy/bgpemu/proto/gobgp"
+	gobgp "github.com/v3rgilius/bgpemu/proto/gobgp"
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
 	timestamppb "google.golang.org/protobuf/types/known/timestamppb"

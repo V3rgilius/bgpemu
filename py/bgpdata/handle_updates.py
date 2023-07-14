@@ -155,10 +155,11 @@ def get_packets_count(elems, t, asn):
     packet_counts.append((start, end, cnt))
     return packet_counts
 
-elems = merge_each_router("mrts")
-times = get_routing_convergence_times(elems,3)
-for time in times:
-    print(time[1]-time[0])
+# elems = merge_each_router("mrts")
+# times = get_routing_convergence_times(elems,3)
+# for time in times:
+#     print(time[1]-time[0])
+
 # print(len(affected))
 # with open("mrts/all.txt","w") as f:
 #     for elem in elems:

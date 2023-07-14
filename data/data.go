@@ -5,9 +5,9 @@ import (
 	"fmt"
 	"os/exec"
 
-	"github.com/p3rdy/bgpemu/lab"
-	api "github.com/p3rdy/bgpemu/proto/gobgp"
 	log "github.com/sirupsen/logrus"
+	"github.com/v3rgilius/bgpemu/lab"
+	api "github.com/v3rgilius/bgpemu/proto/gobgp"
 	"google.golang.org/grpc"
 	"google.golang.org/grpc/credentials/insecure"
 )

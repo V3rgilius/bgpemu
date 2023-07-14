@@ -4,9 +4,9 @@ from gen.gen_behaviors import *
 from gen.gen_routes import *
 from gen.gen_policies import *
 
-TOPOPATH="test/topo60"
+TOPOPATH="test/topo5"
 TOPONAME = "bgp"
-RELPATH="topo60"
+RELPATH="topo5"
 
 def get_devices_links():
     devices = {}
@@ -120,10 +120,10 @@ output(routes,f"{TOPOPATH}/routes.yaml")
 
 # gen_routes_from("bgp")
 
-for i in range(200,1200,200):
-    temproutes = {"topo_name":TOPONAME}
-    add_routes(temproutes,gen_random_routes(devices,i))
-    output(temproutes,f"{TOPOPATH}/routes_{i}.yaml")
+# for i in range(200,1200,200):
+#     temproutes = {"topo_name":TOPONAME}
+#     add_routes(temproutes,gen_random_routes(devices,i))
+#     output(temproutes,f"{TOPOPATH}/routes_{i}.yaml")
 
 # devices = {}
 # with open(f"{TESTPATH}node-list","r") as f:

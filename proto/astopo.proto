@@ -1,7 +1,7 @@
 syntax = "proto3";
 
 package astopo;
-option go_package = "github.com/p3rdy/bgpemu/proto/astopo";
+option go_package = "github.com/v3rgilius/bgpemu/proto/astopo";
 
 message Topology {
     string name = 1;  

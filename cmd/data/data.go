@@ -3,7 +3,7 @@ package data
 import (
 	"fmt"
 
-	"github.com/p3rdy/bgpemu/data"
+	"github.com/v3rgilius/bgpemu/data"
 	"github.com/spf13/cobra"
 )
 

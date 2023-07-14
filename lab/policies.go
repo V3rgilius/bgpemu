@@ -7,8 +7,8 @@ import (
 	"os"
 	"strings"
 
-	api "github.com/p3rdy/bgpemu/proto/gobgp"
-	popb "github.com/p3rdy/bgpemu/proto/policies"
+	api "github.com/v3rgilius/bgpemu/proto/gobgp"
+	popb "github.com/v3rgilius/bgpemu/proto/policies"
 	"google.golang.org/grpc"
 	"google.golang.org/grpc/credentials/insecure"
 	"google.golang.org/protobuf/encoding/prototext"

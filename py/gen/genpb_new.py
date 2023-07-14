@@ -4,9 +4,9 @@ import yaml
 import toml
 
 
-TOPOPATH = "test/topo60/"
+TOPOPATH = "test/topo5/"
 OUTPATH = "test/"
-TOPONAME = "topo60"
+TOPONAME = "topo5"
 K8SNODES = 3
 
 
@@ -80,23 +80,25 @@ def gen_node(asn, ip, globalip, ethlinks,relations):
     nodedata = {"name": f"r{asn}",
                 "vendor": "GOBGP",
                 "config": {
+                        "image": "midnightreiter/gobgp:v3.11.0",
+                        "command": ["/bin/sleep", "2000000"]
                         # "config_path": "/",
                         # "config_file": "gobgp.conf",
                         # "file": f"r{asn}.toml",
-                        "tasks": [{"container": f"r{asn}-frr", "cmds": frrshells},{"container": f"r{asn}", "cmds": shells}],
-                        "extra_images": {
-                            f"r{asn}-frr": "frrouting/frr:v8.1.0",
-                        },
-                        "share_volumes": [
-                            "zebra"
-                        ],
-                        "container_volumes":{
-                            f"r{asn}-frr":{"volumes":["zebra"],"paths":["/var/run/frr"]},
-                            f"r{asn}":{"volumes":["zebra"],"paths":["/var/run/frr"]}
-                        }
+                        # "tasks": [{"container": f"r{asn}-frr", "cmds": frrshells},{"container": f"r{asn}", "cmds": shells}],
+                        # "extra_images": {
+                        #     f"r{asn}-frr": "frrouting/frr:v8.1.0",
+                        # },
+                        # "share_volumes": [
+                        #     "zebra"
+                        # ],
+                        # "container_volumes":{
+                        #     f"r{asn}-frr":{"volumes":["zebra"],"paths":["/var/run/frr"]},
+                        #     f"r{asn}":{"volumes":["zebra"],"paths":["/var/run/frr"]}
+                        # }
                         # "affinity": affinities[asn]
                 },
-                # "interfaces":{}
+                # # "interfaces":{}
                 "services":
                     {50051: {
                         "name": "gobgp",

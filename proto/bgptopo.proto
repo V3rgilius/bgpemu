@@ -3,16 +3,32 @@ syntax = "proto3";
 package bgptopo;
 option go_package = "proto/bgptopo";
 
-import "proto/knetopo.proto";
-
 // Topology message defines what nodes and links will be created
 // inside the mesh.
 message Topology {
     string name = 1;  // Name of the topology - will be linked to the cluster name
     repeated Node nodes = 2;  // List of nodes in the topology
-    repeated knetopo.Link links = 3;  // connections between Nodes.
+    repeated Link links = 3;  // connections between Nodes.
     map<string,InternalInterface>  export_ints = 4;    //List of interface to be exported out of a topo, optional.
+    string update_topo = 5;
   }
+
+message Service {
+  string name = 1;        // Name of the service (optional)
+  uint32 inside = 2;      // Inside port to map Node (container listening port)
+  uint32 outside = 3;     // Outside port to map (target port on loadbalancer)
+  string inside_ip = 4;   // Assigned by KNE.
+  string outside_ip = 5;  // Assigned by KNE.
+  uint32 node_port = 6;   // Assigned by KNE.
+}
+
+
+message Link {
+  string a_node = 1;
+  string a_int = 2;
+  string z_node = 3;
+  string z_int = 4;
+}
 enum Type{
     UNKNOWN = 0;
     HOST = 1;
@@ -25,14 +41,16 @@ message Node {
     Type type = 2;
     string path =3;    //Path of subtopo's definition file.
     map<string,string> ip_addr = 4;
-    map<uint32, knetopo.Service> services = 6;  // Map of services to enable on the node.
+    map<uint32, Service> services = 6;  // Map of services to enable on the node.
     Config config = 7;
 }
 message Config{
-  repeated knetopo.Task tasks = 1;   
+  repeated Task tasks = 1;   
   map<string, string> extra_images = 2;  //Other containers running on node
   repeated string share_volumes= 3;
-  map<string,knetopo.PublicVolumes> container_volumes = 4;
+  map<string,PublicVolumes> container_volumes = 4;
+  string image = 5;
+  map<string,string> affinity = 6;
   // string config_path = 6;
   // string config_file = 7;
 }
@@ -41,3 +59,12 @@ message InternalInterface {
     string node = 1;
     string node_int = 2;
 }  
+
+message PublicVolumes {
+  repeated string volumes = 1;
+  repeated string paths = 2;
+}
+message Task {
+  string container = 1;
+  repeated string cmds = 2; 
+}

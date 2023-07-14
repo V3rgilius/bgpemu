@@ -3,9 +3,9 @@ package lab
 import (
 	"fmt"
 
-	"github.com/p3rdy/bgpemu/cmd/lab/policies"
-	"github.com/p3rdy/bgpemu/cmd/lab/routes"
-	"github.com/p3rdy/bgpemu/lab"
+	"github.com/v3rgilius/bgpemu/cmd/lab/policies"
+	"github.com/v3rgilius/bgpemu/cmd/lab/routes"
+	"github.com/v3rgilius/bgpemu/lab"
 	"github.com/spf13/cobra"
 	"os/exec"
 )

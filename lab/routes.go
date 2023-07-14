@@ -9,8 +9,8 @@ import (
 	log "github.com/sirupsen/logrus"
 	"google.golang.org/grpc/credentials/insecure"
 
-	api "github.com/p3rdy/bgpemu/proto/gobgp"
-	rtpb "github.com/p3rdy/bgpemu/proto/routes"
+	api "github.com/v3rgilius/bgpemu/proto/gobgp"
+	rtpb "github.com/v3rgilius/bgpemu/proto/routes"
 	"google.golang.org/grpc"
 	"google.golang.org/protobuf/encoding/prototext"
 	"google.golang.org/protobuf/proto"

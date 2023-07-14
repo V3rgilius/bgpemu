@@ -7,10 +7,10 @@ import (
 	"strings"
 	"time"
 
-	api "github.com/p3rdy/bgpemu/proto/gobgp"
+	api "github.com/v3rgilius/bgpemu/proto/gobgp"
 	log "github.com/sirupsen/logrus"
 
-	spb "github.com/p3rdy/bgpemu/proto/scene"
+	spb "github.com/v3rgilius/bgpemu/proto/scene"
 	"google.golang.org/grpc"
 	"google.golang.org/grpc/credentials/insecure"
 	"google.golang.org/protobuf/encoding/prototext"

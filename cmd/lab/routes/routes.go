@@ -3,8 +3,8 @@ package routes
 import (
 	"fmt"
 
-	"github.com/p3rdy/bgpemu/helper"
-	"github.com/p3rdy/bgpemu/lab"
+	"github.com/v3rgilius/bgpemu/helper"
+	"github.com/v3rgilius/bgpemu/lab"
 	"github.com/spf13/cobra"
 	// log "github.com/sirupsen/logrus"
 )

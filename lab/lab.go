@@ -6,8 +6,8 @@ import (
 	"io"
 	"strings"
 
-	"github.com/p3rdy/bgpemu/helper"
 	log "github.com/sirupsen/logrus"
+	"github.com/v3rgilius/bgpemu/helper"
 	"google.golang.org/protobuf/encoding/protojson"
 	corev1 "k8s.io/api/core/v1"
 	"k8s.io/client-go/kubernetes/scheme"

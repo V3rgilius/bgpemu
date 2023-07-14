@@ -4,8 +4,8 @@ import matplotlib.pyplot as plt
 import matplotlib.text as plttext
 from matplotlib.backends.backend_svg import FigureCanvasSVG
 
-TOPOPATH="test/topo60/"
-NODES = 60
+TOPOPATH="test/topo5/"
+NODES = 5
 import random
 
 def complete_graph(n):

@@ -2,16 +2,14 @@ package topo
 
 import (
 	"fmt"
-	"os"
-	"strconv"
-	"strings"
-
-	ktpb "github.com/openconfig/kne/proto/topo"
-	astopo "github.com/p3rdy/bgpemu/proto/astopo"
-	tpb "github.com/p3rdy/bgpemu/proto/bgptopo"
+	astopo "github.com/v3rgilius/bgpemu/proto/astopo"
+	tpb "github.com/v3rgilius/bgpemu/proto/bgptopo"
 	"google.golang.org/protobuf/encoding/protojson"
 	"google.golang.org/protobuf/encoding/prototext"
+	"os"
 	"sigs.k8s.io/yaml"
+	"strconv"
+	"strings"
 )
 
 func GenerateFromAS(path string, outpath string) (*tpb.Topology, error) {
@@ -61,7 +59,7 @@ func genTopo(ast *astopo.Topology) (*tpb.Topology, error) {
 	topo := &tpb.Topology{
 		Name:  ast.Name,
 		Nodes: make([]*tpb.Node, 0, 16),
-		Links: make([]*ktpb.Link, 0, 16),
+		Links: make([]*tpb.Link, 0, 16),
 	}
 
 	for _, node := range ast.Nodes {
@@ -77,7 +75,7 @@ func genTopo(ast *astopo.Topology) (*tpb.Topology, error) {
 		ethCnt1 := ethCnt[link.ZNode]
 		netSize0 := getSubnetSize(nodeMap[link.ANode].Net)
 		netSize1 := getSubnetSize(nodeMap[link.ZNode].Net)
-		tempLink := &ktpb.Link{
+		tempLink := &tpb.Link{
 			ANode: fmt.Sprintf("r%d", link.ANode),
 			ZNode: fmt.Sprintf("r%d", link.ZNode),
 			AInt:  fmt.Sprintf("eth%d", ethCnt0),
@@ -106,7 +104,7 @@ func genTopo(ast *astopo.Topology) (*tpb.Topology, error) {
 			Type:   tpb.Type_BGPNODE,
 			IpAddr: make(map[string]string, 4),
 			Config: &tpb.Config{
-				Tasks: []*ktpb.Task{
+				Tasks: []*tpb.Task{
 					{Container: fmt.Sprintf("r%d", node.Asn), Cmds: []string{
 						"/usr/local/bin/gobgpd -f /config/gobgp.toml > /dev/null 2> /dev/null &",
 					}},
@@ -117,7 +115,7 @@ func genTopo(ast *astopo.Topology) (*tpb.Topology, error) {
 				ShareVolumes: []string{
 					"zebra",
 				},
-				ContainerVolumes: map[string]*ktpb.PublicVolumes{
+				ContainerVolumes: map[string]*tpb.PublicVolumes{
 					fmt.Sprintf("r%d-frr", node.Asn): {Volumes: []string{"zebra"}, Paths: []string{"/var/run/frr"}},
 					fmt.Sprintf("r%d", node.Asn):     {Volumes: []string{"zebra"}, Paths: []string{"/var/run/frr"}},
 				},
