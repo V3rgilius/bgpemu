@@ -114,7 +114,7 @@ func KneTopo(t *tpb.Topology) (*ktpb.Topology, error) {
 	for _, node := range t.GetNodes() {
 		kConfig := &ktpb.Config{}
 		switch node.Type {
-		case tpb.Type_BGPNODE:
+		case tpb.Type_BGP:
 			nodeVendor = ktpb.Vendor_GOBGP
 			if node.Config.GetImage() == "" {
 				kConfig.Image = bgpImg
@@ -178,7 +178,7 @@ func UpdatePods(t *tpb.Topology, m *UpdateManager) error {
 				return err
 			}
 		}
-		if n.Type == tpb.Type_BGPNODE {
+		if n.Type == tpb.Type_BGP {
 			err := UpdateBgpPodSpec(n, m)
 			if err != nil {
 				return err
@@ -225,10 +225,10 @@ func UpdateBgpPodSpec(n *tpb.Node, m *UpdateManager) error {
 		// 	MountPath: "/var/run/frr",
 		// })
 		if configs, ok := n.Config.ContainerVolumes[c.Name]; ok {
-			for j, sv := range configs.Volumes {
+			for v, p := range configs.Volumes {
 				pod.Spec.Containers[i].VolumeMounts = append(c.VolumeMounts, corev1.VolumeMount{
-					Name:      fmt.Sprintf("volume-%s", sv),
-					MountPath: configs.Paths[j],
+					Name:      fmt.Sprintf("volume-%s", v),
+					MountPath: p,
 				})
 			}
 		}

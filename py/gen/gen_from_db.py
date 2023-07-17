@@ -61,6 +61,33 @@ def rev_search(src,dsts):
     db.close()
     return ret_paths 
 
+def rev_search_all(src,dsts):
+    db = db_connect()
+    cursor = db.cursor()
+    searched = {src,}
+    found = set()
+    queue = [(src,0)]
+    hops = 0
+    ret_paths =[]
+    while queue!=[]:
+        node = queue.pop(0)
+        if queue == [] or node[1]!=hops:
+            hops+=1
+            if hops >= 6:
+                break
+        neighbors,tmplinks = get_providers(node[0],cursor)
+        for neighbor in neighbors:
+            if neighbor in dsts:
+                found.add(neighbor)
+            if neighbor not in searched:
+                queue.append((neighbor,hops+1))
+                searched.add(neighbor)
+        ret_paths.extend(tmplinks)
+    ret_paths = clean(ret_paths,dsts)
+    cursor.close()
+    db.close()
+    return ret_paths 
+
 def get_top(paths,dsts):
     def get_one(t):
         return t[0]
@@ -96,6 +123,15 @@ def rev_gen(srcs,dsts):
         #     paths[src].extend(clean(more,dsts))
     return paths
 
+def rev_gen_all(srcs,dsts):
+    paths = {}
+    for src in srcs:
+        paths[src] = rev_search(src,dsts)
+    links= set()
+    for src in paths:
+        tmp=set(paths[src])
+        links=links.union(tmp)
+    
 
 def gen_graph_view(str_links):
     def s2n(t):
@@ -193,6 +229,6 @@ def regen_graph():
             links.append(line.split("#")[:2])
     gen_graph_view(links)
 
-# paths = rev_gen(myas,tier1List)
+paths = rev_gen(myas,tier1List)
 # output(paths)
-regen_graph()
+# regen_graph()

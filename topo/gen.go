@@ -101,7 +101,7 @@ func genTopo(ast *astopo.Topology) (*tpb.Topology, error) {
 	for _, node := range ast.Nodes {
 		tempnode := &tpb.Node{
 			Name:   fmt.Sprintf("r%d", node.Asn),
-			Type:   tpb.Type_BGPNODE,
+			Type:   tpb.Type_BGP,
 			IpAddr: make(map[string]string, 4),
 			Config: &tpb.Config{
 				Tasks: []*tpb.Task{
@@ -116,8 +116,8 @@ func genTopo(ast *astopo.Topology) (*tpb.Topology, error) {
 					"zebra",
 				},
 				ContainerVolumes: map[string]*tpb.PublicVolumes{
-					fmt.Sprintf("r%d-frr", node.Asn): {Volumes: []string{"zebra"}, Paths: []string{"/var/run/frr"}},
-					fmt.Sprintf("r%d", node.Asn):     {Volumes: []string{"zebra"}, Paths: []string{"/var/run/frr"}},
+					fmt.Sprintf("r%d-frr", node.Asn): {Volumes: map[string]string{"zebra": "/var/run/frr"}},
+					fmt.Sprintf("r%d", node.Asn):     {Volumes: map[string]string{"zebra": "/var/run/frr"}},
 				},
 				// ConfigFile: fmt.Sprintf("r%d.toml", node.Asn),
 			},

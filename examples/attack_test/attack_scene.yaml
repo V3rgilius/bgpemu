@@ -1,0 +1,2 @@
+routes_path: examples/attack_test/attack_routes.yaml
+topo_name: bgp

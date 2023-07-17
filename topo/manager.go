@@ -235,15 +235,16 @@ func addMeshTopoNode(mts map[string][]*topologyv1.Link, isA bool, uid int, link 
 	}
 }
 
-func Delete(kt *ktpb.Topology) error {
-	return nil
-}
-
 // Delete deletes the topology from the cluster.
 func (m *UpdateManager) Delete(ctx context.Context) error {
 	log.Infof("Topology:\n%v", prototext.Format(m.ktopo))
 	if _, err := m.kClient.CoreV1().Namespaces().Get(ctx, m.ktopo.Name, metav1.GetOptions{}); err != nil {
 		return fmt.Errorf("topology %q does not exist in cluster", m.ktopo.Name)
+	}
+
+	if err := m.deleteMeshnetTopologies(ctx); err != nil {
+		log.Errorf("%s", err)
+		// return err
 	}
 
 	// Delete topology nodes
@@ -254,12 +255,9 @@ func (m *UpdateManager) Delete(ctx context.Context) error {
 		}
 	}
 
-	if err := m.deleteMeshnetTopologies(ctx); err != nil {
-		return err
-	}
-
 	// Delete namespace
 	prop := metav1.DeletePropagationForeground
+	log.Infof("Topology %q deleted", m.ktopo.GetName())
 	return m.kClient.CoreV1().Namespaces().Delete(ctx, m.ktopo.Name, metav1.DeleteOptions{PropagationPolicy: &prop})
 }
 
@@ -311,7 +309,7 @@ func (m *UpdateManager) checkNodeStatus(ctx context.Context, timeout time.Durati
 	for name, n := range m.nodes {
 		tasks := n.GetOpt().Tasks
 		for _, task := range tasks {
-			m.Exec(ctx, task.Cmds, name, task.Container, nil, os.Stdout, os.Stderr)
+			_ = m.Exec(ctx, task.Cmds, name, task.Container, nil, os.Stdout, os.Stderr)
 		}
 	}
 	return nil

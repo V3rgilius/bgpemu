@@ -4,9 +4,9 @@ import yaml
 import toml
 
 
-TOPOPATH = "test/topo5/"
+TOPOPATH = "test/real/"
 OUTPATH = "test/"
-TOPONAME = "topo5"
+TOPONAME = "real"
 K8SNODES = 3
 
 
@@ -40,7 +40,7 @@ def gen_my_node(asn, ip, globalip, ethlinks,relations):
     shells = ["/usr/local/bin/gobgpd > /dev/null 2> /dev/null &"]
     frrshells = [ ]
     nodedata = {"name": f"r{asn}",
-                "type": "BGPNODE",
+                "type": "BGP",
                 "ip_addr":ips,
                 "config": {
                         "tasks": [{"container": f"r{asn}-frr", "cmds": frrshells},{"container": f"r{asn}", "cmds": shells}],
@@ -51,8 +51,8 @@ def gen_my_node(asn, ip, globalip, ethlinks,relations):
                             "zebra"
                         ],
                         "container_volumes":{
-                            f"r{asn}-frr":{"volumes":["zebra"],"paths":["/var/run/frr"]},
-                            f"r{asn}":{"volumes":["zebra"],"paths":["/var/run/frr"]}
+                            f"r{asn}-frr":{"volumes":{"zebra":"/var/run/frr"}},
+                            f"r{asn}":{"volumes":{"zebra":"/var/run/frr"}}
                         }
                 },
                 "services":

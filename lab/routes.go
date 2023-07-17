@@ -78,7 +78,7 @@ func deployRoute(r *rtpb.Route, g string) error {
 			return err
 		}
 	}
-	log.Infof("Path added on: %s", r.GetName())
+	log.Infof("Paths added on: %s", r.GetName())
 	// print the response from the gobgp daemon
 	return nil
 }

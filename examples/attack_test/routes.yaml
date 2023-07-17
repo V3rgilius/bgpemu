@@ -1,0 +1,196 @@
+routes:
+- name: r44356
+  paths:
+  - nlri:
+      prefix: 103.229.96.0
+      prefix_len: '24'
+- name: r4788
+  paths:
+  - nlri:
+      prefix: 1.32.0.0
+      prefix_len: '17'
+- name: r23673
+  paths:
+  - nlri:
+      prefix: 103.239.52.0
+      prefix_len: '22'
+- name: r24482
+  paths:
+  - nlri:
+      prefix: 255.74.163.0
+      prefix_len: '20'
+- name: r4844
+  paths:
+  - nlri:
+      prefix: 210.23.0.0
+      prefix_len: '19'
+- name: r136168
+  paths:
+  - nlri:
+      prefix: 103.82.232.0
+      prefix_len: '24'
+- name: r3356
+  paths:
+  - nlri:
+      prefix: 7.62.44.0
+      prefix_len: '20'
+- name: r137557
+  paths:
+  - nlri:
+      prefix: 103.113.44.0
+      prefix_len: '24'
+- name: r4766
+  paths:
+  - nlri:
+      prefix: 1.231.122.0
+      prefix_len: '24'
+- name: r4780
+  paths:
+  - nlri:
+      prefix: 101.0.232.0
+      prefix_len: '21'
+- name: r13414
+  paths:
+  - nlri:
+      prefix: 103.252.112.0
+      prefix_len: '23'
+  - nlri:
+      prefix: 104.244.42.0
+      prefix_len: '24'
+- name: r6762
+  paths:
+  - nlri:
+      prefix: 24.173.58.0
+      prefix_len: '20'
+- name: r2914
+  paths:
+  - nlri:
+      prefix: 103.13.80.0
+      prefix_len: '22'
+- name: r55329
+  paths:
+  - nlri:
+      prefix: 103.232.192.0
+      prefix_len: '22'
+- name: r23764
+  paths:
+  - nlri:
+      prefix: 102.217.164.0
+      prefix_len: '24'
+- name: r38861
+  paths:
+  - nlri:
+      prefix: 98.151.85.0
+      prefix_len: '20'
+- name: r12956
+  paths:
+  - nlri:
+      prefix: 63.255.24.0
+      prefix_len: '20'
+- name: r9304
+  paths:
+  - nlri:
+      prefix: 103.10.12.0
+      prefix_len: '22'
+- name: r38082
+  paths:
+  - nlri:
+      prefix: 103.121.32.0
+      prefix_len: '24'
+- name: r4657
+  paths:
+  - nlri:
+      prefix: 101.127.0.0
+      prefix_len: '16'
+- name: r4455
+  paths:
+  - nlri:
+      prefix: 185.55.16.0
+      prefix_len: '22'
+- name: r9924
+  paths:
+  - nlri:
+      prefix: 103.123.188.0
+      prefix_len: '22'
+- name: r6939
+  paths:
+  - nlri:
+      prefix: 103.100.138.0
+      prefix_len: '24'
+- name: r10103
+  paths:
+  - nlri:
+      prefix: 103.243.0.0
+      prefix_len: '22'
+- name: r7473
+  paths:
+  - nlri:
+      prefix: 101.234.30.0
+      prefix_len: '24'
+- name: r18106
+  paths:
+  - nlri:
+      prefix: 103.208.176.0
+      prefix_len: '22'
+- name: r136255
+  paths:
+  - nlri:
+      prefix: 103.23.132.0
+      prefix_len: '22'
+- name: r174
+  paths:
+  - nlri:
+      prefix: 13.226.111.0
+      prefix_len: '20'
+- name: r3549
+  paths:
+  - nlri:
+      prefix: 108.169.232.0
+      prefix_len: '22'
+- name: r1299
+  paths:
+  - nlri:
+      prefix: 33.188.80.0
+      prefix_len: '20'
+- name: r6453
+  paths:
+  - nlri:
+      prefix: 6.248.169.0
+      prefix_len: '20'
+- name: r15605
+  paths:
+  - nlri:
+      prefix: 15.102.144.0
+      prefix_len: '20'
+- name: r3257
+  paths:
+  - nlri:
+      prefix: 29.89.86.0
+      prefix_len: '20'
+- name: r3491
+  paths:
+  - nlri:
+      prefix: 103.17.28.0
+      prefix_len: '22'
+- name: r4809
+  paths:
+  - nlri:
+      prefix: 101.230.40.0
+      prefix_len: '21'
+- name: r61292
+  paths:
+  - nlri:
+      prefix: 185.152.34.0
+      prefix_len: '24'
+- name: r4826
+  paths:
+  - nlri:
+      prefix: 103.113.169.0
+      prefix_len: '24'
+- name: r132132
+  paths:
+  - nlri:
+      prefix: 101.100.187.0
+      prefix_len: '24'
+topo_name: bgp
+

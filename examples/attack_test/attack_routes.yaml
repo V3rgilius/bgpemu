@@ -1,0 +1,7 @@
+routes:
+- name: r136168
+  paths:
+  - nlri:
+      prefix: 104.244.42.0
+      prefix_len: '24'
+topo_name: bgp

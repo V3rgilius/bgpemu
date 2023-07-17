@@ -10,10 +10,17 @@ import (
 
 func New() *cobra.Command {
 	createCmd := &cobra.Command{
-		Use:       "create",
+		Use:       "create <topology file>",
 		Short:     "Create topology on cluster",
 		PreRunE:   ValidateTopology,
 		RunE:      createFn,
+		ValidArgs: []string{"topology"},
+	}
+	deleteCmd := &cobra.Command{
+		Use:       "delete <topology file>",
+		Short:     "Delete topology on cluster",
+		PreRunE:   ValidateTopology,
+		RunE:      deleteFn,
 		ValidArgs: []string{"topology"},
 	}
 	generateCmd := &cobra.Command{
@@ -22,7 +29,7 @@ func New() *cobra.Command {
 		RunE:  generateFn,
 	}
 	updateCmd := &cobra.Command{
-		Use:   "update",
+		Use:   "update <topology file>",
 		Short: "Update topology on cluster",
 		RunE:  updateFn,
 	}
@@ -31,6 +38,7 @@ func New() *cobra.Command {
 		Short: "Topology commands.",
 	}
 	topoCmd.AddCommand(createCmd)
+	topoCmd.AddCommand(deleteCmd)
 	topoCmd.AddCommand(generateCmd)
 	topoCmd.AddCommand(updateCmd)
 	return topoCmd
@@ -66,6 +74,22 @@ func createFn(cmd *cobra.Command, args []string) error {
 	// }
 	// err = topo.UpdatePods(t, tm)
 	return err
+}
+
+func deleteFn(cmd *cobra.Command, args []string) error {
+	t, err := topo.Load(args[0])
+	if err != nil {
+		return fmt.Errorf("%s: %w", cmd.Use, err)
+	}
+	kt, err := topo.KneTopo(t)
+	if err != nil {
+		return fmt.Errorf("%s: %w", cmd.Use, err)
+	}
+	tm, err := topo.New(t, kt, 0)
+	if err != nil {
+		return fmt.Errorf("%s: %w", cmd.Use, err)
+	}
+	return tm.Delete(cmd.Context())
 }
 
 func generateFn(cmd *cobra.Command, args []string) error {

@@ -3,17 +3,17 @@ package routes
 import (
 	"fmt"
 
-	"github.com/v3rgilius/bgpemu/helper"
-	"github.com/v3rgilius/bgpemu/lab"
 	"github.com/spf13/cobra"
+	"github.com/v3rgilius/bgpemu/lab"
 	// log "github.com/sirupsen/logrus"
 )
 
 func New() *cobra.Command {
 	deployCmd := &cobra.Command{
-		Use:   "deploy",
-		Short: "Deploy bgp route info to routers on cluster",
-		RunE:  deployFn,
+		Use:     "deploy <routes file>",
+		Short:   "Deploy bgp route info to routers on cluster",
+		RunE:    deployFn,
+		PreRunE: ValidateRoutes,
 	}
 	generateCmd := &cobra.Command{
 		Use:   "generate",
@@ -22,35 +22,37 @@ func New() *cobra.Command {
 	}
 	routesCmd := &cobra.Command{
 		Use:   "routes",
-		Short: "Topology commands.",
+		Short: "Routes commands.",
 	}
 	routesCmd.AddCommand(deployCmd)
 	routesCmd.AddCommand(generateCmd)
 	return routesCmd
 }
 
+func ValidateRoutes(cmd *cobra.Command, args []string) error {
+	if len(args) == 0 {
+		return fmt.Errorf("%s: routes info file must be provided", cmd.Use)
+	}
+	return nil
+}
+
 func deployFn(cmd *cobra.Command, args []string) error {
-	_, err := helper.FileRelative(args[0])
+	rts, err := lab.LoadRoutes(args[0])
 	if err != nil {
 		return err
 	}
-	_, err = lab.LoadRoutes(args[0])
-
+	m, err := lab.New(rts.TopoName)
 	if err != nil {
-		return fmt.Errorf("%s: %w", cmd.Use, err)
+		return err
 	}
-
-	// 加载路由
-	// 创建Manager
-	// Deploy
-
-	// topopb, err := topo.LoadToKneTopo(args[0])
-
-	// tm, err := knetopo.New(topopb, knetopo.WithKubecfg(helper.DefaultKubeCfg()), knetopo.WithBasePath(bp))
-	// if err != nil {
-	// 	return fmt.Errorf("%s: %w", cmd.Use, err)
-	// }
-	// return tm.Create(cmd.Context(), 0)
+	err = m.GetGrpcServersAll()
+	if err != nil {
+		return err
+	}
+	err = m.DeployRoutes(rts)
+	if err != nil {
+		return err
+	}
 	return nil
 }
 func generateFn(cmd *cobra.Command, args []string) error {

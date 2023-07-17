@@ -7,15 +7,16 @@ import (
 	"os"
 	"path/filepath"
 	"sync"
-	"time"
+	// "time"
 
 	topologyv1 "github.com/networkop/meshnet-cni/api/types/v1beta1"
 	ktpb "github.com/openconfig/kne/proto/topo"
-	scraplinetwork "github.com/scrapli/scrapligo/driver/network"
+	// scraplinetwork "github.com/scrapli/scrapligo/driver/network"
 	scrapliopts "github.com/scrapli/scrapligo/driver/options"
-	scraplilogging "github.com/scrapli/scrapligo/logging"
-	scrapliplatform "github.com/scrapli/scrapligo/platform"
+	// scraplilogging "github.com/scrapli/scrapligo/logging"
+	// scrapliplatform "github.com/scrapli/scrapligo/platform"
 	scrapliutil "github.com/scrapli/scrapligo/util"
+	log "github.com/sirupsen/logrus"
 	tpb "github.com/v3rgilius/bgpemu/proto/bgptopo"
 	corev1 "k8s.io/api/core/v1"
 	"k8s.io/apimachinery/pkg/api/resource"
@@ -25,7 +26,6 @@ import (
 	"k8s.io/client-go/kubernetes/scheme"
 	"k8s.io/client-go/rest"
 	"k8s.io/client-go/tools/remotecommand"
-	log "k8s.io/klog/v2"
 	"k8s.io/utils/pointer"
 )
 
@@ -262,7 +262,7 @@ func (n *Impl) CreateConfig(ctx context.Context) (*corev1.Volume, error) {
 		if err != nil {
 			return nil, err
 		}
-		log.V(1).Infof("Created config ConfigMap:\n%v\n", sCM)
+		log.Infof("Created config ConfigMap:\n%v\n", sCM)
 		vs = corev1.VolumeSource{
 			ConfigMap: &corev1.ConfigMapVolumeSource{
 				LocalObjectReference: corev1.LocalObjectReference{
@@ -291,7 +291,7 @@ func (n *Impl) CreateConfig(ctx context.Context) (*corev1.Volume, error) {
 			os.Remove(path)
 			return nil, err
 		}
-		log.V(1).Infof("Created config file %s", path)
+		log.Infof("Created config file %s", path)
 		vs = corev1.VolumeSource{
 			HostPath: &corev1.HostPathVolumeSource{
 				Path: path,
@@ -410,10 +410,10 @@ func (n *Impl) CreatePod(ctx context.Context) error {
 	}
 	for i, c := range pod.Spec.Containers {
 		if configs, ok := n.NodeOpt.ContainerVolumes[c.Name]; ok {
-			for j, sv := range configs.Volumes {
+			for v, p := range configs.Volumes {
 				pod.Spec.Containers[i].VolumeMounts = append(c.VolumeMounts, corev1.VolumeMount{
-					Name:      fmt.Sprintf("volume-%s", sv),
-					MountPath: configs.Paths[j],
+					Name:      fmt.Sprintf("volume-%s", v),
+					MountPath: p,
 				})
 			}
 		}
@@ -441,7 +441,7 @@ func (n *Impl) CreatePod(ctx context.Context) error {
 	if err != nil {
 		return err
 	}
-	log.V(1).Infof("Pod created:\n%+v\n", sPod)
+	log.Infof("Pod created:\n%+v\n", sPod)
 	return nil
 }
 
@@ -497,7 +497,7 @@ func (n *Impl) CreateService(ctx context.Context) error {
 	if err != nil {
 		return err
 	}
-	log.V(1).Infof("Created Service:\n%v\n", sS)
+	log.Infof("Created Service:\n%v\n", sS)
 	return nil
 }
 
@@ -530,13 +530,13 @@ func (n *Impl) DeleteConfig(ctx context.Context) error {
 			if err := os.Remove(path); err != nil {
 				return err
 			}
-			log.V(1).Infof("Deleted config file %s", path)
+			log.Infof("Deleted config file %s", path)
 		case vs.ConfigMap != nil:
 			name := vs.ConfigMap.LocalObjectReference.Name
 			if err := n.KubeClient.CoreV1().ConfigMaps(n.Namespace).Delete(ctx, name, metav1.DeleteOptions{}); err != nil {
 				return err
 			}
-			log.V(1).Infof("Deleted config map %s", name)
+			log.Infof("Deleted config map %s", name)
 		}
 	}
 	return nil
@@ -679,38 +679,38 @@ func (n *Impl) PatchCLIConnOpen(bin string, cliCmd []string, opts []scrapliutil.
 
 // GetCLIConn attempts to open the transport channel towards a Network OS and perform scrapligo OnOpen actions
 // for a given platform. Retries indefinitely till success and returns a scrapligo network driver instance.
-func (n *Impl) GetCLIConn(platform string, opts []scrapliutil.Option) (*scraplinetwork.Driver, error) {
-	if log.V(1).Enabled() {
-		li, _ := scraplilogging.NewInstance(scraplilogging.WithLevel("debug"),
-			scraplilogging.WithLogger(log.Info))
-		opts = append(opts, scrapliopts.WithLogger(li))
-	}
+// func (n *Impl) GetCLIConn(platform string, opts []scrapliutil.Option) (*scraplinetwork.Driver, error) {
+// 	if log.V(1).Enabled() {
+// 		li, _ := scraplilogging.NewInstance(scraplilogging.WithLevel("debug"),
+// 			scraplilogging.WithLogger(log.Info))
+// 		opts = append(opts, scrapliopts.WithLogger(li))
+// 	}
 
-	for {
-		p, err := scrapliplatform.NewPlatform(
-			platform,
-			n.Name(),
-			opts...,
-		)
-		if err != nil {
-			log.Errorf("failed to fetch platform instance for device %s; error: %+v\n", err, n.Name())
-			return nil, err
-		}
+// 	for {
+// 		p, err := scrapliplatform.NewPlatform(
+// 			platform,
+// 			n.Name(),
+// 			opts...,
+// 		)
+// 		if err != nil {
+// 			log.Errorf("failed to fetch platform instance for device %s; error: %+v\n", err, n.Name())
+// 			return nil, err
+// 		}
 
-		d, err := p.GetNetworkDriver()
-		if err != nil {
-			log.Errorf("failed to create driver for device %s; error: %+v\n", err, n.Name())
-			return nil, err
-		}
+// 		d, err := p.GetNetworkDriver()
+// 		if err != nil {
+// 			log.Errorf("failed to create driver for device %s; error: %+v\n", err, n.Name())
+// 			return nil, err
+// 		}
 
-		if err = d.Open(); err != nil {
-			log.V(1).Infof("%s - Cli not ready (%s) - waiting.", n.Name(), err)
-			time.Sleep(time.Second * 2)
-			continue
-		}
+// 		if err = d.Open(); err != nil {
+// 			log.V(1).Infof("%s - Cli not ready (%s) - waiting.", n.Name(), err)
+// 			time.Sleep(time.Second * 2)
+// 			continue
+// 		}
 
-		log.V(1).Infof("%s - Cli ready.", n.Name())
+// 		log.V(1).Infof("%s - Cli ready.", n.Name())
 
-		return d, nil
-	}
-}
+// 		return d, nil
+// 	}
+// }

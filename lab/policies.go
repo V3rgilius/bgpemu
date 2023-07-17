@@ -28,7 +28,6 @@ func LoadPolicies(path string) (*popb.PolicyDeployments, error) {
 		if err != nil {
 			return nil, fmt.Errorf("could not parse yaml: %v", err)
 		}
-		fmt.Println(string(jsonBytes))
 		if err := protojsonUnmarshaller.Unmarshal(jsonBytes, pds); err != nil {
 			return nil, fmt.Errorf("could not parse json: %v", err)
 		}

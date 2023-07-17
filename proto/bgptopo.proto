@@ -32,7 +32,7 @@ message Link {
 enum Type{
     UNKNOWN = 0;
     HOST = 1;
-    BGPNODE = 2;
+    BGP = 2;
     SUBTOPO = 3;
 }
 
@@ -61,8 +61,7 @@ message InternalInterface {
 }  
 
 message PublicVolumes {
-  repeated string volumes = 1;
-  repeated string paths = 2;
+  map<string,string> volumes = 1;
 }
 message Task {
   string container = 1;
