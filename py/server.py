@@ -35,7 +35,7 @@ def bkapp(doc):
 
 
 server = Server({
-    '/': get_spread_doc,
+    '/': get_topo_doc,
     '/spread': get_spread_doc,
     '/paths': get_path_change_doc,
     "/conv": get_convergence_doc,

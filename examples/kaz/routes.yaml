@@ -1,0 +1,135 @@
+routes:
+- name: r3216
+  paths:
+  - nlri:
+      prefix: 2.95.0.0
+      prefix_len: '24'
+- name: r3320
+  paths:
+  - nlri:
+      prefix: 109.160.36.0
+      prefix_len: '24'
+- name: r6762
+  paths:
+  - nlri:
+      prefix: 5.178.42.0
+      prefix_len: '24'
+- name: r4766
+  paths:
+  - nlri:
+      prefix: 1.231.122.0
+      prefix_len: '24'
+- name: r3356
+  paths:
+  - nlri:
+      prefix: 4.7.141.0
+      prefix_len: '24'
+- name: r6453
+  paths:
+  - nlri:
+      prefix: 63.243.128.0
+      prefix_len: '17'
+- name: r1239
+  paths:
+  - nlri:
+      prefix: 104.153.80.0
+      prefix_len: '24'
+- name: r35168
+  paths:
+  - nlri:
+      prefix: 185.8.235.0
+      prefix_len: '24'
+- name: r31133
+  paths:
+  - nlri:
+      prefix: 109.106.192.0
+      prefix_len: '19'
+- name: r3491
+  paths:
+  - nlri:
+      prefix: 103.17.28.0
+      prefix_len: '22'
+- name: r4134
+  paths:
+  - nlri:
+      prefix: 1.180.0.0
+      prefix_len: '14'
+- name: r1299
+  paths:
+  - nlri:
+      prefix: 2.23.128.0
+      prefix_len: '20'
+- name: r12389
+  paths:
+  - nlri:
+      prefix: 109.108.32.0
+      prefix_len: '21'
+- name: r5511
+  paths:
+  - nlri:
+      prefix: 137.83.138.0
+      prefix_len: '24'
+- name: r58106
+  paths:
+  - nlri:
+      prefix: 194.39.150.0
+      prefix_len: '24'
+- name: r209141
+  paths:
+  - nlri:
+      prefix: 5.180.92.0
+      prefix_len: '24'
+- name: r12843
+  paths:
+  - nlri:
+      prefix: 109.109.200.0
+      prefix_len: '21'
+- name: r8393
+  paths:
+  - nlri:
+      prefix: 149.154.190.0
+      prefix_len: '23'
+  - nlri:
+      prefix: 91.203.20.0
+      prefix_len: '24'
+- name: r60299
+  paths:
+  - nlri:
+      prefix: 141.101.186.0
+      prefix_len: '24'
+- name: r50509
+  paths:
+  - nlri:
+      prefix: 146.185.222.0
+      prefix_len: '24'
+- name: r701
+  paths:
+  - nlri:
+      prefix: 100.0.0.0
+      prefix_len: '16'
+- name: r20485
+  paths:
+  - nlri:
+      prefix: 145.255.136.0
+      prefix_len: '21'
+- name: r43727
+  paths:
+  - nlri:
+      prefix: 109.106.128.0
+      prefix_len: '19'
+- name: r9198
+  paths:
+  - nlri:
+      prefix: 145.255.160.0
+      prefix_len: '19'
+- name: r6939
+  paths:
+  - nlri:
+      prefix: 103.100.138.0
+      prefix_len: '24'
+- name: r35104
+  paths:
+  - nlri:
+      prefix: 144.209.81.0
+      prefix_len: '24'
+topo_name: bgp

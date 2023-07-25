@@ -437,11 +437,11 @@ func (n *Impl) CreatePod(ctx context.Context) error {
 			pod.Spec.Containers[i].VolumeMounts = append(c.VolumeMounts, vm)
 		}
 	}
-	sPod, err := n.KubeClient.CoreV1().Pods(n.Namespace).Create(ctx, pod, metav1.CreateOptions{})
+	_, err := n.KubeClient.CoreV1().Pods(n.Namespace).Create(ctx, pod, metav1.CreateOptions{})
 	if err != nil {
 		return err
 	}
-	log.Infof("Pod created:\n%+v\n", sPod)
+	log.Infof("Pod created:%s\n", pb.Name)
 	return nil
 }
 

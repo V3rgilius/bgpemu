@@ -1,0 +1,7 @@
+topo_name: bgp
+routes:
+- name: r3320
+  paths:
+  - nlri:
+      prefix: 91.203.20.0
+      prefix_len: '24'

@@ -1,0 +1,877 @@
+links:
+- a_int: eth1
+  a_node: r1299
+  z_int: eth1
+  z_node: r701
+- a_int: eth1
+  a_node: r1239
+  z_int: eth2
+  z_node: r1299
+- a_int: eth1
+  a_node: r3356
+  z_int: eth2
+  z_node: r1239
+- a_int: eth1
+  a_node: r50509
+  z_int: eth1
+  z_node: r9198
+- a_int: eth1
+  a_node: r43727
+  z_int: eth1
+  z_node: r35104
+- a_int: eth1
+  a_node: r4766
+  z_int: eth1
+  z_node: r31133
+- a_int: eth2
+  a_node: r3356
+  z_int: eth1
+  z_node: r12389
+- a_int: eth2
+  a_node: r701
+  z_int: eth1
+  z_node: r4134
+- a_int: eth3
+  a_node: r1239
+  z_int: eth2
+  z_node: r31133
+- a_int: eth2
+  a_node: r9198
+  z_int: eth2
+  z_node: r35104
+- a_int: eth2
+  a_node: r43727
+  z_int: eth1
+  z_node: r6939
+- a_int: eth2
+  a_node: r12389
+  z_int: eth1
+  z_node: r60299
+- a_int: eth1
+  a_node: r3216
+  z_int: eth3
+  z_node: r35104
+- a_int: eth1
+  a_node: r20485
+  z_int: eth3
+  z_node: r9198
+- a_int: eth3
+  a_node: r3356
+  z_int: eth4
+  z_node: r9198
+- a_int: eth2
+  a_node: r60299
+  z_int: eth2
+  z_node: r6939
+- a_int: eth3
+  a_node: r1299
+  z_int: eth3
+  z_node: r31133
+- a_int: eth1
+  a_node: r35168
+  z_int: eth3
+  z_node: r6939
+- a_int: eth4
+  a_node: r1239
+  z_int: eth1
+  z_node: r5511
+- a_int: eth3
+  a_node: r701
+  z_int: eth2
+  z_node: r4766
+- a_int: eth4
+  a_node: r6939
+  z_int: eth4
+  z_node: r35104
+- a_int: eth4
+  a_node: r31133
+  z_int: eth5
+  z_node: r6939
+- a_int: eth3
+  a_node: r12389
+  z_int: eth5
+  z_node: r9198
+- a_int: eth2
+  a_node: r50509
+  z_int: eth5
+  z_node: r35104
+- a_int: eth1
+  a_node: r3320
+  z_int: eth1
+  z_node: r3491
+- a_int: eth2
+  a_node: r4134
+  z_int: eth4
+  z_node: r1299
+- a_int: eth5
+  a_node: r31133
+  z_int: eth3
+  z_node: r50509
+- a_int: eth4
+  a_node: r50509
+  z_int: eth6
+  z_node: r6939
+- a_int: eth2
+  a_node: r3320
+  z_int: eth7
+  z_node: r6939
+- a_int: eth3
+  a_node: r3320
+  z_int: eth1
+  z_node: r58106
+- a_int: eth2
+  a_node: r3491
+  z_int: eth3
+  z_node: r4134
+- a_int: eth5
+  a_node: r1299
+  z_int: eth1
+  z_node: r12843
+- a_int: eth2
+  a_node: r5511
+  z_int: eth4
+  z_node: r12389
+- a_int: eth1
+  a_node: r6453
+  z_int: eth6
+  z_node: r35104
+- a_int: eth8
+  a_node: r6939
+  z_int: eth3
+  z_node: r4766
+- a_int: eth6
+  a_node: r1299
+  z_int: eth9
+  z_node: r6939
+- a_int: eth1
+  a_node: r6762
+  z_int: eth4
+  z_node: r4134
+- a_int: eth7
+  a_node: r1299
+  z_int: eth5
+  z_node: r12389
+- a_int: eth4
+  a_node: r3356
+  z_int: eth5
+  z_node: r4134
+- a_int: eth2
+  a_node: r6762
+  z_int: eth10
+  z_node: r6939
+- a_int: eth5
+  a_node: r3356
+  z_int: eth3
+  z_node: r5511
+- a_int: eth4
+  a_node: r3320
+  z_int: eth6
+  z_node: r3356
+- a_int: eth4
+  a_node: r5511
+  z_int: eth11
+  z_node: r6939
+- a_int: eth7
+  a_node: r3356
+  z_int: eth12
+  z_node: r6939
+- a_int: eth2
+  a_node: r3216
+  z_int: eth3
+  z_node: r43727
+- a_int: eth6
+  a_node: r12389
+  z_int: eth7
+  z_node: r35104
+- a_int: eth3
+  a_node: r6762
+  z_int: eth8
+  z_node: r3356
+- a_int: eth4
+  a_node: r701
+  z_int: eth13
+  z_node: r6939
+- a_int: eth6
+  a_node: r31133
+  z_int: eth4
+  z_node: r43727
+- a_int: eth7
+  a_node: r12389
+  z_int: eth2
+  z_node: r20485
+- a_int: eth6
+  a_node: r4134
+  z_int: eth5
+  z_node: r5511
+- a_int: eth6
+  a_node: r9198
+  z_int: eth1
+  z_node: r8393
+- a_int: eth3
+  a_node: r3216
+  z_int: eth2
+  z_node: r35168
+- a_int: eth5
+  a_node: r1239
+  z_int: eth2
+  z_node: r12843
+- a_int: eth7
+  a_node: r31133
+  z_int: eth3
+  z_node: r35168
+- a_int: eth4
+  a_node: r3216
+  z_int: eth3
+  z_node: r20485
+- a_int: eth4
+  a_node: r6762
+  z_int: eth4
+  z_node: r4766
+- a_int: eth6
+  a_node: r1239
+  z_int: eth5
+  z_node: r43727
+- a_int: eth5
+  a_node: r4766
+  z_int: eth7
+  z_node: r4134
+- a_int: eth9
+  a_node: r3356
+  z_int: eth6
+  z_node: r4766
+- a_int: eth5
+  a_node: r3216
+  z_int: eth8
+  z_node: r12389
+- a_int: eth9
+  a_node: r12389
+  z_int: eth5
+  z_node: r50509
+- a_int: eth3
+  a_node: r12843
+  z_int: eth14
+  z_node: r6939
+- a_int: eth4
+  a_node: r12843
+  z_int: eth4
+  z_node: r20485
+- a_int: eth5
+  a_node: r3320
+  z_int: eth5
+  z_node: r701
+- a_int: eth6
+  a_node: r3320
+  z_int: eth2
+  z_node: r6453
+- a_int: eth8
+  a_node: r31133
+  z_int: eth7
+  z_node: r9198
+- a_int: eth3
+  a_node: r3491
+  z_int: eth6
+  z_node: r701
+- a_int: eth8
+  a_node: r1299
+  z_int: eth6
+  z_node: r5511
+- a_int: eth7
+  a_node: r3320
+  z_int: eth8
+  z_node: r4134
+- a_int: eth5
+  a_node: r6762
+  z_int: eth4
+  z_node: r3491
+- a_int: eth6
+  a_node: r6762
+  z_int: eth7
+  z_node: r1239
+- a_int: eth9
+  a_node: r31133
+  z_int: eth1
+  z_node: r209141
+- a_int: eth3
+  a_node: r6453
+  z_int: eth7
+  z_node: r701
+- a_int: eth9
+  a_node: r1299
+  z_int: eth5
+  z_node: r20485
+- a_int: eth8
+  a_node: r1239
+  z_int: eth7
+  z_node: r4766
+- a_int: eth6
+  a_node: r20485
+  z_int: eth4
+  z_node: r35168
+- a_int: eth6
+  a_node: r3216
+  z_int: eth10
+  z_node: r31133
+- a_int: eth7
+  a_node: r6762
+  z_int: eth8
+  z_node: r701
+- a_int: eth2
+  a_node: r209141
+  z_int: eth8
+  z_node: r9198
+- a_int: eth8
+  a_node: r3320
+  z_int: eth10
+  z_node: r1299
+- a_int: eth9
+  a_node: r3320
+  z_int: eth8
+  z_node: r4766
+- a_int: eth11
+  a_node: r31133
+  z_int: eth5
+  z_node: r12843
+- a_int: eth9
+  a_node: r4134
+  z_int: eth7
+  z_node: r20485
+- a_int: eth5
+  a_node: r3491
+  z_int: eth11
+  z_node: r1299
+- a_int: eth12
+  a_node: r31133
+  z_int: eth8
+  z_node: r35104
+- a_int: eth9
+  a_node: r35104
+  z_int: eth5
+  z_node: r35168
+- a_int: eth10
+  a_node: r4134
+  z_int: eth10
+  z_node: r12389
+- a_int: eth12
+  a_node: r1299
+  z_int: eth9
+  z_node: r4766
+- a_int: eth10
+  a_node: r3320
+  z_int: eth8
+  z_node: r6762
+- a_int: eth9
+  a_node: r6762
+  z_int: eth13
+  z_node: r1299
+- a_int: eth9
+  a_node: r9198
+  z_int: eth15
+  z_node: r6939
+- a_int: eth10
+  a_node: r6762
+  z_int: eth13
+  z_node: r31133
+- a_int: eth7
+  a_node: r3216
+  z_int: eth16
+  z_node: r6939
+- a_int: eth10
+  a_node: r4766
+  z_int: eth8
+  z_node: r20485
+- a_int: eth11
+  a_node: r4766
+  z_int: eth11
+  z_node: r12389
+- a_int: eth9
+  a_node: r1239
+  z_int: eth17
+  z_node: r6939
+- a_int: eth10
+  a_node: r1239
+  z_int: eth9
+  z_node: r20485
+- a_int: eth6
+  a_node: r50509
+  z_int: eth3
+  z_node: r60299
+- a_int: eth11
+  a_node: r3320
+  z_int: eth11
+  z_node: r1239
+- a_int: eth12
+  a_node: r3320
+  z_int: eth6
+  z_node: r12843
+- a_int: eth7
+  a_node: r12843
+  z_int: eth2
+  z_node: r58106
+- a_int: eth12
+  a_node: r1239
+  z_int: eth7
+  z_node: r50509
+- a_int: eth13
+  a_node: r3320
+  z_int: eth7
+  z_node: r5511
+- a_int: eth14
+  a_node: r1299
+  z_int: eth8
+  z_node: r3216
+- a_int: eth11
+  a_node: r6762
+  z_int: eth10
+  z_node: r20485
+- a_int: eth4
+  a_node: r6453
+  z_int: eth6
+  z_node: r3491
+- a_int: eth9
+  a_node: r3216
+  z_int: eth12
+  z_node: r4766
+- a_int: eth12
+  a_node: r6762
+  z_int: eth5
+  z_node: r6453
+- a_int: eth7
+  a_node: r3491
+  z_int: eth8
+  z_node: r5511
+- a_int: eth8
+  a_node: r3491
+  z_int: eth18
+  z_node: r6939
+- a_int: eth6
+  a_node: r6453
+  z_int: eth11
+  z_node: r4134
+- a_int: eth9
+  a_node: r3491
+  z_int: eth11
+  z_node: r20485
+- a_int: eth10
+  a_node: r3491
+  z_int: eth12
+  z_node: r12389
+- a_int: eth10
+  a_node: r3356
+  z_int: eth12
+  z_node: r20485
+- a_int: eth11
+  a_node: r3356
+  z_int: eth9
+  z_node: r701
+- a_int: eth12
+  a_node: r3356
+  z_int: eth7
+  z_node: r6453
+- a_int: eth13
+  a_node: r3356
+  z_int: eth11
+  z_node: r3491
+- a_int: eth13
+  a_node: r6762
+  z_int: eth13
+  z_node: r12389
+- a_int: eth13
+  a_node: r20485
+  z_int: eth19
+  z_node: r6939
+- a_int: eth6
+  a_node: r43727
+  z_int: eth6
+  z_node: r35168
+- a_int: eth4
+  a_node: r60299
+  z_int: eth7
+  z_node: r35168
+- a_int: eth13
+  a_node: r4766
+  z_int: eth12
+  z_node: r3491
+- a_int: eth14
+  a_node: r6762
+  z_int: eth8
+  z_node: r50509
+- a_int: eth8
+  a_node: r6453
+  z_int: eth20
+  z_node: r6939
+- a_int: eth9
+  a_node: r6453
+  z_int: eth15
+  z_node: r1299
+- a_int: eth8
+  a_node: r35168
+  z_int: eth2
+  z_node: r8393
+- a_int: eth10
+  a_node: r3216
+  z_int: eth13
+  z_node: r1239
+- a_int: eth14
+  a_node: r1239
+  z_int: eth13
+  z_node: r3491
+- a_int: eth12
+  a_node: r4134
+  z_int: eth21
+  z_node: r6939
+- a_int: eth14
+  a_node: r31133
+  z_int: eth13
+  z_node: r4134
+- a_int: eth15
+  a_node: r1239
+  z_int: eth10
+  z_node: r701
+- a_int: eth14
+  a_node: r12389
+  z_int: eth22
+  z_node: r6939
+- a_int: eth14
+  a_node: r3356
+  z_int: eth16
+  z_node: r1299
+- a_int: eth15
+  a_node: r31133
+  z_int: eth14
+  z_node: r20485
+- a_int: eth16
+  a_node: r31133
+  z_int: eth15
+  z_node: r12389
+- a_int: eth11
+  a_node: r3216
+  z_int: eth10
+  z_node: r9198
+- a_int: eth10
+  a_node: r6453
+  z_int: eth16
+  z_node: r1239
+- a_int: eth15
+  a_node: r3356
+  z_int: eth17
+  z_node: r31133
+- a_int: eth15
+  a_node: r6762
+  z_int: eth7
+  z_node: r43727
+- a_int: eth16
+  a_node: r6762
+  z_int: eth12
+  z_node: r3216
+- a_int: eth9
+  a_node: r5511
+  z_int: eth11
+  z_node: r701
+- a_int: eth11
+  a_node: r6453
+  z_int: eth10
+  z_node: r5511
+- a_int: eth13
+  a_node: r3216
+  z_int: eth3
+  z_node: r209141
+- a_int: eth4
+  a_node: r209141
+  z_int: eth23
+  z_node: r6939
+- a_int: eth16
+  a_node: r3356
+  z_int: eth14
+  z_node: r3216
+- a_int: eth17
+  a_node: r6762
+  z_int: eth11
+  z_node: r5511
+name: bgp
+nodes:
+- config:
+    command:
+    - /bin/sleep
+    - '2000000'
+    image: midnightreiter/gobgp:v3.11.0
+  name: r20485
+  services:
+    50051:
+      inside: 50051
+      name: gobgp
+  vendor: GOBGP
+- config:
+    command:
+    - /bin/sleep
+    - '2000000'
+    image: midnightreiter/gobgp:v3.11.0
+  name: r50509
+  services:
+    50051:
+      inside: 50051
+      name: gobgp
+  vendor: GOBGP
+- config:
+    command:
+    - /bin/sleep
+    - '2000000'
+    image: midnightreiter/gobgp:v3.11.0
+  name: r209141
+  services:
+    50051:
+      inside: 50051
+      name: gobgp
+  vendor: GOBGP
+- config:
+    command:
+    - /bin/sleep
+    - '2000000'
+    image: midnightreiter/gobgp:v3.11.0
+  name: r58106
+  services:
+    50051:
+      inside: 50051
+      name: gobgp
+  vendor: GOBGP
+- config:
+    command:
+    - /bin/sleep
+    - '2000000'
+    image: midnightreiter/gobgp:v3.11.0
+  name: r35168
+  services:
+    50051:
+      inside: 50051
+      name: gobgp
+  vendor: GOBGP
+- config:
+    command:
+    - /bin/sleep
+    - '2000000'
+    image: midnightreiter/gobgp:v3.11.0
+  name: r43727
+  services:
+    50051:
+      inside: 50051
+      name: gobgp
+  vendor: GOBGP
+- config:
+    command:
+    - /bin/sleep
+    - '2000000'
+    image: midnightreiter/gobgp:v3.11.0
+  name: r3320
+  services:
+    50051:
+      inside: 50051
+      name: gobgp
+  vendor: GOBGP
+- config:
+    command:
+    - /bin/sleep
+    - '2000000'
+    image: midnightreiter/gobgp:v3.11.0
+  name: r3491
+  services:
+    50051:
+      inside: 50051
+      name: gobgp
+  vendor: GOBGP
+- config:
+    command:
+    - /bin/sleep
+    - '2000000'
+    image: midnightreiter/gobgp:v3.11.0
+  name: r6453
+  services:
+    50051:
+      inside: 50051
+      name: gobgp
+  vendor: GOBGP
+- config:
+    command:
+    - /bin/sleep
+    - '2000000'
+    image: midnightreiter/gobgp:v3.11.0
+  name: r12843
+  services:
+    50051:
+      inside: 50051
+      name: gobgp
+  vendor: GOBGP
+- config:
+    command:
+    - /bin/sleep
+    - '2000000'
+    image: midnightreiter/gobgp:v3.11.0
+  name: r3216
+  services:
+    50051:
+      inside: 50051
+      name: gobgp
+  vendor: GOBGP
+- config:
+    command:
+    - /bin/sleep
+    - '2000000'
+    image: midnightreiter/gobgp:v3.11.0
+  name: r4766
+  services:
+    50051:
+      inside: 50051
+      name: gobgp
+  vendor: GOBGP
+- config:
+    command:
+    - /bin/sleep
+    - '2000000'
+    image: midnightreiter/gobgp:v3.11.0
+  name: r6939
+  services:
+    50051:
+      inside: 50051
+      name: gobgp
+  vendor: GOBGP
+- config:
+    command:
+    - /bin/sleep
+    - '2000000'
+    image: midnightreiter/gobgp:v3.11.0
+  name: r9198
+  services:
+    50051:
+      inside: 50051
+      name: gobgp
+  vendor: GOBGP
+- config:
+    command:
+    - /bin/sleep
+    - '2000000'
+    image: midnightreiter/gobgp:v3.11.0
+  name: r35104
+  services:
+    50051:
+      inside: 50051
+      name: gobgp
+  vendor: GOBGP
+- config:
+    command:
+    - /bin/sleep
+    - '2000000'
+    image: midnightreiter/gobgp:v3.11.0
+  name: r701
+  services:
+    50051:
+      inside: 50051
+      name: gobgp
+  vendor: GOBGP
+- config:
+    command:
+    - /bin/sleep
+    - '2000000'
+    image: midnightreiter/gobgp:v3.11.0
+  name: r1299
+  services:
+    50051:
+      inside: 50051
+      name: gobgp
+  vendor: GOBGP
+- config:
+    command:
+    - /bin/sleep
+    - '2000000'
+    image: midnightreiter/gobgp:v3.11.0
+  name: r60299
+  services:
+    50051:
+      inside: 50051
+      name: gobgp
+  vendor: GOBGP
+- config:
+    command:
+    - /bin/sleep
+    - '2000000'
+    image: midnightreiter/gobgp:v3.11.0
+  name: r8393
+  services:
+    50051:
+      inside: 50051
+      name: gobgp
+  vendor: GOBGP
+- config:
+    command:
+    - /bin/sleep
+    - '2000000'
+    image: midnightreiter/gobgp:v3.11.0
+  name: r6762
+  services:
+    50051:
+      inside: 50051
+      name: gobgp
+  vendor: GOBGP
+- config:
+    command:
+    - /bin/sleep
+    - '2000000'
+    image: midnightreiter/gobgp:v3.11.0
+  name: r31133
+  services:
+    50051:
+      inside: 50051
+      name: gobgp
+  vendor: GOBGP
+- config:
+    command:
+    - /bin/sleep
+    - '2000000'
+    image: midnightreiter/gobgp:v3.11.0
+  name: r3356
+  services:
+    50051:
+      inside: 50051
+      name: gobgp
+  vendor: GOBGP
+- config:
+    command:
+    - /bin/sleep
+    - '2000000'
+    image: midnightreiter/gobgp:v3.11.0
+  name: r5511
+  services:
+    50051:
+      inside: 50051
+      name: gobgp
+  vendor: GOBGP
+- config:
+    command:
+    - /bin/sleep
+    - '2000000'
+    image: midnightreiter/gobgp:v3.11.0
+  name: r4134
+  services:
+    50051:
+      inside: 50051
+      name: gobgp
+  vendor: GOBGP
+- config:
+    command:
+    - /bin/sleep
+    - '2000000'
+    image: midnightreiter/gobgp:v3.11.0
+  name: r1239
+  services:
+    50051:
+      inside: 50051
+      name: gobgp
+  vendor: GOBGP
+- config:
+    command:
+    - /bin/sleep
+    - '2000000'
+    image: midnightreiter/gobgp:v3.11.0
+  name: r12389
+  services:
+    50051:
+      inside: 50051
+      name: gobgp
+  vendor: GOBGP

@@ -1,0 +1,1548 @@
+links:
+- a_int: eth1
+  a_node: r1299
+  z_int: eth1
+  z_node: r701
+- a_int: eth1
+  a_node: r1239
+  z_int: eth2
+  z_node: r1299
+- a_int: eth1
+  a_node: r3356
+  z_int: eth2
+  z_node: r1239
+- a_int: eth1
+  a_node: r50509
+  z_int: eth1
+  z_node: r9198
+- a_int: eth1
+  a_node: r43727
+  z_int: eth1
+  z_node: r35104
+- a_int: eth1
+  a_node: r4766
+  z_int: eth1
+  z_node: r31133
+- a_int: eth2
+  a_node: r3356
+  z_int: eth1
+  z_node: r12389
+- a_int: eth2
+  a_node: r701
+  z_int: eth1
+  z_node: r4134
+- a_int: eth3
+  a_node: r1239
+  z_int: eth2
+  z_node: r31133
+- a_int: eth2
+  a_node: r9198
+  z_int: eth2
+  z_node: r35104
+- a_int: eth2
+  a_node: r43727
+  z_int: eth1
+  z_node: r6939
+- a_int: eth2
+  a_node: r12389
+  z_int: eth1
+  z_node: r60299
+- a_int: eth1
+  a_node: r3216
+  z_int: eth3
+  z_node: r35104
+- a_int: eth1
+  a_node: r20485
+  z_int: eth3
+  z_node: r9198
+- a_int: eth3
+  a_node: r3356
+  z_int: eth4
+  z_node: r9198
+- a_int: eth2
+  a_node: r60299
+  z_int: eth2
+  z_node: r6939
+- a_int: eth3
+  a_node: r1299
+  z_int: eth3
+  z_node: r31133
+- a_int: eth1
+  a_node: r35168
+  z_int: eth3
+  z_node: r6939
+- a_int: eth4
+  a_node: r1239
+  z_int: eth1
+  z_node: r5511
+- a_int: eth3
+  a_node: r701
+  z_int: eth2
+  z_node: r4766
+- a_int: eth4
+  a_node: r6939
+  z_int: eth4
+  z_node: r35104
+- a_int: eth4
+  a_node: r31133
+  z_int: eth5
+  z_node: r6939
+- a_int: eth3
+  a_node: r12389
+  z_int: eth5
+  z_node: r9198
+- a_int: eth2
+  a_node: r50509
+  z_int: eth5
+  z_node: r35104
+- a_int: eth1
+  a_node: r3320
+  z_int: eth1
+  z_node: r3491
+- a_int: eth2
+  a_node: r4134
+  z_int: eth4
+  z_node: r1299
+- a_int: eth5
+  a_node: r31133
+  z_int: eth3
+  z_node: r50509
+- a_int: eth4
+  a_node: r50509
+  z_int: eth6
+  z_node: r6939
+- a_int: eth2
+  a_node: r3320
+  z_int: eth7
+  z_node: r6939
+- a_int: eth3
+  a_node: r3320
+  z_int: eth1
+  z_node: r58106
+- a_int: eth2
+  a_node: r3491
+  z_int: eth3
+  z_node: r4134
+- a_int: eth5
+  a_node: r1299
+  z_int: eth1
+  z_node: r12843
+- a_int: eth2
+  a_node: r5511
+  z_int: eth4
+  z_node: r12389
+- a_int: eth1
+  a_node: r6453
+  z_int: eth6
+  z_node: r35104
+- a_int: eth8
+  a_node: r6939
+  z_int: eth3
+  z_node: r4766
+- a_int: eth6
+  a_node: r1299
+  z_int: eth9
+  z_node: r6939
+- a_int: eth1
+  a_node: r6762
+  z_int: eth4
+  z_node: r4134
+- a_int: eth7
+  a_node: r1299
+  z_int: eth5
+  z_node: r12389
+- a_int: eth4
+  a_node: r3356
+  z_int: eth5
+  z_node: r4134
+- a_int: eth2
+  a_node: r6762
+  z_int: eth10
+  z_node: r6939
+- a_int: eth5
+  a_node: r3356
+  z_int: eth3
+  z_node: r5511
+- a_int: eth4
+  a_node: r3320
+  z_int: eth6
+  z_node: r3356
+- a_int: eth4
+  a_node: r5511
+  z_int: eth11
+  z_node: r6939
+- a_int: eth7
+  a_node: r3356
+  z_int: eth12
+  z_node: r6939
+- a_int: eth2
+  a_node: r3216
+  z_int: eth3
+  z_node: r43727
+- a_int: eth6
+  a_node: r12389
+  z_int: eth7
+  z_node: r35104
+- a_int: eth3
+  a_node: r6762
+  z_int: eth8
+  z_node: r3356
+- a_int: eth4
+  a_node: r701
+  z_int: eth13
+  z_node: r6939
+- a_int: eth6
+  a_node: r31133
+  z_int: eth4
+  z_node: r43727
+- a_int: eth7
+  a_node: r12389
+  z_int: eth2
+  z_node: r20485
+- a_int: eth6
+  a_node: r4134
+  z_int: eth5
+  z_node: r5511
+- a_int: eth6
+  a_node: r9198
+  z_int: eth1
+  z_node: r8393
+- a_int: eth1
+  a_node: h8393
+  z_int: eth3
+  z_node: r8393
+- a_int: eth3
+  a_node: r3216
+  z_int: eth2
+  z_node: r35168
+- a_int: eth5
+  a_node: r1239
+  z_int: eth2
+  z_node: r12843
+- a_int: eth7
+  a_node: r31133
+  z_int: eth3
+  z_node: r35168
+- a_int: eth4
+  a_node: r3216
+  z_int: eth3
+  z_node: r20485
+- a_int: eth4
+  a_node: r6762
+  z_int: eth4
+  z_node: r4766
+- a_int: eth6
+  a_node: r1239
+  z_int: eth5
+  z_node: r43727
+- a_int: eth5
+  a_node: r4766
+  z_int: eth7
+  z_node: r4134
+- a_int: eth9
+  a_node: r3356
+  z_int: eth6
+  z_node: r4766
+- a_int: eth5
+  a_node: r3216
+  z_int: eth8
+  z_node: r12389
+- a_int: eth9
+  a_node: r12389
+  z_int: eth5
+  z_node: r50509
+- a_int: eth3
+  a_node: r12843
+  z_int: eth14
+  z_node: r6939
+- a_int: eth4
+  a_node: r12843
+  z_int: eth4
+  z_node: r20485
+- a_int: eth5
+  a_node: r3320
+  z_int: eth5
+  z_node: r701
+- a_int: eth6
+  a_node: r3320
+  z_int: eth2
+  z_node: r6453
+- a_int: eth8
+  a_node: r31133
+  z_int: eth7
+  z_node: r9198
+- a_int: eth3
+  a_node: r3491
+  z_int: eth6
+  z_node: r701
+- a_int: eth8
+  a_node: r1299
+  z_int: eth6
+  z_node: r5511
+- a_int: eth7
+  a_node: r3320
+  z_int: eth8
+  z_node: r4134
+- a_int: eth5
+  a_node: r6762
+  z_int: eth4
+  z_node: r3491
+- a_int: eth6
+  a_node: r6762
+  z_int: eth7
+  z_node: r1239
+- a_int: eth9
+  a_node: r31133
+  z_int: eth1
+  z_node: r209141
+- a_int: eth3
+  a_node: r6453
+  z_int: eth7
+  z_node: r701
+- a_int: eth9
+  a_node: r1299
+  z_int: eth5
+  z_node: r20485
+- a_int: eth8
+  a_node: r1239
+  z_int: eth7
+  z_node: r4766
+- a_int: eth6
+  a_node: r20485
+  z_int: eth4
+  z_node: r35168
+- a_int: eth6
+  a_node: r3216
+  z_int: eth10
+  z_node: r31133
+- a_int: eth7
+  a_node: r6762
+  z_int: eth8
+  z_node: r701
+- a_int: eth2
+  a_node: r209141
+  z_int: eth8
+  z_node: r9198
+- a_int: eth8
+  a_node: r3320
+  z_int: eth10
+  z_node: r1299
+- a_int: eth9
+  a_node: r3320
+  z_int: eth8
+  z_node: r4766
+- a_int: eth11
+  a_node: r31133
+  z_int: eth5
+  z_node: r12843
+- a_int: eth9
+  a_node: r4134
+  z_int: eth7
+  z_node: r20485
+- a_int: eth5
+  a_node: r3491
+  z_int: eth11
+  z_node: r1299
+- a_int: eth12
+  a_node: r31133
+  z_int: eth8
+  z_node: r35104
+- a_int: eth9
+  a_node: r35104
+  z_int: eth5
+  z_node: r35168
+- a_int: eth10
+  a_node: r4134
+  z_int: eth10
+  z_node: r12389
+- a_int: eth12
+  a_node: r1299
+  z_int: eth9
+  z_node: r4766
+- a_int: eth10
+  a_node: r3320
+  z_int: eth8
+  z_node: r6762
+- a_int: eth9
+  a_node: r6762
+  z_int: eth13
+  z_node: r1299
+- a_int: eth9
+  a_node: r9198
+  z_int: eth15
+  z_node: r6939
+- a_int: eth10
+  a_node: r6762
+  z_int: eth13
+  z_node: r31133
+- a_int: eth7
+  a_node: r3216
+  z_int: eth16
+  z_node: r6939
+- a_int: eth10
+  a_node: r4766
+  z_int: eth8
+  z_node: r20485
+- a_int: eth11
+  a_node: r4766
+  z_int: eth11
+  z_node: r12389
+- a_int: eth9
+  a_node: r1239
+  z_int: eth17
+  z_node: r6939
+- a_int: eth10
+  a_node: r1239
+  z_int: eth9
+  z_node: r20485
+- a_int: eth6
+  a_node: r50509
+  z_int: eth3
+  z_node: r60299
+- a_int: eth11
+  a_node: r3320
+  z_int: eth11
+  z_node: r1239
+- a_int: eth12
+  a_node: r3320
+  z_int: eth6
+  z_node: r12843
+- a_int: eth7
+  a_node: r12843
+  z_int: eth2
+  z_node: r58106
+- a_int: eth12
+  a_node: r1239
+  z_int: eth7
+  z_node: r50509
+- a_int: eth13
+  a_node: r3320
+  z_int: eth7
+  z_node: r5511
+- a_int: eth14
+  a_node: r1299
+  z_int: eth8
+  z_node: r3216
+- a_int: eth11
+  a_node: r6762
+  z_int: eth10
+  z_node: r20485
+- a_int: eth4
+  a_node: r6453
+  z_int: eth6
+  z_node: r3491
+- a_int: eth9
+  a_node: r3216
+  z_int: eth12
+  z_node: r4766
+- a_int: eth12
+  a_node: r6762
+  z_int: eth5
+  z_node: r6453
+- a_int: eth7
+  a_node: r3491
+  z_int: eth8
+  z_node: r5511
+- a_int: eth8
+  a_node: r3491
+  z_int: eth18
+  z_node: r6939
+- a_int: eth6
+  a_node: r6453
+  z_int: eth11
+  z_node: r4134
+- a_int: eth9
+  a_node: r3491
+  z_int: eth11
+  z_node: r20485
+- a_int: eth10
+  a_node: r3491
+  z_int: eth12
+  z_node: r12389
+- a_int: eth10
+  a_node: r3356
+  z_int: eth12
+  z_node: r20485
+- a_int: eth11
+  a_node: r3356
+  z_int: eth9
+  z_node: r701
+- a_int: eth12
+  a_node: r3356
+  z_int: eth7
+  z_node: r6453
+- a_int: eth13
+  a_node: r3356
+  z_int: eth11
+  z_node: r3491
+- a_int: eth13
+  a_node: r6762
+  z_int: eth13
+  z_node: r12389
+- a_int: eth13
+  a_node: r20485
+  z_int: eth19
+  z_node: r6939
+- a_int: eth6
+  a_node: r43727
+  z_int: eth6
+  z_node: r35168
+- a_int: eth4
+  a_node: r60299
+  z_int: eth7
+  z_node: r35168
+- a_int: eth13
+  a_node: r4766
+  z_int: eth12
+  z_node: r3491
+- a_int: eth14
+  a_node: r6762
+  z_int: eth8
+  z_node: r50509
+- a_int: eth8
+  a_node: r6453
+  z_int: eth20
+  z_node: r6939
+- a_int: eth9
+  a_node: r6453
+  z_int: eth15
+  z_node: r1299
+- a_int: eth8
+  a_node: r35168
+  z_int: eth2
+  z_node: r8393
+- a_int: eth10
+  a_node: r3216
+  z_int: eth13
+  z_node: r1239
+- a_int: eth14
+  a_node: r1239
+  z_int: eth13
+  z_node: r3491
+- a_int: eth12
+  a_node: r4134
+  z_int: eth21
+  z_node: r6939
+- a_int: eth14
+  a_node: r31133
+  z_int: eth13
+  z_node: r4134
+- a_int: eth15
+  a_node: r1239
+  z_int: eth10
+  z_node: r701
+- a_int: eth14
+  a_node: r12389
+  z_int: eth22
+  z_node: r6939
+- a_int: eth14
+  a_node: r3356
+  z_int: eth16
+  z_node: r1299
+- a_int: eth15
+  a_node: r31133
+  z_int: eth14
+  z_node: r20485
+- a_int: eth16
+  a_node: r31133
+  z_int: eth15
+  z_node: r12389
+- a_int: eth11
+  a_node: r3216
+  z_int: eth10
+  z_node: r9198
+- a_int: eth10
+  a_node: r6453
+  z_int: eth16
+  z_node: r1239
+- a_int: eth15
+  a_node: r3356
+  z_int: eth17
+  z_node: r31133
+- a_int: eth15
+  a_node: r6762
+  z_int: eth7
+  z_node: r43727
+- a_int: eth16
+  a_node: r6762
+  z_int: eth12
+  z_node: r3216
+- a_int: eth9
+  a_node: r5511
+  z_int: eth11
+  z_node: r701
+- a_int: eth11
+  a_node: r6453
+  z_int: eth10
+  z_node: r5511
+- a_int: eth13
+  a_node: r3216
+  z_int: eth3
+  z_node: r209141
+- a_int: eth4
+  a_node: r209141
+  z_int: eth23
+  z_node: r6939
+- a_int: eth16
+  a_node: r3356
+  z_int: eth14
+  z_node: r3216
+- a_int: eth17
+  a_node: r6762
+  z_int: eth11
+  z_node: r5511
+name: bgp
+nodes:
+- config:
+    container_volumes:
+      r20485:
+        volumes:
+          zebra: /var/run/frr
+      r20485-frr:
+        volumes:
+          zebra: /var/run/frr
+    extra_images:
+      r20485-frr: frrouting/frr:v8.1.0
+    share_volumes:
+    - zebra
+    tasks:
+    - cmds: []
+      container: r20485-frr
+    - cmds:
+      - /usr/local/bin/gobgpd > /dev/null 2> /dev/null &
+      container: r20485
+  ip_addr:
+    eth1: 145.255.136.1/30
+    eth10: 5.178.42.38/30
+    eth11: 103.17.28.18/30
+    eth12: 4.7.141.30/30
+    eth13: 103.100.138.37/30
+    eth14: 145.255.136.14/30
+    eth2: 109.108.32.10/30
+    eth3: 2.95.0.14/30
+    eth4: 109.109.200.6/30
+    eth5: 145.255.136.6/30
+    eth6: 185.8.235.9/30
+    eth7: 145.255.136.10/30
+    eth8: 1.231.122.18/30
+    eth9: 104.153.80.30/30
+  name: r20485
+  services:
+    50051:
+      inside: 50051
+      name: gobgp
+  type: BGP
+- config:
+    container_volumes:
+      r50509:
+        volumes:
+          zebra: /var/run/frr
+      r50509-frr:
+        volumes:
+          zebra: /var/run/frr
+    extra_images:
+      r50509-frr: frrouting/frr:v8.1.0
+    share_volumes:
+    - zebra
+    tasks:
+    - cmds: []
+      container: r50509-frr
+    - cmds:
+      - /usr/local/bin/gobgpd > /dev/null 2> /dev/null &
+      container: r50509
+  ip_addr:
+    eth1: 146.185.222.1/30
+    eth2: 146.185.222.5/30
+    eth3: 146.185.222.10/30
+    eth4: 146.185.222.13/30
+    eth5: 146.185.222.18/30
+    eth6: 146.185.222.21/30
+    eth7: 104.153.80.34/30
+    eth8: 5.178.42.50/30
+  name: r50509
+  services:
+    50051:
+      inside: 50051
+      name: gobgp
+  type: BGP
+- config:
+    container_volumes:
+      r209141:
+        volumes:
+          zebra: /var/run/frr
+      r209141-frr:
+        volumes:
+          zebra: /var/run/frr
+    extra_images:
+      r209141-frr: frrouting/frr:v8.1.0
+    share_volumes:
+    - zebra
+    tasks:
+    - cmds: []
+      container: r209141-frr
+    - cmds:
+      - /usr/local/bin/gobgpd > /dev/null 2> /dev/null &
+      container: r209141
+  ip_addr:
+    eth1: 5.180.92.2/30
+    eth2: 5.180.92.5/30
+    eth3: 2.95.0.46/30
+    eth4: 5.180.92.9/30
+  name: r209141
+  services:
+    50051:
+      inside: 50051
+      name: gobgp
+  type: BGP
+- config:
+    container_volumes:
+      r58106:
+        volumes:
+          zebra: /var/run/frr
+      r58106-frr:
+        volumes:
+          zebra: /var/run/frr
+    extra_images:
+      r58106-frr: frrouting/frr:v8.1.0
+    share_volumes:
+    - zebra
+    tasks:
+    - cmds: []
+      container: r58106-frr
+    - cmds:
+      - /usr/local/bin/gobgpd > /dev/null 2> /dev/null &
+      container: r58106
+  ip_addr:
+    eth1: 109.160.36.10/30
+    eth2: 194.39.150.2/30
+  name: r58106
+  services:
+    50051:
+      inside: 50051
+      name: gobgp
+  type: BGP
+- config:
+    container_volumes:
+      r35168:
+        volumes:
+          zebra: /var/run/frr
+      r35168-frr:
+        volumes:
+          zebra: /var/run/frr
+    extra_images:
+      r35168-frr: frrouting/frr:v8.1.0
+    share_volumes:
+    - zebra
+    tasks:
+    - cmds: []
+      container: r35168-frr
+    - cmds:
+      - /usr/local/bin/gobgpd > /dev/null 2> /dev/null &
+      container: r35168
+  ip_addr:
+    eth1: 185.8.235.1/30
+    eth2: 2.95.0.10/30
+    eth3: 185.8.235.6/30
+    eth4: 185.8.235.10/30
+    eth5: 144.209.81.22/30
+    eth6: 185.8.235.14/30
+    eth7: 141.101.186.10/30
+    eth8: 185.8.235.17/30
+  name: r35168
+  services:
+    50051:
+      inside: 50051
+      name: gobgp
+  type: BGP
+- config:
+    container_volumes:
+      r43727:
+        volumes:
+          zebra: /var/run/frr
+      r43727-frr:
+        volumes:
+          zebra: /var/run/frr
+    extra_images:
+      r43727-frr: frrouting/frr:v8.1.0
+    share_volumes:
+    - zebra
+    tasks:
+    - cmds: []
+      container: r43727-frr
+    - cmds:
+      - /usr/local/bin/gobgpd > /dev/null 2> /dev/null &
+      container: r43727
+  ip_addr:
+    eth1: 144.209.81.1/30
+    eth2: 103.100.138.1/30
+    eth3: 2.95.0.6/30
+    eth4: 109.106.192.2/30
+    eth5: 104.153.80.18/30
+    eth6: 185.8.235.13/30
+    eth7: 5.178.42.54/30
+  name: r43727
+  services:
+    50051:
+      inside: 50051
+      name: gobgp
+  type: BGP
+- config:
+    container_volumes:
+      r3320:
+        volumes:
+          zebra: /var/run/frr
+      r3320-frr:
+        volumes:
+          zebra: /var/run/frr
+    extra_images:
+      r3320-frr: frrouting/frr:v8.1.0
+    share_volumes:
+    - zebra
+    tasks:
+    - cmds: []
+      container: r3320-frr
+    - cmds:
+      - /usr/local/bin/gobgpd > /dev/null 2> /dev/null &
+      container: r3320
+  ip_addr:
+    eth1: 109.160.36.1/30
+    eth10: 109.160.36.37/30
+    eth11: 109.160.36.41/30
+    eth12: 109.160.36.45/30
+    eth13: 109.160.36.49/30
+    eth2: 109.160.36.5/30
+    eth3: 109.160.36.9/30
+    eth4: 109.160.36.13/30
+    eth5: 109.160.36.17/30
+    eth6: 109.160.36.21/30
+    eth7: 109.160.36.25/30
+    eth8: 109.160.36.29/30
+    eth9: 109.160.36.33/30
+  name: r3320
+  services:
+    50051:
+      inside: 50051
+      name: gobgp
+  type: BGP
+- config:
+    container_volumes:
+      r3491:
+        volumes:
+          zebra: /var/run/frr
+      r3491-frr:
+        volumes:
+          zebra: /var/run/frr
+    extra_images:
+      r3491-frr: frrouting/frr:v8.1.0
+    share_volumes:
+    - zebra
+    tasks:
+    - cmds: []
+      container: r3491-frr
+    - cmds:
+      - /usr/local/bin/gobgpd > /dev/null 2> /dev/null &
+      container: r3491
+  ip_addr:
+    eth1: 109.160.36.2/30
+    eth10: 103.17.28.21/30
+    eth11: 4.7.141.42/30
+    eth12: 1.231.122.26/30
+    eth13: 104.153.80.38/30
+    eth2: 103.17.28.1/30
+    eth3: 103.17.28.5/30
+    eth4: 5.178.42.18/30
+    eth5: 103.17.28.9/30
+    eth6: 103.17.28.14/30
+    eth7: 137.83.138.17/30
+    eth8: 103.100.138.33/30
+    eth9: 103.17.28.17/30
+  name: r3491
+  services:
+    50051:
+      inside: 50051
+      name: gobgp
+  type: BGP
+- config:
+    container_volumes:
+      r6453:
+        volumes:
+          zebra: /var/run/frr
+      r6453-frr:
+        volumes:
+          zebra: /var/run/frr
+    extra_images:
+      r6453-frr: frrouting/frr:v8.1.0
+    share_volumes:
+    - zebra
+    tasks:
+    - cmds: []
+      container: r6453-frr
+    - cmds:
+      - /usr/local/bin/gobgpd > /dev/null 2> /dev/null &
+      container: r6453
+  ip_addr:
+    eth1: 144.209.81.9/30
+    eth10: 104.153.80.45/30
+    eth11: 137.83.138.25/30
+    eth2: 109.160.36.22/30
+    eth3: 63.243.128.1/30
+    eth4: 103.17.28.13/30
+    eth5: 5.178.42.42/30
+    eth6: 63.243.128.5/30
+    eth7: 4.7.141.38/30
+    eth8: 103.100.138.41/30
+    eth9: 2.23.128.13/30
+  name: r6453
+  services:
+    50051:
+      inside: 50051
+      name: gobgp
+  type: BGP
+- config:
+    container_volumes:
+      r12843:
+        volumes:
+          zebra: /var/run/frr
+      r12843-frr:
+        volumes:
+          zebra: /var/run/frr
+    extra_images:
+      r12843-frr: frrouting/frr:v8.1.0
+    share_volumes:
+    - zebra
+    tasks:
+    - cmds: []
+      container: r12843-frr
+    - cmds:
+      - /usr/local/bin/gobgpd > /dev/null 2> /dev/null &
+      container: r12843
+  ip_addr:
+    eth1: 109.109.200.2/30
+    eth2: 104.153.80.14/30
+    eth3: 103.100.138.25/30
+    eth4: 109.109.200.5/30
+    eth5: 109.109.200.10/30
+    eth6: 109.160.36.46/30
+    eth7: 194.39.150.1/30
+  name: r12843
+  services:
+    50051:
+      inside: 50051
+      name: gobgp
+  type: BGP
+- config:
+    container_volumes:
+      r3216:
+        volumes:
+          zebra: /var/run/frr
+      r3216-frr:
+        volumes:
+          zebra: /var/run/frr
+    extra_images:
+      r3216-frr: frrouting/frr:v8.1.0
+    share_volumes:
+    - zebra
+    tasks:
+    - cmds: []
+      container: r3216-frr
+    - cmds:
+      - /usr/local/bin/gobgpd > /dev/null 2> /dev/null &
+      container: r3216
+  ip_addr:
+    eth1: 2.95.0.1/30
+    eth10: 2.95.0.37/30
+    eth11: 2.95.0.41/30
+    eth12: 5.178.42.58/30
+    eth13: 2.95.0.45/30
+    eth14: 4.7.141.54/30
+    eth2: 2.95.0.5/30
+    eth3: 2.95.0.9/30
+    eth4: 2.95.0.13/30
+    eth5: 2.95.0.17/30
+    eth6: 2.95.0.21/30
+    eth7: 2.95.0.25/30
+    eth8: 2.95.0.30/30
+    eth9: 2.95.0.33/30
+  name: r3216
+  services:
+    50051:
+      inside: 50051
+      name: gobgp
+  type: BGP
+- config:
+    container_volumes:
+      r4766:
+        volumes:
+          zebra: /var/run/frr
+      r4766-frr:
+        volumes:
+          zebra: /var/run/frr
+    extra_images:
+      r4766-frr: frrouting/frr:v8.1.0
+    share_volumes:
+    - zebra
+    tasks:
+    - cmds: []
+      container: r4766-frr
+    - cmds:
+      - /usr/local/bin/gobgpd > /dev/null 2> /dev/null &
+      container: r4766
+  ip_addr:
+    eth1: 1.231.122.1/30
+    eth10: 1.231.122.17/30
+    eth11: 1.231.122.21/30
+    eth12: 2.95.0.34/30
+    eth13: 1.231.122.25/30
+    eth2: 1.231.122.6/30
+    eth3: 103.100.138.14/30
+    eth4: 5.178.42.14/30
+    eth5: 1.231.122.9/30
+    eth6: 4.7.141.26/30
+    eth7: 104.153.80.22/30
+    eth8: 109.160.36.34/30
+    eth9: 1.231.122.14/30
+  name: r4766
+  services:
+    50051:
+      inside: 50051
+      name: gobgp
+  type: BGP
+- config:
+    container_volumes:
+      r6939:
+        volumes:
+          zebra: /var/run/frr
+      r6939-frr:
+        volumes:
+          zebra: /var/run/frr
+    extra_images:
+      r6939-frr: frrouting/frr:v8.1.0
+    share_volumes:
+    - zebra
+    tasks:
+    - cmds: []
+      container: r6939-frr
+    - cmds:
+      - /usr/local/bin/gobgpd > /dev/null 2> /dev/null &
+      container: r6939
+  ip_addr:
+    eth1: 103.100.138.2/30
+    eth10: 5.178.42.6/30
+    eth11: 137.83.138.6/30
+    eth12: 4.7.141.22/30
+    eth13: 103.100.138.22/30
+    eth14: 103.100.138.26/30
+    eth15: 103.100.138.30/30
+    eth16: 2.95.0.26/30
+    eth17: 104.153.80.26/30
+    eth18: 103.100.138.34/30
+    eth19: 103.100.138.38/30
+    eth2: 141.101.186.6/30
+    eth20: 103.100.138.42/30
+    eth21: 103.100.138.46/30
+    eth22: 103.100.138.50/30
+    eth23: 5.180.92.10/30
+    eth3: 185.8.235.2/30
+    eth4: 103.100.138.5/30
+    eth5: 103.100.138.10/30
+    eth6: 146.185.222.14/30
+    eth7: 109.160.36.6/30
+    eth8: 103.100.138.13/30
+    eth9: 103.100.138.18/30
+  name: r6939
+  services:
+    50051:
+      inside: 50051
+      name: gobgp
+  type: BGP
+- config:
+    container_volumes:
+      r9198:
+        volumes:
+          zebra: /var/run/frr
+      r9198-frr:
+        volumes:
+          zebra: /var/run/frr
+    extra_images:
+      r9198-frr: frrouting/frr:v8.1.0
+    share_volumes:
+    - zebra
+    tasks:
+    - cmds: []
+      container: r9198-frr
+    - cmds:
+      - /usr/local/bin/gobgpd > /dev/null 2> /dev/null &
+      container: r9198
+  ip_addr:
+    eth1: 146.185.222.2/30
+    eth10: 2.95.0.42/30
+    eth2: 144.209.81.5/30
+    eth3: 145.255.136.2/30
+    eth4: 4.7.141.10/30
+    eth5: 109.108.32.2/30
+    eth6: 149.154.190.1/30
+    eth7: 109.106.192.6/30
+    eth8: 5.180.92.6/30
+    eth9: 103.100.138.29/30
+  name: r9198
+  services:
+    50051:
+      inside: 50051
+      name: gobgp
+  type: BGP
+- config:
+    container_volumes:
+      r35104:
+        volumes:
+          zebra: /var/run/frr
+      r35104-frr:
+        volumes:
+          zebra: /var/run/frr
+    extra_images:
+      r35104-frr: frrouting/frr:v8.1.0
+    share_volumes:
+    - zebra
+    tasks:
+    - cmds: []
+      container: r35104-frr
+    - cmds:
+      - /usr/local/bin/gobgpd > /dev/null 2> /dev/null &
+      container: r35104
+  ip_addr:
+    eth1: 144.209.81.2/30
+    eth2: 144.209.81.6/30
+    eth3: 2.95.0.2/30
+    eth4: 103.100.138.6/30
+    eth5: 146.185.222.6/30
+    eth6: 144.209.81.10/30
+    eth7: 144.209.81.14/30
+    eth8: 144.209.81.18/30
+    eth9: 144.209.81.21/30
+  name: r35104
+  services:
+    50051:
+      inside: 50051
+      name: gobgp
+  type: BGP
+- config:
+    container_volumes:
+      r701:
+        volumes:
+          zebra: /var/run/frr
+      r701-frr:
+        volumes:
+          zebra: /var/run/frr
+    extra_images:
+      r701-frr: frrouting/frr:v8.1.0
+    share_volumes:
+    - zebra
+    tasks:
+    - cmds: []
+      container: r701-frr
+    - cmds:
+      - /usr/local/bin/gobgpd > /dev/null 2> /dev/null &
+      container: r701
+  ip_addr:
+    eth1: 2.23.128.2/30
+    eth10: 104.153.80.42/30
+    eth11: 137.83.138.22/30
+    eth2: 100.0.0.1/30
+    eth3: 1.231.122.5/30
+    eth4: 103.100.138.21/30
+    eth5: 109.160.36.18/30
+    eth6: 103.17.28.6/30
+    eth7: 63.243.128.2/30
+    eth8: 5.178.42.26/30
+    eth9: 4.7.141.34/30
+  name: r701
+  services:
+    50051:
+      inside: 50051
+      name: gobgp
+  type: BGP
+- config:
+    container_volumes:
+      r1299:
+        volumes:
+          zebra: /var/run/frr
+      r1299-frr:
+        volumes:
+          zebra: /var/run/frr
+    extra_images:
+      r1299-frr: frrouting/frr:v8.1.0
+    share_volumes:
+    - zebra
+    tasks:
+    - cmds: []
+      container: r1299-frr
+    - cmds:
+      - /usr/local/bin/gobgpd > /dev/null 2> /dev/null &
+      container: r1299
+  ip_addr:
+    eth1: 2.23.128.1/30
+    eth10: 109.160.36.30/30
+    eth11: 103.17.28.10/30
+    eth12: 1.231.122.13/30
+    eth13: 5.178.42.30/30
+    eth14: 2.95.0.29/30
+    eth15: 2.23.128.14/30
+    eth16: 4.7.141.46/30
+    eth2: 104.153.80.2/30
+    eth3: 2.23.128.5/30
+    eth4: 2.23.128.10/30
+    eth5: 109.109.200.1/30
+    eth6: 103.100.138.17/30
+    eth7: 109.108.32.5/30
+    eth8: 137.83.138.13/30
+    eth9: 145.255.136.5/30
+  name: r1299
+  services:
+    50051:
+      inside: 50051
+      name: gobgp
+  type: BGP
+- config:
+    container_volumes:
+      r60299:
+        volumes:
+          zebra: /var/run/frr
+      r60299-frr:
+        volumes:
+          zebra: /var/run/frr
+    extra_images:
+      r60299-frr: frrouting/frr:v8.1.0
+    share_volumes:
+    - zebra
+    tasks:
+    - cmds: []
+      container: r60299-frr
+    - cmds:
+      - /usr/local/bin/gobgpd > /dev/null 2> /dev/null &
+      container: r60299
+  ip_addr:
+    eth1: 141.101.186.2/30
+    eth2: 141.101.186.5/30
+    eth3: 146.185.222.22/30
+    eth4: 141.101.186.9/30
+  name: r60299
+  services:
+    50051:
+      inside: 50051
+      name: gobgp
+  type: BGP
+- config:
+    container_volumes:
+      r8393:
+        volumes:
+          zebra: /var/run/frr
+      r8393-frr:
+        volumes:
+          zebra: /var/run/frr
+    extra_images:
+      r8393-frr: frrouting/frr:v8.1.0
+    share_volumes:
+    - zebra
+    tasks:
+    - cmds: []
+      container: r8393-frr
+    - cmds:
+      - /usr/local/bin/gobgpd > /dev/null 2> /dev/null &
+      container: r8393
+  ip_addr:
+    eth1: 149.154.190.2/30
+    eth2: 185.8.235.18/30
+    eth3: 91.203.20.1/30
+  name: r8393
+  services:
+    50051:
+      inside: 50051
+      name: gobgp
+  type: BGP
+- config:
+    tasks:
+    - cmds: []
+      container: h8393
+  ip_addr:
+    eth1: 91.203.20.2/30
+  name: h8393
+  type: HOST
+- config:
+    container_volumes:
+      r6762:
+        volumes:
+          zebra: /var/run/frr
+      r6762-frr:
+        volumes:
+          zebra: /var/run/frr
+    extra_images:
+      r6762-frr: frrouting/frr:v8.1.0
+    share_volumes:
+    - zebra
+    tasks:
+    - cmds: []
+      container: r6762-frr
+    - cmds:
+      - /usr/local/bin/gobgpd > /dev/null 2> /dev/null &
+      container: r6762
+  ip_addr:
+    eth1: 5.178.42.1/30
+    eth10: 5.178.42.33/30
+    eth11: 5.178.42.37/30
+    eth12: 5.178.42.41/30
+    eth13: 5.178.42.45/30
+    eth14: 5.178.42.49/30
+    eth15: 5.178.42.53/30
+    eth16: 5.178.42.57/30
+    eth17: 5.178.42.61/30
+    eth2: 5.178.42.5/30
+    eth3: 5.178.42.9/30
+    eth4: 5.178.42.13/30
+    eth5: 5.178.42.17/30
+    eth6: 5.178.42.21/30
+    eth7: 5.178.42.25/30
+    eth8: 109.160.36.38/30
+    eth9: 5.178.42.29/30
+  name: r6762
+  services:
+    50051:
+      inside: 50051
+      name: gobgp
+  type: BGP
+- config:
+    container_volumes:
+      r31133:
+        volumes:
+          zebra: /var/run/frr
+      r31133-frr:
+        volumes:
+          zebra: /var/run/frr
+    extra_images:
+      r31133-frr: frrouting/frr:v8.1.0
+    share_volumes:
+    - zebra
+    tasks:
+    - cmds: []
+      container: r31133-frr
+    - cmds:
+      - /usr/local/bin/gobgpd > /dev/null 2> /dev/null &
+      container: r31133
+  ip_addr:
+    eth1: 1.231.122.2/30
+    eth10: 2.95.0.22/30
+    eth11: 109.109.200.9/30
+    eth12: 144.209.81.17/30
+    eth13: 5.178.42.34/30
+    eth14: 109.106.192.9/30
+    eth15: 145.255.136.13/30
+    eth16: 109.108.32.17/30
+    eth17: 4.7.141.50/30
+    eth2: 104.153.80.6/30
+    eth3: 2.23.128.6/30
+    eth4: 103.100.138.9/30
+    eth5: 146.185.222.9/30
+    eth6: 109.106.192.1/30
+    eth7: 185.8.235.5/30
+    eth8: 109.106.192.5/30
+    eth9: 5.180.92.1/30
+  name: r31133
+  services:
+    50051:
+      inside: 50051
+      name: gobgp
+  type: BGP
+- config:
+    container_volumes:
+      r3356:
+        volumes:
+          zebra: /var/run/frr
+      r3356-frr:
+        volumes:
+          zebra: /var/run/frr
+    extra_images:
+      r3356-frr: frrouting/frr:v8.1.0
+    share_volumes:
+    - zebra
+    tasks:
+    - cmds: []
+      container: r3356-frr
+    - cmds:
+      - /usr/local/bin/gobgpd > /dev/null 2> /dev/null &
+      container: r3356
+  ip_addr:
+    eth1: 4.7.141.1/30
+    eth10: 4.7.141.29/30
+    eth11: 4.7.141.33/30
+    eth12: 4.7.141.37/30
+    eth13: 4.7.141.41/30
+    eth14: 4.7.141.45/30
+    eth15: 4.7.141.49/30
+    eth16: 4.7.141.53/30
+    eth2: 4.7.141.5/30
+    eth3: 4.7.141.9/30
+    eth4: 4.7.141.13/30
+    eth5: 4.7.141.17/30
+    eth6: 109.160.36.14/30
+    eth7: 4.7.141.21/30
+    eth8: 5.178.42.10/30
+    eth9: 4.7.141.25/30
+  name: r3356
+  services:
+    50051:
+      inside: 50051
+      name: gobgp
+  type: BGP
+- config:
+    container_volumes:
+      r5511:
+        volumes:
+          zebra: /var/run/frr
+      r5511-frr:
+        volumes:
+          zebra: /var/run/frr
+    extra_images:
+      r5511-frr: frrouting/frr:v8.1.0
+    share_volumes:
+    - zebra
+    tasks:
+    - cmds: []
+      container: r5511-frr
+    - cmds:
+      - /usr/local/bin/gobgpd > /dev/null 2> /dev/null &
+      container: r5511
+  ip_addr:
+    eth1: 104.153.80.10/30
+    eth10: 137.83.138.26/30
+    eth11: 5.178.42.62/30
+    eth2: 137.83.138.1/30
+    eth3: 4.7.141.18/30
+    eth4: 137.83.138.5/30
+    eth5: 137.83.138.10/30
+    eth6: 137.83.138.14/30
+    eth7: 109.160.36.50/30
+    eth8: 137.83.138.18/30
+    eth9: 137.83.138.21/30
+  name: r5511
+  services:
+    50051:
+      inside: 50051
+      name: gobgp
+  type: BGP
+- config:
+    container_volumes:
+      r4134:
+        volumes:
+          zebra: /var/run/frr
+      r4134-frr:
+        volumes:
+          zebra: /var/run/frr
+    extra_images:
+      r4134-frr: frrouting/frr:v8.1.0
+    share_volumes:
+    - zebra
+    tasks:
+    - cmds: []
+      container: r4134-frr
+    - cmds:
+      - /usr/local/bin/gobgpd > /dev/null 2> /dev/null &
+      container: r4134
+  ip_addr:
+    eth1: 100.0.0.2/30
+    eth10: 109.108.32.13/30
+    eth11: 63.243.128.6/30
+    eth12: 103.100.138.45/30
+    eth13: 109.106.192.10/30
+    eth2: 2.23.128.9/30
+    eth3: 103.17.28.2/30
+    eth4: 5.178.42.2/30
+    eth5: 4.7.141.14/30
+    eth6: 137.83.138.9/30
+    eth7: 1.231.122.10/30
+    eth8: 109.160.36.26/30
+    eth9: 145.255.136.9/30
+  name: r4134
+  services:
+    50051:
+      inside: 50051
+      name: gobgp
+  type: BGP
+- config:
+    container_volumes:
+      r1239:
+        volumes:
+          zebra: /var/run/frr
+      r1239-frr:
+        volumes:
+          zebra: /var/run/frr
+    extra_images:
+      r1239-frr: frrouting/frr:v8.1.0
+    share_volumes:
+    - zebra
+    tasks:
+    - cmds: []
+      container: r1239-frr
+    - cmds:
+      - /usr/local/bin/gobgpd > /dev/null 2> /dev/null &
+      container: r1239
+  ip_addr:
+    eth1: 104.153.80.1/30
+    eth10: 104.153.80.29/30
+    eth11: 109.160.36.42/30
+    eth12: 104.153.80.33/30
+    eth13: 2.95.0.38/30
+    eth14: 104.153.80.37/30
+    eth15: 104.153.80.41/30
+    eth16: 104.153.80.46/30
+    eth2: 4.7.141.2/30
+    eth3: 104.153.80.5/30
+    eth4: 104.153.80.9/30
+    eth5: 104.153.80.13/30
+    eth6: 104.153.80.17/30
+    eth7: 5.178.42.22/30
+    eth8: 104.153.80.21/30
+    eth9: 104.153.80.25/30
+  name: r1239
+  services:
+    50051:
+      inside: 50051
+      name: gobgp
+  type: BGP
+- config:
+    container_volumes:
+      r12389:
+        volumes:
+          zebra: /var/run/frr
+      r12389-frr:
+        volumes:
+          zebra: /var/run/frr
+    extra_images:
+      r12389-frr: frrouting/frr:v8.1.0
+    share_volumes:
+    - zebra
+    tasks:
+    - cmds: []
+      container: r12389-frr
+    - cmds:
+      - /usr/local/bin/gobgpd > /dev/null 2> /dev/null &
+      container: r12389
+  ip_addr:
+    eth1: 4.7.141.6/30
+    eth10: 109.108.32.14/30
+    eth11: 1.231.122.22/30
+    eth12: 103.17.28.22/30
+    eth13: 5.178.42.46/30
+    eth14: 103.100.138.49/30
+    eth15: 109.108.32.18/30
+    eth2: 141.101.186.1/30
+    eth3: 109.108.32.1/30
+    eth4: 137.83.138.2/30
+    eth5: 109.108.32.6/30
+    eth6: 144.209.81.13/30
+    eth7: 109.108.32.9/30
+    eth8: 2.95.0.18/30
+    eth9: 146.185.222.17/30
+  name: r12389
+  services:
+    50051:
+      inside: 50051
+      name: gobgp
+  type: BGP

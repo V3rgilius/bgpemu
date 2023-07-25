@@ -117,7 +117,7 @@ func New(topo *tpb.Topology, ktopo *ktpb.Topology, startUid int64) (*UpdateManag
 
 // Create creates the topology in the cluster.
 func (m *UpdateManager) Create(ctx context.Context, timeout time.Duration) error {
-	log.Infof("Topology:\n%v", prototext.Format(m.ktopo))
+	// log.Infof("Topology:\n%v", prototext.Format(m.ktopo))
 	if err := m.push(ctx); err != nil {
 		return err
 	}
@@ -355,12 +355,12 @@ func (m *UpdateManager) push(ctx context.Context) error {
 
 // createMeshnetTopologies creates meshnet resources for all available nodes.
 func (m *UpdateManager) createMeshnetTopologies(ctx context.Context) error {
-	log.Infof("Getting topology specs for namespace %s", m.ktopo.Name)
+	// log.Infof("Getting topology specs for namespace %s", m.ktopo.Name)
 	topologies, err := m.topologySpecs(ctx)
 	if err != nil {
 		return fmt.Errorf("could not get meshnet topologies: %v", err)
 	}
-	log.Infof("Got topology specs for namespace %s: %+v", m.ktopo.Name, topologies)
+	// log.Infof("Got topology specs for namespace %s: %+v", m.ktopo.Name, topologies)
 	for _, t := range topologies {
 		log.Infof("Creating topology for meshnet node %s", t.ObjectMeta.Name)
 		sT, err := m.tClient.Topology(m.ktopo.Name).Create(ctx, t, metav1.CreateOptions{})

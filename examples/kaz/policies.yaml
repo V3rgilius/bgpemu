@@ -1,0 +1,2610 @@
+policy_deployments:
+- assignments:
+  - default_action: ACCEPT
+    direction: IMPORT
+    name: global
+    policies:
+    - name: providers-import
+    - name: peers-import
+    - name: customers-import
+  - default_action: ACCEPT
+    direction: EXPORT
+    name: global
+    policies:
+    - name: peer-prov-export
+  defined_sets:
+  - defined_type: COMMUNITY
+    list:
+    - '65000:10'
+    - '65100:20'
+    name: peer-prov
+  - defined_type: NEIGHBOR
+    list:
+    - 145.255.136.5/30
+    - 5.178.42.37/30
+    - 103.17.28.17/30
+    - 4.7.141.29/30
+    name: providers-set
+  - defined_type: NEIGHBOR
+    list:
+    - 109.108.32.9/30
+    - 2.95.0.13/30
+    - 109.109.200.5/30
+    - 145.255.136.9/30
+    - 1.231.122.17/30
+    - 104.153.80.29/30
+    - 103.100.138.38/30
+    - 145.255.136.13/30
+    name: peers-set
+  - defined_type: NEIGHBOR
+    list:
+    - 145.255.136.2/30
+    - 185.8.235.10/30
+    name: customers-set
+  policies:
+  - name: peer-prov-export
+    statements:
+    - name: noexport
+  - name: providers-import
+    statements:
+    - name: providers-in
+  - name: peers-import
+    statements:
+    - name: peers-in
+  - name: customers-import
+    statements:
+    - name: customers-in
+  router_name: r20485
+  statements:
+  - actions:
+      route_action: REJECT
+    conditions:
+      community_set:
+        name: peer-prov
+        type: ANY
+      neighbor_set:
+        name: customers-set
+        type: INVERT
+    name: noexport
+  - actions:
+      community:
+        communities:
+        - '65100:10'
+        type: ADD
+      local_pref:
+        value: 10
+    conditions:
+      neighbor_set:
+        name: providers-set
+        type: ANY
+    name: providers-in
+  - actions:
+      community:
+        communities:
+        - '65100:20'
+        type: ADD
+      local_pref:
+        value: 20
+    conditions:
+      neighbor_set:
+        name: peers-set
+        type: ANY
+    name: peers-in
+  - actions:
+      community:
+        communities:
+        - '65100:30'
+        type: ADD
+      local_pref:
+        value: 30
+    conditions:
+      neighbor_set:
+        name: customers-set
+        type: ANY
+    name: customers-in
+- assignments:
+  - default_action: ACCEPT
+    direction: IMPORT
+    name: global
+    policies:
+    - name: providers-import
+    - name: peers-import
+    - name: customers-import
+  - default_action: ACCEPT
+    direction: EXPORT
+    name: global
+    policies:
+    - name: peer-prov-export
+  defined_sets:
+  - defined_type: COMMUNITY
+    list:
+    - '65000:10'
+    - '65100:20'
+    name: peer-prov
+  - defined_type: NEIGHBOR
+    list:
+    - 146.185.222.14/30
+    - 146.185.222.17/30
+    - 5.178.42.49/30
+    name: providers-set
+  - defined_type: NEIGHBOR
+    list:
+    - 146.185.222.9/30
+    - 104.153.80.33/30
+    name: peers-set
+  - defined_type: NEIGHBOR
+    list:
+    - 146.185.222.2/30
+    - 146.185.222.6/30
+    - 146.185.222.22/30
+    name: customers-set
+  policies:
+  - name: peer-prov-export
+    statements:
+    - name: noexport
+  - name: providers-import
+    statements:
+    - name: providers-in
+  - name: peers-import
+    statements:
+    - name: peers-in
+  - name: customers-import
+    statements:
+    - name: customers-in
+  router_name: r50509
+  statements:
+  - actions:
+      route_action: REJECT
+    conditions:
+      community_set:
+        name: peer-prov
+        type: ANY
+      neighbor_set:
+        name: customers-set
+        type: INVERT
+    name: noexport
+  - actions:
+      community:
+        communities:
+        - '65100:10'
+        type: ADD
+      local_pref:
+        value: 10
+    conditions:
+      neighbor_set:
+        name: providers-set
+        type: ANY
+    name: providers-in
+  - actions:
+      community:
+        communities:
+        - '65100:20'
+        type: ADD
+      local_pref:
+        value: 20
+    conditions:
+      neighbor_set:
+        name: peers-set
+        type: ANY
+    name: peers-in
+  - actions:
+      community:
+        communities:
+        - '65100:30'
+        type: ADD
+      local_pref:
+        value: 30
+    conditions:
+      neighbor_set:
+        name: customers-set
+        type: ANY
+    name: customers-in
+- assignments:
+  - default_action: ACCEPT
+    direction: IMPORT
+    name: global
+    policies:
+    - name: providers-import
+    - name: peers-import
+    - name: customers-import
+  - default_action: ACCEPT
+    direction: EXPORT
+    name: global
+    policies:
+    - name: peer-prov-export
+  defined_sets:
+  - defined_type: COMMUNITY
+    list:
+    - '65000:10'
+    - '65100:20'
+    name: peer-prov
+  - defined_type: NEIGHBOR
+    list:
+    - 5.180.92.1/30
+    - 2.95.0.45/30
+    name: providers-set
+  - defined_type: NEIGHBOR
+    list:
+    - 5.180.92.10/30
+    name: peers-set
+  - defined_type: NEIGHBOR
+    list:
+    - 5.180.92.6/30
+    name: customers-set
+  policies:
+  - name: peer-prov-export
+    statements:
+    - name: noexport
+  - name: providers-import
+    statements:
+    - name: providers-in
+  - name: peers-import
+    statements:
+    - name: peers-in
+  - name: customers-import
+    statements:
+    - name: customers-in
+  router_name: r209141
+  statements:
+  - actions:
+      route_action: REJECT
+    conditions:
+      community_set:
+        name: peer-prov
+        type: ANY
+      neighbor_set:
+        name: customers-set
+        type: INVERT
+    name: noexport
+  - actions:
+      community:
+        communities:
+        - '65100:10'
+        type: ADD
+      local_pref:
+        value: 10
+    conditions:
+      neighbor_set:
+        name: providers-set
+        type: ANY
+    name: providers-in
+  - actions:
+      community:
+        communities:
+        - '65100:20'
+        type: ADD
+      local_pref:
+        value: 20
+    conditions:
+      neighbor_set:
+        name: peers-set
+        type: ANY
+    name: peers-in
+  - actions:
+      community:
+        communities:
+        - '65100:30'
+        type: ADD
+      local_pref:
+        value: 30
+    conditions:
+      neighbor_set:
+        name: customers-set
+        type: ANY
+    name: customers-in
+- assignments:
+  - default_action: ACCEPT
+    direction: IMPORT
+    name: global
+    policies:
+    - name: providers-import
+    - name: peers-import
+    - name: customers-import
+  - default_action: ACCEPT
+    direction: EXPORT
+    name: global
+    policies:
+    - name: peer-prov-export
+  defined_sets:
+  - defined_type: COMMUNITY
+    list:
+    - '65000:10'
+    - '65100:20'
+    name: peer-prov
+  - defined_type: NEIGHBOR
+    list:
+    - 109.160.36.9/30
+    - 194.39.150.1/30
+    name: providers-set
+  - defined_type: NEIGHBOR
+    list: []
+    name: peers-set
+  - defined_type: NEIGHBOR
+    list: []
+    name: customers-set
+  policies:
+  - name: peer-prov-export
+    statements:
+    - name: noexport
+  - name: providers-import
+    statements:
+    - name: providers-in
+  - name: peers-import
+    statements:
+    - name: peers-in
+  - name: customers-import
+    statements:
+    - name: customers-in
+  router_name: r58106
+  statements:
+  - actions:
+      route_action: REJECT
+    conditions:
+      community_set:
+        name: peer-prov
+        type: ANY
+      neighbor_set:
+        name: customers-set
+        type: INVERT
+    name: noexport
+  - actions:
+      community:
+        communities:
+        - '65100:10'
+        type: ADD
+      local_pref:
+        value: 10
+    conditions:
+      neighbor_set:
+        name: providers-set
+        type: ANY
+    name: providers-in
+  - actions:
+      community:
+        communities:
+        - '65100:20'
+        type: ADD
+      local_pref:
+        value: 20
+    conditions:
+      neighbor_set:
+        name: peers-set
+        type: ANY
+    name: peers-in
+  - actions:
+      community:
+        communities:
+        - '65100:30'
+        type: ADD
+      local_pref:
+        value: 30
+    conditions:
+      neighbor_set:
+        name: customers-set
+        type: ANY
+    name: customers-in
+- assignments:
+  - default_action: ACCEPT
+    direction: IMPORT
+    name: global
+    policies:
+    - name: providers-import
+    - name: peers-import
+    - name: customers-import
+  - default_action: ACCEPT
+    direction: EXPORT
+    name: global
+    policies:
+    - name: peer-prov-export
+  defined_sets:
+  - defined_type: COMMUNITY
+    list:
+    - '65000:10'
+    - '65100:20'
+    name: peer-prov
+  - defined_type: NEIGHBOR
+    list:
+    - 2.95.0.9/30
+    - 185.8.235.5/30
+    - 185.8.235.9/30
+    - 144.209.81.21/30
+    - 185.8.235.13/30
+    - 141.101.186.9/30
+    name: providers-set
+  - defined_type: NEIGHBOR
+    list:
+    - 185.8.235.2/30
+    name: peers-set
+  - defined_type: NEIGHBOR
+    list:
+    - 185.8.235.18/30
+    name: customers-set
+  policies:
+  - name: peer-prov-export
+    statements:
+    - name: noexport
+  - name: providers-import
+    statements:
+    - name: providers-in
+  - name: peers-import
+    statements:
+    - name: peers-in
+  - name: customers-import
+    statements:
+    - name: customers-in
+  router_name: r35168
+  statements:
+  - actions:
+      route_action: REJECT
+    conditions:
+      community_set:
+        name: peer-prov
+        type: ANY
+      neighbor_set:
+        name: customers-set
+        type: INVERT
+    name: noexport
+  - actions:
+      community:
+        communities:
+        - '65100:10'
+        type: ADD
+      local_pref:
+        value: 10
+    conditions:
+      neighbor_set:
+        name: providers-set
+        type: ANY
+    name: providers-in
+  - actions:
+      community:
+        communities:
+        - '65100:20'
+        type: ADD
+      local_pref:
+        value: 20
+    conditions:
+      neighbor_set:
+        name: peers-set
+        type: ANY
+    name: peers-in
+  - actions:
+      community:
+        communities:
+        - '65100:30'
+        type: ADD
+      local_pref:
+        value: 30
+    conditions:
+      neighbor_set:
+        name: customers-set
+        type: ANY
+    name: customers-in
+- assignments:
+  - default_action: ACCEPT
+    direction: IMPORT
+    name: global
+    policies:
+    - name: providers-import
+    - name: peers-import
+    - name: customers-import
+  - default_action: ACCEPT
+    direction: EXPORT
+    name: global
+    policies:
+    - name: peer-prov-export
+  defined_sets:
+  - defined_type: COMMUNITY
+    list:
+    - '65000:10'
+    - '65100:20'
+    name: peer-prov
+  - defined_type: NEIGHBOR
+    list:
+    - 103.100.138.2/30
+    - 2.95.0.5/30
+    - 5.178.42.53/30
+    name: providers-set
+  - defined_type: NEIGHBOR
+    list:
+    - 109.106.192.1/30
+    - 104.153.80.17/30
+    name: peers-set
+  - defined_type: NEIGHBOR
+    list:
+    - 144.209.81.2/30
+    - 185.8.235.14/30
+    name: customers-set
+  policies:
+  - name: peer-prov-export
+    statements:
+    - name: noexport
+  - name: providers-import
+    statements:
+    - name: providers-in
+  - name: peers-import
+    statements:
+    - name: peers-in
+  - name: customers-import
+    statements:
+    - name: customers-in
+  router_name: r43727
+  statements:
+  - actions:
+      route_action: REJECT
+    conditions:
+      community_set:
+        name: peer-prov
+        type: ANY
+      neighbor_set:
+        name: customers-set
+        type: INVERT
+    name: noexport
+  - actions:
+      community:
+        communities:
+        - '65100:10'
+        type: ADD
+      local_pref:
+        value: 10
+    conditions:
+      neighbor_set:
+        name: providers-set
+        type: ANY
+    name: providers-in
+  - actions:
+      community:
+        communities:
+        - '65100:20'
+        type: ADD
+      local_pref:
+        value: 20
+    conditions:
+      neighbor_set:
+        name: peers-set
+        type: ANY
+    name: peers-in
+  - actions:
+      community:
+        communities:
+        - '65100:30'
+        type: ADD
+      local_pref:
+        value: 30
+    conditions:
+      neighbor_set:
+        name: customers-set
+        type: ANY
+    name: customers-in
+- assignments:
+  - default_action: ACCEPT
+    direction: IMPORT
+    name: global
+    policies:
+    - name: providers-import
+    - name: peers-import
+    - name: customers-import
+  - default_action: ACCEPT
+    direction: EXPORT
+    name: global
+    policies:
+    - name: peer-prov-export
+  defined_sets:
+  - defined_type: COMMUNITY
+    list:
+    - '65000:10'
+    - '65100:20'
+    name: peer-prov
+  - defined_type: NEIGHBOR
+    list: []
+    name: providers-set
+  - defined_type: NEIGHBOR
+    list:
+    - 109.160.36.2/30
+    - 109.160.36.6/30
+    - 109.160.36.14/30
+    - 109.160.36.18/30
+    - 109.160.36.22/30
+    - 109.160.36.26/30
+    - 109.160.36.30/30
+    - 109.160.36.34/30
+    - 109.160.36.38/30
+    - 109.160.36.42/30
+    - 109.160.36.50/30
+    name: peers-set
+  - defined_type: NEIGHBOR
+    list:
+    - 109.160.36.10/30
+    - 109.160.36.46/30
+    name: customers-set
+  policies:
+  - name: peer-prov-export
+    statements:
+    - name: noexport
+  - name: providers-import
+    statements:
+    - name: providers-in
+  - name: peers-import
+    statements:
+    - name: peers-in
+  - name: customers-import
+    statements:
+    - name: customers-in
+  router_name: r3320
+  statements:
+  - actions:
+      route_action: REJECT
+    conditions:
+      community_set:
+        name: peer-prov
+        type: ANY
+      neighbor_set:
+        name: customers-set
+        type: INVERT
+    name: noexport
+  - actions:
+      community:
+        communities:
+        - '65100:10'
+        type: ADD
+      local_pref:
+        value: 10
+    conditions:
+      neighbor_set:
+        name: providers-set
+        type: ANY
+    name: providers-in
+  - actions:
+      community:
+        communities:
+        - '65100:20'
+        type: ADD
+      local_pref:
+        value: 20
+    conditions:
+      neighbor_set:
+        name: peers-set
+        type: ANY
+    name: peers-in
+  - actions:
+      community:
+        communities:
+        - '65100:30'
+        type: ADD
+      local_pref:
+        value: 30
+    conditions:
+      neighbor_set:
+        name: customers-set
+        type: ANY
+    name: customers-in
+- assignments:
+  - default_action: ACCEPT
+    direction: IMPORT
+    name: global
+    policies:
+    - name: providers-import
+    - name: peers-import
+    - name: customers-import
+  - default_action: ACCEPT
+    direction: EXPORT
+    name: global
+    policies:
+    - name: peer-prov-export
+  defined_sets:
+  - defined_type: COMMUNITY
+    list:
+    - '65000:10'
+    - '65100:20'
+    name: peer-prov
+  - defined_type: NEIGHBOR
+    list: []
+    name: providers-set
+  - defined_type: NEIGHBOR
+    list:
+    - 109.160.36.1/30
+    - 103.17.28.2/30
+    - 103.17.28.6/30
+    - 5.178.42.17/30
+    - 103.17.28.10/30
+    - 103.17.28.13/30
+    - 137.83.138.18/30
+    - 4.7.141.41/30
+    - 1.231.122.25/30
+    - 104.153.80.37/30
+    name: peers-set
+  - defined_type: NEIGHBOR
+    list:
+    - 103.100.138.34/30
+    - 103.17.28.18/30
+    - 103.17.28.22/30
+    name: customers-set
+  policies:
+  - name: peer-prov-export
+    statements:
+    - name: noexport
+  - name: providers-import
+    statements:
+    - name: providers-in
+  - name: peers-import
+    statements:
+    - name: peers-in
+  - name: customers-import
+    statements:
+    - name: customers-in
+  router_name: r3491
+  statements:
+  - actions:
+      route_action: REJECT
+    conditions:
+      community_set:
+        name: peer-prov
+        type: ANY
+      neighbor_set:
+        name: customers-set
+        type: INVERT
+    name: noexport
+  - actions:
+      community:
+        communities:
+        - '65100:10'
+        type: ADD
+      local_pref:
+        value: 10
+    conditions:
+      neighbor_set:
+        name: providers-set
+        type: ANY
+    name: providers-in
+  - actions:
+      community:
+        communities:
+        - '65100:20'
+        type: ADD
+      local_pref:
+        value: 20
+    conditions:
+      neighbor_set:
+        name: peers-set
+        type: ANY
+    name: peers-in
+  - actions:
+      community:
+        communities:
+        - '65100:30'
+        type: ADD
+      local_pref:
+        value: 30
+    conditions:
+      neighbor_set:
+        name: customers-set
+        type: ANY
+    name: customers-in
+- assignments:
+  - default_action: ACCEPT
+    direction: IMPORT
+    name: global
+    policies:
+    - name: providers-import
+    - name: peers-import
+    - name: customers-import
+  - default_action: ACCEPT
+    direction: EXPORT
+    name: global
+    policies:
+    - name: peer-prov-export
+  defined_sets:
+  - defined_type: COMMUNITY
+    list:
+    - '65000:10'
+    - '65100:20'
+    name: peer-prov
+  - defined_type: NEIGHBOR
+    list: []
+    name: providers-set
+  - defined_type: NEIGHBOR
+    list:
+    - 109.160.36.21/30
+    - 63.243.128.2/30
+    - 103.17.28.14/30
+    - 5.178.42.41/30
+    - 63.243.128.6/30
+    - 4.7.141.37/30
+    - 2.23.128.14/30
+    - 104.153.80.46/30
+    - 137.83.138.26/30
+    name: peers-set
+  - defined_type: NEIGHBOR
+    list:
+    - 144.209.81.10/30
+    - 103.100.138.42/30
+    name: customers-set
+  policies:
+  - name: peer-prov-export
+    statements:
+    - name: noexport
+  - name: providers-import
+    statements:
+    - name: providers-in
+  - name: peers-import
+    statements:
+    - name: peers-in
+  - name: customers-import
+    statements:
+    - name: customers-in
+  router_name: r6453
+  statements:
+  - actions:
+      route_action: REJECT
+    conditions:
+      community_set:
+        name: peer-prov
+        type: ANY
+      neighbor_set:
+        name: customers-set
+        type: INVERT
+    name: noexport
+  - actions:
+      community:
+        communities:
+        - '65100:10'
+        type: ADD
+      local_pref:
+        value: 10
+    conditions:
+      neighbor_set:
+        name: providers-set
+        type: ANY
+    name: providers-in
+  - actions:
+      community:
+        communities:
+        - '65100:20'
+        type: ADD
+      local_pref:
+        value: 20
+    conditions:
+      neighbor_set:
+        name: peers-set
+        type: ANY
+    name: peers-in
+  - actions:
+      community:
+        communities:
+        - '65100:30'
+        type: ADD
+      local_pref:
+        value: 30
+    conditions:
+      neighbor_set:
+        name: customers-set
+        type: ANY
+    name: customers-in
+- assignments:
+  - default_action: ACCEPT
+    direction: IMPORT
+    name: global
+    policies:
+    - name: providers-import
+    - name: peers-import
+    - name: customers-import
+  - default_action: ACCEPT
+    direction: EXPORT
+    name: global
+    policies:
+    - name: peer-prov-export
+  defined_sets:
+  - defined_type: COMMUNITY
+    list:
+    - '65000:10'
+    - '65100:20'
+    name: peer-prov
+  - defined_type: NEIGHBOR
+    list:
+    - 109.109.200.1/30
+    - 109.160.36.45/30
+    name: providers-set
+  - defined_type: NEIGHBOR
+    list:
+    - 104.153.80.13/30
+    - 103.100.138.26/30
+    - 109.109.200.6/30
+    - 109.109.200.9/30
+    name: peers-set
+  - defined_type: NEIGHBOR
+    list:
+    - 194.39.150.2/30
+    name: customers-set
+  policies:
+  - name: peer-prov-export
+    statements:
+    - name: noexport
+  - name: providers-import
+    statements:
+    - name: providers-in
+  - name: peers-import
+    statements:
+    - name: peers-in
+  - name: customers-import
+    statements:
+    - name: customers-in
+  router_name: r12843
+  statements:
+  - actions:
+      route_action: REJECT
+    conditions:
+      community_set:
+        name: peer-prov
+        type: ANY
+      neighbor_set:
+        name: customers-set
+        type: INVERT
+    name: noexport
+  - actions:
+      community:
+        communities:
+        - '65100:10'
+        type: ADD
+      local_pref:
+        value: 10
+    conditions:
+      neighbor_set:
+        name: providers-set
+        type: ANY
+    name: providers-in
+  - actions:
+      community:
+        communities:
+        - '65100:20'
+        type: ADD
+      local_pref:
+        value: 20
+    conditions:
+      neighbor_set:
+        name: peers-set
+        type: ANY
+    name: peers-in
+  - actions:
+      community:
+        communities:
+        - '65100:30'
+        type: ADD
+      local_pref:
+        value: 30
+    conditions:
+      neighbor_set:
+        name: customers-set
+        type: ANY
+    name: customers-in
+- assignments:
+  - default_action: ACCEPT
+    direction: IMPORT
+    name: global
+    policies:
+    - name: providers-import
+    - name: peers-import
+    - name: customers-import
+  - default_action: ACCEPT
+    direction: EXPORT
+    name: global
+    policies:
+    - name: peer-prov-export
+  defined_sets:
+  - defined_type: COMMUNITY
+    list:
+    - '65000:10'
+    - '65100:20'
+    name: peer-prov
+  - defined_type: NEIGHBOR
+    list:
+    - 2.95.0.29/30
+    - 5.178.42.57/30
+    - 4.7.141.53/30
+    name: providers-set
+  - defined_type: NEIGHBOR
+    list:
+    - 2.95.0.14/30
+    - 2.95.0.18/30
+    - 2.95.0.22/30
+    - 2.95.0.26/30
+    - 2.95.0.34/30
+    - 2.95.0.38/30
+    name: peers-set
+  - defined_type: NEIGHBOR
+    list:
+    - 2.95.0.2/30
+    - 2.95.0.6/30
+    - 2.95.0.10/30
+    - 2.95.0.42/30
+    - 2.95.0.46/30
+    name: customers-set
+  policies:
+  - name: peer-prov-export
+    statements:
+    - name: noexport
+  - name: providers-import
+    statements:
+    - name: providers-in
+  - name: peers-import
+    statements:
+    - name: peers-in
+  - name: customers-import
+    statements:
+    - name: customers-in
+  router_name: r3216
+  statements:
+  - actions:
+      route_action: REJECT
+    conditions:
+      community_set:
+        name: peer-prov
+        type: ANY
+      neighbor_set:
+        name: customers-set
+        type: INVERT
+    name: noexport
+  - actions:
+      community:
+        communities:
+        - '65100:10'
+        type: ADD
+      local_pref:
+        value: 10
+    conditions:
+      neighbor_set:
+        name: providers-set
+        type: ANY
+    name: providers-in
+  - actions:
+      community:
+        communities:
+        - '65100:20'
+        type: ADD
+      local_pref:
+        value: 20
+    conditions:
+      neighbor_set:
+        name: peers-set
+        type: ANY
+    name: peers-in
+  - actions:
+      community:
+        communities:
+        - '65100:30'
+        type: ADD
+      local_pref:
+        value: 30
+    conditions:
+      neighbor_set:
+        name: customers-set
+        type: ANY
+    name: customers-in
+- assignments:
+  - default_action: ACCEPT
+    direction: IMPORT
+    name: global
+    policies:
+    - name: providers-import
+    - name: peers-import
+    - name: customers-import
+  - default_action: ACCEPT
+    direction: EXPORT
+    name: global
+    policies:
+    - name: peer-prov-export
+  defined_sets:
+  - defined_type: COMMUNITY
+    list:
+    - '65000:10'
+    - '65100:20'
+    name: peer-prov
+  - defined_type: NEIGHBOR
+    list:
+    - 1.231.122.5/30
+    - 103.100.138.13/30
+    - 4.7.141.25/30
+    - 104.153.80.21/30
+    - 1.231.122.13/30
+    name: providers-set
+  - defined_type: NEIGHBOR
+    list:
+    - 1.231.122.2/30
+    - 5.178.42.13/30
+    - 109.160.36.33/30
+    - 1.231.122.18/30
+    - 1.231.122.22/30
+    - 2.95.0.33/30
+    - 1.231.122.26/30
+    name: peers-set
+  - defined_type: NEIGHBOR
+    list:
+    - 1.231.122.10/30
+    name: customers-set
+  policies:
+  - name: peer-prov-export
+    statements:
+    - name: noexport
+  - name: providers-import
+    statements:
+    - name: providers-in
+  - name: peers-import
+    statements:
+    - name: peers-in
+  - name: customers-import
+    statements:
+    - name: customers-in
+  router_name: r4766
+  statements:
+  - actions:
+      route_action: REJECT
+    conditions:
+      community_set:
+        name: peer-prov
+        type: ANY
+      neighbor_set:
+        name: customers-set
+        type: INVERT
+    name: noexport
+  - actions:
+      community:
+        communities:
+        - '65100:10'
+        type: ADD
+      local_pref:
+        value: 10
+    conditions:
+      neighbor_set:
+        name: providers-set
+        type: ANY
+    name: providers-in
+  - actions:
+      community:
+        communities:
+        - '65100:20'
+        type: ADD
+      local_pref:
+        value: 20
+    conditions:
+      neighbor_set:
+        name: peers-set
+        type: ANY
+    name: peers-in
+  - actions:
+      community:
+        communities:
+        - '65100:30'
+        type: ADD
+      local_pref:
+        value: 30
+    conditions:
+      neighbor_set:
+        name: customers-set
+        type: ANY
+    name: customers-in
+- assignments:
+  - default_action: ACCEPT
+    direction: IMPORT
+    name: global
+    policies:
+    - name: providers-import
+    - name: peers-import
+    - name: customers-import
+  - default_action: ACCEPT
+    direction: EXPORT
+    name: global
+    policies:
+    - name: peer-prov-export
+  defined_sets:
+  - defined_type: COMMUNITY
+    list:
+    - '65000:10'
+    - '65100:20'
+    name: peer-prov
+  - defined_type: NEIGHBOR
+    list:
+    - 103.100.138.17/30
+    - 4.7.141.21/30
+    - 103.100.138.33/30
+    name: providers-set
+  - defined_type: NEIGHBOR
+    list:
+    - 141.101.186.5/30
+    - 185.8.235.1/30
+    - 103.100.138.6/30
+    - 103.100.138.9/30
+    - 109.160.36.5/30
+    - 5.178.42.5/30
+    - 137.83.138.5/30
+    - 103.100.138.21/30
+    - 103.100.138.25/30
+    - 103.100.138.29/30
+    - 2.95.0.25/30
+    - 104.153.80.25/30
+    - 103.100.138.37/30
+    - 103.100.138.45/30
+    - 103.100.138.49/30
+    - 5.180.92.9/30
+    name: peers-set
+  - defined_type: NEIGHBOR
+    list:
+    - 103.100.138.1/30
+    - 146.185.222.13/30
+    - 103.100.138.14/30
+    - 103.100.138.41/30
+    name: customers-set
+  policies:
+  - name: peer-prov-export
+    statements:
+    - name: noexport
+  - name: providers-import
+    statements:
+    - name: providers-in
+  - name: peers-import
+    statements:
+    - name: peers-in
+  - name: customers-import
+    statements:
+    - name: customers-in
+  router_name: r6939
+  statements:
+  - actions:
+      route_action: REJECT
+    conditions:
+      community_set:
+        name: peer-prov
+        type: ANY
+      neighbor_set:
+        name: customers-set
+        type: INVERT
+    name: noexport
+  - actions:
+      community:
+        communities:
+        - '65100:10'
+        type: ADD
+      local_pref:
+        value: 10
+    conditions:
+      neighbor_set:
+        name: providers-set
+        type: ANY
+    name: providers-in
+  - actions:
+      community:
+        communities:
+        - '65100:20'
+        type: ADD
+      local_pref:
+        value: 20
+    conditions:
+      neighbor_set:
+        name: peers-set
+        type: ANY
+    name: peers-in
+  - actions:
+      community:
+        communities:
+        - '65100:30'
+        type: ADD
+      local_pref:
+        value: 30
+    conditions:
+      neighbor_set:
+        name: customers-set
+        type: ANY
+    name: customers-in
+- assignments:
+  - default_action: ACCEPT
+    direction: IMPORT
+    name: global
+    policies:
+    - name: providers-import
+    - name: peers-import
+    - name: customers-import
+  - default_action: ACCEPT
+    direction: EXPORT
+    name: global
+    policies:
+    - name: peer-prov-export
+  defined_sets:
+  - defined_type: COMMUNITY
+    list:
+    - '65000:10'
+    - '65100:20'
+    name: peer-prov
+  - defined_type: NEIGHBOR
+    list:
+    - 146.185.222.1/30
+    - 145.255.136.1/30
+    - 4.7.141.9/30
+    - 109.108.32.1/30
+    - 109.106.192.5/30
+    - 5.180.92.5/30
+    - 2.95.0.41/30
+    name: providers-set
+  - defined_type: NEIGHBOR
+    list:
+    - 103.100.138.30/30
+    name: peers-set
+  - defined_type: NEIGHBOR
+    list:
+    - 144.209.81.6/30
+    - 149.154.190.2/30
+    name: customers-set
+  policies:
+  - name: peer-prov-export
+    statements:
+    - name: noexport
+  - name: providers-import
+    statements:
+    - name: providers-in
+  - name: peers-import
+    statements:
+    - name: peers-in
+  - name: customers-import
+    statements:
+    - name: customers-in
+  router_name: r9198
+  statements:
+  - actions:
+      route_action: REJECT
+    conditions:
+      community_set:
+        name: peer-prov
+        type: ANY
+      neighbor_set:
+        name: customers-set
+        type: INVERT
+    name: noexport
+  - actions:
+      community:
+        communities:
+        - '65100:10'
+        type: ADD
+      local_pref:
+        value: 10
+    conditions:
+      neighbor_set:
+        name: providers-set
+        type: ANY
+    name: providers-in
+  - actions:
+      community:
+        communities:
+        - '65100:20'
+        type: ADD
+      local_pref:
+        value: 20
+    conditions:
+      neighbor_set:
+        name: peers-set
+        type: ANY
+    name: peers-in
+  - actions:
+      community:
+        communities:
+        - '65100:30'
+        type: ADD
+      local_pref:
+        value: 30
+    conditions:
+      neighbor_set:
+        name: customers-set
+        type: ANY
+    name: customers-in
+- assignments:
+  - default_action: ACCEPT
+    direction: IMPORT
+    name: global
+    policies:
+    - name: providers-import
+    - name: peers-import
+    - name: customers-import
+  - default_action: ACCEPT
+    direction: EXPORT
+    name: global
+    policies:
+    - name: peer-prov-export
+  defined_sets:
+  - defined_type: COMMUNITY
+    list:
+    - '65000:10'
+    - '65100:20'
+    name: peer-prov
+  - defined_type: NEIGHBOR
+    list:
+    - 144.209.81.1/30
+    - 144.209.81.5/30
+    - 2.95.0.1/30
+    - 146.185.222.5/30
+    - 144.209.81.9/30
+    - 144.209.81.13/30
+    - 144.209.81.17/30
+    name: providers-set
+  - defined_type: NEIGHBOR
+    list:
+    - 103.100.138.5/30
+    name: peers-set
+  - defined_type: NEIGHBOR
+    list:
+    - 144.209.81.22/30
+    name: customers-set
+  policies:
+  - name: peer-prov-export
+    statements:
+    - name: noexport
+  - name: providers-import
+    statements:
+    - name: providers-in
+  - name: peers-import
+    statements:
+    - name: peers-in
+  - name: customers-import
+    statements:
+    - name: customers-in
+  router_name: r35104
+  statements:
+  - actions:
+      route_action: REJECT
+    conditions:
+      community_set:
+        name: peer-prov
+        type: ANY
+      neighbor_set:
+        name: customers-set
+        type: INVERT
+    name: noexport
+  - actions:
+      community:
+        communities:
+        - '65100:10'
+        type: ADD
+      local_pref:
+        value: 10
+    conditions:
+      neighbor_set:
+        name: providers-set
+        type: ANY
+    name: providers-in
+  - actions:
+      community:
+        communities:
+        - '65100:20'
+        type: ADD
+      local_pref:
+        value: 20
+    conditions:
+      neighbor_set:
+        name: peers-set
+        type: ANY
+    name: peers-in
+  - actions:
+      community:
+        communities:
+        - '65100:30'
+        type: ADD
+      local_pref:
+        value: 30
+    conditions:
+      neighbor_set:
+        name: customers-set
+        type: ANY
+    name: customers-in
+- assignments:
+  - default_action: ACCEPT
+    direction: IMPORT
+    name: global
+    policies:
+    - name: providers-import
+    - name: peers-import
+    - name: customers-import
+  - default_action: ACCEPT
+    direction: EXPORT
+    name: global
+    policies:
+    - name: peer-prov-export
+  defined_sets:
+  - defined_type: COMMUNITY
+    list:
+    - '65000:10'
+    - '65100:20'
+    name: peer-prov
+  - defined_type: NEIGHBOR
+    list: []
+    name: providers-set
+  - defined_type: NEIGHBOR
+    list:
+    - 2.23.128.1/30
+    - 103.100.138.22/30
+    - 109.160.36.17/30
+    - 103.17.28.5/30
+    - 63.243.128.1/30
+    - 5.178.42.25/30
+    - 4.7.141.33/30
+    - 104.153.80.41/30
+    - 137.83.138.21/30
+    name: peers-set
+  - defined_type: NEIGHBOR
+    list:
+    - 100.0.0.2/30
+    - 1.231.122.6/30
+    name: customers-set
+  policies:
+  - name: peer-prov-export
+    statements:
+    - name: noexport
+  - name: providers-import
+    statements:
+    - name: providers-in
+  - name: peers-import
+    statements:
+    - name: peers-in
+  - name: customers-import
+    statements:
+    - name: customers-in
+  router_name: r701
+  statements:
+  - actions:
+      route_action: REJECT
+    conditions:
+      community_set:
+        name: peer-prov
+        type: ANY
+      neighbor_set:
+        name: customers-set
+        type: INVERT
+    name: noexport
+  - actions:
+      community:
+        communities:
+        - '65100:10'
+        type: ADD
+      local_pref:
+        value: 10
+    conditions:
+      neighbor_set:
+        name: providers-set
+        type: ANY
+    name: providers-in
+  - actions:
+      community:
+        communities:
+        - '65100:20'
+        type: ADD
+      local_pref:
+        value: 20
+    conditions:
+      neighbor_set:
+        name: peers-set
+        type: ANY
+    name: peers-in
+  - actions:
+      community:
+        communities:
+        - '65100:30'
+        type: ADD
+      local_pref:
+        value: 30
+    conditions:
+      neighbor_set:
+        name: customers-set
+        type: ANY
+    name: customers-in
+- assignments:
+  - default_action: ACCEPT
+    direction: IMPORT
+    name: global
+    policies:
+    - name: providers-import
+    - name: peers-import
+    - name: customers-import
+  - default_action: ACCEPT
+    direction: EXPORT
+    name: global
+    policies:
+    - name: peer-prov-export
+  defined_sets:
+  - defined_type: COMMUNITY
+    list:
+    - '65000:10'
+    - '65100:20'
+    name: peer-prov
+  - defined_type: NEIGHBOR
+    list: []
+    name: providers-set
+  - defined_type: NEIGHBOR
+    list:
+    - 2.23.128.2/30
+    - 104.153.80.1/30
+    - 2.23.128.9/30
+    - 137.83.138.14/30
+    - 109.160.36.29/30
+    - 103.17.28.9/30
+    - 5.178.42.29/30
+    - 2.23.128.13/30
+    - 4.7.141.45/30
+    name: peers-set
+  - defined_type: NEIGHBOR
+    list:
+    - 2.23.128.6/30
+    - 109.109.200.2/30
+    - 103.100.138.18/30
+    - 109.108.32.6/30
+    - 145.255.136.6/30
+    - 1.231.122.14/30
+    - 2.95.0.30/30
+    name: customers-set
+  policies:
+  - name: peer-prov-export
+    statements:
+    - name: noexport
+  - name: providers-import
+    statements:
+    - name: providers-in
+  - name: peers-import
+    statements:
+    - name: peers-in
+  - name: customers-import
+    statements:
+    - name: customers-in
+  router_name: r1299
+  statements:
+  - actions:
+      route_action: REJECT
+    conditions:
+      community_set:
+        name: peer-prov
+        type: ANY
+      neighbor_set:
+        name: customers-set
+        type: INVERT
+    name: noexport
+  - actions:
+      community:
+        communities:
+        - '65100:10'
+        type: ADD
+      local_pref:
+        value: 10
+    conditions:
+      neighbor_set:
+        name: providers-set
+        type: ANY
+    name: providers-in
+  - actions:
+      community:
+        communities:
+        - '65100:20'
+        type: ADD
+      local_pref:
+        value: 20
+    conditions:
+      neighbor_set:
+        name: peers-set
+        type: ANY
+    name: peers-in
+  - actions:
+      community:
+        communities:
+        - '65100:30'
+        type: ADD
+      local_pref:
+        value: 30
+    conditions:
+      neighbor_set:
+        name: customers-set
+        type: ANY
+    name: customers-in
+- assignments:
+  - default_action: ACCEPT
+    direction: IMPORT
+    name: global
+    policies:
+    - name: providers-import
+    - name: peers-import
+    - name: customers-import
+  - default_action: ACCEPT
+    direction: EXPORT
+    name: global
+    policies:
+    - name: peer-prov-export
+  defined_sets:
+  - defined_type: COMMUNITY
+    list:
+    - '65000:10'
+    - '65100:20'
+    name: peer-prov
+  - defined_type: NEIGHBOR
+    list:
+    - 141.101.186.1/30
+    - 146.185.222.21/30
+    name: providers-set
+  - defined_type: NEIGHBOR
+    list:
+    - 141.101.186.6/30
+    name: peers-set
+  - defined_type: NEIGHBOR
+    list:
+    - 141.101.186.10/30
+    name: customers-set
+  policies:
+  - name: peer-prov-export
+    statements:
+    - name: noexport
+  - name: providers-import
+    statements:
+    - name: providers-in
+  - name: peers-import
+    statements:
+    - name: peers-in
+  - name: customers-import
+    statements:
+    - name: customers-in
+  router_name: r60299
+  statements:
+  - actions:
+      route_action: REJECT
+    conditions:
+      community_set:
+        name: peer-prov
+        type: ANY
+      neighbor_set:
+        name: customers-set
+        type: INVERT
+    name: noexport
+  - actions:
+      community:
+        communities:
+        - '65100:10'
+        type: ADD
+      local_pref:
+        value: 10
+    conditions:
+      neighbor_set:
+        name: providers-set
+        type: ANY
+    name: providers-in
+  - actions:
+      community:
+        communities:
+        - '65100:20'
+        type: ADD
+      local_pref:
+        value: 20
+    conditions:
+      neighbor_set:
+        name: peers-set
+        type: ANY
+    name: peers-in
+  - actions:
+      community:
+        communities:
+        - '65100:30'
+        type: ADD
+      local_pref:
+        value: 30
+    conditions:
+      neighbor_set:
+        name: customers-set
+        type: ANY
+    name: customers-in
+- assignments:
+  - default_action: ACCEPT
+    direction: IMPORT
+    name: global
+    policies:
+    - name: providers-import
+    - name: peers-import
+    - name: customers-import
+  - default_action: ACCEPT
+    direction: EXPORT
+    name: global
+    policies:
+    - name: peer-prov-export
+  defined_sets:
+  - defined_type: COMMUNITY
+    list:
+    - '65000:10'
+    - '65100:20'
+    name: peer-prov
+  - defined_type: NEIGHBOR
+    list:
+    - 149.154.190.1/30
+    - 185.8.235.17/30
+    name: providers-set
+  - defined_type: NEIGHBOR
+    list: []
+    name: peers-set
+  - defined_type: NEIGHBOR
+    list: []
+    name: customers-set
+  policies:
+  - name: peer-prov-export
+    statements:
+    - name: noexport
+  - name: providers-import
+    statements:
+    - name: providers-in
+  - name: peers-import
+    statements:
+    - name: peers-in
+  - name: customers-import
+    statements:
+    - name: customers-in
+  router_name: r8393
+  statements:
+  - actions:
+      route_action: REJECT
+    conditions:
+      community_set:
+        name: peer-prov
+        type: ANY
+      neighbor_set:
+        name: customers-set
+        type: INVERT
+    name: noexport
+  - actions:
+      community:
+        communities:
+        - '65100:10'
+        type: ADD
+      local_pref:
+        value: 10
+    conditions:
+      neighbor_set:
+        name: providers-set
+        type: ANY
+    name: providers-in
+  - actions:
+      community:
+        communities:
+        - '65100:20'
+        type: ADD
+      local_pref:
+        value: 20
+    conditions:
+      neighbor_set:
+        name: peers-set
+        type: ANY
+    name: peers-in
+  - actions:
+      community:
+        communities:
+        - '65100:30'
+        type: ADD
+      local_pref:
+        value: 30
+    conditions:
+      neighbor_set:
+        name: customers-set
+        type: ANY
+    name: customers-in
+- assignments:
+  - default_action: ACCEPT
+    direction: IMPORT
+    name: global
+    policies:
+    - name: providers-import
+    - name: peers-import
+    - name: customers-import
+  - default_action: ACCEPT
+    direction: EXPORT
+    name: global
+    policies:
+    - name: peer-prov-export
+  defined_sets:
+  - defined_type: COMMUNITY
+    list:
+    - '65000:10'
+    - '65100:20'
+    name: peer-prov
+  - defined_type: NEIGHBOR
+    list: []
+    name: providers-set
+  - defined_type: NEIGHBOR
+    list:
+    - 5.178.42.2/30
+    - 5.178.42.6/30
+    - 5.178.42.10/30
+    - 5.178.42.14/30
+    - 5.178.42.18/30
+    - 5.178.42.22/30
+    - 5.178.42.26/30
+    - 109.160.36.37/30
+    - 5.178.42.30/30
+    - 5.178.42.42/30
+    - 5.178.42.62/30
+    name: peers-set
+  - defined_type: NEIGHBOR
+    list:
+    - 5.178.42.34/30
+    - 5.178.42.38/30
+    - 5.178.42.46/30
+    - 5.178.42.50/30
+    - 5.178.42.54/30
+    - 5.178.42.58/30
+    name: customers-set
+  policies:
+  - name: peer-prov-export
+    statements:
+    - name: noexport
+  - name: providers-import
+    statements:
+    - name: providers-in
+  - name: peers-import
+    statements:
+    - name: peers-in
+  - name: customers-import
+    statements:
+    - name: customers-in
+  router_name: r6762
+  statements:
+  - actions:
+      route_action: REJECT
+    conditions:
+      community_set:
+        name: peer-prov
+        type: ANY
+      neighbor_set:
+        name: customers-set
+        type: INVERT
+    name: noexport
+  - actions:
+      community:
+        communities:
+        - '65100:10'
+        type: ADD
+      local_pref:
+        value: 10
+    conditions:
+      neighbor_set:
+        name: providers-set
+        type: ANY
+    name: providers-in
+  - actions:
+      community:
+        communities:
+        - '65100:20'
+        type: ADD
+      local_pref:
+        value: 20
+    conditions:
+      neighbor_set:
+        name: peers-set
+        type: ANY
+    name: peers-in
+  - actions:
+      community:
+        communities:
+        - '65100:30'
+        type: ADD
+      local_pref:
+        value: 30
+    conditions:
+      neighbor_set:
+        name: customers-set
+        type: ANY
+    name: customers-in
+- assignments:
+  - default_action: ACCEPT
+    direction: IMPORT
+    name: global
+    policies:
+    - name: providers-import
+    - name: peers-import
+    - name: customers-import
+  - default_action: ACCEPT
+    direction: EXPORT
+    name: global
+    policies:
+    - name: peer-prov-export
+  defined_sets:
+  - defined_type: COMMUNITY
+    list:
+    - '65000:10'
+    - '65100:20'
+    name: peer-prov
+  - defined_type: NEIGHBOR
+    list:
+    - 2.23.128.5/30
+    - 5.178.42.33/30
+    - 4.7.141.49/30
+    name: providers-set
+  - defined_type: NEIGHBOR
+    list:
+    - 1.231.122.1/30
+    - 104.153.80.5/30
+    - 103.100.138.10/30
+    - 146.185.222.10/30
+    - 109.106.192.2/30
+    - 2.95.0.21/30
+    - 109.109.200.10/30
+    - 109.106.192.10/30
+    - 145.255.136.14/30
+    - 109.108.32.18/30
+    name: peers-set
+  - defined_type: NEIGHBOR
+    list:
+    - 185.8.235.6/30
+    - 109.106.192.6/30
+    - 5.180.92.2/30
+    - 144.209.81.18/30
+    name: customers-set
+  policies:
+  - name: peer-prov-export
+    statements:
+    - name: noexport
+  - name: providers-import
+    statements:
+    - name: providers-in
+  - name: peers-import
+    statements:
+    - name: peers-in
+  - name: customers-import
+    statements:
+    - name: customers-in
+  router_name: r31133
+  statements:
+  - actions:
+      route_action: REJECT
+    conditions:
+      community_set:
+        name: peer-prov
+        type: ANY
+      neighbor_set:
+        name: customers-set
+        type: INVERT
+    name: noexport
+  - actions:
+      community:
+        communities:
+        - '65100:10'
+        type: ADD
+      local_pref:
+        value: 10
+    conditions:
+      neighbor_set:
+        name: providers-set
+        type: ANY
+    name: providers-in
+  - actions:
+      community:
+        communities:
+        - '65100:20'
+        type: ADD
+      local_pref:
+        value: 20
+    conditions:
+      neighbor_set:
+        name: peers-set
+        type: ANY
+    name: peers-in
+  - actions:
+      community:
+        communities:
+        - '65100:30'
+        type: ADD
+      local_pref:
+        value: 30
+    conditions:
+      neighbor_set:
+        name: customers-set
+        type: ANY
+    name: customers-in
+- assignments:
+  - default_action: ACCEPT
+    direction: IMPORT
+    name: global
+    policies:
+    - name: providers-import
+    - name: peers-import
+    - name: customers-import
+  - default_action: ACCEPT
+    direction: EXPORT
+    name: global
+    policies:
+    - name: peer-prov-export
+  defined_sets:
+  - defined_type: COMMUNITY
+    list:
+    - '65000:10'
+    - '65100:20'
+    name: peer-prov
+  - defined_type: NEIGHBOR
+    list: []
+    name: providers-set
+  - defined_type: NEIGHBOR
+    list:
+    - 4.7.141.2/30
+    - 4.7.141.18/30
+    - 109.160.36.13/30
+    - 5.178.42.9/30
+    - 4.7.141.34/30
+    - 4.7.141.38/30
+    - 4.7.141.42/30
+    - 4.7.141.46/30
+    name: peers-set
+  - defined_type: NEIGHBOR
+    list:
+    - 4.7.141.6/30
+    - 4.7.141.10/30
+    - 4.7.141.14/30
+    - 4.7.141.22/30
+    - 4.7.141.26/30
+    - 4.7.141.30/30
+    - 4.7.141.50/30
+    - 4.7.141.54/30
+    name: customers-set
+  policies:
+  - name: peer-prov-export
+    statements:
+    - name: noexport
+  - name: providers-import
+    statements:
+    - name: providers-in
+  - name: peers-import
+    statements:
+    - name: peers-in
+  - name: customers-import
+    statements:
+    - name: customers-in
+  router_name: r3356
+  statements:
+  - actions:
+      route_action: REJECT
+    conditions:
+      community_set:
+        name: peer-prov
+        type: ANY
+      neighbor_set:
+        name: customers-set
+        type: INVERT
+    name: noexport
+  - actions:
+      community:
+        communities:
+        - '65100:10'
+        type: ADD
+      local_pref:
+        value: 10
+    conditions:
+      neighbor_set:
+        name: providers-set
+        type: ANY
+    name: providers-in
+  - actions:
+      community:
+        communities:
+        - '65100:20'
+        type: ADD
+      local_pref:
+        value: 20
+    conditions:
+      neighbor_set:
+        name: peers-set
+        type: ANY
+    name: peers-in
+  - actions:
+      community:
+        communities:
+        - '65100:30'
+        type: ADD
+      local_pref:
+        value: 30
+    conditions:
+      neighbor_set:
+        name: customers-set
+        type: ANY
+    name: customers-in
+- assignments:
+  - default_action: ACCEPT
+    direction: IMPORT
+    name: global
+    policies:
+    - name: providers-import
+    - name: peers-import
+    - name: customers-import
+  - default_action: ACCEPT
+    direction: EXPORT
+    name: global
+    policies:
+    - name: peer-prov-export
+  defined_sets:
+  - defined_type: COMMUNITY
+    list:
+    - '65000:10'
+    - '65100:20'
+    name: peer-prov
+  - defined_type: NEIGHBOR
+    list: []
+    name: providers-set
+  - defined_type: NEIGHBOR
+    list:
+    - 104.153.80.9/30
+    - 4.7.141.17/30
+    - 137.83.138.6/30
+    - 137.83.138.9/30
+    - 137.83.138.13/30
+    - 109.160.36.49/30
+    - 137.83.138.17/30
+    - 137.83.138.22/30
+    - 137.83.138.25/30
+    - 5.178.42.61/30
+    name: peers-set
+  - defined_type: NEIGHBOR
+    list:
+    - 137.83.138.2/30
+    name: customers-set
+  policies:
+  - name: peer-prov-export
+    statements:
+    - name: noexport
+  - name: providers-import
+    statements:
+    - name: providers-in
+  - name: peers-import
+    statements:
+    - name: peers-in
+  - name: customers-import
+    statements:
+    - name: customers-in
+  router_name: r5511
+  statements:
+  - actions:
+      route_action: REJECT
+    conditions:
+      community_set:
+        name: peer-prov
+        type: ANY
+      neighbor_set:
+        name: customers-set
+        type: INVERT
+    name: noexport
+  - actions:
+      community:
+        communities:
+        - '65100:10'
+        type: ADD
+      local_pref:
+        value: 10
+    conditions:
+      neighbor_set:
+        name: providers-set
+        type: ANY
+    name: providers-in
+  - actions:
+      community:
+        communities:
+        - '65100:20'
+        type: ADD
+      local_pref:
+        value: 20
+    conditions:
+      neighbor_set:
+        name: peers-set
+        type: ANY
+    name: peers-in
+  - actions:
+      community:
+        communities:
+        - '65100:30'
+        type: ADD
+      local_pref:
+        value: 30
+    conditions:
+      neighbor_set:
+        name: customers-set
+        type: ANY
+    name: customers-in
+- assignments:
+  - default_action: ACCEPT
+    direction: IMPORT
+    name: global
+    policies:
+    - name: providers-import
+    - name: peers-import
+    - name: customers-import
+  - default_action: ACCEPT
+    direction: EXPORT
+    name: global
+    policies:
+    - name: peer-prov-export
+  defined_sets:
+  - defined_type: COMMUNITY
+    list:
+    - '65000:10'
+    - '65100:20'
+    name: peer-prov
+  - defined_type: NEIGHBOR
+    list:
+    - 100.0.0.1/30
+    - 4.7.141.13/30
+    - 1.231.122.9/30
+    name: providers-set
+  - defined_type: NEIGHBOR
+    list:
+    - 2.23.128.10/30
+    - 103.17.28.1/30
+    - 5.178.42.1/30
+    - 137.83.138.10/30
+    - 109.160.36.25/30
+    - 145.255.136.10/30
+    - 109.108.32.14/30
+    - 63.243.128.5/30
+    - 103.100.138.46/30
+    - 109.106.192.9/30
+    name: peers-set
+  - defined_type: NEIGHBOR
+    list: []
+    name: customers-set
+  policies:
+  - name: peer-prov-export
+    statements:
+    - name: noexport
+  - name: providers-import
+    statements:
+    - name: providers-in
+  - name: peers-import
+    statements:
+    - name: peers-in
+  - name: customers-import
+    statements:
+    - name: customers-in
+  router_name: r4134
+  statements:
+  - actions:
+      route_action: REJECT
+    conditions:
+      community_set:
+        name: peer-prov
+        type: ANY
+      neighbor_set:
+        name: customers-set
+        type: INVERT
+    name: noexport
+  - actions:
+      community:
+        communities:
+        - '65100:10'
+        type: ADD
+      local_pref:
+        value: 10
+    conditions:
+      neighbor_set:
+        name: providers-set
+        type: ANY
+    name: providers-in
+  - actions:
+      community:
+        communities:
+        - '65100:20'
+        type: ADD
+      local_pref:
+        value: 20
+    conditions:
+      neighbor_set:
+        name: peers-set
+        type: ANY
+    name: peers-in
+  - actions:
+      community:
+        communities:
+        - '65100:30'
+        type: ADD
+      local_pref:
+        value: 30
+    conditions:
+      neighbor_set:
+        name: customers-set
+        type: ANY
+    name: customers-in
+- assignments:
+  - default_action: ACCEPT
+    direction: IMPORT
+    name: global
+    policies:
+    - name: providers-import
+    - name: peers-import
+    - name: customers-import
+  - default_action: ACCEPT
+    direction: EXPORT
+    name: global
+    policies:
+    - name: peer-prov-export
+  defined_sets:
+  - defined_type: COMMUNITY
+    list:
+    - '65000:10'
+    - '65100:20'
+    name: peer-prov
+  - defined_type: NEIGHBOR
+    list: []
+    name: providers-set
+  - defined_type: NEIGHBOR
+    list:
+    - 104.153.80.2/30
+    - 4.7.141.1/30
+    - 104.153.80.6/30
+    - 104.153.80.10/30
+    - 104.153.80.14/30
+    - 104.153.80.18/30
+    - 5.178.42.21/30
+    - 104.153.80.26/30
+    - 104.153.80.30/30
+    - 109.160.36.41/30
+    - 104.153.80.34/30
+    - 2.95.0.37/30
+    - 104.153.80.38/30
+    - 104.153.80.42/30
+    - 104.153.80.45/30
+    name: peers-set
+  - defined_type: NEIGHBOR
+    list:
+    - 104.153.80.22/30
+    name: customers-set
+  policies:
+  - name: peer-prov-export
+    statements:
+    - name: noexport
+  - name: providers-import
+    statements:
+    - name: providers-in
+  - name: peers-import
+    statements:
+    - name: peers-in
+  - name: customers-import
+    statements:
+    - name: customers-in
+  router_name: r1239
+  statements:
+  - actions:
+      route_action: REJECT
+    conditions:
+      community_set:
+        name: peer-prov
+        type: ANY
+      neighbor_set:
+        name: customers-set
+        type: INVERT
+    name: noexport
+  - actions:
+      community:
+        communities:
+        - '65100:10'
+        type: ADD
+      local_pref:
+        value: 10
+    conditions:
+      neighbor_set:
+        name: providers-set
+        type: ANY
+    name: providers-in
+  - actions:
+      community:
+        communities:
+        - '65100:20'
+        type: ADD
+      local_pref:
+        value: 20
+    conditions:
+      neighbor_set:
+        name: peers-set
+        type: ANY
+    name: peers-in
+  - actions:
+      community:
+        communities:
+        - '65100:30'
+        type: ADD
+      local_pref:
+        value: 30
+    conditions:
+      neighbor_set:
+        name: customers-set
+        type: ANY
+    name: customers-in
+- assignments:
+  - default_action: ACCEPT
+    direction: IMPORT
+    name: global
+    policies:
+    - name: providers-import
+    - name: peers-import
+    - name: customers-import
+  - default_action: ACCEPT
+    direction: EXPORT
+    name: global
+    policies:
+    - name: peer-prov-export
+  defined_sets:
+  - defined_type: COMMUNITY
+    list:
+    - '65000:10'
+    - '65100:20'
+    name: peer-prov
+  - defined_type: NEIGHBOR
+    list:
+    - 4.7.141.5/30
+    - 137.83.138.1/30
+    - 109.108.32.5/30
+    - 103.17.28.21/30
+    - 5.178.42.45/30
+    name: providers-set
+  - defined_type: NEIGHBOR
+    list:
+    - 109.108.32.10/30
+    - 2.95.0.17/30
+    - 109.108.32.13/30
+    - 1.231.122.21/30
+    - 103.100.138.50/30
+    - 109.108.32.17/30
+    name: peers-set
+  - defined_type: NEIGHBOR
+    list:
+    - 141.101.186.2/30
+    - 109.108.32.2/30
+    - 144.209.81.14/30
+    - 146.185.222.18/30
+    name: customers-set
+  policies:
+  - name: peer-prov-export
+    statements:
+    - name: noexport
+  - name: providers-import
+    statements:
+    - name: providers-in
+  - name: peers-import
+    statements:
+    - name: peers-in
+  - name: customers-import
+    statements:
+    - name: customers-in
+  router_name: r12389
+  statements:
+  - actions:
+      route_action: REJECT
+    conditions:
+      community_set:
+        name: peer-prov
+        type: ANY
+      neighbor_set:
+        name: customers-set
+        type: INVERT
+    name: noexport
+  - actions:
+      community:
+        communities:
+        - '65100:10'
+        type: ADD
+      local_pref:
+        value: 10
+    conditions:
+      neighbor_set:
+        name: providers-set
+        type: ANY
+    name: providers-in
+  - actions:
+      community:
+        communities:
+        - '65100:20'
+        type: ADD
+      local_pref:
+        value: 20
+    conditions:
+      neighbor_set:
+        name: peers-set
+        type: ANY
+    name: peers-in
+  - actions:
+      community:
+        communities:
+        - '65100:30'
+        type: ADD
+      local_pref:
+        value: 30
+    conditions:
+      neighbor_set:
+        name: customers-set
+        type: ANY
+    name: customers-in
+topo_name: bgp

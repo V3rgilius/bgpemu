@@ -26,14 +26,17 @@ def show_affected_nodes(nodes,links,diffs):
     y = [pos[i][1] for i in indexes]
     neighbors = get_neighbors(links)
     neighbor_source = [",".join(neighbors[i]) for i in indexes]
+    vip_neighbor_source = [",".join(set(neighbors[i]).intersection(set(diffs))) for i in indexes]
     fill_colors = ["white" for i in indexes]
     for diff in diffs:
-        fill_colors[indexes.index(diff)] = "red"
+        if diff in indexes:
+            fill_colors[indexes.index(diff)] = "red"
     source = ColumnDataSource(data=dict(
         x=x,
         y=y,
         index=indexes,
         neighbors=neighbor_source,
+        vips = vip_neighbor_source,
         fill_colors = fill_colors
     ))
     node_render = plot.circle('x','y',size=20, fill_color='fill_colors', line_width=2,source = source)
@@ -48,7 +51,7 @@ def show_affected_nodes(nodes,links,diffs):
     plot.multi_line(edge_xs, edge_ys, line_alpha=0.8, line_width=1)
 
     # 添加交互式工具和提示
-    hover = HoverTool(renderers=[node_render], tooltips=[("Node", "@index"),("Neighbors","@neighbors")])
+    hover = HoverTool(renderers=[node_render], tooltips=[("Node", "@index"),("Neighbors","@neighbors"),("RedNeighbors","@vips")])
     plot.add_tools(hover)
 
     labels = LabelSet(x='x', y='y',text='index', level='glyph', source=source,x_offset=5,y_offset=5,text_font_size='20pt' )

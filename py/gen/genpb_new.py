@@ -4,9 +4,9 @@ import yaml
 import toml
 
 
-TOPOPATH = "test/real/"
+TOPOPATH = "test/kaz/"
 OUTPATH = "test/"
-TOPONAME = "real"
+TOPONAME = "kaz"
 K8SNODES = 3
 
 

@@ -40,7 +40,12 @@ class DataAnalyzer():
                     links[n[0]]=[(n[2],n[1],n[3])]
         return devices,links,links_list
 
-analyzer = DataAnalyzer("test/real")
+analyzer = DataAnalyzer("test/kaz")
+
+def get_topo_doc(doc):
+    p,node_render = show_affected_nodes(list(analyzer.devices.keys()),analyzer.links_list,['7018','3320','3257','6830','3356','2914','5511','3491','1239','6453','6762','1299','12956','701','6461'])
+    p.grid.visible = False
+    doc.add_root(p)
 
 def get_spread_doc(doc):
     args = doc.session_context.request.arguments
