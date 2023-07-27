@@ -13,7 +13,9 @@ def gen_reject_invalid_rpki_policies(deviceinfos: dict, apply_devices: list) -> 
             "router_name": f"r{device}",
             "policies": [{
                 "name": "rejectrpki",
-                "statements": [{
+                "statements": [{"name": "rej",}]
+            }],
+            "statements": [{
                     "name": "rej",
                     "conditions": {
                         "rpki_result": 3
@@ -21,13 +23,12 @@ def gen_reject_invalid_rpki_policies(deviceinfos: dict, apply_devices: list) -> 
                     "actions": {
                         'route_action': "REJECT"
                     }
-                }]
-            }],
+                }],
             "assignments": [{
                 "name": "global",
                 "direction": "IMPORT",
-                "policies": [{"name": "refuserpki"}],
-                "default_action": "REJECT"
+                "policies": [{"name": "rejectrpki"}],
+                "default_action": "ACCEPT"
             }]
         })
     return policies

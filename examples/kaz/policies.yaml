@@ -2607,4 +2607,446 @@ policy_deployments:
         name: customers-set
         type: ANY
     name: customers-in
+- assignments:
+  - default_action: ACCEPT
+    direction: IMPORT
+    name: global
+    policies:
+    - name: rejectrpki
+  policies:
+  - name: rejectrpki
+    statements:
+    - name: rej
+  router_name: r3216
+  statements:
+  - actions:
+      route_action: REJECT
+    conditions:
+      rpki_result: 3
+    name: rej
+- assignments:
+  - default_action: ACCEPT
+    direction: IMPORT
+    name: global
+    policies:
+    - name: rejectrpki
+  policies:
+  - name: rejectrpki
+    statements:
+    - name: rej
+  router_name: r3320
+  statements:
+  - actions:
+      route_action: REJECT
+    conditions:
+      rpki_result: 3
+    name: rej
+- assignments:
+  - default_action: ACCEPT
+    direction: IMPORT
+    name: global
+    policies:
+    - name: rejectrpki
+  policies:
+  - name: rejectrpki
+    statements:
+    - name: rej
+  router_name: r6762
+  statements:
+  - actions:
+      route_action: REJECT
+    conditions:
+      rpki_result: 3
+    name: rej
+- assignments:
+  - default_action: ACCEPT
+    direction: IMPORT
+    name: global
+    policies:
+    - name: rejectrpki
+  policies:
+  - name: rejectrpki
+    statements:
+    - name: rej
+  router_name: r4766
+  statements:
+  - actions:
+      route_action: REJECT
+    conditions:
+      rpki_result: 3
+    name: rej
+- assignments:
+  - default_action: ACCEPT
+    direction: IMPORT
+    name: global
+    policies:
+    - name: rejectrpki
+  policies:
+  - name: rejectrpki
+    statements:
+    - name: rej
+  router_name: r3356
+  statements:
+  - actions:
+      route_action: REJECT
+    conditions:
+      rpki_result: 3
+    name: rej
+- assignments:
+  - default_action: ACCEPT
+    direction: IMPORT
+    name: global
+    policies:
+    - name: rejectrpki
+  policies:
+  - name: rejectrpki
+    statements:
+    - name: rej
+  router_name: r6453
+  statements:
+  - actions:
+      route_action: REJECT
+    conditions:
+      rpki_result: 3
+    name: rej
+- assignments:
+  - default_action: ACCEPT
+    direction: IMPORT
+    name: global
+    policies:
+    - name: rejectrpki
+  policies:
+  - name: rejectrpki
+    statements:
+    - name: rej
+  router_name: r1239
+  statements:
+  - actions:
+      route_action: REJECT
+    conditions:
+      rpki_result: 3
+    name: rej
+- assignments:
+  - default_action: ACCEPT
+    direction: IMPORT
+    name: global
+    policies:
+    - name: rejectrpki
+  policies:
+  - name: rejectrpki
+    statements:
+    - name: rej
+  router_name: r35168
+  statements:
+  - actions:
+      route_action: REJECT
+    conditions:
+      rpki_result: 3
+    name: rej
+- assignments:
+  - default_action: ACCEPT
+    direction: IMPORT
+    name: global
+    policies:
+    - name: rejectrpki
+  policies:
+  - name: rejectrpki
+    statements:
+    - name: rej
+  router_name: r31133
+  statements:
+  - actions:
+      route_action: REJECT
+    conditions:
+      rpki_result: 3
+    name: rej
+- assignments:
+  - default_action: ACCEPT
+    direction: IMPORT
+    name: global
+    policies:
+    - name: rejectrpki
+  policies:
+  - name: rejectrpki
+    statements:
+    - name: rej
+  router_name: r3491
+  statements:
+  - actions:
+      route_action: REJECT
+    conditions:
+      rpki_result: 3
+    name: rej
+- assignments:
+  - default_action: ACCEPT
+    direction: IMPORT
+    name: global
+    policies:
+    - name: rejectrpki
+  policies:
+  - name: rejectrpki
+    statements:
+    - name: rej
+  router_name: r4134
+  statements:
+  - actions:
+      route_action: REJECT
+    conditions:
+      rpki_result: 3
+    name: rej
+- assignments:
+  - default_action: ACCEPT
+    direction: IMPORT
+    name: global
+    policies:
+    - name: rejectrpki
+  policies:
+  - name: rejectrpki
+    statements:
+    - name: rej
+  router_name: r1299
+  statements:
+  - actions:
+      route_action: REJECT
+    conditions:
+      rpki_result: 3
+    name: rej
+- assignments:
+  - default_action: ACCEPT
+    direction: IMPORT
+    name: global
+    policies:
+    - name: rejectrpki
+  policies:
+  - name: rejectrpki
+    statements:
+    - name: rej
+  router_name: r12389
+  statements:
+  - actions:
+      route_action: REJECT
+    conditions:
+      rpki_result: 3
+    name: rej
+- assignments:
+  - default_action: ACCEPT
+    direction: IMPORT
+    name: global
+    policies:
+    - name: rejectrpki
+  policies:
+  - name: rejectrpki
+    statements:
+    - name: rej
+  router_name: r5511
+  statements:
+  - actions:
+      route_action: REJECT
+    conditions:
+      rpki_result: 3
+    name: rej
+- assignments:
+  - default_action: ACCEPT
+    direction: IMPORT
+    name: global
+    policies:
+    - name: rejectrpki
+  policies:
+  - name: rejectrpki
+    statements:
+    - name: rej
+  router_name: r58106
+  statements:
+  - actions:
+      route_action: REJECT
+    conditions:
+      rpki_result: 3
+    name: rej
+- assignments:
+  - default_action: ACCEPT
+    direction: IMPORT
+    name: global
+    policies:
+    - name: rejectrpki
+  policies:
+  - name: rejectrpki
+    statements:
+    - name: rej
+  router_name: r209141
+  statements:
+  - actions:
+      route_action: REJECT
+    conditions:
+      rpki_result: 3
+    name: rej
+- assignments:
+  - default_action: ACCEPT
+    direction: IMPORT
+    name: global
+    policies:
+    - name: rejectrpki
+  policies:
+  - name: rejectrpki
+    statements:
+    - name: rej
+  router_name: r12843
+  statements:
+  - actions:
+      route_action: REJECT
+    conditions:
+      rpki_result: 3
+    name: rej
+- assignments:
+  - default_action: ACCEPT
+    direction: IMPORT
+    name: global
+    policies:
+    - name: rejectrpki
+  policies:
+  - name: rejectrpki
+    statements:
+    - name: rej
+  router_name: r8393
+  statements:
+  - actions:
+      route_action: REJECT
+    conditions:
+      rpki_result: 3
+    name: rej
+- assignments:
+  - default_action: ACCEPT
+    direction: IMPORT
+    name: global
+    policies:
+    - name: rejectrpki
+  policies:
+  - name: rejectrpki
+    statements:
+    - name: rej
+  router_name: r60299
+  statements:
+  - actions:
+      route_action: REJECT
+    conditions:
+      rpki_result: 3
+    name: rej
+- assignments:
+  - default_action: ACCEPT
+    direction: IMPORT
+    name: global
+    policies:
+    - name: rejectrpki
+  policies:
+  - name: rejectrpki
+    statements:
+    - name: rej
+  router_name: r50509
+  statements:
+  - actions:
+      route_action: REJECT
+    conditions:
+      rpki_result: 3
+    name: rej
+- assignments:
+  - default_action: ACCEPT
+    direction: IMPORT
+    name: global
+    policies:
+    - name: rejectrpki
+  policies:
+  - name: rejectrpki
+    statements:
+    - name: rej
+  router_name: r701
+  statements:
+  - actions:
+      route_action: REJECT
+    conditions:
+      rpki_result: 3
+    name: rej
+- assignments:
+  - default_action: ACCEPT
+    direction: IMPORT
+    name: global
+    policies:
+    - name: rejectrpki
+  policies:
+  - name: rejectrpki
+    statements:
+    - name: rej
+  router_name: r20485
+  statements:
+  - actions:
+      route_action: REJECT
+    conditions:
+      rpki_result: 3
+    name: rej
+- assignments:
+  - default_action: ACCEPT
+    direction: IMPORT
+    name: global
+    policies:
+    - name: rejectrpki
+  policies:
+  - name: rejectrpki
+    statements:
+    - name: rej
+  router_name: r43727
+  statements:
+  - actions:
+      route_action: REJECT
+    conditions:
+      rpki_result: 3
+    name: rej
+- assignments:
+  - default_action: ACCEPT
+    direction: IMPORT
+    name: global
+    policies:
+    - name: rejectrpki
+  policies:
+  - name: rejectrpki
+    statements:
+    - name: rej
+  router_name: r9198
+  statements:
+  - actions:
+      route_action: REJECT
+    conditions:
+      rpki_result: 3
+    name: rej
+- assignments:
+  - default_action: ACCEPT
+    direction: IMPORT
+    name: global
+    policies:
+    - name: rejectrpki
+  policies:
+  - name: rejectrpki
+    statements:
+    - name: rej
+  router_name: r6939
+  statements:
+  - actions:
+      route_action: REJECT
+    conditions:
+      rpki_result: 3
+    name: rej
+- assignments:
+  - default_action: ACCEPT
+    direction: IMPORT
+    name: global
+    policies:
+    - name: rejectrpki
+  policies:
+  - name: rejectrpki
+    statements:
+    - name: rej
+  router_name: r35104
+  statements:
+  - actions:
+      route_action: REJECT
+    conditions:
+      rpki_result: 3
+    name: rej
 topo_name: bgp

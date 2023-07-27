@@ -108,6 +108,7 @@ routes = {"topo_name":TOPONAME}
 policies = {"topo_name":TOPONAME}
 add_routes(routes,gen_routes_each_as(devices))
 add_policies(policies,gen_commercial_policies(links))
+add_policies(policies,gen_reject_invalid_rpki_policies(devices,[]))
 scene["routes_path"] = f"{RELPATH}/routes.yaml"
 scene["policies_path"] = f"{RELPATH}/policies.yaml"
 output(scene,f"{TOPOPATH}/scene.yaml")
