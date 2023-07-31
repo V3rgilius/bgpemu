@@ -19,7 +19,7 @@ myass = ['8393','4134','40244']
 tier1List=['7018','3320','3257','6830','3356','2914','5511','3491','1239','6453','6762','1299','12956','701','6461']
 searched= set(tier1List)
 myas = ['136168','13414','132132','61292','4844','18106','23673']
-TOPOPATH="test/real"
+TOPOPATH="test/kaz"
 
 def db_connect():
     db = sqlite3.connect('py/gen/linksdata.db')

@@ -106,15 +106,17 @@ add_inits(scene,gen_beh_init(devices,links))
 add_behaviors(reset_scene,gen_beh_reset_all(devices))
 routes = {"topo_name":TOPONAME}
 policies = {"topo_name":TOPONAME}
+rpki_policies = {"topo_name":TOPONAME}
 add_routes(routes,gen_routes_each_as(devices))
 add_policies(policies,gen_commercial_policies(links))
-add_policies(policies,gen_reject_invalid_rpki_policies(devices,[]))
+add_policies(rpki_policies,gen_reject_invalid_rpki_policies(devices,[]))
 scene["routes_path"] = f"{RELPATH}/routes.yaml"
 scene["policies_path"] = f"{RELPATH}/policies.yaml"
 output(scene,f"{TOPOPATH}/scene.yaml")
 output(reset_scene,f"{TOPOPATH}/reset_scene.yaml")
 output(routes,f"{TOPOPATH}/routes.yaml")
 output(policies,f"{TOPOPATH}/policies.yaml")
+output(policies,f"{TOPOPATH}/rpki_policies.yaml")
 
 # inits = gen_inits_from()
 # output({"topo_name":"bgp","inits":inits},f"{TESTPATH}scene.yaml")

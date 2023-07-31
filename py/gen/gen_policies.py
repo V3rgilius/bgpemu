@@ -1,9 +1,6 @@
 import argparse
 import yaml
 
-TOPOPATH = "test/topo117/"
-
-
 def gen_reject_invalid_rpki_policies(deviceinfos: dict, apply_devices: list) -> dict:
     policies = []
     if apply_devices == []:

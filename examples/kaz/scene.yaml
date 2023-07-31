@@ -8,7 +8,7 @@ inits:
         asn: 3216
         router_id: 2.95.0.0
       rpki:
-        address: 10.10.21.110
+        address: 192.168.1.139
         port: 3323
   - aps:
       peers:
@@ -64,7 +64,7 @@ inits:
         asn: 3320
         router_id: 109.160.36.0
       rpki:
-        address: 10.10.21.110
+        address: 192.168.1.139
         port: 3323
   - aps:
       peers:
@@ -117,7 +117,7 @@ inits:
         asn: 6762
         router_id: 5.178.42.0
       rpki:
-        address: 10.10.21.110
+        address: 192.168.1.139
         port: 3323
   - aps:
       peers:
@@ -182,7 +182,7 @@ inits:
         asn: 4766
         router_id: 1.231.122.0
       rpki:
-        address: 10.10.21.110
+        address: 192.168.1.139
         port: 3323
   - aps:
       peers:
@@ -235,7 +235,7 @@ inits:
         asn: 3356
         router_id: 4.7.141.0
       rpki:
-        address: 10.10.21.110
+        address: 192.168.1.139
         port: 3323
   - aps:
       peers:
@@ -297,7 +297,7 @@ inits:
         asn: 6453
         router_id: 63.243.128.0
       rpki:
-        address: 10.10.21.110
+        address: 192.168.1.139
         port: 3323
   - aps:
       peers:
@@ -344,7 +344,7 @@ inits:
         asn: 1239
         router_id: 104.153.80.0
       rpki:
-        address: 10.10.21.110
+        address: 192.168.1.139
         port: 3323
   - aps:
       peers:
@@ -406,7 +406,7 @@ inits:
         asn: 35168
         router_id: 185.8.235.0
       rpki:
-        address: 10.10.21.110
+        address: 192.168.1.139
         port: 3323
   - aps:
       peers:
@@ -444,7 +444,7 @@ inits:
         asn: 31133
         router_id: 109.106.192.0
       rpki:
-        address: 10.10.21.110
+        address: 192.168.1.139
         port: 3323
   - aps:
       peers:
@@ -509,7 +509,7 @@ inits:
         asn: 3491
         router_id: 103.17.28.0
       rpki:
-        address: 10.10.21.110
+        address: 192.168.1.139
         port: 3323
   - aps:
       peers:
@@ -562,7 +562,7 @@ inits:
         asn: 4134
         router_id: 1.180.0.0
       rpki:
-        address: 10.10.21.110
+        address: 192.168.1.139
         port: 3323
   - aps:
       peers:
@@ -615,7 +615,7 @@ inits:
         asn: 1299
         router_id: 2.23.128.0
       rpki:
-        address: 10.10.21.110
+        address: 192.168.1.139
         port: 3323
   - aps:
       peers:
@@ -677,7 +677,7 @@ inits:
         asn: 12389
         router_id: 109.108.32.0
       rpki:
-        address: 10.10.21.110
+        address: 192.168.1.139
         port: 3323
   - aps:
       peers:
@@ -736,7 +736,7 @@ inits:
         asn: 5511
         router_id: 137.83.138.0
       rpki:
-        address: 10.10.21.110
+        address: 192.168.1.139
         port: 3323
   - aps:
       peers:
@@ -783,7 +783,7 @@ inits:
         asn: 58106
         router_id: 194.39.150.0
       rpki:
-        address: 10.10.21.110
+        address: 192.168.1.139
         port: 3323
   - aps:
       peers:
@@ -803,7 +803,7 @@ inits:
         asn: 209141
         router_id: 5.180.92.0
       rpki:
-        address: 10.10.21.110
+        address: 192.168.1.139
         port: 3323
   - aps:
       peers:
@@ -829,7 +829,7 @@ inits:
         asn: 12843
         router_id: 109.109.200.0
       rpki:
-        address: 10.10.21.110
+        address: 192.168.1.139
         port: 3323
   - aps:
       peers:
@@ -864,7 +864,7 @@ inits:
         asn: 8393
         router_id: 149.154.190.0
       rpki:
-        address: 10.10.21.110
+        address: 192.168.1.139
         port: 3323
   - aps:
       peers:
@@ -884,7 +884,7 @@ inits:
         asn: 60299
         router_id: 141.101.186.0
       rpki:
-        address: 10.10.21.110
+        address: 192.168.1.139
         port: 3323
   - aps:
       peers:
@@ -910,7 +910,7 @@ inits:
         asn: 50509
         router_id: 146.185.222.0
       rpki:
-        address: 10.10.21.110
+        address: 192.168.1.139
         port: 3323
   - aps:
       peers:
@@ -948,7 +948,7 @@ inits:
         asn: 701
         router_id: 100.0.0.0
       rpki:
-        address: 10.10.21.110
+        address: 192.168.1.139
         port: 3323
   - aps:
       peers:
@@ -995,7 +995,7 @@ inits:
         asn: 20485
         router_id: 145.255.136.0
       rpki:
-        address: 10.10.21.110
+        address: 192.168.1.139
         port: 3323
   - aps:
       peers:
@@ -1051,7 +1051,7 @@ inits:
         asn: 43727
         router_id: 109.106.128.0
       rpki:
-        address: 10.10.21.110
+        address: 192.168.1.139
         port: 3323
   - aps:
       peers:
@@ -1086,7 +1086,7 @@ inits:
         asn: 9198
         router_id: 145.255.160.0
       rpki:
-        address: 10.10.21.110
+        address: 192.168.1.139
         port: 3323
   - aps:
       peers:
@@ -1130,7 +1130,7 @@ inits:
         asn: 6939
         router_id: 103.100.138.0
       rpki:
-        address: 10.10.21.110
+        address: 192.168.1.139
         port: 3323
   - aps:
       peers:
@@ -1213,7 +1213,7 @@ inits:
         asn: 35104
         router_id: 144.209.81.0
       rpki:
-        address: 10.10.21.110
+        address: 192.168.1.139
         port: 3323
   - aps:
       peers:
@@ -1245,6 +1245,5 @@ inits:
           neighbor_address: 144.209.81.22
           peer_asn: 35168
     name: addpeer
-# policies_path: kaz/policies.yaml
-routes_path: kaz/routes.yaml
+routes_path: examples/kaz/routes.yaml
 topo_name: bgp
