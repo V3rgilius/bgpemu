@@ -7,7 +7,7 @@ behaviors:
       - kill -9 $(pidof gobgpd)
       - sleep 0.5
       - /usr/local/bin/gobgpd > /dev/null 2> /dev/null &
-      - rm -r /tmp/log
+      - rm -r /tmp/log/*
       container: r3216
     name: restart
 - device_name: r3320
@@ -18,7 +18,7 @@ behaviors:
       - kill -9 $(pidof gobgpd)
       - sleep 0.5
       - /usr/local/bin/gobgpd > /dev/null 2> /dev/null &
-      - rm -r /tmp/log
+      - rm -r /tmp/log/*
       container: r3320
     name: restart
 - device_name: r6762
@@ -29,7 +29,7 @@ behaviors:
       - kill -9 $(pidof gobgpd)
       - sleep 0.5
       - /usr/local/bin/gobgpd > /dev/null 2> /dev/null &
-      - rm -r /tmp/log
+      - rm -r /tmp/log/*
       container: r6762
     name: restart
 - device_name: r4766
@@ -40,7 +40,7 @@ behaviors:
       - kill -9 $(pidof gobgpd)
       - sleep 0.5
       - /usr/local/bin/gobgpd > /dev/null 2> /dev/null &
-      - rm -r /tmp/log
+      - rm -r /tmp/log/*
       container: r4766
     name: restart
 - device_name: r3356
@@ -51,7 +51,7 @@ behaviors:
       - kill -9 $(pidof gobgpd)
       - sleep 0.5
       - /usr/local/bin/gobgpd > /dev/null 2> /dev/null &
-      - rm -r /tmp/log
+      - rm -r /tmp/log/*
       container: r3356
     name: restart
 - device_name: r6453
@@ -62,7 +62,7 @@ behaviors:
       - kill -9 $(pidof gobgpd)
       - sleep 0.5
       - /usr/local/bin/gobgpd > /dev/null 2> /dev/null &
-      - rm -r /tmp/log
+      - rm -r /tmp/log/*
       container: r6453
     name: restart
 - device_name: r1239
@@ -73,7 +73,7 @@ behaviors:
       - kill -9 $(pidof gobgpd)
       - sleep 0.5
       - /usr/local/bin/gobgpd > /dev/null 2> /dev/null &
-      - rm -r /tmp/log
+      - rm -r /tmp/log/*
       container: r1239
     name: restart
 - device_name: r35168
@@ -84,7 +84,7 @@ behaviors:
       - kill -9 $(pidof gobgpd)
       - sleep 0.5
       - /usr/local/bin/gobgpd > /dev/null 2> /dev/null &
-      - rm -r /tmp/log
+      - rm -r /tmp/log/*
       container: r35168
     name: restart
 - device_name: r31133
@@ -95,7 +95,7 @@ behaviors:
       - kill -9 $(pidof gobgpd)
       - sleep 0.5
       - /usr/local/bin/gobgpd > /dev/null 2> /dev/null &
-      - rm -r /tmp/log
+      - rm -r /tmp/log/*
       container: r31133
     name: restart
 - device_name: r3491
@@ -106,7 +106,7 @@ behaviors:
       - kill -9 $(pidof gobgpd)
       - sleep 0.5
       - /usr/local/bin/gobgpd > /dev/null 2> /dev/null &
-      - rm -r /tmp/log
+      - rm -r /tmp/log/*
       container: r3491
     name: restart
 - device_name: r4134
@@ -117,7 +117,7 @@ behaviors:
       - kill -9 $(pidof gobgpd)
       - sleep 0.5
       - /usr/local/bin/gobgpd > /dev/null 2> /dev/null &
-      - rm -r /tmp/log
+      - rm -r /tmp/log/*
       container: r4134
     name: restart
 - device_name: r1299
@@ -128,7 +128,7 @@ behaviors:
       - kill -9 $(pidof gobgpd)
       - sleep 0.5
       - /usr/local/bin/gobgpd > /dev/null 2> /dev/null &
-      - rm -r /tmp/log
+      - rm -r /tmp/log/*
       container: r1299
     name: restart
 - device_name: r12389
@@ -139,7 +139,7 @@ behaviors:
       - kill -9 $(pidof gobgpd)
       - sleep 0.5
       - /usr/local/bin/gobgpd > /dev/null 2> /dev/null &
-      - rm -r /tmp/log
+      - rm -r /tmp/log/*
       container: r12389
     name: restart
 - device_name: r5511
@@ -150,7 +150,7 @@ behaviors:
       - kill -9 $(pidof gobgpd)
       - sleep 0.5
       - /usr/local/bin/gobgpd > /dev/null 2> /dev/null &
-      - rm -r /tmp/log
+      - rm -r /tmp/log/*
       container: r5511
     name: restart
 - device_name: r58106
@@ -161,7 +161,7 @@ behaviors:
       - kill -9 $(pidof gobgpd)
       - sleep 0.5
       - /usr/local/bin/gobgpd > /dev/null 2> /dev/null &
-      - rm -r /tmp/log
+      - rm -r /tmp/log/*
       container: r58106
     name: restart
 - device_name: r209141
@@ -172,7 +172,7 @@ behaviors:
       - kill -9 $(pidof gobgpd)
       - sleep 0.5
       - /usr/local/bin/gobgpd > /dev/null 2> /dev/null &
-      - rm -r /tmp/log
+      - rm -r /tmp/log/*
       container: r209141
     name: restart
 - device_name: r12843
@@ -183,7 +183,7 @@ behaviors:
       - kill -9 $(pidof gobgpd)
       - sleep 0.5
       - /usr/local/bin/gobgpd > /dev/null 2> /dev/null &
-      - rm -r /tmp/log
+      - rm -r /tmp/log/*
       container: r12843
     name: restart
 - device_name: r8393
@@ -194,7 +194,7 @@ behaviors:
       - kill -9 $(pidof gobgpd)
       - sleep 0.5
       - /usr/local/bin/gobgpd > /dev/null 2> /dev/null &
-      - rm -r /tmp/log
+      - rm -r /tmp/log/*
       container: r8393
     name: restart
 - device_name: r60299
@@ -205,7 +205,7 @@ behaviors:
       - kill -9 $(pidof gobgpd)
       - sleep 0.5
       - /usr/local/bin/gobgpd > /dev/null 2> /dev/null &
-      - rm -r /tmp/log
+      - rm -r /tmp/log/*
       container: r60299
     name: restart
 - device_name: r50509
@@ -216,7 +216,7 @@ behaviors:
       - kill -9 $(pidof gobgpd)
       - sleep 0.5
       - /usr/local/bin/gobgpd > /dev/null 2> /dev/null &
-      - rm -r /tmp/log
+      - rm -r /tmp/log/*
       container: r50509
     name: restart
 - device_name: r701
@@ -227,7 +227,7 @@ behaviors:
       - kill -9 $(pidof gobgpd)
       - sleep 0.5
       - /usr/local/bin/gobgpd > /dev/null 2> /dev/null &
-      - rm -r /tmp/log
+      - rm -r /tmp/log/*
       container: r701
     name: restart
 - device_name: r20485
@@ -238,7 +238,7 @@ behaviors:
       - kill -9 $(pidof gobgpd)
       - sleep 0.5
       - /usr/local/bin/gobgpd > /dev/null 2> /dev/null &
-      - rm -r /tmp/log
+      - rm -r /tmp/log/*
       container: r20485
     name: restart
 - device_name: r43727
@@ -249,7 +249,7 @@ behaviors:
       - kill -9 $(pidof gobgpd)
       - sleep 0.5
       - /usr/local/bin/gobgpd > /dev/null 2> /dev/null &
-      - rm -r /tmp/log
+      - rm -r /tmp/log/*
       container: r43727
     name: restart
 - device_name: r9198
@@ -260,7 +260,7 @@ behaviors:
       - kill -9 $(pidof gobgpd)
       - sleep 0.5
       - /usr/local/bin/gobgpd > /dev/null 2> /dev/null &
-      - rm -r /tmp/log
+      - rm -r /tmp/log/*
       container: r9198
     name: restart
 - device_name: r6939
@@ -271,7 +271,7 @@ behaviors:
       - kill -9 $(pidof gobgpd)
       - sleep 0.5
       - /usr/local/bin/gobgpd > /dev/null 2> /dev/null &
-      - rm -r /tmp/log
+      - rm -r /tmp/log/*
       container: r6939
     name: restart
 - device_name: r35104
@@ -282,7 +282,7 @@ behaviors:
       - kill -9 $(pidof gobgpd)
       - sleep 0.5
       - /usr/local/bin/gobgpd > /dev/null 2> /dev/null &
-      - rm -r /tmp/log
+      - rm -r /tmp/log/*
       container: r35104
     name: restart
 topo_name: bgp

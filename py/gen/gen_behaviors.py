@@ -13,7 +13,7 @@ def gen_beh_reset_all(deviceinfos:dict) -> dict:
                         "kill -9 $(pidof gobgpd)",
                         "sleep 0.5",
                         "/usr/local/bin/gobgpd > /dev/null 2> /dev/null &",
-                        "rm -r /tmp/log"
+                        "rm -r /tmp/log/*"
                     ]}}]
         }
         inits.append(tempb)

@@ -92,9 +92,6 @@ routes:
   - nlri:
       prefix: 91.203.20.0
       prefix_len: '24'
-  - nlri:
-      prefix: 91.203.22.0
-      prefix_len: '24'
 - name: r60299
   paths:
   - nlri:

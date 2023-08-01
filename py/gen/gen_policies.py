@@ -97,7 +97,7 @@ def gen_commercial_policies(linksinfo: dict) -> dict:
                         "communities": ["65100:10"]
                     },
                     "local_pref":{
-                        "value": 10
+                        "value": 100
                     }
                 }
             },
@@ -115,7 +115,7 @@ def gen_commercial_policies(linksinfo: dict) -> dict:
                         "communities": ["65100:20"]
                     },
                     "local_pref":{
-                        "value": 20
+                        "value": 200
                     }
                 }
             },
@@ -133,7 +133,7 @@ def gen_commercial_policies(linksinfo: dict) -> dict:
                         "communities": ["65100:30"]
                     },
                     "local_pref":{
-                        "value": 30
+                        "value": 300
                     }
                 }
             }],
