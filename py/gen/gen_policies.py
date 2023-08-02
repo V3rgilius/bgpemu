@@ -93,7 +93,7 @@ def gen_commercial_policies(linksinfo: dict) -> dict:
                 },
                 "actions": {
                     "community": {
-                        "type": "ADD",
+                        "type": "REPLACE",
                         "communities": ["65100:10"]
                     },
                     "local_pref":{
@@ -111,7 +111,7 @@ def gen_commercial_policies(linksinfo: dict) -> dict:
                 },
                 "actions": {
                     "community": {
-                        "type": "ADD",
+                        "type": "REPLACE",
                         "communities": ["65100:20"]
                     },
                     "local_pref":{
@@ -129,7 +129,7 @@ def gen_commercial_policies(linksinfo: dict) -> dict:
                 },
                 "actions": {
                     "community": {
-                        "type": "ADD",
+                        "type": "REPLACE",
                         "communities": ["65100:30"]
                     },
                     "local_pref":{

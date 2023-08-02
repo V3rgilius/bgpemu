@@ -69,8 +69,8 @@ def show_paths(nodes,links,paths):
     # plot.toolbar.logo = None
     # plot.toolbar_location = None
     # 提取节点位置
-    pos = nx.shell_layout(G)
-    # pos = nx.drawing.nx_agraph.pygraphviz_layout(G,prog="dot")
+    # pos = nx.shell_layout(G)
+    pos = nx.drawing.nx_agraph.pygraphviz_layout(G,prog="dot")
     # 绘制节点
     # x,y = zip(*pos.values())
     indexes = list(pos.keys())
@@ -99,7 +99,7 @@ def show_paths(nodes,links,paths):
         if (u,v) in diff_edges:
             colors.append("red")
         else:
-            colors.append("rgba(0, 0, 0, 0)")
+            colors.append("black")
         line_indexes.append((u,v))
     line_source = ColumnDataSource(data=dict(
         index = line_indexes,

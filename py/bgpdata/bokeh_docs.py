@@ -97,7 +97,7 @@ def get_path_change_doc(doc):
         except:
             return
         indexes = line_render.data_source.data["index"]
-        fill_colors = ["rgba(0, 0, 0, 0)" for i in indexes]
+        fill_colors = ["black" for i in indexes]
         for diff in diffs:
             if diff in indexes:
                 fill_colors[indexes.index(diff)] = "red"

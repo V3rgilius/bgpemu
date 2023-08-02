@@ -70,7 +70,7 @@ policy_deployments:
       community:
         communities:
         - '65100:10'
-        type: ADD
+        type: REPLACE
       local_pref:
         value: 100
     conditions:
@@ -82,7 +82,7 @@ policy_deployments:
       community:
         communities:
         - '65100:20'
-        type: ADD
+        type: REPLACE
       local_pref:
         value: 200
     conditions:
@@ -94,7 +94,7 @@ policy_deployments:
       community:
         communities:
         - '65100:30'
-        type: ADD
+        type: REPLACE
       local_pref:
         value: 300
     conditions:
@@ -167,7 +167,7 @@ policy_deployments:
       community:
         communities:
         - '65100:10'
-        type: ADD
+        type: REPLACE
       local_pref:
         value: 100
     conditions:
@@ -179,7 +179,7 @@ policy_deployments:
       community:
         communities:
         - '65100:20'
-        type: ADD
+        type: REPLACE
       local_pref:
         value: 200
     conditions:
@@ -191,7 +191,7 @@ policy_deployments:
       community:
         communities:
         - '65100:30'
-        type: ADD
+        type: REPLACE
       local_pref:
         value: 300
     conditions:
@@ -260,7 +260,7 @@ policy_deployments:
       community:
         communities:
         - '65100:10'
-        type: ADD
+        type: REPLACE
       local_pref:
         value: 100
     conditions:
@@ -272,7 +272,7 @@ policy_deployments:
       community:
         communities:
         - '65100:20'
-        type: ADD
+        type: REPLACE
       local_pref:
         value: 200
     conditions:
@@ -284,7 +284,7 @@ policy_deployments:
       community:
         communities:
         - '65100:30'
-        type: ADD
+        type: REPLACE
       local_pref:
         value: 300
     conditions:
@@ -351,7 +351,7 @@ policy_deployments:
       community:
         communities:
         - '65100:10'
-        type: ADD
+        type: REPLACE
       local_pref:
         value: 100
     conditions:
@@ -363,7 +363,7 @@ policy_deployments:
       community:
         communities:
         - '65100:20'
-        type: ADD
+        type: REPLACE
       local_pref:
         value: 200
     conditions:
@@ -375,7 +375,7 @@ policy_deployments:
       community:
         communities:
         - '65100:30'
-        type: ADD
+        type: REPLACE
       local_pref:
         value: 300
     conditions:
@@ -448,7 +448,7 @@ policy_deployments:
       community:
         communities:
         - '65100:10'
-        type: ADD
+        type: REPLACE
       local_pref:
         value: 100
     conditions:
@@ -460,7 +460,7 @@ policy_deployments:
       community:
         communities:
         - '65100:20'
-        type: ADD
+        type: REPLACE
       local_pref:
         value: 200
     conditions:
@@ -472,7 +472,7 @@ policy_deployments:
       community:
         communities:
         - '65100:30'
-        type: ADD
+        type: REPLACE
       local_pref:
         value: 300
     conditions:
@@ -544,7 +544,7 @@ policy_deployments:
       community:
         communities:
         - '65100:10'
-        type: ADD
+        type: REPLACE
       local_pref:
         value: 100
     conditions:
@@ -556,7 +556,7 @@ policy_deployments:
       community:
         communities:
         - '65100:20'
-        type: ADD
+        type: REPLACE
       local_pref:
         value: 200
     conditions:
@@ -568,7 +568,7 @@ policy_deployments:
       community:
         communities:
         - '65100:30'
-        type: ADD
+        type: REPLACE
       local_pref:
         value: 300
     conditions:
@@ -646,7 +646,7 @@ policy_deployments:
       community:
         communities:
         - '65100:10'
-        type: ADD
+        type: REPLACE
       local_pref:
         value: 100
     conditions:
@@ -658,7 +658,7 @@ policy_deployments:
       community:
         communities:
         - '65100:20'
-        type: ADD
+        type: REPLACE
       local_pref:
         value: 200
     conditions:
@@ -670,7 +670,7 @@ policy_deployments:
       community:
         communities:
         - '65100:30'
-        type: ADD
+        type: REPLACE
       local_pref:
         value: 300
     conditions:
@@ -748,7 +748,7 @@ policy_deployments:
       community:
         communities:
         - '65100:10'
-        type: ADD
+        type: REPLACE
       local_pref:
         value: 100
     conditions:
@@ -760,7 +760,7 @@ policy_deployments:
       community:
         communities:
         - '65100:20'
-        type: ADD
+        type: REPLACE
       local_pref:
         value: 200
     conditions:
@@ -772,7 +772,7 @@ policy_deployments:
       community:
         communities:
         - '65100:30'
-        type: ADD
+        type: REPLACE
       local_pref:
         value: 300
     conditions:
@@ -848,7 +848,7 @@ policy_deployments:
       community:
         communities:
         - '65100:10'
-        type: ADD
+        type: REPLACE
       local_pref:
         value: 100
     conditions:
@@ -860,7 +860,7 @@ policy_deployments:
       community:
         communities:
         - '65100:20'
-        type: ADD
+        type: REPLACE
       local_pref:
         value: 200
     conditions:
@@ -872,7 +872,7 @@ policy_deployments:
       community:
         communities:
         - '65100:30'
-        type: ADD
+        type: REPLACE
       local_pref:
         value: 300
     conditions:
@@ -944,7 +944,7 @@ policy_deployments:
       community:
         communities:
         - '65100:10'
-        type: ADD
+        type: REPLACE
       local_pref:
         value: 100
     conditions:
@@ -956,7 +956,7 @@ policy_deployments:
       community:
         communities:
         - '65100:20'
-        type: ADD
+        type: REPLACE
       local_pref:
         value: 200
     conditions:
@@ -968,7 +968,7 @@ policy_deployments:
       community:
         communities:
         - '65100:30'
-        type: ADD
+        type: REPLACE
       local_pref:
         value: 300
     conditions:
@@ -1047,7 +1047,7 @@ policy_deployments:
       community:
         communities:
         - '65100:10'
-        type: ADD
+        type: REPLACE
       local_pref:
         value: 100
     conditions:
@@ -1059,7 +1059,7 @@ policy_deployments:
       community:
         communities:
         - '65100:20'
-        type: ADD
+        type: REPLACE
       local_pref:
         value: 200
     conditions:
@@ -1071,7 +1071,7 @@ policy_deployments:
       community:
         communities:
         - '65100:30'
-        type: ADD
+        type: REPLACE
       local_pref:
         value: 300
     conditions:
@@ -1149,7 +1149,7 @@ policy_deployments:
       community:
         communities:
         - '65100:10'
-        type: ADD
+        type: REPLACE
       local_pref:
         value: 100
     conditions:
@@ -1161,7 +1161,7 @@ policy_deployments:
       community:
         communities:
         - '65100:20'
-        type: ADD
+        type: REPLACE
       local_pref:
         value: 200
     conditions:
@@ -1173,7 +1173,7 @@ policy_deployments:
       community:
         communities:
         - '65100:30'
-        type: ADD
+        type: REPLACE
       local_pref:
         value: 300
     conditions:
@@ -1261,7 +1261,7 @@ policy_deployments:
       community:
         communities:
         - '65100:10'
-        type: ADD
+        type: REPLACE
       local_pref:
         value: 100
     conditions:
@@ -1273,7 +1273,7 @@ policy_deployments:
       community:
         communities:
         - '65100:20'
-        type: ADD
+        type: REPLACE
       local_pref:
         value: 200
     conditions:
@@ -1285,7 +1285,7 @@ policy_deployments:
       community:
         communities:
         - '65100:30'
-        type: ADD
+        type: REPLACE
       local_pref:
         value: 300
     conditions:
@@ -1360,7 +1360,7 @@ policy_deployments:
       community:
         communities:
         - '65100:10'
-        type: ADD
+        type: REPLACE
       local_pref:
         value: 100
     conditions:
@@ -1372,7 +1372,7 @@ policy_deployments:
       community:
         communities:
         - '65100:20'
-        type: ADD
+        type: REPLACE
       local_pref:
         value: 200
     conditions:
@@ -1384,7 +1384,7 @@ policy_deployments:
       community:
         communities:
         - '65100:30'
-        type: ADD
+        type: REPLACE
       local_pref:
         value: 300
     conditions:
@@ -1458,7 +1458,7 @@ policy_deployments:
       community:
         communities:
         - '65100:10'
-        type: ADD
+        type: REPLACE
       local_pref:
         value: 100
     conditions:
@@ -1470,7 +1470,7 @@ policy_deployments:
       community:
         communities:
         - '65100:20'
-        type: ADD
+        type: REPLACE
       local_pref:
         value: 200
     conditions:
@@ -1482,7 +1482,7 @@ policy_deployments:
       community:
         communities:
         - '65100:30'
-        type: ADD
+        type: REPLACE
       local_pref:
         value: 300
     conditions:
@@ -1558,7 +1558,7 @@ policy_deployments:
       community:
         communities:
         - '65100:10'
-        type: ADD
+        type: REPLACE
       local_pref:
         value: 100
     conditions:
@@ -1570,7 +1570,7 @@ policy_deployments:
       community:
         communities:
         - '65100:20'
-        type: ADD
+        type: REPLACE
       local_pref:
         value: 200
     conditions:
@@ -1582,7 +1582,7 @@ policy_deployments:
       community:
         communities:
         - '65100:30'
-        type: ADD
+        type: REPLACE
       local_pref:
         value: 300
     conditions:
@@ -1663,7 +1663,7 @@ policy_deployments:
       community:
         communities:
         - '65100:10'
-        type: ADD
+        type: REPLACE
       local_pref:
         value: 100
     conditions:
@@ -1675,7 +1675,7 @@ policy_deployments:
       community:
         communities:
         - '65100:20'
-        type: ADD
+        type: REPLACE
       local_pref:
         value: 200
     conditions:
@@ -1687,7 +1687,7 @@ policy_deployments:
       community:
         communities:
         - '65100:30'
-        type: ADD
+        type: REPLACE
       local_pref:
         value: 300
     conditions:
@@ -1756,7 +1756,7 @@ policy_deployments:
       community:
         communities:
         - '65100:10'
-        type: ADD
+        type: REPLACE
       local_pref:
         value: 100
     conditions:
@@ -1768,7 +1768,7 @@ policy_deployments:
       community:
         communities:
         - '65100:20'
-        type: ADD
+        type: REPLACE
       local_pref:
         value: 200
     conditions:
@@ -1780,7 +1780,7 @@ policy_deployments:
       community:
         communities:
         - '65100:30'
-        type: ADD
+        type: REPLACE
       local_pref:
         value: 300
     conditions:
@@ -1847,7 +1847,7 @@ policy_deployments:
       community:
         communities:
         - '65100:10'
-        type: ADD
+        type: REPLACE
       local_pref:
         value: 100
     conditions:
@@ -1859,7 +1859,7 @@ policy_deployments:
       community:
         communities:
         - '65100:20'
-        type: ADD
+        type: REPLACE
       local_pref:
         value: 200
     conditions:
@@ -1871,7 +1871,7 @@ policy_deployments:
       community:
         communities:
         - '65100:30'
-        type: ADD
+        type: REPLACE
       local_pref:
         value: 300
     conditions:
@@ -1953,7 +1953,7 @@ policy_deployments:
       community:
         communities:
         - '65100:10'
-        type: ADD
+        type: REPLACE
       local_pref:
         value: 100
     conditions:
@@ -1965,7 +1965,7 @@ policy_deployments:
       community:
         communities:
         - '65100:20'
-        type: ADD
+        type: REPLACE
       local_pref:
         value: 200
     conditions:
@@ -1977,7 +1977,7 @@ policy_deployments:
       community:
         communities:
         - '65100:30'
-        type: ADD
+        type: REPLACE
       local_pref:
         value: 300
     conditions:
@@ -2059,7 +2059,7 @@ policy_deployments:
       community:
         communities:
         - '65100:10'
-        type: ADD
+        type: REPLACE
       local_pref:
         value: 100
     conditions:
@@ -2071,7 +2071,7 @@ policy_deployments:
       community:
         communities:
         - '65100:20'
-        type: ADD
+        type: REPLACE
       local_pref:
         value: 200
     conditions:
@@ -2083,7 +2083,7 @@ policy_deployments:
       community:
         communities:
         - '65100:30'
-        type: ADD
+        type: REPLACE
       local_pref:
         value: 300
     conditions:
@@ -2164,7 +2164,7 @@ policy_deployments:
       community:
         communities:
         - '65100:10'
-        type: ADD
+        type: REPLACE
       local_pref:
         value: 100
     conditions:
@@ -2176,7 +2176,7 @@ policy_deployments:
       community:
         communities:
         - '65100:20'
-        type: ADD
+        type: REPLACE
       local_pref:
         value: 200
     conditions:
@@ -2188,7 +2188,7 @@ policy_deployments:
       community:
         communities:
         - '65100:30'
-        type: ADD
+        type: REPLACE
       local_pref:
         value: 300
     conditions:
@@ -2264,7 +2264,7 @@ policy_deployments:
       community:
         communities:
         - '65100:10'
-        type: ADD
+        type: REPLACE
       local_pref:
         value: 100
     conditions:
@@ -2276,7 +2276,7 @@ policy_deployments:
       community:
         communities:
         - '65100:20'
-        type: ADD
+        type: REPLACE
       local_pref:
         value: 200
     conditions:
@@ -2288,7 +2288,7 @@ policy_deployments:
       community:
         communities:
         - '65100:30'
-        type: ADD
+        type: REPLACE
       local_pref:
         value: 300
     conditions:
@@ -2366,7 +2366,7 @@ policy_deployments:
       community:
         communities:
         - '65100:10'
-        type: ADD
+        type: REPLACE
       local_pref:
         value: 100
     conditions:
@@ -2378,7 +2378,7 @@ policy_deployments:
       community:
         communities:
         - '65100:20'
-        type: ADD
+        type: REPLACE
       local_pref:
         value: 200
     conditions:
@@ -2390,7 +2390,7 @@ policy_deployments:
       community:
         communities:
         - '65100:30'
-        type: ADD
+        type: REPLACE
       local_pref:
         value: 300
     conditions:
@@ -2471,7 +2471,7 @@ policy_deployments:
       community:
         communities:
         - '65100:10'
-        type: ADD
+        type: REPLACE
       local_pref:
         value: 100
     conditions:
@@ -2483,7 +2483,7 @@ policy_deployments:
       community:
         communities:
         - '65100:20'
-        type: ADD
+        type: REPLACE
       local_pref:
         value: 200
     conditions:
@@ -2495,7 +2495,7 @@ policy_deployments:
       community:
         communities:
         - '65100:30'
-        type: ADD
+        type: REPLACE
       local_pref:
         value: 300
     conditions:
@@ -2575,7 +2575,7 @@ policy_deployments:
       community:
         communities:
         - '65100:10'
-        type: ADD
+        type: REPLACE
       local_pref:
         value: 100
     conditions:
@@ -2587,7 +2587,7 @@ policy_deployments:
       community:
         communities:
         - '65100:20'
-        type: ADD
+        type: REPLACE
       local_pref:
         value: 200
     conditions:
@@ -2599,7 +2599,7 @@ policy_deployments:
       community:
         communities:
         - '65100:30'
-        type: ADD
+        type: REPLACE
       local_pref:
         value: 300
     conditions:
