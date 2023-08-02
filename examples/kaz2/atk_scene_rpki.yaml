@@ -1,0 +1,3 @@
+policies_path: examples/kaz/rpki_policies.yaml
+routes_path: examples/kaz/atk_routes.yaml
+topo_name: bgp

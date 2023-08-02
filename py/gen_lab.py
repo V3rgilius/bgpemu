@@ -4,9 +4,9 @@ from gen.gen_behaviors import *
 from gen.gen_routes import *
 from gen.gen_policies import *
 
-TOPOPATH="test/kaz"
+TOPOPATH="test/kaz2"
 TOPONAME = "bgp"
-RELPATH="kaz"
+RELPATH="examples/kaz2"
 
 def get_devices_links():
     devices = {}
@@ -116,7 +116,7 @@ output(scene,f"{TOPOPATH}/scene.yaml")
 output(reset_scene,f"{TOPOPATH}/reset_scene.yaml")
 output(routes,f"{TOPOPATH}/routes.yaml")
 output(policies,f"{TOPOPATH}/policies.yaml")
-output(policies,f"{TOPOPATH}/rpki_policies.yaml")
+output(rpki_policies,f"{TOPOPATH}/rpki_policies.yaml")
 
 # inits = gen_inits_from()
 # output({"topo_name":"bgp","inits":inits},f"{TESTPATH}scene.yaml")

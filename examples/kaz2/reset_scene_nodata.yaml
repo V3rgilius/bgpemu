@@ -1,0 +1,262 @@
+behaviors:
+- device_name: r3216
+  name: Reset r3216
+  steps:
+  - cmds:
+      cmds:
+      - kill -9 $(pidof gobgpd)
+      - sleep 0.5
+      - /usr/local/bin/gobgpd > /dev/null 2> /dev/null &
+      container: r3216
+    name: restart
+- device_name: r3320
+  name: Reset r3320
+  steps:
+  - cmds:
+      cmds:
+      - kill -9 $(pidof gobgpd)
+      - sleep 0.5
+      - /usr/local/bin/gobgpd > /dev/null 2> /dev/null &
+      container: r3320
+    name: restart
+- device_name: r6762
+  name: Reset r6762
+  steps:
+  - cmds:
+      cmds:
+      - kill -9 $(pidof gobgpd)
+      - sleep 0.5
+      - /usr/local/bin/gobgpd > /dev/null 2> /dev/null &
+      container: r6762
+    name: restart
+- device_name: r4766
+  name: Reset r4766
+  steps:
+  - cmds:
+      cmds:
+      - kill -9 $(pidof gobgpd)
+      - sleep 0.5
+      - /usr/local/bin/gobgpd > /dev/null 2> /dev/null &
+      container: r4766
+    name: restart
+- device_name: r3356
+  name: Reset r3356
+  steps:
+  - cmds:
+      cmds:
+      - kill -9 $(pidof gobgpd)
+      - sleep 0.5
+      - /usr/local/bin/gobgpd > /dev/null 2> /dev/null &
+      container: r3356
+    name: restart
+- device_name: r6453
+  name: Reset r6453
+  steps:
+  - cmds:
+      cmds:
+      - kill -9 $(pidof gobgpd)
+      - sleep 0.5
+      - /usr/local/bin/gobgpd > /dev/null 2> /dev/null &
+      container: r6453
+    name: restart
+- device_name: r1239
+  name: Reset r1239
+  steps:
+  - cmds:
+      cmds:
+      - kill -9 $(pidof gobgpd)
+      - sleep 0.5
+      - /usr/local/bin/gobgpd > /dev/null 2> /dev/null &
+      container: r1239
+    name: restart
+- device_name: r35168
+  name: Reset r35168
+  steps:
+  - cmds:
+      cmds:
+      - kill -9 $(pidof gobgpd)
+      - sleep 0.5
+      - /usr/local/bin/gobgpd > /dev/null 2> /dev/null &
+      container: r35168
+    name: restart
+- device_name: r31133
+  name: Reset r31133
+  steps:
+  - cmds:
+      cmds:
+      - kill -9 $(pidof gobgpd)
+      - sleep 0.5
+      - /usr/local/bin/gobgpd > /dev/null 2> /dev/null &
+      container: r31133
+    name: restart
+- device_name: r3491
+  name: Reset r3491
+  steps:
+  - cmds:
+      cmds:
+      - kill -9 $(pidof gobgpd)
+      - sleep 0.5
+      - /usr/local/bin/gobgpd > /dev/null 2> /dev/null &
+      container: r3491
+    name: restart
+- device_name: r4134
+  name: Reset r4134
+  steps:
+  - cmds:
+      cmds:
+      - kill -9 $(pidof gobgpd)
+      - sleep 0.5
+      - /usr/local/bin/gobgpd > /dev/null 2> /dev/null &
+      container: r4134
+    name: restart
+- device_name: r1299
+  name: Reset r1299
+  steps:
+  - cmds:
+      cmds:
+      - kill -9 $(pidof gobgpd)
+      - sleep 0.5
+      - /usr/local/bin/gobgpd > /dev/null 2> /dev/null &
+      container: r1299
+    name: restart
+- device_name: r12389
+  name: Reset r12389
+  steps:
+  - cmds:
+      cmds:
+      - kill -9 $(pidof gobgpd)
+      - sleep 0.5
+      - /usr/local/bin/gobgpd > /dev/null 2> /dev/null &
+      container: r12389
+    name: restart
+- device_name: r5511
+  name: Reset r5511
+  steps:
+  - cmds:
+      cmds:
+      - kill -9 $(pidof gobgpd)
+      - sleep 0.5
+      - /usr/local/bin/gobgpd > /dev/null 2> /dev/null &
+      container: r5511
+    name: restart
+- device_name: r58106
+  name: Reset r58106
+  steps:
+  - cmds:
+      cmds:
+      - kill -9 $(pidof gobgpd)
+      - sleep 0.5
+      - /usr/local/bin/gobgpd > /dev/null 2> /dev/null &
+      container: r58106
+    name: restart
+- device_name: r209141
+  name: Reset r209141
+  steps:
+  - cmds:
+      cmds:
+      - kill -9 $(pidof gobgpd)
+      - sleep 0.5
+      - /usr/local/bin/gobgpd > /dev/null 2> /dev/null &
+      container: r209141
+    name: restart
+- device_name: r12843
+  name: Reset r12843
+  steps:
+  - cmds:
+      cmds:
+      - kill -9 $(pidof gobgpd)
+      - sleep 0.5
+      - /usr/local/bin/gobgpd > /dev/null 2> /dev/null &
+      container: r12843
+    name: restart
+- device_name: r8393
+  name: Reset r8393
+  steps:
+  - cmds:
+      cmds:
+      - kill -9 $(pidof gobgpd)
+      - sleep 0.5
+      - /usr/local/bin/gobgpd > /dev/null 2> /dev/null &
+      container: r8393
+    name: restart
+- device_name: r60299
+  name: Reset r60299
+  steps:
+  - cmds:
+      cmds:
+      - kill -9 $(pidof gobgpd)
+      - sleep 0.5
+      - /usr/local/bin/gobgpd > /dev/null 2> /dev/null &
+      container: r60299
+    name: restart
+- device_name: r50509
+  name: Reset r50509
+  steps:
+  - cmds:
+      cmds:
+      - kill -9 $(pidof gobgpd)
+      - sleep 0.5
+      - /usr/local/bin/gobgpd > /dev/null 2> /dev/null &
+      container: r50509
+    name: restart
+- device_name: r701
+  name: Reset r701
+  steps:
+  - cmds:
+      cmds:
+      - kill -9 $(pidof gobgpd)
+      - sleep 0.5
+      - /usr/local/bin/gobgpd > /dev/null 2> /dev/null &
+      container: r701
+    name: restart
+- device_name: r20485
+  name: Reset r20485
+  steps:
+  - cmds:
+      cmds:
+      - kill -9 $(pidof gobgpd)
+      - sleep 0.5
+      - /usr/local/bin/gobgpd > /dev/null 2> /dev/null &
+      container: r20485
+    name: restart
+- device_name: r43727
+  name: Reset r43727
+  steps:
+  - cmds:
+      cmds:
+      - kill -9 $(pidof gobgpd)
+      - sleep 0.5
+      - /usr/local/bin/gobgpd > /dev/null 2> /dev/null &
+      container: r43727
+    name: restart
+- device_name: r9198
+  name: Reset r9198
+  steps:
+  - cmds:
+      cmds:
+      - kill -9 $(pidof gobgpd)
+      - sleep 0.5
+      - /usr/local/bin/gobgpd > /dev/null 2> /dev/null &
+      container: r9198
+    name: restart
+- device_name: r6939
+  name: Reset r6939
+  steps:
+  - cmds:
+      cmds:
+      - kill -9 $(pidof gobgpd)
+      - sleep 0.5
+      - /usr/local/bin/gobgpd > /dev/null 2> /dev/null &
+      container: r6939
+    name: restart
+- device_name: r35104
+  name: Reset r35104
+  steps:
+  - cmds:
+      cmds:
+      - kill -9 $(pidof gobgpd)
+      - sleep 0.5
+      - /usr/local/bin/gobgpd > /dev/null 2> /dev/null &
+      container: r35104
+    name: restart
+topo_name: bgp
