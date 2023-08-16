@@ -8,9 +8,9 @@ import (
 	"path/filepath"
 	"sync"
 	// "time"
-
 	topologyv1 "github.com/networkop/meshnet-cni/api/types/v1beta1"
 	ktpb "github.com/openconfig/kne/proto/topo"
+	appsv1 "k8s.io/api/apps/v1"
 	// scraplinetwork "github.com/scrapli/scrapligo/driver/network"
 	scrapliopts "github.com/scrapli/scrapligo/driver/options"
 	// scraplilogging "github.com/scrapli/scrapligo/logging"
@@ -314,12 +314,16 @@ func (n *Impl) CreatePod(ctx context.Context) error {
 	}
 
 	containers := make([]corev1.Container, 1, 32)
+	envs := n.NodeOpt.GetEnvs()
+	if envs == nil {
+		envs = map[string]string{}
+	}
 	containers[0] = corev1.Container{
 		Name:            pb.Name,
 		Image:           pb.Config.Image,
 		Command:         pb.Config.Command,
 		Args:            pb.Config.Args,
-		Env:             ToEnvVar(pb.Config.Env),
+		Env:             ToEnvVar(envs),
 		Resources:       ToResourceRequirements(pb.Constraints),
 		ImagePullPolicy: "IfNotPresent",
 		SecurityContext: &corev1.SecurityContext{
@@ -332,7 +336,7 @@ func (n *Impl) CreatePod(ctx context.Context) error {
 			Image:           image,
 			Command:         []string{},
 			Args:            []string{},
-			Env:             ToEnvVar(pb.Config.Env),
+			Env:             ToEnvVar(envs),
 			Resources:       ToResourceRequirements(pb.Constraints),
 			ImagePullPolicy: "IfNotPresent",
 			SecurityContext: &corev1.SecurityContext{
@@ -369,50 +373,53 @@ func (n *Impl) CreatePod(ctx context.Context) error {
 			},
 		})
 	}
-
-	pod := &corev1.Pod{
-		ObjectMeta: metav1.ObjectMeta{
-			Name: pb.Name,
-			Labels: map[string]string{
-				"app":  pb.Name,
-				"topo": n.Namespace,
+	podSpec := corev1.PodSpec{
+		InitContainers: []corev1.Container{{
+			Name:  fmt.Sprintf("init-%s", pb.Name),
+			Image: initContainerImage,
+			Args: []string{
+				fmt.Sprintf("%d", len(n.Proto.Interfaces)+1),
+				fmt.Sprintf("%d", pb.Config.Sleep),
 			},
-		},
-		Spec: corev1.PodSpec{
-			InitContainers: []corev1.Container{{
-				Name:  fmt.Sprintf("init-%s", pb.Name),
-				Image: initContainerImage,
-				Args: []string{
-					fmt.Sprintf("%d", len(n.Proto.Interfaces)+1),
-					fmt.Sprintf("%d", pb.Config.Sleep),
-				},
-				ImagePullPolicy: "IfNotPresent",
-			}},
-			Containers:                    containers,
-			TerminationGracePeriodSeconds: pointer.Int64(0),
-			NodeSelector:                  map[string]string{},
-			Affinity: &corev1.Affinity{
-				PodAntiAffinity: &corev1.PodAntiAffinity{
-					PreferredDuringSchedulingIgnoredDuringExecution: pdside,
-				},
+			ImagePullPolicy: "IfNotPresent",
+		}},
+		Containers:                    containers,
+		TerminationGracePeriodSeconds: pointer.Int64(0),
+		NodeSelector:                  map[string]string{},
+		Affinity: &corev1.Affinity{
+			PodAntiAffinity: &corev1.PodAntiAffinity{
+				PreferredDuringSchedulingIgnoredDuringExecution: pdside,
 			},
 		},
 	}
 
 	shareVolumes := n.NodeOpt.ShareVolumes
-	for _, sv := range shareVolumes {
-		pod.Spec.Volumes = append(pod.Spec.Volumes, corev1.Volume{
-			Name: fmt.Sprintf("volume-%s", sv),
-			VolumeSource: corev1.VolumeSource{
+	for name, sv := range shareVolumes {
+		var vs corev1.VolumeSource
+		switch sv.Type {
+		case tpb.VolumeType_HOSTPATH:
+			vs = corev1.VolumeSource{
+				HostPath: &corev1.HostPathVolumeSource{Path: sv.Path},
+			}
+		case tpb.VolumeType_EMPTY:
+			vs = corev1.VolumeSource{
 				EmptyDir: &corev1.EmptyDirVolumeSource{},
-			},
+			}
+		default:
+			vs = corev1.VolumeSource{
+				EmptyDir: &corev1.EmptyDirVolumeSource{},
+			}
+		}
+		podSpec.Volumes = append(podSpec.Volumes, corev1.Volume{
+			Name:         fmt.Sprintf("vol-%s", name),
+			VolumeSource: vs,
 		})
 	}
-	for i, c := range pod.Spec.Containers {
+	for i, c := range podSpec.Containers {
 		if configs, ok := n.NodeOpt.ContainerVolumes[c.Name]; ok {
 			for v, p := range configs.Volumes {
-				pod.Spec.Containers[i].VolumeMounts = append(c.VolumeMounts, corev1.VolumeMount{
-					Name:      fmt.Sprintf("volume-%s", v),
+				podSpec.Containers[i].VolumeMounts = append(c.VolumeMounts, corev1.VolumeMount{
+					Name:      fmt.Sprintf("vol-%s", v),
 					MountPath: p,
 				})
 			}
@@ -424,7 +431,7 @@ func (n *Impl) CreatePod(ctx context.Context) error {
 		if err != nil {
 			return err
 		}
-		pod.Spec.Volumes = append(pod.Spec.Volumes, *vol)
+		podSpec.Volumes = append(podSpec.Volumes, *vol)
 		vm := corev1.VolumeMount{
 			Name:      ConfigVolumeName,
 			MountPath: pb.Config.ConfigPath + "/" + pb.Config.ConfigFile,
@@ -433,14 +440,58 @@ func (n *Impl) CreatePod(ctx context.Context) error {
 		if vol.VolumeSource.ConfigMap != nil {
 			vm.SubPath = pb.Config.ConfigFile
 		}
-		for i, c := range pod.Spec.Containers {
-			pod.Spec.Containers[i].VolumeMounts = append(c.VolumeMounts, vm)
+		for i, c := range podSpec.Containers {
+			podSpec.Containers[i].VolumeMounts = append(c.VolumeMounts, vm)
 		}
 	}
-	_, err := n.KubeClient.CoreV1().Pods(n.Namespace).Create(ctx, pod, metav1.CreateOptions{})
-	if err != nil {
-		return err
+	if n.NodeOpt.IsResilient {
+		var replicas int32 = 1
+		statefulSet := &appsv1.StatefulSet{
+			ObjectMeta: metav1.ObjectMeta{
+				Name:      pb.Name,
+				Namespace: n.Namespace,
+			},
+			Spec: appsv1.StatefulSetSpec{
+				Replicas:    &replicas,
+				ServiceName: "resilient",
+				Selector: &metav1.LabelSelector{
+					MatchLabels: map[string]string{
+						"app": pb.Name,
+					},
+				},
+				Template: corev1.PodTemplateSpec{
+					ObjectMeta: metav1.ObjectMeta{
+						Labels: map[string]string{
+							"app":  pb.Name,
+							"topo": n.Namespace,
+						},
+					},
+					Spec: podSpec,
+				},
+			},
+		}
+		_, err := n.KubeClient.AppsV1().StatefulSets(n.Namespace).Create(context.TODO(), statefulSet, metav1.CreateOptions{})
+		if err != nil {
+			return err
+		}
+	} else {
+		pod := &corev1.Pod{
+			ObjectMeta: metav1.ObjectMeta{
+				Name: pb.Name,
+				Labels: map[string]string{
+					"app":  pb.Name,
+					"topo": n.Namespace,
+				},
+			},
+			Spec: podSpec,
+		}
+
+		_, err := n.KubeClient.CoreV1().Pods(n.Namespace).Create(ctx, pod, metav1.CreateOptions{})
+		if err != nil {
+			return err
+		}
 	}
+
 	log.Infof("Pod created:%s\n", pb.Name)
 	return nil
 }
@@ -622,7 +673,13 @@ func (n *Impl) Name() string {
 
 // Pod returns the pod definition for the node.
 func (n *Impl) Pods(ctx context.Context) ([]*corev1.Pod, error) {
-	p, err := n.KubeClient.CoreV1().Pods(n.Namespace).Get(ctx, n.Name(), metav1.GetOptions{})
+	var nodeName string
+	if n.NodeOpt.IsResilient {
+		nodeName = n.Name() + "-0"
+	} else {
+		nodeName = n.Name()
+	}
+	p, err := n.KubeClient.CoreV1().Pods(n.Namespace).Get(ctx, nodeName, metav1.GetOptions{})
 	if err != nil {
 		return nil, err
 	}

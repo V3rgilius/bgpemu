@@ -112,8 +112,10 @@ func genTopo(ast *astopo.Topology) (*tpb.Topology, error) {
 				ExtraImages: map[string]string{
 					fmt.Sprintf("r%d-frr", node.Asn): "frrouting/frr:v8.1.0",
 				},
-				ShareVolumes: []string{
-					"zebra",
+				ShareVolumes: map[string]*tpb.ShareVolume{
+					"zebra": {
+						Type: tpb.VolumeType_EMPTY,
+					},
 				},
 				ContainerVolumes: map[string]*tpb.PublicVolumes{
 					fmt.Sprintf("r%d-frr", node.Asn): {Volumes: map[string]string{"zebra": "/var/run/frr"}},

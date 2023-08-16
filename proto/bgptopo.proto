@@ -47,19 +47,27 @@ message Node {
 message Config{
   repeated Task tasks = 1;   
   map<string, string> extra_images = 2;  //Other containers running on node
-  repeated string share_volumes= 3;
+  map<string,ShareVolume> share_volumes= 3;
   map<string,PublicVolumes> container_volumes = 4;
   string image = 5;
   map<string,string> affinity = 6;
-  // string config_path = 6;
-  // string config_file = 7;
+  bool is_resilient = 7;
+  map<string,string> envs = 8;
 }
 //If this is a subtopo, interface message define how internal interfaces be exported.
 message InternalInterface {
     string node = 1;
     string node_int = 2;
 }  
-
+enum VolumeType{
+  DEFAULT = 0;
+  EMPTY = 1;
+  HOSTPATH = 2;
+}
+message ShareVolume{
+  VolumeType type = 1;
+  string path = 2;
+}
 message PublicVolumes {
   map<string,string> volumes = 1;
 }

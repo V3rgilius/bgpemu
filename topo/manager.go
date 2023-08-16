@@ -139,33 +139,43 @@ func Update(t *tpb.Topology) error {
 	}
 	kbt, _ := KneTopo(bt)
 
-	tnodes := make(map[string]*ktpb.Node, 64)
-	btnodes := make(map[string]*ktpb.Node, 64)
+	ktnodes := make(map[string]*ktpb.Node, 64)
+	btnodes := make(map[string]*tpb.Node, 64)
+	kbtnodes := make(map[string]*ktpb.Node, 64)
 	newLinks := make([]*ktpb.Link, 0, 64)
 	existedMTs := make(map[string][]*topologyv1.Link, 16)
 	newMTs := make(map[string][]*topologyv1.Link, 16)
-	curUid := len(bt.Links) + len(t.Links)
+	curUid := len(bt.Links) + len(t.Links) // 存在uid碰撞风险
 	for _, n := range kbt.Nodes {
-		btnodes[n.Name] = n
+		kbtnodes[n.Name] = n
 	}
 	for _, n := range kt.Nodes {
-		tnodes[n.Name] = n
-		if ok := btnodes[n.Name]; ok != nil {
+		ktnodes[n.Name] = n
+		if ok := kbtnodes[n.Name]; ok != nil {
 			return fmt.Errorf("Can't update existed pod: %s", n.Name)
 		}
+	}
+	for _, n := range bt.Nodes {
+		btnodes[n.Name] = n
 	}
 	for _, l := range kt.Links {
 		flag := false
 		flagA := false
 		flagZ := false
-		if ok := btnodes[l.ANode]; ok != nil {
+		if ok := kbtnodes[l.ANode]; ok != nil {
 			flag = true
+			if btnodes[l.ANode].Config.IsResilient {
+				l.ANode = l.ANode + "-0"
+			}
 			addMeshTopoNode(existedMTs, true, curUid, l)
 		} else {
 			flagA = true
 		}
-		if ok := btnodes[l.ZNode]; ok != nil {
+		if ok := kbtnodes[l.ZNode]; ok != nil {
 			flag = true
+			if btnodes[l.ZNode].Config.IsResilient {
+				l.ZNode = l.ZNode + "-0"
+			}
 			addMeshTopoNode(existedMTs, false, curUid, l)
 		} else {
 			flagZ = true
@@ -308,8 +318,14 @@ func (m *UpdateManager) checkNodeStatus(ctx context.Context, timeout time.Durati
 	}
 	for name, n := range m.nodes {
 		tasks := n.GetOpt().Tasks
+		var podName string
+		if n.GetOpt().IsResilient {
+			podName = name + "-0"
+		} else {
+			podName = name
+		}
 		for _, task := range tasks {
-			_ = m.Exec(ctx, task.Cmds, name, task.Container, nil, os.Stdout, os.Stderr)
+			_ = m.Exec(ctx, task.Cmds, podName, task.Container, nil, os.Stdout, os.Stderr)
 		}
 	}
 	return nil
@@ -380,6 +396,7 @@ func (m *UpdateManager) updateMeshnetTopologies(ctx context.Context, updateMTs m
 		if err != nil {
 			return err
 		}
+		// Appending may cause error
 		for _, link := range links {
 			mt.Spec.Links = append(mt.Spec.Links, *link)
 		}
@@ -520,6 +537,13 @@ func (m *UpdateManager) topologySpecs(ctx context.Context) ([]*topologyv1.Topolo
 
 	// replace node name with pod name, for peer pod attribute in each link
 	for nodeName, specs := range nodeSpecs {
+		if m.nodes[nodeName].GetOpt().IsResilient {
+			for _, spec := range specs {
+				spec.ObjectMeta.Name = spec.ObjectMeta.Name + "-0"
+			}
+		}
+	}
+	for nodeName, specs := range nodeSpecs {
 		for _, spec := range specs {
 			for l := range spec.Spec.Links {
 				link := &spec.Spec.Links[l]
@@ -527,7 +551,6 @@ func (m *UpdateManager) topologySpecs(ctx context.Context) ([]*topologyv1.Topolo
 				if !ok {
 					return nil, fmt.Errorf("specs do not exist for node %s", link.PeerPod)
 				}
-
 				if err := setLinkPeer(nodeName, spec.ObjectMeta.Name, link, peerSpecs); err != nil {
 					return nil, err
 				}

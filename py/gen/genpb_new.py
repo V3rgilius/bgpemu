@@ -31,29 +31,31 @@ def load_link():
     return links
 
 
-def gen_my_node(asn, ip, globalip, ethlinks,relations):
+def gen_my_node(asn, ip, globalip, ethlinks, relations):
     links: dict = ethlinks[asn]
     eths = links.keys()
-    ips ={}
+    ips = {}
     for eth in eths:
         ips[eth] = f"{globalip[f'{asn}:{eth}']}/30"
     shells = ["/usr/local/bin/gobgpd > /dev/null 2> /dev/null &"]
-    frrshells = [ ]
+    frrshells = []
     nodedata = {"name": f"r{asn}",
                 "type": "BGP",
-                "ip_addr":ips,
+                "ip_addr": ips,
                 "config": {
-                        "tasks": [{"container": f"r{asn}-frr", "cmds": frrshells},{"container": f"r{asn}", "cmds": shells}],
+                        "tasks": [{"container": f"r{asn}-frr", "cmds": frrshells}, {"container": f"r{asn}", "cmds": shells}],
                         "extra_images": {
                             f"r{asn}-frr": "frrouting/frr:v8.1.0",
                         },
-                        "share_volumes": [
-                            "zebra"
-                        ],
-                        "container_volumes":{
-                            f"r{asn}-frr":{"volumes":{"zebra":"/var/run/frr"}},
-                            f"r{asn}":{"volumes":{"zebra":"/var/run/frr"}}
-                        }
+                    "share_volumes": {
+                            "zebra": {
+                                "type": "EMPTY"
+                            }
+                    },
+                    "container_volumes": {
+                            f"r{asn}-frr": {"volumes": {"zebra": "/var/run/frr"}},
+                            f"r{asn}": {"volumes": {"zebra": "/var/run/frr"}}
+                            }
                 },
                 "services":
                     {50051: {
@@ -61,22 +63,24 @@ def gen_my_node(asn, ip, globalip, ethlinks,relations):
                         "inside": 50051
                     }}
                 }
-    neighbors=[f"{asn}#{links[eth].split(':')[0]}#{globalip[links[eth]]}#{relations[asn][links[eth].split(':')[0]]}\n" for eth in eths]
-    with open(f"{TOPOPATH}link-info","a") as f:
+    neighbors = [
+        f"{asn}#{links[eth].split(':')[0]}#{globalip[links[eth]]}#{relations[asn][links[eth].split(':')[0]]}\n" for eth in eths]
+    with open(f"{TOPOPATH}link-info", "a") as f:
         f.writelines(neighbors)
     return nodedata
 
 
-def gen_node(asn, ip, globalip, ethlinks,relations):
+def gen_node(asn, ip, globalip, ethlinks, relations):
     links: dict = ethlinks[asn]
     eths = links.keys()
     shells = [
         f"ip addr add {globalip[f'{asn}:{eth}']}/30 dev {eth}" for eth in eths]
-    shells.append("/usr/local/bin/gobgpd > /dev/null 2> /dev/null &")  # -f /config/gobgp.toml
+    # -f /config/gobgp.toml
+    shells.append("/usr/local/bin/gobgpd > /dev/null 2> /dev/null &")
     # shells.append("sleep 0.5")
     # shells.append(f"gobgp global rib add -a ipv4 {nodes[asn]} origin igp")
     # frrshells = [ "/usr/lib/frr/frrinit.sh start"]
-    frrshells = [ ]
+    frrshells = []
     nodedata = {"name": f"r{asn}",
                 "vendor": "GOBGP",
                 "config": {
@@ -131,8 +135,9 @@ def gen_node(asn, ip, globalip, ethlinks,relations):
     # with open("output/addip.sh",'a') as f:
     #     f.writelines(shells)
     #     f.write(f"kubectl exec -it r{asn} -n bgp -- gobgp global rib add -a ipv4 {nodes[asn]} origin egp\n")
-    neighbors=[f"{asn}#{links[eth].split(':')[0]}#{globalip[links[eth]]}#{relations[asn][links[eth].split(':')[0]]}\n" for eth in eths]
-    with open(f"{TOPOPATH}link-info","a") as f:
+    neighbors = [
+        f"{asn}#{links[eth].split(':')[0]}#{globalip[links[eth]]}#{relations[asn][links[eth].split(':')[0]]}\n" for eth in eths]
+    with open(f"{TOPOPATH}link-info", "a") as f:
         f.writelines(neighbors)
     return nodedata
 
@@ -156,19 +161,22 @@ def gen_link(a_asn, z_asn, cnt0, cnt1):
     }
     return linkdata
 
-def gen_ip(ipcnt:int,ip:str)->str:
-    bs=ip.split(".")
-    bs[3]=str(ipcnt%256)
-    bs[2]=str(ipcnt//256+int(bs[2]))
+
+def gen_ip(ipcnt: int, ip: str) -> str:
+    bs = ip.split(".")
+    bs[3] = str(ipcnt % 256)
+    bs[2] = str(ipcnt//256+int(bs[2]))
     return ".".join(bs)
 
-def get_relation(relations:dict,link):
+
+def get_relation(relations: dict, link):
     if link[0] not in relations.keys():
-        relations[link[0]]={}
+        relations[link[0]] = {}
     if link[1] not in relations.keys():
-        relations[link[1]]={}
-    relations[link[0]][link[1]]=link[2].strip()
-    relations[link[1]][link[0]]=link[2].strip()[::-1]
+        relations[link[1]] = {}
+    relations[link[0]][link[1]] = link[2].strip()
+    relations[link[1]][link[0]] = link[2].strip()[::-1]
+
 
 def get_neighbors(links):
     neighbors = {}
@@ -176,40 +184,41 @@ def get_neighbors(links):
         try:
             neighbors[link[0]].append(link[1])
         except:
-            neighbors[link[0]]=[link[1]]
+            neighbors[link[0]] = [link[1]]
         try:
             neighbors[link[1]].append(link[0])
         except:
-            neighbors[link[1]]=[link[0]]
+            neighbors[link[1]] = [link[0]]
     return neighbors
 
-def get_affinities(nodes,links):
+
+def get_affinities(nodes, links):
     nodes_set = set(nodes)
     neighbors = get_neighbors(links)
     k8s_num = [len(nodes)//K8SNODES for i in range(K8SNODES)]
-    k8s_num[-1]+= len(nodes)%K8SNODES
+    k8s_num[-1] += len(nodes) % K8SNODES
     init_k8s_num = k8s_num[:]
     tags = {}
-    flag =True
+    flag = True
     while flag:
         idx = k8s_num.index(max(k8s_num))
         cnt = 0
         node_list = [random.choice(list(nodes_set))]
-        tag = str(random.randint(1,10000))
-        while node_list!= []:
+        tag = str(random.randint(1, 10000))
+        while node_list != []:
             node = node_list.pop(0)
-            tags[node] = {"t":tag}
+            tags[node] = {"t": tag}
             nodes_set.remove(node)
-            cnt+=1
+            cnt += 1
             for neighbor in neighbors[node]:
                 if neighbor not in node_list and neighbor in nodes_set:
                     node_list.append(neighbor)
-            if(cnt >= k8s_num[idx]):
+            if (cnt >= k8s_num[idx]):
                 node_list = []
         k8s_num[idx] -= cnt
         cnt = 0
         for i in range(K8SNODES):
-            if(init_k8s_num[i] == k8s_num[i]):
+            if (init_k8s_num[i] == k8s_num[i]):
                 flag = True
                 break
             else:
@@ -222,19 +231,19 @@ def get_affinities(nodes,links):
     return tags
 
 
-def gen_topo(nodes, acts, links,kne = False):
+def gen_topo(nodes, acts, links, kne=False):
     eth_cnt = {}
     global_ip = {}
     eth_links = {}
     ipcnt = {}
     relations = {}
-    affinities = get_affinities(acts,links)
-    with open(f"{TOPOPATH}link-info","w") as f:
-         pass
+    affinities = get_affinities(acts, links)
+    with open(f"{TOPOPATH}link-info", "w") as f:
+        pass
     for n in acts:
         eth_links[n] = {}
         eth_cnt[n] = 0
-        ipcnt[n]=1
+        ipcnt[n] = 1
     topodata = {"name": "bgp", "nodes": [], "links": []}
     for link in links:
         eth_cnt[link[0]] += 1
@@ -243,29 +252,33 @@ def gen_topo(nodes, acts, links,kne = False):
         ethcnt1 = eth_cnt[link[1]]
         subnetsize0 = int(nodes[link[0]].split("/")[1])
         subnetsize1 = int(nodes[link[1]].split("/")[1])
-        if(subnetsize0>=subnetsize1):
-            global_ip[f"{link[0]}:eth{ethcnt0}"] = gen_ip(ipcnt[link[0]],nodes[link[0]].split("/")[0])
+        if (subnetsize0 >= subnetsize1):
+            global_ip[f"{link[0]}:eth{ethcnt0}"] = gen_ip(
+                ipcnt[link[0]], nodes[link[0]].split("/")[0])
             ipcnt[link[0]] += 1
-            global_ip[f"{link[1]}:eth{ethcnt1}"] = gen_ip(ipcnt[link[0]],nodes[link[0]].split("/")[0])
+            global_ip[f"{link[1]}:eth{ethcnt1}"] = gen_ip(
+                ipcnt[link[0]], nodes[link[0]].split("/")[0])
             ipcnt[link[0]] += 3
         else:
-            global_ip[f"{link[0]}:eth{ethcnt0}"] = gen_ip(ipcnt[link[1]],nodes[link[1]].split("/")[0])
+            global_ip[f"{link[0]}:eth{ethcnt0}"] = gen_ip(
+                ipcnt[link[1]], nodes[link[1]].split("/")[0])
             ipcnt[link[1]] += 1
-            global_ip[f"{link[1]}:eth{ethcnt1}"] = gen_ip(ipcnt[link[1]],nodes[link[1]].split("/")[0])
+            global_ip[f"{link[1]}:eth{ethcnt1}"] = gen_ip(
+                ipcnt[link[1]], nodes[link[1]].split("/")[0])
             ipcnt[link[1]] += 3
 
         eth_links[link[0]][f"eth{ethcnt0}"] = f"{link[1]}:eth{ethcnt1}"
         eth_links[link[1]][f"eth{ethcnt1}"] = f"{link[0]}:eth{ethcnt0}"
         topodata["links"].append(gen_link(link[0], link[1], ethcnt0, ethcnt1))
-        get_relation(relations,link)
+        get_relation(relations, link)
 
     for node in acts:
         if kne:
             topodata["nodes"].append(
-                gen_node(node, nodes[node], global_ip, eth_links,relations))
+                gen_node(node, nodes[node], global_ip, eth_links, relations))
         else:
             topodata["nodes"].append(
-                gen_my_node(node, nodes[node], global_ip, eth_links,relations))
+                gen_my_node(node, nodes[node], global_ip, eth_links, relations))
         eth_cnt[node] = 0
     if kne:
         with open(f"{TOPOPATH}{TOPONAME}_kne.yaml", 'w') as f:
@@ -284,7 +297,7 @@ if __name__ == "__main__":
     z_nodes = [link[1] for link in links]
     act_nodes = set(a_nodes).union(set(z_nodes))
     gen_topo(nodes, act_nodes, links)
-    gen_topo(nodes, act_nodes, links,kne=True)
+    gen_topo(nodes, act_nodes, links, kne=True)
     # affinities = get_affinities(nodes,links)
     # with open("testdata","w") as f:
     #     for a in affinities:
