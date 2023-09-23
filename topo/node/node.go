@@ -7,10 +7,12 @@ import (
 	"os"
 	"path/filepath"
 	"sync"
+
 	// "time"
 	topologyv1 "github.com/networkop/meshnet-cni/api/types/v1beta1"
 	ktpb "github.com/openconfig/kne/proto/topo"
 	appsv1 "k8s.io/api/apps/v1"
+
 	// scraplinetwork "github.com/scrapli/scrapligo/driver/network"
 	scrapliopts "github.com/scrapli/scrapligo/driver/options"
 	// scraplilogging "github.com/scrapli/scrapligo/logging"
@@ -34,6 +36,7 @@ type Interface interface {
 	GetNamespace() string
 	GetProto() *ktpb.Node
 	GetOpt() *tpb.Config
+	GetPodName() string
 }
 
 type Implementation interface {
@@ -145,7 +148,13 @@ func (n *Impl) GetOpt() *tpb.Config {
 func (n *Impl) GetNamespace() string {
 	return n.Namespace
 }
-
+func (n *Impl) GetPodName() string {
+	if n.NodeOpt.IsResilient {
+		return n.Name() + "-0"
+	} else {
+		return n.Name()
+	}
+}
 func (n *Impl) TopologySpecs(context.Context) ([]*topologyv1.Topology, error) {
 	proto := n.GetProto()
 
@@ -606,10 +615,10 @@ func (n *Impl) DeleteService(ctx context.Context) error {
 // DeleteResource removes the resource definition for the Node.
 func (n *Impl) DeleteResource(ctx context.Context) error {
 	log.Infof("Deleting Resource for Pod:%s", n.Name())
-	if err := n.DeleteConfig(ctx); err != nil {
-		return err
-	}
-	return n.KubeClient.CoreV1().Pods(n.Namespace).Delete(ctx, n.Name(), metav1.DeleteOptions{})
+	// if err := n.DeleteConfig(ctx); err != nil {
+	// 	return err
+	// }
+	return n.KubeClient.CoreV1().Pods(n.Namespace).Delete(ctx, n.GetPodName(), metav1.DeleteOptions{})
 }
 
 // Exec will make a connection via spdy transport to the Pod and execute the provided command.
@@ -673,13 +682,7 @@ func (n *Impl) Name() string {
 
 // Pod returns the pod definition for the node.
 func (n *Impl) Pods(ctx context.Context) ([]*corev1.Pod, error) {
-	var nodeName string
-	if n.NodeOpt.IsResilient {
-		nodeName = n.Name() + "-0"
-	} else {
-		nodeName = n.Name()
-	}
-	p, err := n.KubeClient.CoreV1().Pods(n.Namespace).Get(ctx, nodeName, metav1.GetOptions{})
+	p, err := n.KubeClient.CoreV1().Pods(n.Namespace).Get(ctx, n.GetPodName(), metav1.GetOptions{})
 	if err != nil {
 		return nil, err
 	}

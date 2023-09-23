@@ -3,10 +3,6 @@ package topo
 import (
 	"context"
 	"fmt"
-	"io"
-	"os"
-	"time"
-
 	topologyclientv1 "github.com/networkop/meshnet-cni/api/clientset/v1beta1"
 	topologyv1 "github.com/networkop/meshnet-cni/api/types/v1beta1"
 	ktpb "github.com/openconfig/kne/proto/topo"
@@ -18,6 +14,8 @@ import (
 	_ "github.com/v3rgilius/bgpemu/topo/node/host"
 	"google.golang.org/grpc/codes"
 	"google.golang.org/grpc/status"
+	"google.golang.org/protobuf/encoding/prototext"
+	"io"
 	corev1 "k8s.io/api/core/v1"
 	metav1 "k8s.io/apimachinery/pkg/apis/meta/v1"
 	"k8s.io/apimachinery/pkg/apis/meta/v1/unstructured"
@@ -29,8 +27,9 @@ import (
 	"k8s.io/client-go/rest"
 	"k8s.io/client-go/tools/clientcmd"
 	"k8s.io/client-go/tools/remotecommand"
-
-	"google.golang.org/protobuf/encoding/prototext"
+	"os"
+	"strings"
+	"time"
 )
 
 type UpdateManager struct {
@@ -111,7 +110,7 @@ func New(topo *tpb.Topology, ktopo *ktpb.Topology, startUid int64) (*UpdateManag
 	if err := m.load(startUid); err != nil {
 		return nil, fmt.Errorf("failed to load topology: %w", err)
 	}
-	log.Infof("Created manager for topology:\n%v", prototext.Format(m.ktopo))
+	log.Infof("Created manager for topology:\n%v", m.ktopo.Name)
 	return m, nil
 }
 
@@ -133,7 +132,7 @@ func Update(t *tpb.Topology) error {
 	if err != nil {
 		return fmt.Errorf("%w", err)
 	}
-	bt, err := BaseTopo(t.UpdateTopo)
+	bt, offset, err := BaseTopo(t.UpdateTopo)
 	if err != nil {
 		return fmt.Errorf("%w", err)
 	}
@@ -145,7 +144,7 @@ func Update(t *tpb.Topology) error {
 	newLinks := make([]*ktpb.Link, 0, 64)
 	existedMTs := make(map[string][]*topologyv1.Link, 16)
 	newMTs := make(map[string][]*topologyv1.Link, 16)
-	curUid := len(bt.Links) + len(t.Links) // 存在uid碰撞风险
+	curUid := len(bt.Links) + offset // 存在uid碰撞风险
 	for _, n := range kbt.Nodes {
 		kbtnodes[n.Name] = n
 	}
@@ -162,38 +161,44 @@ func Update(t *tpb.Topology) error {
 		flag := false
 		flagA := false
 		flagZ := false
+		realLink := &ktpb.Link{
+			ANode: l.ANode,
+			AInt:  l.AInt,
+			ZNode: l.ZNode,
+			ZInt:  l.ZInt,
+		}
+		if kbtnodes[l.ANode] != nil && btnodes[l.ANode].Config.IsResilient {
+			realLink.ANode = l.ANode + "-0"
+		}
+		if kbtnodes[l.ZNode] != nil && btnodes[l.ZNode].Config.IsResilient {
+			realLink.ZNode = l.ZNode + "-0"
+		}
 		if ok := kbtnodes[l.ANode]; ok != nil {
 			flag = true
-			if btnodes[l.ANode].Config.IsResilient {
-				l.ANode = l.ANode + "-0"
-			}
-			addMeshTopoNode(existedMTs, true, curUid, l)
+			addMeshTopoNode(existedMTs, true, curUid, realLink)
 		} else {
 			flagA = true
 		}
 		if ok := kbtnodes[l.ZNode]; ok != nil {
 			flag = true
-			if btnodes[l.ZNode].Config.IsResilient {
-				l.ZNode = l.ZNode + "-0"
-			}
-			addMeshTopoNode(existedMTs, false, curUid, l)
+			addMeshTopoNode(existedMTs, false, curUid, realLink)
 		} else {
 			flagZ = true
 		}
 		if flagA && flag {
-			addMeshTopoNode(newMTs, true, curUid, l)
+			addMeshTopoNode(newMTs, true, curUid, realLink)
 		}
 		if flagZ && flag {
-			addMeshTopoNode(newMTs, false, curUid, l)
+			addMeshTopoNode(newMTs, false, curUid, realLink)
 		}
 		if !flag {
-			newLinks = append(newLinks, l)
+			newLinks = append(newLinks, realLink)
 		} else {
 			curUid++
 		}
 	}
 	kt.Links = newLinks
-	tm, err := New(t, kt, int64(len(bt.Links)))
+	tm, err := New(t, kt, int64(curUid))
 	if err != nil {
 		return fmt.Errorf("%w", err)
 	}
@@ -316,16 +321,10 @@ func (m *UpdateManager) checkNodeStatus(ctx context.Context, timeout time.Durati
 	if !foundAll {
 		log.Warningf("Failed to determine status of some node resources in %d sec", timeout)
 	}
-	for name, n := range m.nodes {
+	for _, n := range m.nodes {
 		tasks := n.GetOpt().Tasks
-		var podName string
-		if n.GetOpt().IsResilient {
-			podName = name + "-0"
-		} else {
-			podName = name
-		}
 		for _, task := range tasks {
-			_ = m.Exec(ctx, task.Cmds, podName, task.Container, nil, os.Stdout, os.Stderr)
+			_ = m.Exec(ctx, task.Cmds, n.GetPodName(), task.Container, nil, os.Stdout, os.Stderr)
 		}
 	}
 	return nil
@@ -379,7 +378,15 @@ func (m *UpdateManager) createMeshnetTopologies(ctx context.Context) error {
 	// log.Infof("Got topology specs for namespace %s: %+v", m.ktopo.Name, topologies)
 	for _, t := range topologies {
 		log.Infof("Creating topology for meshnet node %s", t.ObjectMeta.Name)
-		sT, err := m.tClient.Topology(m.ktopo.Name).Create(ctx, t, metav1.CreateOptions{})
+		t.TypeMeta = helper.GetTopologyTypeMeta()
+		// sT, err := m.tClient.Topology(m.ktopo.Name).Create(ctx, t, metav1.CreateOptions{})				Legacy
+		obj, err := runtime.DefaultUnstructuredConverter.ToUnstructured(t)
+		if err != nil {
+			return fmt.Errorf("could not create topology for meshnet node %s: %v", t.ObjectMeta.Name, err)
+		}
+		sT, err := m.dInterface.Namespace(m.topo.Name).Apply(ctx, t.ObjectMeta.Name, &unstructured.Unstructured{Object: obj}, metav1.ApplyOptions{
+			FieldManager: "bgpemu",
+		})
 		if err != nil {
 			return fmt.Errorf("could not create topology for meshnet node %s: %v", t.ObjectMeta.Name, err)
 		}
@@ -400,11 +407,25 @@ func (m *UpdateManager) updateMeshnetTopologies(ctx context.Context, updateMTs m
 		for _, link := range links {
 			mt.Spec.Links = append(mt.Spec.Links, *link)
 		}
-		obj, err := runtime.DefaultUnstructuredConverter.ToUnstructured(mt)
+		patchmt := &topologyv1.Topology{
+			ObjectMeta: metav1.ObjectMeta{
+				Name: mt.Name,
+			},
+			Spec: topologyv1.TopologySpec{
+				Links: mt.Spec.Links,
+			},
+		}
+		patchmt.TypeMeta = helper.GetTopologyTypeMeta()
+
+		obj, err := runtime.DefaultUnstructuredConverter.ToUnstructured(patchmt)
 		if err != nil {
 			return err
 		}
-		_, err = m.dInterface.Update(ctx, &unstructured.Unstructured{Object: obj}, metav1.UpdateOptions{})
+		// extractor := applyconfigurations.
+		// applyConfig := extractor.Field("field-to-modify")
+
+		_, err = m.dInterface.Namespace(m.topo.Name).Apply(ctx, name, &unstructured.Unstructured{Object: obj}, metav1.ApplyOptions{FieldManager: "bgpemu"})
+		// _, err = m.dInterface.Namespace(m.topo.Name).Update(ctx, &unstructured.Unstructured{Object: obj}, metav1.UpdateOptions{})
 		if err != nil {
 			return err
 		}
@@ -537,16 +558,17 @@ func (m *UpdateManager) topologySpecs(ctx context.Context) ([]*topologyv1.Topolo
 
 	// replace node name with pod name, for peer pod attribute in each link
 	for nodeName, specs := range nodeSpecs {
-		if m.nodes[nodeName].GetOpt().IsResilient {
-			for _, spec := range specs {
-				spec.ObjectMeta.Name = spec.ObjectMeta.Name + "-0"
-			}
+		for _, spec := range specs {
+			spec.ObjectMeta.Name = m.nodes[nodeName].GetPodName()
 		}
 	}
 	for nodeName, specs := range nodeSpecs {
 		for _, spec := range specs {
 			for l := range spec.Spec.Links {
 				link := &spec.Spec.Links[l]
+				if strings.Contains(link.PeerPod, "-") {
+					continue
+				}
 				peerSpecs, ok := nodeSpecs[link.PeerPod]
 				if !ok {
 					return nil, fmt.Errorf("specs do not exist for node %s", link.PeerPod)

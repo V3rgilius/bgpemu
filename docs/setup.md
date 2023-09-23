@@ -33,39 +33,39 @@ kubeadm config print init-defaults >> init.conf
     apiVersion: kubeadm.k8s.io/v1beta3
     bootstrapTokens:
     - groups:
-    - system:bootstrappers:kubeadm:default-node-token
-    token: <Generated token>
-    ttl: 24h0m0s
-    usages:
-    - signing
-    - authentication
+        - system:bootstrappers:kubeadm:default-node-token
+        token: <Generated token>
+        ttl: 24h0m0s
+        usages:
+        - signing
+        - authentication
     kind: InitConfiguration
     localAPIEndpoint:
-    advertiseAddress: <Master IP>
-    bindPort: 6443
+        advertiseAddress: <Master IP>
+        bindPort: 6443
     nodeRegistration:
-    criSocket: unix:///var/run/cri-dockerd.sock
-    imagePullPolicy: IfNotPresent
-    name: master
-    taints: null
+        criSocket: unix:///var/run/cri-dockerd.sock
+        imagePullPolicy: IfNotPresent
+        name: master
+        taints: null
     ---
     apiServer:
-    timeoutForControlPlane: 1m0s
+        timeoutForControlPlane: 1m0s
     apiVersion: kubeadm.k8s.io/v1beta3
     certificatesDir: /etc/kubernetes/pki
     clusterName: kubernetes
     controllerManager: {}
     dns: {}
     etcd:
-    local:
-        dataDir: /var/lib/etcd
+        local:
+            dataDir: /var/lib/etcd
     imageRepository: registry.k8s.io
     kind: ClusterConfiguration
     kubernetesVersion: 1.26.3
     networking:
-    dnsDomain: cluster.local
-    serviceSubnet: 10.96.0.0/12
-    podSubnet: 10.244.0.0/16
+        dnsDomain: cluster.local
+        serviceSubnet: 10.96.0.0/12
+        podSubnet: 10.244.0.0/16
     scheduler: {}
     ```
 

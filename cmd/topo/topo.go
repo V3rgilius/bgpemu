@@ -2,6 +2,7 @@ package topo
 
 import (
 	"fmt"
+
 	log "github.com/sirupsen/logrus"
 	"github.com/spf13/cobra"
 	"github.com/v3rgilius/bgpemu/helper"
@@ -112,7 +113,7 @@ func updateFn(cmd *cobra.Command, args []string) error {
 	}
 	err = topo.Update(topopb)
 	if err != nil {
-		return fmt.Errorf("%s: %w", cmd.Use, err)
+		return fmt.Errorf("%w", err)
 	}
 	return err
 }

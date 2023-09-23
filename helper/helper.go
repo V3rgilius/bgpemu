@@ -1,6 +1,7 @@
 package helper
 
 import (
+	metav1 "k8s.io/apimachinery/pkg/apis/meta/v1"
 	"os"
 	"path/filepath"
 
@@ -23,4 +24,11 @@ func FileRelative(p string) (string, error) {
 		return "", err
 	}
 	return filepath.Dir(bp), nil
+}
+
+func GetTopologyTypeMeta() metav1.TypeMeta {
+	return metav1.TypeMeta{
+		Kind:       "Topology",
+		APIVersion: "networkop.co.uk/v1beta1",
+	}
 }

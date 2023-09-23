@@ -4,6 +4,9 @@ import (
 	"context"
 	"fmt"
 
+	"os"
+	"strings"
+
 	ktpb "github.com/openconfig/kne/proto/topo"
 	tpb "github.com/v3rgilius/bgpemu/proto/bgptopo"
 	"google.golang.org/protobuf/encoding/protojson"
@@ -11,9 +14,7 @@ import (
 	corev1 "k8s.io/api/core/v1"
 	metav1 "k8s.io/apimachinery/pkg/apis/meta/v1"
 	"k8s.io/utils/pointer"
-	"os"
 	"sigs.k8s.io/yaml"
-	"strings"
 )
 
 var protojsonUnmarshaller = protojson.UnmarshalOptions{
@@ -145,22 +146,23 @@ func KneTopo(t *tpb.Topology) (*ktpb.Topology, error) {
 	return kt, nil
 }
 
-func BaseTopo(path string) (*tpb.Topology, error) {
+func BaseTopo(path string) (*tpb.Topology, int, error) {
+	var offset int = 0
 	if path == "" {
-		return nil, fmt.Errorf("UpdatePath can't be empty! ")
+		return nil, offset, fmt.Errorf("UpdatePath can't be empty! ")
 	}
 	t, err := Load(path)
 	if err != nil {
-		return nil, err
+		return nil, offset, err
 	}
 	if t.GetUpdateTopo() != "" {
-		bt, err := BaseTopo(t.UpdateTopo)
+		bt, offset, err := BaseTopo(t.UpdateTopo)
 		if err != nil {
-			return nil, err
+			return nil, offset, err
 		}
 		mergeTopo(bt, t)
 	}
-	return t, nil
+	return t, offset + 100, nil
 }
 
 func mergeTopo(bt *tpb.Topology, t *tpb.Topology) {
