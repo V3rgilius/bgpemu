@@ -1,0 +1,71 @@
+update_topo: test/topo5/topo5.yaml
+links:
+- a_int: eth5
+  a_node: r3
+  z_int: eth1
+  z_node: r6
+- a_int: eth2
+  a_node: r6
+  z_int: eth1
+  z_node: r7
+- a_int: eth2
+  a_node: r1
+  z_int: eth2
+  z_node: r2
+name: bgp
+nodes:
+- config:
+    container_volumes:
+      r6:
+        volumes:
+          zebra: /var/run/frr
+      r6-frr:
+        volumes:
+          zebra: /var/run/frr
+    extra_images:
+      r6-frr: frrouting/frr:v8.1.0
+    share_volumes:
+      zebra:
+        type: EMPTY
+    tasks:
+    - cmds: []
+      container: r6-frr
+    - cmds:
+      - /usr/local/bin/gobgpd > /dev/null 2> /dev/null &
+      container: r6
+  ip_addr:
+    eth1: 28.232.112.17/30
+    eth2: 28.232.112.20/30
+  name: r6
+  services:
+    50051:
+      inside: 50051
+      name: gobgp
+  type: BGP
+- config:
+    container_volumes:
+      r7:
+        volumes:
+          zebra: /var/run/frr
+      r7-frr:
+        volumes:
+          zebra: /var/run/frr
+    extra_images:
+      r7-frr: frrouting/frr:v8.1.0
+    share_volumes:
+      zebra:
+        type: EMPTY
+    tasks:
+    - cmds: []
+      container: r7-frr
+    - cmds:
+      - /usr/local/bin/gobgpd > /dev/null 2> /dev/null &
+      container: r7
+  ip_addr:
+    eth1: 28.232.112.21/30
+  name: r7
+  services:
+    50051:
+      inside: 50051
+      name: gobgp
+  type: BGP
