@@ -1,0 +1,97 @@
+inits:
+- device_name: r1-0
+  name: StartRouter1Bgp
+  steps:
+  - name: start
+    sbs:
+      global:
+        asn: 1
+        router_id: 154.126.80.0
+      rpki:
+        address: 10.10.21.110
+        port: 3323
+  - aps:
+      peers:
+      - conf:
+          neighbor_address: 28.232.112.1
+          peer_asn: 3
+    name: addpeer
+- device_name: r2-0
+  name: StartRouter2Bgp
+  steps:
+  - name: start
+    sbs:
+      global:
+        asn: 2
+        router_id: 43.31.16.0
+      rpki:
+        address: 10.10.21.110
+        port: 3323
+  - aps:
+      peers:
+      - conf:
+          neighbor_address: 28.232.112.5
+          peer_asn: 3
+    name: addpeer
+- device_name: r3-0
+  name: StartRouter3Bgp
+  steps:
+  - name: start
+    sbs:
+      global:
+        asn: 3
+        router_id: 28.232.112.0
+      rpki:
+        address: 10.10.21.110
+        port: 3323
+  - aps:
+      peers:
+      - conf:
+          neighbor_address: 28.232.112.2
+          peer_asn: 1
+      - conf:
+          neighbor_address: 28.232.112.6
+          peer_asn: 2
+      - conf:
+          neighbor_address: 28.232.112.10
+          peer_asn: 4
+      - conf:
+          neighbor_address: 28.232.112.14
+          peer_asn: 5
+    name: addpeer
+- device_name: r4
+  name: StartRouter4Bgp
+  steps:
+  - name: start
+    sbs:
+      global:
+        asn: 4
+        router_id: 122.142.240.0
+      rpki:
+        address: 10.10.21.110
+        port: 3323
+  - aps:
+      peers:
+      - conf:
+          neighbor_address: 28.232.112.9
+          peer_asn: 3
+    name: addpeer
+- device_name: r5
+  name: StartRouter5Bgp
+  steps:
+  - name: start
+    sbs:
+      global:
+        asn: 5
+        router_id: 33.79.176.0
+      rpki:
+        address: 10.10.21.110
+        port: 3323
+  - aps:
+      peers:
+      - conf:
+          neighbor_address: 28.232.112.13
+          peer_asn: 3
+    name: addpeer
+routes_path: examples/topo5/routes.yaml
+topo_name: bgp

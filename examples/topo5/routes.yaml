@@ -1,0 +1,27 @@
+routes:
+- name: r1-0
+  paths:
+  - nlri:
+      prefix: 154.126.80.0
+      prefix_len: '20'
+- name: r2-0
+  paths:
+  - nlri:
+      prefix: 43.31.16.0
+      prefix_len: '20'
+- name: r3-0
+  paths:
+  - nlri:
+      prefix: 28.232.112.0
+      prefix_len: '20'
+- name: r4
+  paths:
+  - nlri:
+      prefix: 122.142.240.0
+      prefix_len: '20'
+- name: r5
+  paths:
+  - nlri:
+      prefix: 33.79.176.0
+      prefix_len: '20'
+topo_name: bgp

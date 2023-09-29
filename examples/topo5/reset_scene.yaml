@@ -1,0 +1,57 @@
+behaviors:
+- device_name: r1-0
+  name: Reset r1-0
+  steps:
+  - cmds:
+      cmds:
+      - kill -9 $(pidof gobgpd)
+      - sleep 0.5
+      - /usr/local/bin/gobgpd > /dev/null 2> /dev/null &
+      - rm -r /tmp/log/*
+      container: r1-0
+    name: restart
+- device_name: r2-0
+  name: Reset r2-0
+  steps:
+  - cmds:
+      cmds:
+      - kill -9 $(pidof gobgpd)
+      - sleep 0.5
+      - /usr/local/bin/gobgpd > /dev/null 2> /dev/null &
+      - rm -r /tmp/log/*
+      container: r2-0-0
+    name: restart
+- device_name: r3-0
+  name: Reset r3-0
+  steps:
+  - cmds:
+      cmds:
+      - kill -9 $(pidof gobgpd)
+      - sleep 0.5
+      - /usr/local/bin/gobgpd > /dev/null 2> /dev/null &
+      - rm -r /tmp/log/*
+      container: r3-0
+    name: restart
+- device_name: r4
+  name: Reset r4
+  steps:
+  - cmds:
+      cmds:
+      - kill -9 $(pidof gobgpd)
+      - sleep 0.5
+      - /usr/local/bin/gobgpd > /dev/null 2> /dev/null &
+      - rm -r /tmp/log/*
+      container: r4
+    name: restart
+- device_name: r5
+  name: Reset r5
+  steps:
+  - cmds:
+      cmds:
+      - kill -9 $(pidof gobgpd)
+      - sleep 0.5
+      - /usr/local/bin/gobgpd > /dev/null 2> /dev/null &
+      - rm -r /tmp/log/*
+      container: r5
+    name: restart
+topo_name: bgp
